@@ -21,7 +21,6 @@ system:
     - 'sphinx_local.yaml'
     - 'push.yaml'
     - htaccess: ['htaccess.yaml']
-    - migrations: 'migrations-php.yaml'
 assets:
   - branch: master
     path: build/docs-tools
