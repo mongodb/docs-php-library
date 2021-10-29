@@ -11,7 +11,7 @@ project:
   branched: true
 version:
   release: '1.8'
-  branch: 'master'
+  branch: 'v1.8'
 system:
   runstate:
     serial_sphinx: publish
