@@ -10,8 +10,8 @@ project:
   title: "PHP Library Manual"
   branched: true
 version:
-  release: '1.10-dev'
-  branch: 'master'
+  release: '1.10'
+  branch: '1.10'
 system:
   runstate:
     serial_sphinx: publish
