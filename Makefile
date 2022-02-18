@@ -27,7 +27,7 @@ publish: ## Build docs locally
 # If master, giza creates any redirects per build_conf.yaml / htaccess.yaml
 
 	# get the latest for mongo-php-libray/docs git submodule:
-	git submodule update --remote --init
+	git submodule update
 	# rsync the docs source from the submodule to the source/ directory:
 	rsync -a --delete mongo-php-library/docs/ source/
 	# build the publish artefacts using giza:
