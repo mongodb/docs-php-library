@@ -10,8 +10,8 @@ DOTCOM_STAGING_URL="https://mongodbcom-cdn.website.staging.corp.mongodb.com"
 DOTCOM_STAGING_BUCKET=docs-mongodb-org-dotcomstg
 DOTCOM_PRODUCTION_URL="https://mongodb.com"
 DOTCOM_PRODUCTION_BUCKET=docs-mongodb-org-dotcomprd
-DOTCOM_PREFIX=docs-qa/php-library
-DOTCOM_STGPREFIX=docs-qa/php-library
+DOTCOM_PREFIX=docs/php-library
+DOTCOM_STGPREFIX=docs/php-library
 
 # Parse our published-branches configuration file to get the name of
 # the current "stable" branch. This is weird and dumb, yes.
@@ -54,10 +54,6 @@ stage: ## Host online for review
 #         --prefix=${PROJECT}      ${PROJECT} is the folder in the staging bucket in which to place the HTML
 #      --stage                    indicates that mut-publish should publish to the staging bucket (not the prod bucket)
 #      if ${ARGS}, then additonal arguments
-
-	mut-publish build/${GIT_BRANCH}/html ${STAGING_BUCKET} --prefix=${PROJECT} --stage ${ARGS}
-	@echo "Hosted at ${STAGING_URL}/${PROJECT}/${USER}/${GIT_BRANCH}/index.html"
-
 	mut-publish build/${GIT_BRANCH}/html ${DOTCOM_STAGING_BUCKET} --prefix=${DOTCOM_STGPREFIX} --stage ${ARGS}
 	@echo "Hosted at ${DOTCOM_STAGING_URL}/${DOTCOM_STGPREFIX}/${USER}/${GIT_BRANCH}/index.html"
 
@@ -78,9 +74,6 @@ deploy: publish ## Deploy to the production bucket
 #      --verbose            prints out a detail of what files are being uploaded/deleted/etc.
 #      --dry-run            instructs mut-publish to do everything *except* actually put stuff on the internet.
 #      if ${ARGS}, then additonal arguments
-	mut-publish build/public ${PRODUCTION_BUCKET} --prefix=${PROJECT} --deploy ${ARGS}
-	@echo "Hosted at ${PRODUCTION_URL}/${PROJECT}/index.html"
-
 	mut-publish build/public ${DOTCOM_PRODUCTION_BUCKET} --prefix=${DOTCOM_PREFIX} --deploy ${ARGS}
 	@echo "Hosted at ${DOTCOM_PRODUCTION_URL}/${DOTCOM_PREFIX}/${GIT_BRANCH}"
 
