@@ -10,7 +10,7 @@ DOTCOM_STAGING_URL="https://mongodbcom-cdn.website.staging.corp.mongodb.com"
 DOTCOM_STAGING_BUCKET=docs-mongodb-org-dotcomstg
 DOTCOM_PRODUCTION_URL="https://mongodb.com"
 DOTCOM_PRODUCTION_BUCKET=docs-mongodb-org-dotcomprd
-DOTCOM_PREFIX=docs-qa/php-library
+DOTCOM_PREFIX=docs/php-library
 DOTCOM_STGPREFIX=docs-qa/php-library
 
 # Parse our published-branches configuration file to get the name of
@@ -77,8 +77,6 @@ deploy: publish ## Deploy to the production bucket
 #      --verbose            prints out a detail of what files are being uploaded/deleted/etc.
 #      --dry-run            instructs mut-publish to do everything *except* actually put stuff on the internet.
 #      if ${ARGS}, then additonal arguments
-	mut-publish build/public ${PRODUCTION_BUCKET} --prefix=${PROJECT} --deploy ${ARGS}
-	@echo "Hosted at ${PRODUCTION_URL}/${PROJECT}/index.html"
 
 	mut-publish build/public ${DOTCOM_PRODUCTION_BUCKET} --prefix=${DOTCOM_PREFIX} --deploy ${ARGS}
 	@echo "Hosted at ${DOTCOM_PRODUCTION_URL}/${DOTCOM_PREFIX}/${GIT_BRANCH}"
