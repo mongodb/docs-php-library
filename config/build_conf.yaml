@@ -10,7 +10,7 @@ project:
   title: "PHP Library Manual"
   branched: true
 version:
-  release: 'current'
+  release: '1.12'
   branch: 'v1.12'
 system:
   runstate:
