@@ -111,7 +111,9 @@ html_theme_options = {
     'stable': conf.version.stable,
     'sitename': sconf.theme.sitename,
     'nav_excluded': sconf.theme.nav_excluded,
-    'upcoming': 'master'
+    'upcoming': 'master',
+     'eol': True,
+    'eol_upgrade_url': 'https://www.mongodb.com/docs/php-library/current/upgrade/',
 }
 
 html_sidebars = sconf.sidebars
