@@ -112,7 +112,7 @@ html_theme_options = {
     'sitename': sconf.theme.sitename,
     'nav_excluded': sconf.theme.nav_excluded,
     'upcoming': 'master',
-     'eol': True,
+    'eol': True,
     'eol_upgrade_url': 'https://www.mongodb.com/docs/php-library/current/upgrade/',
 }
 
