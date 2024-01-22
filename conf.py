@@ -56,8 +56,8 @@ rst_epilog = '\n'.join([
 
 extlinks = {
     'issue': ('https://jira.mongodb.org/browse/%s', '' ),
-    'manual': ('http://docs.mongodb.org/manual%s', ''),
-    'php': ('http://php.net/%s', '')
+    'manual': ('https://www.mongodb.com/docs/manual%s', ''),
+    'php': ('https://php.net/%s', '')
 }
 
 ## add `extlinks` for each published version.
