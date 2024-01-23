@@ -1,0 +1,19 @@
+name = "php-library"
+title = "PHP Library Manual"
+
+intersphinx = [ "https://www.mongodb.com/docs/manual/objects.inv"
+              ]
+
+toc_landing_pages = [
+    "/reference/class/MongoDBClient",
+    "/reference/class/MongoDBCollection",
+    "/reference/class/MongoDBDatabase",
+    "/reference/class/MongoDBGridFSBucket",
+    "/reference/functions",
+    "/reference/result-classes",
+    "/reference/write-result-classes"
+]
+
+[substitutions]
+php-library = "MongoDB PHP Library"
+
