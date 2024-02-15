@@ -1,4 +1,4 @@
 [submodule "mongo-php-library"]
 	path = mongo-php-library
-	url = https://github.com/mongodb/mongo-php-library.git
-	branch = master
+	url = https://github.com/ccho-mongodb/mongo-php-library.git
+	branch = DOCSP-36898-fix-seealso-admonitions
