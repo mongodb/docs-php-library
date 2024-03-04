@@ -1,4 +1,4 @@
 [submodule "mongo-php-library"]
 	path = mongo-php-library
-	url = https://github.com/norareidy/mongo-php-library.git
-	branch = DOCSP-36627-more-backslash-fixes
+	url = https://github.com/mongodb/mongo-php-library.git
+	branch = v1.16
