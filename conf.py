@@ -57,6 +57,7 @@ rst_epilog = '\n'.join([
 extlinks = {
     'issue': ('https://jira.mongodb.org/browse/%s', '' ),
     'manual': ('https://www.mongodb.com/docs/manual%s', ''),
+    'atlas': ('https://www.mongodb.com/docs/atlas%s', ''),
     'php': ('https://php.net/%s', '')
 }
 
