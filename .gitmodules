@@ -1,4 +1,4 @@
 [submodule "mongo-php-library"]
 	path = mongo-php-library
 	url = https://github.com/norareidy/mongo-php-library.git
-	branch = DOCSP-37027-more-fixes-1.18
+	branch = DOCSP-3702-v1.18
