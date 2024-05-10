@@ -2,5 +2,3 @@
 	path = mongo-php-library
 	url = https://github.com/mongodb/mongo-php-library.git
 	branch = v1.16
-[submodule "laravel-mongodb"]
-	branch = v1.16
