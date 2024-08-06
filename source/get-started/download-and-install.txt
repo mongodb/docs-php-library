@@ -14,7 +14,7 @@ Download and Install
 .. procedure::
    :style: connected
 
-   .. step:: Install Dependencies
+   .. step:: Install dependencies
 
       Before you begin developing, ensure that you have the following
       dependencies installed on your local machine:
@@ -22,7 +22,7 @@ Download and Install
       - `PHP <https://www.php.net/manual/en/install.php>`__
       - `Composer <https://getcomposer.org/download/>`__
     
-   .. step:: Install the MongoDB Extension
+   .. step:: Install the MongoDB extension
 
       Run the following command to install the ``mongodb`` PHP extension:
       
@@ -30,7 +30,7 @@ Download and Install
 
          sudo pecl install mongodb
 
-   .. step:: Update your PHP Configuration File
+   .. step:: Update your PHP configuration file
 
       To enable the ``mongodb`` extension, add the following line to your
       ``php.ini`` file:
