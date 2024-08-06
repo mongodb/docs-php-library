@@ -1,0 +1,87 @@
+.. _php-download-and-install:
+
+====================
+Download and Install
+====================
+
+.. facet::
+   :name: genre
+   :values: tutorial
+
+.. meta::
+   :keywords: setup, composer, installation, code example
+
+.. procedure::
+   :style: connected
+
+   .. step:: Install Dependencies
+
+      Before you begin developing, ensure that you have the following
+      dependencies installed on your local machine:
+      
+      - `PHP <https://www.php.net/manual/en/install.php>`__
+      - `Composer <https://getcomposer.org/download/>`__
+    
+   .. step:: Install the MongoDB Extension
+
+      Run the following command to install the ``mongodb`` PHP extension:
+      
+      .. code-block:: bash
+
+         sudo pecl install mongodb
+
+   .. step:: Update your PHP Configuration File
+
+      To enable the ``mongodb`` extension, add the following line to your
+      ``php.ini`` file:
+
+      .. code-block:: bash
+
+         extension=mongodb.so
+
+      .. tip::
+
+         You can locate your ``php.ini`` file by running the following command
+         from your shell:
+
+         .. code-block:: bash
+
+            php --ini
+
+   .. step:: Create a project directory
+
+      From your root directory, run the following command in your shell to create
+      a directory called ``php-quickstart`` for this project:
+
+      .. code-block:: bash
+
+         mkdir php-quickstart
+
+      Run the following commands to create a ``quickstart.php`` application file in
+      the ``php-quickstart`` directory:
+
+      .. code-block:: bash
+
+         cd php-quickstart
+         touch quickstart.php
+
+   .. step:: Install the {+php-library+}
+
+      To install the {+php-library+}, run the following command from your ``php-quickstart``
+      directory:
+
+      .. code-block:: bash
+
+         composer require mongodb/mongodb
+      
+      After installing the library, include Composer's ``autoload.php`` file by adding the
+      following line to ``quickstart.php``:
+
+      .. code-block:: bash
+
+         require_once __DIR__ . '/vendor/autoload.php';
+
+After you complete these steps, you have a new project directory
+and the driver dependencies installed.
+
+.. include:: /includes/get-started/troubleshoot.rst
