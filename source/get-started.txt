@@ -20,5 +20,4 @@ Get Started with the PHP Library
 
 .. toctree::
 
-   /get-started/download-and-install/
    /get-started/create-a-deployment/
