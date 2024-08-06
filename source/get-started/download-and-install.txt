@@ -19,10 +19,10 @@ Download and Install
       Before you begin developing, ensure that you have the following
       dependencies installed on your local machine:
       
-      - `PHP <https://www.php.net/manual/en/install.php>`__
-      - `Composer <https://getcomposer.org/download/>`__
+      - `PHP <https://www.php.net/manual/en/install.php>`__ version 7.4 or later
+      - `Composer <https://getcomposer.org/download/>`__ version 2.0 or later
     
-   .. step:: Install the MongoDB extension
+   .. step:: Install the MongoDB PHP extension
 
       Run the following command to install the ``mongodb`` PHP extension:
       
@@ -32,17 +32,17 @@ Download and Install
 
    .. step:: Update your PHP configuration file
 
-      To enable the ``mongodb`` extension, add the following line to the top of
-      your ``php.ini`` file:
+      To enable the ``mongodb`` extension in your PHP configuration file, add the
+      following line to the top of your ``php.ini`` file:
 
-      .. code-block:: bash
+      .. code-block:: none
 
          extension=mongodb.so
 
       .. tip::
 
          You can locate your ``php.ini`` file by running the following command
-         from your shell:
+         in your shell:
 
          .. code-block:: bash
 
@@ -57,13 +57,26 @@ Download and Install
 
          mkdir php-quickstart
 
-      Run the following commands to create a ``quickstart.php`` application file in
-      the ``php-quickstart`` directory:
+      Select the tab corresponding to your operating system and run following commands
+      to create a ``quickstart.php`` application file in the ``php-quickstart`` directory:
 
-      .. code-block:: bash
+      .. tabs::
 
-         cd php-quickstart
-         touch quickstart.php
+          .. tab:: macOS / Linux
+             :tabid: create-file-mac-linux
+
+             .. code-block:: bash
+
+                cd php-quickstart
+                touch quickstart.php
+
+          .. tab:: Windows
+             :tabid: create-file-windows
+
+             .. code-block:: bash
+
+                cd php-quickstart
+                type nul > quickstart.php
 
    .. step:: Install the {+php-library+}
 
@@ -75,13 +88,15 @@ Download and Install
          composer require mongodb/mongodb
       
       After installing the library, include Composer's ``autoload.php`` file by adding the
-      following line to ``quickstart.php``:
+      following code to the top of your ``quickstart.php`` file:
 
-      .. code-block:: bash
+      .. code-block:: php
+
+         <?php
 
          require_once __DIR__ . '/vendor/autoload.php';
 
-After you complete these steps, you have a new project directory
-and the library dependencies installed.
+After you complete these steps, you have a new project directory, a
+new application file, and the library dependencies installed.
 
 .. include:: /includes/get-started/troubleshoot.rst
