@@ -11,6 +11,7 @@ MongoDB PHP Library
    :titlesonly:
 
    Installation </tutorial/install-php-library>
+   Get Started </get-started>
    /tutorial
    /upgrade
    /reference

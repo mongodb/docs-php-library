@@ -3,5 +3,4 @@ build/*
 build
 *~
 *giza.log
-source/*
 backups/*
