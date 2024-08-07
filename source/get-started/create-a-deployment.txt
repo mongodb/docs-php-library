@@ -9,7 +9,7 @@ Create a MongoDB Deployment
    :values: tutorial
 
 .. meta::
-   :keywords: cloud, uri, atlas
+   :keywords: cloud, host, atlas
 
 You can create a free tier MongoDB deployment on MongoDB Atlas
 to store and manage your data. MongoDB Atlas hosts and manages
