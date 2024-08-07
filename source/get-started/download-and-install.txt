@@ -57,7 +57,7 @@ Download and Install
 
          mkdir php-quickstart
 
-      Select the tab corresponding to your operating system and run following commands
+      Select the tab corresponding to your operating system and run the following commands
       to create a ``quickstart.php`` application file in the ``php-quickstart`` directory:
 
       .. tabs::
