@@ -80,7 +80,7 @@ Download and Install
 
    .. step:: Install the {+php-library+}
 
-      To install the {+php-library+}, run the following command from your ``php-quickstart``
+      To install the {+php-library+}, run the following command in your ``php-quickstart``
       directory:
 
       .. code-block:: bash
