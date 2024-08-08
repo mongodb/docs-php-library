@@ -12,7 +12,7 @@ Connect to MongoDB
    :keywords: test connection, runnable, code example
 
 After retrieving the connection string for your MongoDB Atlas deployment,
-you can connection to the deployment from your PHP application and query
+you can connect to the deployment from your PHP application and query
 the Atlas sample datasets.
 
 .. procedure::
