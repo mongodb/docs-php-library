@@ -21,3 +21,4 @@ Get Started with the PHP Library
 .. toctree::
 
    /get-started/create-a-deployment/
+   /get-started/connect-to-mongodb/

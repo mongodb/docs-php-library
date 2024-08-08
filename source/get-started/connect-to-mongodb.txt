@@ -1,0 +1,63 @@
+.. _php-connect-to-mongodb:
+
+==================
+Connect to MongoDB
+==================
+
+.. facet::
+   :name: genre
+   :values: tutorial
+
+.. meta::
+   :keywords: test connection, runnable, code example
+
+.. procedure::
+   :style: connected
+
+   .. step:: Edit your PHP application file
+
+      Copy and paste the following code into the ``quickstart.php`` file, which queries
+      the ``movies`` collection in the ``sample_mflix`` database:
+
+      .. literalinclude:: /includes/get-started/quickstart.php
+
+   .. step:: Assign the connection string
+
+      Replace the ``<connection string>`` placeholder with the 
+      connection string that you copied from the :ref:`php-connection-string`
+      step of this guide.
+
+   .. step:: Run your PHP application
+
+      In your project directory, run the following shell command to run the application:
+      
+      .. code-block:: bash
+
+         php quickstart.php
+
+      The command line output contains details about the retrieved movie
+      document:
+
+      .. code-block:: none
+         :copyable: false
+
+         {
+             "_id": {
+                 "$oid": "..."
+             },
+             ...
+            "rated": "R",
+            "metacritic": 80,
+            "title": "The Shawshank Redemption",
+            ...
+         }
+
+      If you encounter an error or see no output, ensure that you specified the
+      proper connection string in the ``quickstart.cpp`` file and that you loaded the
+      sample data.
+
+After you complete these steps, you have a working application that
+uses the {+php-library+} to connect to your MongoDB deployment, runs a query on
+the sample data, and prints out the result.
+
+.. include:: /includes/get-started/troubleshoot.rst
