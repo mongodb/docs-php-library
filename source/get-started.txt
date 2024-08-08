@@ -22,3 +22,4 @@ Get Started with the PHP Library
 
    /get-started/create-a-deployment/
    /get-started/create-a-connection-string/
+   /get-started/next-steps/
