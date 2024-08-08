@@ -20,6 +20,8 @@ Connect to MongoDB
       the ``movies`` collection in the ``sample_mflix`` database:
 
       .. literalinclude:: /includes/get-started/quickstart.php
+         :language: php
+         :dedent:
 
    .. step:: Assign the connection string
 
@@ -29,7 +31,7 @@ Connect to MongoDB
 
    .. step:: Run your PHP application
 
-      In your project directory, run the following shell command to run the application:
+      In your project directory, run the following shell command to start the application:
       
       .. code-block:: bash
 
@@ -53,7 +55,7 @@ Connect to MongoDB
          }
 
       If you encounter an error or see no output, ensure that you specified the
-      proper connection string in the ``quickstart.cpp`` file and that you loaded the
+      proper connection string in the ``quickstart.php`` file and that you loaded the
       sample data.
 
 After you complete these steps, you have a working application that
