@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; // includes the library
+require 'vendor/autoload.php';
 
 $uri = "<connection string>";
 $client = new MongoDB\Client($uri);
