@@ -76,7 +76,7 @@ If the query filter matches more than one document, the ``findOne()`` method ret
 matching document from the retrieved results.
 
 The following example uses the ``findOne()`` method to find the first document in which
-the ``name`` field has the value ``"LinkedIn"``:
+the ``name`` field has the value ``'LinkedIn'``:
 
 .. io-code-block::
 
