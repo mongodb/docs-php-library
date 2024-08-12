@@ -90,8 +90,7 @@ the ``name`` field has the value ``"LinkedIn"``:
 
       {"_id":{"$oid":"..."},"name":"LinkedIn","permalink":"linkedin","crunchbase_url":
       "http:\/\/www.crunchbase.com\/company\/linkedin","homepage_url":"http:\/\/linkedin.com",
-      ...
-      }
+      ... }
    
 .. tip:: Sort Order
 
@@ -220,8 +219,8 @@ operation to return a maximum of ``5`` results:
     :end-before: end-modify
 
 For a full list of options, see the API documentation for the
-`findOne() {+api+}/method/MongoDBCollection-findOne/#parameters`__ and 
-`find() {+api+}/method/MongoDBCollection-find/#parameters`__ parameters.
+`findOne() <{+api+}/method/MongoDBCollection-findOne/#parameters>`__ and 
+`find() <{+api+}/method/MongoDBCollection-find/#parameters>`__ parameters.
 
 .. _php-retrieve-additional-information:
 
@@ -239,5 +238,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `findOne() {+api+}/method/MongoDBCollection-findOne/`__
-- `find() {+api+}/method/MongoDBCollection-find/`__
+- `findOne() <{+api+}/method/MongoDBCollection-findOne/>`__
+- `find() <{+api+}/method/MongoDBCollection-find/>`__
