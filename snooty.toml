@@ -24,3 +24,4 @@ php-library = "MongoDB PHP Library"
 
 [constants]
 php-library = "MongoDB PHP Library"
+mdb-server = "MongoDB Server"
