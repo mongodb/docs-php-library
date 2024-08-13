@@ -4,7 +4,6 @@ require 'vendor/autoload.php';
 
 use MongoDB\Client;
 
-
 // start-setup
 $uri = "<connection string>";
 $client = new Client($uri);
