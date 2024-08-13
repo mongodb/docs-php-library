@@ -49,8 +49,8 @@ Find Documents
 
 The {+php-library+} includes two methods for retrieving documents from a collection:
 ``MongoDB\Collection::findOne()`` and ``MongoDB\Collection::find()``. These methods
-take a **query filter** and return one or more matching documents. A query filter is
-an object that specifies the documents you want to retrieve in your query. 
+take a **query filter** and return one or more matching documents. A query filter
+specifies the search criteria that the driver uses to retrieve documents in your query.
 
 .. TODO: To learn more about query filters, see :ref:`php-specify-query`.
 
@@ -79,6 +79,7 @@ The following example uses the ``findOne()`` method to find the first document i
 the ``name`` field has the value ``'LinkedIn'``:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/retrieve.php
       :start-after: start-find-one
@@ -126,6 +127,7 @@ You can iterate over the documents in a cursor by using a ``foreach`` loop, as s
 the following example:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/retrieve.php
       :start-after: start-cursor
@@ -163,7 +165,7 @@ Modify Find Behavior
 
 You can modify the behavior of the ``MongoDB\Collection::find()`` and
 ``MongoDB\Collection::findOne()`` methods by passing an array that specifies
-option values as a parameter. The following table describes some of the options
+option values as a parameter. The following table describes some options
 you can set in the array:
 
 .. list-table::
@@ -209,8 +211,8 @@ you can set in the array:
        | **Type**: ``array``
 
 The following example uses the ``find()`` method to find all documents in which
-the ``number_of_employees`` field has the value ``1000`` and instructs the
-operation to return a maximum of ``5`` results:
+the ``number_of_employees`` field has the value ``1000``. The example uses the
+``limit`` option to return a maximum of ``5`` results:
 
 .. literalinclude:: /includes/read/retrieve.php
     :language: php
