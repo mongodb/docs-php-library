@@ -65,8 +65,8 @@ is ``'yellow'``:
    .. output::
       :visible: false    
 
-      { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
-      { "_id" : 4, "name" : "pineapple", "qty" : 3, "rating" : 5, "color" : "yellow" }
+      {"_id":2,"name":"bananas","qty":7,"rating":4,"color":"yellow","type":["cavendish"]}
+      {"_id":4,"name":"pineapples","qty":3,"rating":5,"color":"yellow"}
 
 .. tip:: Find All Documents
 
@@ -110,9 +110,9 @@ that have a ``rating`` field value greater than ``2``:
    .. output::
       :visible: false
 
-      { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
-      { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
-      { "_id" : 4, "name" : "pineapples", "qty" : 3, "rating" : 5, "color" : "yellow" }
+      {"_id":1,"name":"apples","qty":5,"rating":3,"color":"red","type":["fuji","honeycrisp"]}
+      {"_id":2,"name":"bananas","qty":7,"rating":4,"color":"yellow","type":["cavendish"]}
+      {"_id":4,"name":"pineapples","qty":3,"rating":5,"color":"yellow"}
 
 Logical Operators
 -----------------
@@ -145,9 +145,9 @@ value is ``'yellow'``:
    .. output::
       :visible: false
 
-      { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
-      { "_id" : 3, "name" : "oranges", "qty" : 6, "rating" : 2, "type" : [ "naval", "mandarin" ] }
-      { "_id" : 4, "name" : "pineapples", "qty" : 3, "rating" : 5, "color" : "yellow" }
+      {"_id":2,"name":"bananas","qty":7,"rating":4,"color":"yellow","type":["cavendish"]}
+      {"_id":3,"name":"oranges","qty":6,"rating":2,"type":["naval","mandarin"]}
+      {"_id":4,"name":"pineapples","qty":3,"rating":5,"color":"yellow"}
 
 Array Operators
 ---------------
@@ -178,8 +178,8 @@ documents in which the ``type`` array field contains ``2`` elements:
    .. output::
       :visible: false
 
-      { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
-      { "_id" : 3, "name" : "oranges", "qty" : 6, "rating" : 2, "type" : [ "naval", "mandarin" ] }
+      {"_id":1,"name":"apples","qty":5,"rating":3,"color":"red","type":["fuji","honeycrisp"]}
+      {"_id":3,"name":"oranges","qty":6,"rating":2,"type":["naval","mandarin"]}
 
 Element Operators
 -----------------
@@ -205,9 +205,9 @@ documents that have a ``color`` field:
    .. output::
       :visible: false
 
-      { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
-      { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
-      { "_id" : 4, "name" : "pineapples", "qty" : 3, "rating" : 5, "color" : "yellow" }
+      {"_id":1,"name":"apples","qty":5,"rating":3,"color":"red","type":["fuji","honeycrisp"]}
+      {"_id":2,"name":"bananas","qty":7,"rating":4,"color":"yellow","type":["cavendish"]}
+      {"_id":4,"name":"pineapples","qty":3,"rating":5,"color":"yellow"}
 
 Evaluation Operators
 --------------------
@@ -242,8 +242,8 @@ two consecutive ``'p'`` characters:
    .. output::
       :visible: false
 
-      { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
-      { "_id" : 4, "name" : "pineapples", "qty" : 3, "rating" : 5, "color" : "yellow" }
+      {"_id":1,"name":"apples","qty":5,"rating":3,"color":"red","type":["fuji","honeycrisp"]}
+      {"_id":4,"name":"pineapples","qty":3,"rating":5,"color":"yellow"}
 
 Additional Information
 ----------------------
