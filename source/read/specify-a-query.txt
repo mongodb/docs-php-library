@@ -63,7 +63,8 @@ is ``'yellow'``:
       :dedent:
 
    .. output::
-      
+      :visible: false    
+
       { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
       { "_id" : 4, "name" : "pineapple", "qty" : 3, "rating" : 5, "color" : "yellow" }
 
@@ -107,6 +108,7 @@ that have a ``rating`` field value greater than ``2``:
       :dedent:
 
    .. output::
+      :visible: false
 
       { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
       { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
@@ -141,6 +143,7 @@ value is ``'yellow'``:
       :dedent:
 
    .. output::
+      :visible: false
 
       { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
       { "_id" : 3, "name" : "oranges", "qty" : 6, "rating" : 2, "type" : [ "naval", "mandarin" ] }
@@ -173,6 +176,7 @@ documents in which the ``type`` array field contains ``2`` elements:
       :dedent:
 
    .. output::
+      :visible: false
 
       { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
       { "_id" : 3, "name" : "oranges", "qty" : 6, "rating" : 2, "type" : [ "naval", "mandarin" ] }
@@ -199,6 +203,7 @@ documents that have a ``color`` field:
       :dedent:
 
    .. output::
+      :visible: false
 
       { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
       { "_id" : 2, "name" : "bananas", "qty" : 7, "rating" : 4, "color" : "yellow", "type" : [ "cavendish" ] }
@@ -235,6 +240,7 @@ two consecutive ``'p'`` characters:
       :dedent:
 
    .. output::
+      :visible: false
 
       { "_id" : 1, "name" : "apples", "qty" : 5, "rating" : 3, "color" : "red", "type" : [ "fuji", "honeycrisp" ] }
       { "_id" : 4, "name" : "pineapples", "qty" : 3, "rating" : 5, "color" : "yellow" }
@@ -255,4 +261,4 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\Collection::find() <{+api+}/method/MongoDBCollection-find/>`__
+- `MongoDB\\Collection::find() <{+api+}/method/MongoDBCollection-find/>`__
