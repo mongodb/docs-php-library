@@ -12,6 +12,7 @@ MongoDB PHP Library
 
    Installation </tutorial/install-php-library>
    Get Started </get-started>
+   /read
    /tutorial
    /upgrade
    /reference
