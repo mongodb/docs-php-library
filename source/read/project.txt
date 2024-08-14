@@ -70,7 +70,8 @@ It then calls the ``find()`` method to find all restaurants in which the ``name`
 value is ``'Emerald Pub'``, passing the options array as a parameter to ``find()``:
 
 .. io-code-block::
-    
+   :copyable:   
+
    .. input:: /includes/read/project.php
       :start-after: start-project-include
       :end-before: end-project-include
@@ -78,6 +79,7 @@ value is ``'Emerald Pub'``, passing the options array as a parameter to ``find()
       :dedent:
 
    .. output::
+      :visible: false
 
       { "_id" : { "$oid" : "..." }, "borough" : "Manhattan", "cuisine" : "American", "name" : "Emerald Pub" }
       { "_id" : { "$oid" : "..." }, "borough" : "Queens", "cuisine" : "American", "name" : "Emerald Pub" }
@@ -99,15 +101,16 @@ The following example performs the same query as the preceding example but
 excludes the ``_id`` field from the projection:
 
 .. io-code-block::
-    
+   :copyable:   
+
    .. input:: /includes/read/project.php
       :start-after: start-project-include-without-id
       :end-before: end-project-include-without-id
       :language: php
       :dedent:
-      :emphasize-lines: 3
 
    .. output::
+      :visible: false
 
      { "borough" : "Manhattan", "cuisine" : "American", "name" : "Emerald Pub" }
      { "borough" : "Queens", "cuisine" : "American", "name" : "Emerald Pub" }
@@ -115,7 +118,7 @@ excludes the ``_id`` field from the projection:
 Specify Fields to Exclude
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To specify the fields to include in the result, pass an options array to the
+To specify the fields to exclude from the result, pass an options array to the
 ``MongoDB\Collection::findOne()`` or ``MongoDB\Collection::find()`` method that
 sets the ``projection`` option. To set this option, use the following syntax:
 
@@ -130,11 +133,12 @@ sets the ``projection`` option. To set this option, use the following syntax:
 The following example creates an options array and sets the ``projection`` option
 to exclude the ``grades`` and ``address`` fields of matching documents.
 It then calls the ``find()`` method to find all restaurants in which the ``name``
-field value is ``"Emerald Pub"``, passing the options array as a parameter to
+field value is ``'Emerald Pub'``, passing the options array as a parameter to
 ``find()``:
 
 .. io-code-block::
-    
+   :copyable:
+
    .. input:: /includes/read/project.php
       :start-after: start-project-exclude
       :end-before: end-project-exclude
@@ -142,6 +146,7 @@ field value is ``"Emerald Pub"``, passing the options array as a parameter to
       :dedent:
 
    .. output:: 
+      :visible: false
 
      { "_id" : { "$oid" : "..." }, "borough" : "Manhattan", "cuisine" : "American", "name" : "Emerald Pub", "restaurant_id" : "40367329" }
      { "_id" : { "$oid" : "..." }, "borough" : "Queens", "cuisine" : "American", "name" : "Emerald Pub", "restaurant_id" : "40668598" }
