@@ -81,8 +81,8 @@ value is ``'Emerald Pub'``, passing the options array as a parameter to ``find()
    .. output::
       :visible: false
 
-      { "_id" : { "$oid" : "..." }, "borough" : "Manhattan", "cuisine" : "American", "name" : "Emerald Pub" }
-      { "_id" : { "$oid" : "..." }, "borough" : "Queens", "cuisine" : "American", "name" : "Emerald Pub" }
+      {"_id":{"$oid":"..."},"borough":"Manhattan","cuisine":"American","name":"Emerald Pub"}
+      {"_id":{"$oid":"..."},"borough":"Queens","cuisine":"American","name":"Emerald Pub"}
 
 When you use a projection to specify fields to include in the return
 document, the ``_id`` field is also included by default. All other fields are
@@ -112,8 +112,8 @@ excludes the ``_id`` field from the projection:
    .. output::
       :visible: false
 
-     { "borough" : "Manhattan", "cuisine" : "American", "name" : "Emerald Pub" }
-     { "borough" : "Queens", "cuisine" : "American", "name" : "Emerald Pub" }
+      {"borough":"Manhattan","cuisine":"American","name":"Emerald Pub"}
+      {"borough":"Queens","cuisine":"American","name":"Emerald Pub"}
 
 Specify Fields to Exclude
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -148,8 +148,10 @@ field value is ``'Emerald Pub'``, passing the options array as a parameter to
    .. output:: 
       :visible: false
 
-     { "_id" : { "$oid" : "..." }, "borough" : "Manhattan", "cuisine" : "American", "name" : "Emerald Pub", "restaurant_id" : "40367329" }
-     { "_id" : { "$oid" : "..." }, "borough" : "Queens", "cuisine" : "American", "name" : "Emerald Pub", "restaurant_id" : "40668598" }
+      {"_id":{"$oid":"..."},"borough":"Manhattan","cuisine":"American",
+      "name":"Emerald Pub","restaurant_id":"40367329"}
+      {"_id":{"$oid":"..."},"borough":"Queens","cuisine":"American",
+      "name":"Emerald Pub","restaurant_id":"40668598"}
 
 When you use a projection to specify which fields to exclude,
 any unspecified fields are implicitly included in the return document.

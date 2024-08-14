@@ -23,7 +23,7 @@ $options = [
 
 $cursor = $collection->find(['name' => 'Emerald Pub'], $options);
 foreach ($cursor as $doc) {
-    echo json_encode($doc), PHP_EOL;
+    echo json_encode($doc) . PHP_EOL;
 }
 // end-project-include
 
@@ -41,7 +41,7 @@ $options = [
 
 $cursor = $collection->find(['name' => 'Emerald Pub'], $options);
 foreach ($cursor as $doc) {
-    echo json_encode($doc), PHP_EOL;
+    echo json_encode($doc) . PHP_EOL;
 }
 // end-project-include-without-id
 
@@ -56,7 +56,7 @@ $options = [
 
 $cursor = $collection->find(['name' => 'Emerald Pub'], $options);
 foreach ($cursor as $doc) {
-    echo json_encode($doc), PHP_EOL;
+    echo json_encode($doc) . PHP_EOL;
 }
 // end-project-exclude
 
