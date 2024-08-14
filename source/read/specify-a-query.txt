@@ -32,8 +32,8 @@ complex matching criteria.
 Sample Data
 ~~~~~~~~~~~
 
-The examples in this guide run operations on a collection called
-``fruits``, which contains documents representing fruits. The following
+The examples in this guide run operations on the ``fruits`` collection,
+which contains documents representing fruits. The following
 code example shows how to create a database and collection, then
 insert the sample documents into your collection:
 
@@ -96,7 +96,7 @@ To view a full list of comparison operators, see the :manual:`Comparison Query O
 
 The following example specifies a comparison operator in a query filter as a
 parameter to the ``MongoDB\Collection::find()`` method. The code returns all documents
-that have a ``rating`` field value greater than ``2``:
+in which the value of the ``rating`` field is greater than ``2``:
 
 .. io-code-block::
    :copyable: 
@@ -262,3 +262,4 @@ To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
 - `MongoDB\\Collection::find() <{+api+}/method/MongoDBCollection-find/>`__
+- `MongoDB\\Collection::insertMany() <{+api+}/method/MongoDBCollection-insertMany/>`__
