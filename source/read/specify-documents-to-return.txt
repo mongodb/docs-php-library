@@ -69,12 +69,13 @@ of ``'Italian'`` and limits the results to ``5`` documents:
       :dedent:
 
    .. output::
+      :visible: false
 
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Philadelphia Grille Express", "restaurant_id" : "40364305" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Isle Of Capri Restaurant", "restaurant_id" : "40364373" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Marchis Restaurant", "restaurant_id" : "40364668" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Crystal Room", "restaurant_id" : "40365013" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Forlinis Restaurant", "restaurant_id" : "40365098" }
+      {"_id":{"$oid":"..."},...,"name":"Isle Of Capri Resturant","restaurant_id":"40364373"}
+      {"_id":{"$oid":"..."},...,"name":"Marchis Restaurant","restaurant_id":"40364668"}
+      {"_id":{"$oid":"..."},...,"name":"Crystal Room","restaurant_id":"40365013"}
+      {"_id":{"$oid":"..."},...,"name":"Forlinis Restaurant","restaurant_id":"40365098"}
+      {"_id":{"$oid":"..."},...,"name":"Angelo Of Mulberry St.","restaurant_id":"40365293"}
 
 .. tip::
 
@@ -108,12 +109,13 @@ sorted in ascending order of ``name`` field values:
       :dedent:
 
    .. output::
+      :visible: false
 
-      { "_id" : { "$oid" : "..." }, ..., "name" : "(Lewis Drug Store) Locanda Vini E Olii", "restaurant_id" : "40804423" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "101 Restaurant And Bar", "restaurant_id" : "40560108" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "44 Sw Ristorante & Bar", "restaurant_id" : "40698807" }
+      {"_id":{"$oid":"..."},...,"name":"44 Sw Ristorante & Bar","restaurant_id":"40698807"}
+      {"_id":{"$oid":"..."},...,"name":"900 Park","restaurant_id":"41707964"}
+      {"_id":{"$oid":"..."},...,"name":"A Voce","restaurant_id":"41434084"}
       ...
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Zucchero E Pomodori", "restaurant_id" : "41189590" }
+      {"_id":{"$oid":"..."},...,"name":"Zucchero E Pomodori","restaurant_id":"41189590" }
 
 .. _php-return-documents-skip:
 
@@ -137,10 +139,11 @@ of ``'Manhattan'`` and skips the first ``10`` documents:
       :dedent:
 
    .. output::
+      :visible: false
 
-      { "_id" : { "$oid" : "..." }, ...,  "name" : "Cafe Metro", "restaurant_id" : "40363298" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Lexler Deli", "restaurant_id" : "40363426" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Domino'S Pizza", "restaurant_id" : "40363644" }
+      {"_id":{"$oid":"..."},...,"name":"Cafe Metro","restaurant_id":"40363298"}
+      {"_id":{"$oid":"..."},...,"name":"Lexler Deli","restaurant_id":"40363426"}
+      {"_id":{"$oid":"..."},...,"name":"Domino'S Pizza","restaurant_id":"40363644"}
       ...
 
 .. _php-return-documents-combine:
@@ -167,12 +170,13 @@ skipping the first ``10`` documents:
       :dedent:
 
    .. output::
-      
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Acqua", "restaurant_id" : "40871070" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Acqua Restaurant", "restaurant_id" : "41591488" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Acqua Santa", "restaurant_id" : "40735858" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Acquista Trattoria", "restaurant_id" : "40813992" }
-      { "_id" : { "$oid" : "..." }, ..., "name" : "Acquolina Catering", "restaurant_id" : "41381423" }
+      :visible: false
+            
+      {"_id":{"$oid":"..."},...,"name":"Acqua","restaurant_id":"40871070"}
+      {"_id":{"$oid":"..."},...,"name":"Acqua Restaurant","restaurant_id":"41591488"}
+      {"_id":{"$oid":"..."},...,"name":"Acqua Santa","restaurant_id":"40735858"}
+      {"_id":{"$oid":"..."},...,"name":"Acquista Trattoria","restaurant_id":"40813992"}
+      {"_id":{"$oid":"..."},...,"name":"Acquolina Catering","restaurant_id":"41381423"}
 
 .. note::
 
