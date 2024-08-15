@@ -24,7 +24,7 @@ To connect to a MongoDB deployment, you need two things:
 
 - A **connection URI**, also known as a *connection string*, which tells the {+driver-short+}
   which MongoDB deployment to connect to.
-- A **MongoDB\Client** object, which creates the connection to the MongoDB deployment
+- A **MongoDB\\Client** object, which creates the connection to the MongoDB deployment
   and lets you perform operations on it.
 
 You can also use either of these components to customize the way the {+driver-short+} behaves
@@ -107,4 +107,4 @@ API Documentation
 To learn more about creating a ``MongoDB\Client`` object in the {+driver-short+},
 see the following API documentation:
 
-- `:ref: MongoDB\Client <php-api-mongodbclient>`__ 
+- :ref:`MongoDB\Client <php-api-mongodbclient>`
