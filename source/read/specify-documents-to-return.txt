@@ -38,7 +38,7 @@ database from the :atlas:`Atlas sample datasets </sample-data>`. To access this 
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
 and assign the following values to your ``db`` and ``collection`` variables:
 
-.. literalinclude:: /includes/read/project.php
+.. literalinclude:: /includes/read/limit-skip-sort.php
     :language: php
     :dedent:
     :start-after: start-db-coll
@@ -54,7 +54,7 @@ Limit
 
 To specify the maximum number of documents returned from a read operation, create
 an array that sets the ``limit`` option and pass the array as a parameter to the
-``MongoDB\Collection::find()`` or ``MongoDB\Collection::findOne()`` method.
+``MongoDB\Collection::find()`` method.
 
 The following example finds all restaurants that have a ``cuisine`` field value
 of ``'Italian'`` and limits the results to ``5`` documents:
@@ -159,7 +159,7 @@ skipping the first ``10`` documents:
 
 .. io-code-block::
    :copyable:
-   
+
    .. input:: /includes/read/limit-skip-sort.php
       :start-after: start-limit-sort-skip
       :end-before: end-limit-sort-skip
