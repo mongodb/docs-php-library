@@ -54,7 +54,7 @@ Specify Fields to Include
 
 To specify the fields to include in the result, pass an options array to the
 ``MongoDB\Collection::findOne()`` or ``MongoDB\Collection::find()`` method that
-sets the ``projection`` option. To set this option, use the following syntax:
+sets the ``projection`` option. Use the following syntax to set this option:
 
 .. code-block:: php
 
@@ -120,7 +120,7 @@ Specify Fields to Exclude
 
 To specify the fields to exclude from the result, pass an options array to the
 ``MongoDB\Collection::findOne()`` or ``MongoDB\Collection::find()`` method that
-sets the ``projection`` option. To set this option, use the following syntax:
+sets the ``projection`` option. Use the following syntax to set this option:
 
 .. code-block:: php
 
