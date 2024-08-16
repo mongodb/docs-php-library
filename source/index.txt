@@ -10,7 +10,6 @@ MongoDB PHP Library
 .. toctree::
    :titlesonly:
 
-   Installation </tutorial/install-php-library>
    Get Started </get-started>
    /tutorial
    /upgrade
@@ -38,7 +37,7 @@ New to the PHP Library?
 If you have some experience with MongoDB but are new to the PHP library, the
 following pages should help you get started:
 
-- :doc:`/tutorial/install-php-library`
+- :ref:`php-download-and-install`
 
 - :doc:`/tutorial/connecting`
 
