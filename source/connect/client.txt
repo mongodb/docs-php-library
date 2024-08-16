@@ -20,11 +20,11 @@ Create a MongoDB Client
 Overview
 --------
 
-To connect to a MongoDB deployment, you need two things:
+To connect to a MongoDB deployment, you must create the following items:
 
-- A **connection URI**, also known as a *connection string*, which tells the {+driver-short+}
+- **Connection URI**, also known as a *connection string*, which tells the {+driver-short+}
   which MongoDB deployment to connect to.
-- A **MongoDB\\Client** object, which creates the connection to the MongoDB deployment
+- **MongoDB\\Client** object, which creates the connection to the MongoDB deployment
   and lets you perform operations on it.
 
 You can also use either of these components to customize the way the {+driver-short+} behaves
@@ -78,15 +78,15 @@ A standard connection string includes the following components:
        :ref:`php-connection-options` for a full description of
        these options.
 
-For more information about creating a connection string, see
+To learn more about connection strings, see
 :manual:`Connection Strings </reference/connection-string>` in the
 MongoDB Server documentation.
 
 Create a ``MongoDB\Client``
 ---------------------------
 
-To create a connection to MongoDB, construct an instance of the ``MongoDB\Client`` class,
-passing the connection URI as a string to the constructor.
+To create a connection to MongoDB, pass your connection string when constructing
+ an instance of the ``MongoDB\Client`` class.
 
 In the following example, the library uses a sample connection URI to connect to a MongoDB 
 deployment on port ``27017`` of ``localhost``:
