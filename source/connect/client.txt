@@ -27,7 +27,8 @@ To connect to a MongoDB deployment, you must create the following items:
 - **MongoDB\\Client** object, which creates the connection to the MongoDB deployment
   and lets you perform operations on it.
 
-You can also use either of these components to customize the way the {+driver-short+} behaves
+You can also set options within either or both of these components to
+customize the way that the {+driver-short+} behaves
 while connected to MongoDB.
 
 This guide shows you how to create a connection string and use a ``MongoDB\Client`` object
@@ -80,13 +81,13 @@ A standard connection string includes the following components:
 
 To learn more about connection strings, see
 :manual:`Connection Strings </reference/connection-string>` in the
-MongoDB Server documentation.
+Server manual.
 
 Create a ``MongoDB\Client``
 ---------------------------
 
 To create a connection to MongoDB, pass your connection string when constructing
- an instance of the ``MongoDB\Client`` class.
+an instance of the ``MongoDB\Client`` class.
 
 In the following example, the library uses a sample connection URI to connect to a MongoDB 
 deployment on port ``27017`` of ``localhost``:
