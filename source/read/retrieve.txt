@@ -216,7 +216,6 @@ the ``number_of_employees`` field has the value ``1000``. The example uses the
 
 .. literalinclude:: /includes/read/retrieve.php
     :language: php
-    :dedent:
     :emphasize-lines: 3
     :start-after: start-modify
     :end-before: end-modify
