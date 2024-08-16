@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-$uri = "<connection string>";
+$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);
 
 // start-db-coll
@@ -29,14 +29,12 @@ foreach ($results as $doc) {
 
 // Finds and prints up to 5 documents with a "number_of_employees" value of 1000
 // start-modify
-$options = [
-    'limit' => 5,
-];
-
-$results = $collection->find(['number_of_employees' => 1000], $options);
+$results = $collection->find(
+    ['number_of_employees' => 1000],
+    ['limit' => 5]
+);
 
 foreach ($results as $doc) {
     echo json_encode($doc) . "\n";
 }
 // end-modify
-?>
