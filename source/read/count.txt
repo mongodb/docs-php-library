@@ -49,8 +49,8 @@ Retrieve an Accurate Count
 --------------------------
 
 Use the ``MongoDB\Collection::countDocuments()`` method to count the number of documents
-that are in a collection. To count the number of documents that match a specific search
-critera, pass a query filter to the ``countDocuments()`` method.
+in a collection. To count the number of documents that match specific search criteria,
+pass a query filter to the ``countDocuments()`` method.
 
 To learn more about specifying a query, see the :ref:`php-specify-query` guide.
 

@@ -25,8 +25,10 @@ echo "Number of companies founded in 2010: " . $result;
 
 // Counts a maximum of 100 documents that have a "number_of_employees" value of 50
 // start-modify-accurate
-$options = ['limit' => 100];
-$result = $collection->countDocuments(['number_of_employees' => 50], $options);
+$result = $collection->countDocuments(
+    ['number_of_employees' => 50],
+    ['limit' => 100]
+);
 echo "Number of companies with 50 employees: " . $result;
 // end-modify-accurate
 
@@ -38,7 +40,6 @@ echo "Estimated number of documents: " . $result;
 
 // Estimates the number of documents in the collection and sets a time limit on the operation
 // start-modify-estimate
-$options = ['maxTimeMS' => 1000];
-$result = $collection->estimatedDocumentCount($options);
+$result = $collection->estimatedDocumentCount(['maxTimeMS' => 1000]);
 echo "Estimated number of documents: " . $result;
 // end-modify-estimate
