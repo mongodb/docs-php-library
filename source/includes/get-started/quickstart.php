@@ -5,8 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use MongoDB\Client;
 
 $client = new Client('<connection string>');
-$db = $client->sample_mflix;
-$collection = $db->movies;
+$collection = $client->sample_mflix->movies;
 
 $filter = ['title' => 'The Shawshank Redemption'];
 $result = $collection->findOne($filter);
@@ -16,4 +15,3 @@ if ($result) {
 } else {
     echo "Document not found";
 }
-?>
