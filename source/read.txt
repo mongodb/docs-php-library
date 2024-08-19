@@ -9,3 +9,4 @@ Read Data from MongoDB
    :maxdepth: 1
 
    /read/retrieve
+   /read/count
