@@ -7,9 +7,7 @@ use MongoDB\Client;
 // start-setup
 $uri = "<connection string>";
 $client = new Client($uri);
-
-$db = $client->db;
-$collection = $db->fruits;
+$collection = $client->db->fruits;
 
 // Inserts documents representing fruits
 $fruits = [
@@ -108,5 +106,3 @@ foreach ($cursor as $doc) {
     echo json_encode($doc) . PHP_EOL;
 }
 // end-find-evaluation
-
-?>
