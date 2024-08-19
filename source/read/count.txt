@@ -70,6 +70,7 @@ the ``countDocuments()`` method, as shown in the following example:
       :dedent:
 
    .. output::
+      :visible: false
 
       Number of documents: 9500
 
@@ -83,6 +84,7 @@ The following example counts the number of documents that have a ``founded_year`
 value of ``2010``:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/count.php
       :start-after: start-count-accurate
@@ -91,6 +93,7 @@ value of ``2010``:
       :dedent:
 
    .. output::
+      :visible: false
 
       Number of companies founded in 2010: 33
 
@@ -141,6 +144,7 @@ documents in which the ``number_of_employees`` field has the value ``50`` and in
 operation to count a maximum of ``100`` results:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/count.php
       :start-after: start-modify-accurate
@@ -149,6 +153,7 @@ operation to count a maximum of ``100`` results:
       :dedent:
 
    .. output::
+      :visible: false
 
       Number of companies with 50 employees: 100
 
@@ -165,6 +170,7 @@ accurate count.
 The following example estimates the number of documents in a collection:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/count.php
       :start-after: start-count-estimate
@@ -173,6 +179,7 @@ The following example estimates the number of documents in a collection:
       :dedent:
 
    .. output::
+      :visible: false
 
       Estimated number of documents: 9500
 
@@ -217,6 +224,7 @@ estimate of the number of documents in the collection and instructs the operatio
 to run for a maximum of ``1000`` milliseconds:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/count.php
       :start-after: start-modify-estimate
@@ -225,7 +233,8 @@ to run for a maximum of ``1000`` milliseconds:
       :dedent:
 
    .. output::
-
+      :visible: false
+      
       Estimated number of documents: 9500
 
 API Documentation
