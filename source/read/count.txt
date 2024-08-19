@@ -136,7 +136,8 @@ following table describes some options you can set in the array:
        | **Type**: ``integer``
 
    * - ``readPreference``
-     - | The read preference to use for the operation.
+     - | The read preference to use for the operation. To learn more, see
+         :manual:`Read Preference </core/read-preference/>` in the Server manual.
        | **Type**: ``MongoDB\Driver\ReadPreference``
 
 The following example uses the ``countDocuments()`` method to count the number of
@@ -234,7 +235,7 @@ to run for a maximum of ``1000`` milliseconds:
 
    .. output::
       :visible: false
-      
+
       Estimated number of documents: 9500
 
 API Documentation
