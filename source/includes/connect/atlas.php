@@ -5,7 +5,7 @@ try {
     $uri = "<connection string>";
 
     // Create a MongoDB client with server API options
-    $client = new Client($uri, [], [
+    $client = new MongoDB\Client($uri, [], [
         'serverApi' => [
             'version' => '1'
         ]

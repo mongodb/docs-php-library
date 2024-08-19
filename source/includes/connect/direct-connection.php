@@ -4,4 +4,4 @@
 $uri = "mongodb://<hostname>:<port>/?directConnection=true";
 
 // Create a MongoDB client
-$client = new Client($uri);
+$client = new MongoDB\Client($uri);

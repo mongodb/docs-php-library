@@ -4,4 +4,4 @@
 $uri = "mongodb://host1:27017/?replicaSet=sampleRS";
 
 // Create a MongoDB client
-$client = new Client($uri);
+$client = new MongoDB\Client($uri);
