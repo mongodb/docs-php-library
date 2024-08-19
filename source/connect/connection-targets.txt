@@ -32,8 +32,8 @@ To connect to a MongoDB deployment on Atlas, include the following elements
 in your connection string:
 
 - URI of your Atlas cluster
-- MongoDB username
-- MongoDB password
+- Database username
+- Database user's password
 
 Then, pass your connection string to the ``MongoDB\Client`` constructor.
 
@@ -51,7 +51,7 @@ The code also uses the ``serverApi`` option to specify a {+stable-api+} version.
 
 .. tip::
 
-   Follow the :atlas:`Atlas driver connection guide </driver-connection>`
+   Follow the :ref:`php-connection-string` step of the Quick Start
    to retrieve your connection string.
 
 .. _php-connection-local:
@@ -81,7 +81,7 @@ port numbers of the replica set members in your connection string.
 If you aren't able to provide a full list of hosts in the replica set, you can 
 specify one or more of the hosts in the replica set and instruct the {+driver-short+} to 
 perform automatic discovery to find the others. To instruct the driver to perform
-automatic discovery, perform one of the following actions:
+automatic discovery, choose one of the following actions:
 
 - Specify the name of the replica set as the value of the ``replicaSet`` parameter.
 - Specify ``false`` as the value of the ``directConnection`` parameter.
