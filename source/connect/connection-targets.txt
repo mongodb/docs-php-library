@@ -43,8 +43,7 @@ To learn more about the {+stable-api+} feature, see the :ref:`{+stable-api+} pag
 <php-stable-api>`.
 
 The following code shows how to use the {+driver-short+} to connect to an Atlas cluster.
-
-The code also uses the ``server_api_opts`` option to specify a {+stable-api+} version.
+The code also uses the ``serverApi`` option to specify a {+stable-api+} version.
 
 .. literalinclude:: /includes/connect/atlas.php
    :copyable: true
