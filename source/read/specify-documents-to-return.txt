@@ -36,7 +36,7 @@ Sample Data
 The examples in this guide use the ``restaurants`` collection in the ``sample_restaurants``
 database from the :atlas:`Atlas sample datasets </sample-data>`. To access this collection
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
-and assign the following values to your ``db`` and ``collection`` variables:
+and assign the following value to your ``collection`` variable:
 
 .. literalinclude:: /includes/read/limit-skip-sort.php
     :language: php

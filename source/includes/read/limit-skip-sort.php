@@ -2,19 +2,19 @@
 
 require 'vendor/autoload.php';
 
-$client = new MongoDB\Client('<connection string>');
+$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
+$client = new MongoDB\Client($uri);
 
 // start-db-coll
-$db = $client->sample_restaurants;
-$collection = $db->restaurants;
+$collection = $client->sample_restaurants->restaurants;
 // end-db-coll
 
 // Retrieves 5 documents that have a "cuisine" value of "Italian"
 // start-limit
-$options = [
-    'limit' => 5,
-];
-$cursor = $collection->find(['cuisine' => 'Italian'], $options);
+$cursor = $collection->find(
+    ['cuisine' => 'Italian'],
+    ['limit' => 5]
+);
 
 foreach ($cursor as $doc) {
     echo json_encode($doc) . PHP_EOL;
@@ -23,11 +23,11 @@ foreach ($cursor as $doc) {
 
 // Retrieves documents with a "cuisine" value of "Italian" and sorts in ascending "name" order
 // start-sort
-$options = [
-    'sort' => ['name' => 1],
-];
+$cursor = $collection->find(
+    ['cuisine' => 'Italian'], 
+    ['sort' => ['name' => 1]]
+);
 
-$cursor = $collection->find(['cuisine' => 'Italian'], $options);
 foreach ($cursor as $doc) {
     echo json_encode($doc) . PHP_EOL;
 }
@@ -35,11 +35,11 @@ foreach ($cursor as $doc) {
 
 // Retrieves documents with a "borough" value of "Manhattan" but skips the first 10 results
 // start-skip
-$options = [
-    'skip' => 10,
-];
+$cursor = $collection->find(
+    ['borough' => 'Manhattan'],
+    ['skip' => 10]
+);
 
-$cursor = $collection->find(['borough' => 'Manhattan'], $options);
 foreach ($cursor as $doc) {
     echo json_encode($doc) . PHP_EOL;
 }
@@ -59,5 +59,3 @@ foreach ($cursor as $doc) {
     echo json_encode($doc) . PHP_EOL;
 }
 // end-limit-sort-skip
-
-?>
