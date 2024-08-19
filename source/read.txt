@@ -8,4 +8,5 @@ Read Data from MongoDB
    :titlesonly:
    :maxdepth: 1
 
+   /read/retrieve
    /read/specify-documents-to-return
