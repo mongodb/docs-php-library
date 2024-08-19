@@ -68,8 +68,8 @@ The following code shows how to use the {+driver-short+} to connect to a local M
 deployment:
 
 .. literalinclude:: /includes/connect/client.php
-      :language: php
-      :copyable: true
+   :language: php
+   :copyable: true
 
 .. _php-connection-replica-set:
 

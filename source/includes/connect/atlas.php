@@ -1,8 +1,4 @@
 <?php
-require 'vendor/autoload.php'; // Make sure you have installed the MongoDB library via Composer
-
-use MongoDB\Client;
-use MongoDB\Driver\Exception\Exception;
 
 try {
     // Replace the placeholder with your Atlas connection string
