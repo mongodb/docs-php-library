@@ -25,10 +25,10 @@ operation by passing the following options to the ``MongoDB\Collection::find()``
 ``MongoDB\Collection::findOne()`` method:
 
 - :ref:`limit <php-return-documents-limit>`: Specifies the maximum number of documents
-  to return from a query.
-- :ref:`sort <php-return-documents-sort>`: Specifies the sort order for the returned documents.
+  to return from a query
+- :ref:`sort <php-return-documents-sort>`: Specifies the sort order for the returned documents
 - :ref:`skip <php-return-documents-skip>`: Specifies the number of documents to skip before
-  returning query results.
+  returning query results
 
 Sample Data
 ~~~~~~~~~~~
