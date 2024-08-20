@@ -1,40 +1,40 @@
 <?php
 require 'vendor/autoload.php';
 
+use MongoDB\BSON\Document;
+
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);
 
 // start-db-coll
-$db = $client->sample_training;
-$collection = $db->companies;
+$collection = $client->sample_restaurants->restaurants;
 // end-db-coll
 
-// Finds one document with a "name" value of "LinkedIn"
-// start-find-one
-$document = $collection->findOne(['name' => 'LinkedIn']);
-echo json_encode($document) . "\n";
-// end-find-one
-
-// Finds documents with a "founded_year" value of 1970
-// start-find-many
-$results = $collection->find(['founded_year' => 1970]);
-// end-find-many
-
-// Prints documents with a "founded_year" value of 1970
-// start-cursor
-foreach ($results as $doc) {
-    echo json_encode($doc) . "\n";
+// Retrieves distinct values of the "borough" field
+// start-distinct
+$results = $collection->distinct('borough', []);
+foreach ($results as $value) {
+    echo json_encode($value) . PHP_EOL;
 }
-// end-cursor
+// end-distinct
 
-// Finds and prints up to 5 documents with a "number_of_employees" value of 1000
-// start-modify
-$results = $collection->find(
-    ['number_of_employees' => 1000],
-    ['limit' => 5]
-);
-
-foreach ($results as $doc) {
-    echo json_encode($doc) . "\n";
+// Retrieves distinct "borough" field values for documents with a "cuisine" value of "Italian"
+// start-distinct-with-query
+$results = $collection->distinct('borough', ['cuisine' => 'Italian']);
+foreach ($results as $value) {
+    echo json_encode($value) . PHP_EOL;
 }
-// end-modify
+// end-distinct-with-query
+
+// Retrieves distinct "name" field values for documents matching the "borough" and "cuisine" fields query
+// and attaches a comment to the operation
+// start-distinct-with-comment
+$options = ['comment' => 'Bronx pizza restaurants'];
+$query = ['$and' => [['borough' => 'Bronx'], ['cuisine' => 'Pizza']]];
+$results = $collection->distinct('name', $query, $options);
+
+foreach ($results as $value) {
+    echo json_encode($value) . PHP_EOL;
+}
+// end-distinct-with-comment
+

@@ -25,8 +25,8 @@ distinct values of a specified field across a collection.
 
 Within a collection, different documents might contain different values for a
 single field. For example, one document in a ``restaurants`` collection has a
-``borough`` value of ``"Manhattan"``, and another has a ``borough`` value of
-``"Queens"``. By using the {+php-library+}, you can retrieve all the unique values
+``borough`` value of ``'Manhattan'``, and another has a ``borough`` value of
+``'Queens'``. By using the {+php-library+}, you can retrieve all the unique values
 that a field contains across multiple documents in a collection.
 
 Sample Data
@@ -59,6 +59,7 @@ The following example retrieves the distinct values of the ``borough`` field in
 the ``restaurants`` collection:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/distinct.php
       :start-after: start-distinct
@@ -67,10 +68,13 @@ the ``restaurants`` collection:
       :dedent:
 
    .. output:: 
+      :visible: false
 
-      { "values" : [ "Bronx", "Brooklyn", "Manhattan", "Missing", "Queens", "Staten Island" ],
-      "ok" : 1.0, "$clusterTime" : { "clusterTime" : { "$timestamp" : { ... } },
-      "signature" : { "hash" : { ... }, "keyId" : ... } }, "operationTime" : { "$timestamp" : { ... } }
+      "Bronx"
+      "Manhattan"
+      "Missing"
+      "Queens"
+      "Staten Island"
 
 The operation returns an array that stores each distinct ``borough`` field value. Although
 several documents have the same value in the ``borough`` field, each value appears in the
@@ -88,6 +92,7 @@ The following example retrieves the distinct values of the ``borough`` field for
 all documents that have a ``cuisine`` field value of ``'Italian'``:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/distinct.php
       :start-after: start-distinct-with-query
@@ -96,10 +101,12 @@ all documents that have a ``cuisine`` field value of ``'Italian'``:
       :dedent:
 
    .. output:: 
+      :visible: false
 
-      { "values" : [ "Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island" ],
-      "ok" : 1.0, "$clusterTime" : { "clusterTime" : { "$timestamp" : { ... },
-      "signature" : { "hash" : { ... }, "keyId" : ... } }, "operationTime" : { "$timestamp" : { ... } }
+      "Bronx"
+      "Manhattan"
+      "Queens"
+      "Staten Island"
 
 Modify Distinct Behavior
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -138,6 +145,7 @@ all documents that have a ``borough`` field value of ``'Bronx'`` and a
 in an options array to add a comment to the operation:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/read/distinct.php
       :start-after: start-distinct-with-comment
@@ -146,9 +154,16 @@ in an options array to add a comment to the operation:
       :dedent:
 
    .. output:: 
+      :visible: false
 
-      { "values" : [ "$1.25 Pizza", "18 East Gunhill Pizza", "2 Bros", "Aenos Pizza", "Alitalia Pizza Restaurant", … ], 
-        "ok" : 1.0, "$clusterTime" : { "clusterTime" : { … }, "signature" : { … }, "keyId" : … } }, "operationTime" : { … } }
+      "$1.25 Pizza"
+      "18 East Gunhill Pizza"
+      "2 Bros"
+      "Aenos Pizza"
+      "Alitalia Pizza Restaurant"
+      "Amici Pizza And Pasta"
+      "Angie'S Cafe Pizza"
+      ...
 
 API Documentation
 -----------------
