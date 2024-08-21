@@ -10,3 +10,5 @@ Read Data from MongoDB
 
    /read/retrieve
    /read/specify-documents-to-return
+   /read/project
+

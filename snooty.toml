@@ -17,6 +17,7 @@ toc_landing_pages = [
     "/reference/class/MongoDBModelCollectionInfo",
     "/reference/class/MongoDBModelDatabaseInfo",
     "/reference/class/MongoDBModelIndexInfo",
+    "/get-started",
 ]
 
 [substitutions]
@@ -24,4 +25,5 @@ php-library = "MongoDB PHP Library"
 
 [constants]
 php-library = "MongoDB PHP Library"
+mdb-server = "MongoDB Server"
 api = "https://www.mongodb.com/docs/php-library/current/reference"
