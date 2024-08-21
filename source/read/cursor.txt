@@ -15,7 +15,7 @@ Access Data From a Cursor
    :values: reference
 
 .. meta::
-   :keywords: read, results, oplog
+   :keywords: read, results, code example
 
 Overview
 --------
@@ -39,7 +39,7 @@ database from the :atlas:`Atlas sample datasets </sample-data>`. To access this 
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
 and assign the following value to your ``collection`` variable:
 
-.. literalinclude:: /includes/read/distinct.php
+.. literalinclude:: /includes/read/cursor.php
    :language: php
    :dedent:
    :start-after: start-db-coll
@@ -71,9 +71,9 @@ cursor returned by the ``find()`` method:
    .. output::
       :visible: false
 
-      { "_id" : { "$oid" : "..." }, ... "name" : "Dunkin' Donuts", "restaurant_id" : "40379573" }
-      { "_id" : { "$oid" : "..." }, ... "name" : "Dunkin' Donuts", "restaurant_id" : "40363098" }
-      { "_id" : { "$oid" : "..." }, ... "name" : "Dunkin' Donuts", "restaurant_id" : "40395071" }
+      {"_id":{"$oid":"..."},..."name":"Dunkin' Donuts","restaurant_id":"40379573"}
+      {"_id":{"$oid":"..."},..."name":"Dunkin' Donuts","restaurant_id":"40363098"}
+      {"_id":{"$oid":"..."},..."name":"Dunkin' Donuts","restaurant_id":"40395071"}
       ...
 
 Retrieve Documents Individually
@@ -99,7 +99,7 @@ of ``'Dunkin' Donuts'``. Then, it prints the first retrieved document by calling
 
    .. output::
 
-      { "_id" : { "$oid" : "..." }, ... "name" : "Dunkin' Donuts", "restaurant_id" : "40379573" }
+      {"_id":{"$oid":"..."},..."name":"Dunkin' Donuts","restaurant_id":"40379573"}
       
 Retrieve All Documents
 ----------------------
@@ -151,8 +151,8 @@ collection. After the cursor is exhausted, it remains open until retrieving thre
 
    .. output::
 
-      { "_id" : { "$oid" : "..." }, "name" : "cauliflower" }
-      { "_id" : { "$oid" : "..." }, "name" : "zucchini" }
+      {"_id":{"$oid":"..."},"name":"cauliflower"}
+      {"_id":{"$oid":"..."},"name":"zucchini"}
 
 If you insert another document into the ``vegetables`` collection, the preceding code prints
 the new document and closes the ``while`` loop.
@@ -167,9 +167,9 @@ To learn more about read operations, see the :ref:`php-retrieve` guide.
 
 To learn more about cursors, see the following pages in the PHP manual:
 
-- `MongoDB\Driver\Cursor <{+php-manual+}/class.mongodb-driver-cursor.php>`__
-- `MongoDB\Driver\Cursor::current() <{+php-manual+}/mongodb-driver-cursor.current.php>`__
-- `MongoDB\Driver\Cursor::toArray() <{+php-manual+}/mongodb-driver-cursor.toarray.php>`__
+- `MongoDB\\Driver\\Cursor <{+php-manual+}/class.mongodb-driver-cursor.php>`__
+- `MongoDB\\Driver\\Cursor::current() <{+php-manual+}/mongodb-driver-cursor.current.php>`__
+- `MongoDB\\Driver\\Cursor::toArray() <{+php-manual+}/mongodb-driver-cursor.toarray.php>`__
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
