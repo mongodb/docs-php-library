@@ -67,8 +67,7 @@ the ``restaurants`` collection:
       :language: php
       :dedent:
 
-   .. output:: 
-      :visible: false
+   .. output::
 
       "Bronx"
       "Manhattan"
@@ -168,7 +167,5 @@ in an options array to add a comment to the operation:
 API Documentation
 -----------------
 
-To learn more about the ``MongoDB\Collection::distinct()`` method, see the following
-API documentation:
-
-- `distinct() <{+api+}/method/MongoDBCollection-distinct/>`__
+To learn more about the ``MongoDB\Collection::distinct()`` method, see the
+`distinct() API documentation <{+api+}/method/MongoDBCollection-distinct/>`__.
