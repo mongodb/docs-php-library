@@ -150,7 +150,8 @@ collection. After the cursor is exhausted, it remains open until retrieving thre
       :dedent:
 
    .. output::
-
+      :visible: false
+      
       {"_id":{"$oid":"..."},"name":"cauliflower"}
       {"_id":{"$oid":"..."},"name":"zucchini"}
 
