@@ -31,7 +31,7 @@ $array_results = $cursor->toArray();
 // Creates a collection with a maximum size and inserts documents representing vegetables
 // start-capped-coll
 $db = $client->db;
-$collection = $db->createCollection(
+$create_coll = $db->createCollection(
     'vegetables', 
     ['capped' => true, 'size' => 1024 * 1024]
 );
@@ -41,13 +41,14 @@ $vegetables = [
     ['name' => 'zucchini']
 ];
 
+$collection = $db->vegetables;
 $result = $collection->insertMany($vegetables);
 // end-capped-coll
 
 // Iterates over the initial query results and continues iterating until three documents are stored in the cursor
 // by using a tailable cursor
 // start-tailable
-$cursor = $collection->find([], ['cursorType' => 'tailable']);
+$cursor = $collection->find([], ['cursorType' => MongoDB\Operation\Find::TAILABLE]);
 
 $docs_found = 0;
 while ($docs_found < 3) {
@@ -57,7 +58,7 @@ while ($docs_found < 3) {
     }
 
     // Sleeps for 100 milliseconds before trying to access more documents
-    usleep(100000); // 100 milliseconds
+    usleep(100000);
 }
 // end-tailable
 

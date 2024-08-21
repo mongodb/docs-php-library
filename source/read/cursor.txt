@@ -125,8 +125,8 @@ Tailable Cursors
 When querying on a :manual:`capped collection </core/capped-collections/>`, you
 can use a **tailable cursor** that remains open after the client exhausts the
 results in a cursor. To create a tailable cursor, set the ``cursorType`` option to
-``tailable`` in an array. Then, pass the array as an options parameter to
-the ``MongoDB\Collection::find()`` method.
+``MongoDB\Operation\Find::TAILABLE`` in an array. Then, pass the array as an options
+parameter to the ``MongoDB\Collection::find()`` method.
 
 For example, you can create a capped collection called ``vegetables`` that stores
 documents representing vegetables, as shown in the following code:
