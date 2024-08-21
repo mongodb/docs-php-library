@@ -81,7 +81,7 @@ Retrieve Documents Individually
 
 To retrieve an individual document from a cursor, call the ``current()`` method on
 a ``MongoDB\Driver\Cursor`` instance. This method returns the document that the cursor
-currently points to. You can continue to advance the cursor by calling the ``next()``
+initially points to. You can continue to advance the cursor by calling the ``next()``
 method, which instructs the cursor to point to the next retrieved document.
 
 The following example finds all documents in a collection that have a ``name`` value
@@ -151,7 +151,7 @@ collection. After the cursor is exhausted, it remains open until retrieving thre
 
    .. output::
       :visible: false
-      
+
       {"_id":{"$oid":"..."},"name":"cauliflower"}
       {"_id":{"$oid":"..."},"name":"zucchini"}
 
