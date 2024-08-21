@@ -25,3 +25,4 @@ php-library = "MongoDB PHP Library"
 [constants]
 php-library = "MongoDB PHP Library"
 api = "https://www.mongodb.com/docs/php-library/current/reference"
+php-manual = "https://www.php.net/manual/en"
