@@ -24,9 +24,9 @@ In this guide, you can learn how to access data from a **cursor** by using the
 {+php-library+}.
 
 A cursor is a mechanism that returns the results of a read operation in iterable
-batches. Cursors reduce both memory consumption and network bandwidth usage by holding
-only a subset of documents at any given time rather than returning all documents at
-once.
+batches. Cursors reduce both memory consumption and the number of server requests
+by holding only a subset of documents at any given time, rather than returning all
+documents at once.
 
 Whenever the {+php-library+} performs a read operation by using the ``MongoDB\Collection::find()``
 method, it returns the matching documents in a ``MongoDB\Driver\Cursor`` instance.
@@ -56,7 +56,7 @@ Access Cursor Contents Iteratively
 To iterate over the contents of a ``MongoDB\Driver\Cursor`` instance, use a ``foreach`` loop.
 
 The following example uses the ``MongoDB\Collection::find()`` method to retrieve all documents
-in which the ``name`` value is ``'Dunkin' Donuts'``. It then prints each document from the
+in which the ``name`` field value is ``'Dunkin' Donuts'``. It then prints each document from the
 cursor returned by the ``find()`` method:
 
 .. io-code-block::
@@ -84,8 +84,8 @@ a ``MongoDB\Driver\Cursor`` instance. This method returns the document that the 
 initially points to. You can continue to advance the cursor by calling the ``next()``
 method, which instructs the cursor to point to the next retrieved document.
 
-The following example finds all documents in a collection that have a ``name`` value
-of ``'Dunkin' Donuts'``. Then, it prints the first retrieved document by calling the
+The following example finds all documents in which the ``name`` field value is
+``'Dunkin' Donuts'``. Then, it prints the first retrieved document by calling the
 ``current()`` method on a cursor:
 
 .. io-code-block::
@@ -110,8 +110,8 @@ Retrieve All Documents
    application memory, your program will crash. If you expect a large result
    set, :ref:`access your cursor iteratively <php-cursors-iterate>`.
 
-To retrieve all documents from a cursor, convert the cursor into an array as
-shown in the following example:
+To retrieve all documents from a cursor, convert the cursor into an array. The following
+example calls the ``toArray()`` method on a cursor to store its results in an array:
 
 .. literalinclude:: /includes/read/cursor.php
    :language: php
@@ -158,7 +158,7 @@ collection. After the cursor is exhausted, it remains open until retrieving thre
 If you insert another document into the ``vegetables`` collection, the preceding code prints
 the new document and closes the ``while`` loop.
 
-To learn more about tailable cursors, see the :manual:`Tailable Cursors guide
+To learn more about tailable cursors, see :manual:`Tailable Cursors
 </core/tailable-cursors/>` in the {+mdb-server+} manual.
 
 Additional Information
@@ -175,5 +175,5 @@ To learn more about cursors, see the following pages in the PHP manual:
 API Documentation
 ~~~~~~~~~~~~~~~~~
 
-To learn more about the ``find()`` method, see `MongoDB\\Collection::find() 
-<{+api+}/method/MongoDBCollection-find/>`__ in the API documentation.
+To learn more about the ``find()`` method, see the API documentation for
+`MongoDB\\Collection::find() <{+api+}/method/MongoDBCollection-find/>`__.
