@@ -253,7 +253,10 @@ Read Preference Options
           :copyable: false
       
           $uriOptions = [ 
-            'readPreferenceTags' => [[ 'region' => 'east' ], [ 'region' => 'west']]
+            'readPreferenceTags' => [
+              [ 'region' => 'east' ],
+              [ 'region' => 'west']
+            ]
           ];
 
        **Connection URI**: ``readPreferenceTags=region:east,region:west``
