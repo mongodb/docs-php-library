@@ -21,11 +21,11 @@ Overview
 --------
 
 In this guide, you can learn how to use a **change stream** to monitor real-time
-changes to your database. A change stream is a {+mdb-server+} feature that
+changes to your data. A change stream is a {+mdb-server+} feature that
 allows your application to subscribe to data changes on a collection, database,
 or deployment.
 
-When using the {+driver-short+}, you can instantiate a ``MongoDB\ChangeStream`` to
+When using the {+php-library+}, you can instantiate a ``MongoDB\ChangeStream`` to
 monitor data changes.
 
 Sample Data
@@ -49,8 +49,8 @@ Open a Change Stream
 --------------------
 
 To open a change stream, call the ``watch()`` method. The instance on which you
-call the ``watch()`` method on determines the scope of events that the change
-stream listens for. You can call the ``watch()`` method on the following
+call the ``watch()`` method determines the scope of events that the change
+stream monitors. You can call the ``watch()`` method on the following
 classes:
 
 - ``MongoDB\Client``: Monitor all changes in the MongoDB deployment
@@ -84,11 +84,10 @@ as it occurs. The printed change event resembles the following output:
 .. code-block:: bash
    :copyable: false
 
-   { "_id" : { "_data" : "..." }, "operationType" : "update", "clusterTime" : 
-   { "$timestamp" : { ... }, "wallTime" : { "$date" : ... }, "ns" : 
-   { "db" : "sample_restaurants", "coll" : "restaurants" }, "documentKey" : 
-   { "_id" : { "$oid" : "..." } }, "updateDescription" : { "updatedFields" :
-   { "cuisine" : "Irish" }, "removedFields" : [  ], "truncatedArrays" : [  ] } }
+   {"_id":{"_data":"..."},"operationType":"update","clusterTime":{"$timestamp":{...},
+   "wallTime":{"$date":...},"ns":{"db":"sample_restaurants","coll":"restaurants"},
+   "documentKey":{"_id":{"$oid":"..."}},"updateDescription":{"updatedFields":
+   {"cuisine":"Irish"},"removedFields":[],"truncatedArrays":[]}}}
 
 Modify the Change Stream Output
 -------------------------------
@@ -144,7 +143,7 @@ you can set in the array:
        | Each change stream event document includes a resume token as the ``_id``
          field. Pass the entire ``_id`` field of the change event document that
          represents the operation you want to resume after.
-       | ``resume_after`` is mutually exclusive with ``startAfter`` and ``startAtOperationTime``.
+       | This option is mutually exclusive with ``startAfter`` and ``startAtOperationTime``.
 
    * - ``startAfter``
      - | Instructs ``watch()`` to start a new change stream after the
@@ -153,17 +152,17 @@ you can set in the array:
        | Each change stream event document includes a resume token as the ``_id``
          field. Pass the entire ``_id`` field of the change event document that
          represents the operation you want to resume after.
-       | ``start_after`` is mutually exclusive with ``resume_after`` and ``start_at_operation_time``.
+       | This option is mutually exclusive with ``resumeAfter`` and ``startAtOperationTime``.
 
    * - ``typeMap``
-     - | Sets the maximum number of change events to return in each batch of the
-         response from the MongoDB cluster.
+     - | The type map to apply to cursors, which determines how BSON documents are converted
+         to PHP values.
 
    * - ``collation``
      - | Sets the collation to use for the change stream cursor.
 
 For a full list of ``watch()`` options, see `MongoDB\\Collection::watch()
-<{+api+}/reference/method/MongoDBCollection-watch/>`__ in the API
+<{+api+}/method/MongoDBCollection-watch/>`__ in the API
 documentation.
 
 .. _php-change-stream-pre-post-image:
@@ -184,26 +183,26 @@ options in an array parameter to ``watch()``.
 
 The **pre-image** is the full version of a document *before* a change. To include the
 pre-image in the change stream event, set the ``fullDocumentBeforeChange`` field
-to one of the following strings:
+to one of the following values:
 
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_BEFORE_CHANGE_WHEN_AVAILABLE``: The change event includes
   a pre-image of the modified document for change events. If the pre-image is not available, this
   change event field has a ``null`` value.
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_BEFORE_CHANGE_REQUIRED``: The change event includes a pre-image
   of the modified document for change events. If the pre-image is not available, the
-  {+driver-short+} raises an error.  
+  {+php-library+} raises an error.  
 
 The **post-image** is the full version of a document *after* a change. To include the
 post-image in the change stream event, set the ``fullDocument`` field to
-one of the following strings:
+one of the following values:
 
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP``: The change event includes a
-   copy of the entire changed document from some time after the change.
+  copy of the entire changed document from some time after the change.
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_WHEN_AVAILABLE``: The change event includes
   a post-image of the modified document for change events only if the post-image is available.
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_REQUIRED``: The change event includes a post-image
   of the modified document for change events. If the post-image is not available, the
-  {+driver-short+} raises an error.
+  {+php-library+} raises an error.
 
 The following example calls the ``watch()`` method on a collection and includes the post-image
 of updated documents by setting the ``fullDocument`` option:
@@ -221,17 +220,15 @@ code:
 
 .. code-block:: bash
    :copyable: false
-   :emphasize-lines: 3,4,5,6
+   :emphasize-lines: 2-5
 
-   { "_id" : { "_data" : "..." }, "operationType" : "update", "clusterTime" :
-   { "$timestamp" : { ... } }, "wallTime" : { "$date" : ... },
-   "fullDocument" : { "_id" : { "$oid" : "..." }, "address" : { "building" : "202-24",
-   "coord" : [ -73.925044200000002093, 40.559546199999999772 ], "street" :
-   "Rockaway Point Boulevard", "zipcode" : "11697" }, "borough" : "Queens", "cuisine" :
-   "Irish", "grades" : [ ... ], "name" : "Blarney Castle", "restaurant_id" : "40366356" },
-   "ns" : { "db" : "sample_restaurants", "coll" : "restaurants" }, "documentKey" :
-   { "_id" : { "$oid" : "..." } }, "updateDescription" : { "updatedFields" :
-   { "cuisine" : "Irish" }, "removedFields" : [  ], "truncatedArrays" : [  ] } }
+   {"_id":{"_data":"..."},"operationType":"update","clusterTime":...},"wallTime":{"$date":...},
+   "fullDocument":{"_id":{"$oid":"..."},"address": {"building":"202-24","coord":
+   [-73.925044200000002093,40.559546199999999772], "street":"Rockaway Point Boulevard",
+   "zipcode":"11697"},"borough":"Queens","cuisine":"Irish","grades":[...],"name":"Blarney Castle",
+   "restaurant_id":"40366356"},"ns":{"db":"sample_restaurants","coll":"restaurants"},
+   "documentKey":{"_id":{"$oid":"..."}},"updateDescription":{"updatedFields":{"cuisine":"Irish"},
+   "removedFields":[],"truncatedArrays":[]}}
 
 .. tip::
 
