@@ -2,29 +2,26 @@
 <?php
 
 // Replace the placeholders with your actual hostname, port, and path to the certificate key file
-$uri = "mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=path/to/file.pem";
+$uri = "mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=/path/to/file.pem";
 
 // Create a MongoDB client
 $client = new MongoDB\Client($uri);
 // end-connection-uri
 
 // start-client-options
-#include <mongocxx/uri.hpp>
-#include <mongocxx/client.hpp>
-#include <mongocxx/instance.hpp>
+<?php
 
-int main()
-{
-    mongocxx::instance instance;
-    mongocxx::options::client client_options;
-    mongocxx::options::tls tls_options;
+// Replace the placeholders with your actual hostname and port
+$uri = "mongodb://<hostname>:<port>/";
 
-    tls_options.pem_file("/path/to/file.pem");
-    client_options.tls_opts(tls_options);
+// Set the connection options
+$uriOptions = [
+    'tls' => true,
+    'tlsCertificateKeyFile' => '/path/to/file.pem'
+];
 
-    mongocxx::uri uri("mongodb://<hostname>:<port>/?tls=true");
-    mongocxx::client client(uri, client_options);
-}
+// Create a MongoDB client with the URI and options
+$client = new Client($uri, $uriOptions);
 // end-client-options
 
 // start-uri-object

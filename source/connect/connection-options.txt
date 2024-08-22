@@ -30,8 +30,8 @@ You can configure your connection by specifying options in the connection URI or
 passing them to the ``MongoDB\Client`` constructor.
 
 .. TODO: 
-how uri object overrides uri
-- finish intro text
+-code samples
+- fix table widths
 
 .. _php-connection-uri:
 
@@ -52,8 +52,8 @@ the connection URI contains the ``tls`` option with a value of ``true`` and the
 
 .. _php-client-object:
 
-Using a MongoDB\Client Object
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Using a MongoDB\\Client Object
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can pass connection options to the ``MongoDB\Client`` constructor
 instead of including them in your connection URI.
@@ -69,6 +69,11 @@ The following example shows how to use the the ``$uriOptions`` parameter of the
    :start-after: // start-client-options 
    :end-before: // end-client-options
    :emphasize-lines: 8-12, 15
+
+.. note::
+   
+   If you specify an option in both the ``MongoDB\Client`` object and in the connection
+   URI, the value in the ``MongoDB\Client`` object takes precedence.
 
 Connection URI Options
 ----------------------
@@ -135,6 +140,7 @@ Compression Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
+   :widths: 20 10 70 
 
    * - Connection Option
      - Data Type
@@ -148,6 +154,7 @@ Compression Options
    * - :manual:`zlibCompressionLevel </reference/connection-string/#mongodb-urioption-urioption.zlibcompressionlevel>`
      - {+int-data-type+}
      - | **MongoDB\Client**: ``$uriOptions = [ 'compressors' => 'snappy,zstd,zlib', 'zlibCompressionLevel' => 3 ];``
+       |
        | **Connection URI**: ``compressors=snappy,zstd,zlib&zlibCompressionLevel=3``
 
 Connection Pool Options
@@ -163,11 +170,13 @@ Connection Pool Options
 
    * - :manual:`maxPoolSize </reference/connection-string/#mongodb-urioption-urioption.maxpoolsize>`
      - {+int-data-type+}
-     - | **Connection URI**: ``maxPoolSize=75``
+     - | **MongoDB\Client**: N/A
+       | **Connection URI**: ``maxPoolSize=75``
 
    * - :manual:`waitQueueTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.waitqueuetimeoutms>`
      - {+int-data-type+}
-     - | **Connection URI**: ``waitQueueTimeoutMS=10000``
+     - | **MongoDB\Client**: N/A
+       | **Connection URI**: ``waitQueueTimeoutMS=10000``
 
 Write Concern Options
 ~~~~~~~~~~~~~~~~~~~~~
@@ -217,13 +226,14 @@ Read Preference Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
+   :widths: 20 20 60
 
    * - Connection Option
      - Data Type
      - Syntax
    
    * - :manual:`readPreference </reference/connection-string/#mongodb-urioption-urioption.readpreference>`
-     - `MongoDB\Driver\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+     - `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
      - | **MongoDB\Client**: ``$uriOptions = [ 'readPreference' => MongoDB\Driver\ReadPreference.RP_SECONDARY_PREFERRED ];``
        | **Connection URI**: ``readPreference=secondaryPreferred``
    
@@ -237,13 +247,13 @@ Read Preference Options
      - | **MongoDB\Client**: ``$uriOptions = [ 'readPreferenceTags' => [[ 'region' => 'east' ], [ 'region' => 'west']];``
        | **Connection URI**: ``readPreferenceTags=region:east,region:west``
 
-
 Authentication Options
 ~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
+   :widths: 20 10 70
 
    * - Connection Option
      - Data Type
@@ -343,4 +353,4 @@ For more information about the types used on this page, see the following API
 documentation:
 
 - :ref:`MongoDB\Client <php-mongodbclient>`
-- `MongoDB\Driver\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+- `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
