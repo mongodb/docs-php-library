@@ -153,8 +153,7 @@ Compression Options
 
    * - :manual:`zlibCompressionLevel </reference/connection-string/#mongodb-urioption-urioption.zlibcompressionlevel>`
      - {+int-data-type+}
-     - | **MongoDB\Client**: ``$uriOptions = [ 'compressors' => 'snappy,zstd,zlib', 'zlibCompressionLevel' => 3 ];``
-       |
+     - | **MongoDB\Client**: ``$uriOptions = [ 'zlibCompressionLevel' => 3 ];``
        | **Connection URI**: ``compressors=snappy,zstd,zlib&zlibCompressionLevel=3``
 
 Connection Pool Options
