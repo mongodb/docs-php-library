@@ -68,7 +68,7 @@ The following example shows how to use the the ``$uriOptions`` parameter of the
    :copyable: true
    :start-after: // start-client-options 
    :end-before: // end-client-options
-   :emphasize-lines: 8-12, 15
+   :emphasize-lines: 7-10, 13
 
 .. note::
    
@@ -140,7 +140,7 @@ Compression Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 20 10 70 
+   :widths: 30 10 60 
 
    * - Connection Option
      - Data Type
@@ -226,7 +226,7 @@ Read Preference Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 20 20 60
+   :widths: 25 25 50
 
    * - Connection Option
      - Data Type
@@ -253,7 +253,7 @@ Authentication Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 20 10 70
+   :widths: 30 10 60
 
    * - Connection Option
      - Data Type
@@ -280,6 +280,7 @@ Server Selection and Discovery Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
+   :widths: 35 10 55
 
    * - Connection Option
      - Data Type
