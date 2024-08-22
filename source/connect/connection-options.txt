@@ -238,7 +238,8 @@ Read Preference Options
 
            $uriOptions = [ 'readPreference' =>
            MongoDB\Driver\ReadPreference.RP_SECONDARY_PREFERRED ];
-         **Connection URI**: ``readPreference=secondaryPreferred``
+         
+        **Connection URI**: ``readPreference=secondaryPreferred``
    
    * - :manual:`maxStalenessSeconds </reference/connection-string/#mongodb-urioption-urioption.maxstalenessseconds>`
      - {+int-data-type+}
