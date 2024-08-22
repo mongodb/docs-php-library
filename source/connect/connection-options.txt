@@ -224,7 +224,6 @@ Read Preference Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 25 25 50
 
    * - Connection Option
      - Data Type
@@ -236,8 +235,9 @@ Read Preference Options
         
         .. code-block:: 
 
-           $uriOptions = [ 'readPreference' =>
-           MongoDB\Driver\ReadPreference.RP_SECONDARY_PREFERRED ];
+           $uriOptions = [ 
+             'readPreference' => MongoDB\Driver\ReadPreference.RP_SECONDARY_PREFERRED
+           ];
          
         **Connection URI**: ``readPreference=secondaryPreferred``
    
