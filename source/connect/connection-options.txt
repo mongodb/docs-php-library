@@ -118,17 +118,16 @@ Timeout Options
    :stub-columns: 1
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
 
    * - :manual:`connectTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.connecttimeoutms>`
-     - {+int-data-type+}
+     - | **Data Type**: {+int-data-type+}
      - | **MongoDB\\Client Example**: ``$uriOptions = [ 'connectTimeoutMS' => 20000 ];``
        | **Connection URI Example**: ``connectTimeoutMS=20000``
 
    * - :manual:`socketTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.sockettimeoutms>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'socketTimeoutMS' => 400000 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'socketTimeoutMS' => 400000 ];``
        | **Connection URI Example**: ``socketTimeoutMS=400000``
 
 .. _php-compression-options:
@@ -141,17 +140,16 @@ Compression Options
    :stub-columns: 1
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
 
    * - :manual:`compressors </reference/connection-string/#mongodb-urioption-urioption.compressors>`
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'compressors' => 'snappy,zstd,zlib' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'compressors' => 'snappy,zstd,zlib' ];``
        | **Connection URI Example**: ``compressors=snappy,zstd,zlib``
 
    * - :manual:`zlibCompressionLevel </reference/connection-string/#mongodb-urioption-urioption.zlibcompressionlevel>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'zlibCompressionLevel' => 3 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'zlibCompressionLevel' => 3 ];``
        | **Connection URI Example**: ``zlibCompressionLevel=3``
 
 Connection Pool Options
@@ -162,17 +160,16 @@ Connection Pool Options
    :stub-columns: 1
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
 
    * - :manual:`maxPoolSize </reference/connection-string/#mongodb-urioption-urioption.maxpoolsize>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: N/A
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: N/A
        | **Connection URI Example**: ``maxPoolSize=75``
 
    * - :manual:`waitQueueTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.waitqueuetimeoutms>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: N/A
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: N/A
        | **Connection URI Example**: ``waitQueueTimeoutMS=10000``
 
 Write Concern Options
@@ -183,22 +180,21 @@ Write Concern Options
    :stub-columns: 1
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
    
    * - :manual:`w </reference/connection-string/#mongodb-urioption-urioption.w>` 
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'w' => 'majority' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'w' => 'majority' ];``
        | **Connection URI Example**: ``w=majority``
 
    * - :manual:`wTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.wtimeoutms>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'wTimeoutMS' => 10000 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'wTimeoutMS' => 10000 ];``
        | **Connection URI Example**: ``wTimeoutMS=10000``
 
    * - :manual:`journal </reference/connection-string/#mongodb-urioption-urioption.journal>` 
-     - {+bool-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'journal' => true ];``
+     - | **Data Type**: {+bool-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'journal' => true ];``
        | **Connection URI Example**: ``journal=true``
 
 Read Concern Options
@@ -209,12 +205,11 @@ Read Concern Options
    :stub-columns: 1
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
    
    * - :manual:`readConcernLevel </reference/connection-string/#mongodb-urioption-urioption.readconcernlevel>`
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'readConcernLevel' => 'majority' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'readConcernLevel' => 'majority' ];``
        | **Connection URI Example**: ``readConcernLevel=majority``
 
 Read Preference Options
@@ -223,42 +218,25 @@ Read Preference Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :width: 20 20 60
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
    
    * - :manual:`readPreference </reference/connection-string/#mongodb-urioption-urioption.readpreference>`
-     - ``int`` or ``string``
-     -  **MongoDB\\Client Example**: ``$uriOptions = [ 'readPreference' => 'secondaryPreferred' ];``
-         
-        **Connection URI Example**: ``readPreference=secondaryPreferred``
-        
-        For a complete list of the available values for this option, see the
-        `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
-        API documentation.
+     - | **Data Type**: `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'readPreference' => 'secondaryPreferred' ];``
+       |  
+       | **Connection URI Example**: ``readPreference=secondaryPreferred``
    
    * - :manual:`maxStalenessSeconds </reference/connection-string/#mongodb-urioption-urioption.maxstalenessseconds>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'maxStalenessSeconds' => 30 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'maxStalenessSeconds' => 30 ];``
        | **Connection URI Example**: ``maxStalenessSeconds=30``
 
    * - :manual:`readPreferenceTags </reference/connection-string/#mongodb-urioption-urioption.readpreferencetags>`
-     - ``array``
-     - **MongoDB\\Client Example**: 
-       
-       .. code-block::
-          :copyable: false
-      
-          $uriOptions = [ 
-            'readPreferenceTags' => [
-              [ 'region' => 'east' ],
-              [ 'region' => 'west']
-            ]
-          ];
-
-       **Connection URI Example**: ``readPreferenceTags=region:east,region:west``
+     - | **Data Type**: ``array``
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'readPreferenceTags' => [ [ 'region' => 'east' ], [ 'region' => 'west'] ] ];``
+       | **Connection URI Example**: ``readPreferenceTags=region:east,region:west``
 
 Authentication Options
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -266,25 +244,23 @@ Authentication Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 30 10 60
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
    
    * - :manual:`authMechanism </reference/connection-string/#mongodb-urioption-urioption.authmechanism>`
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'authMechanism' => 'MONGODB-X509' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'authMechanism' => 'MONGODB-X509' ];``
        | **Connection URI Example**: ``authMechanism=MONGODB-X509``
 
    * - :manual:`authMechanismProperties </reference/connection-string/#mongodb-urioption-urioption.authmechanismproperties>`
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'authMechanism' => 'MONGODB-AWS', 'authMechanismProperties' => 'AWS_SESSION_TOKEN:12345' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'authMechanism' => 'MONGODB-AWS', 'authMechanismProperties' => 'AWS_SESSION_TOKEN:12345' ];``
        | **Connection URI Example**: ``authMechanism=MONGODB-AWS&authMechanismProperties=AWS_SESSION_TOKEN:12345``
 
    * - :manual:`authSource </reference/connection-string/#mongodb-urioption-urioption.authsource>`
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'authSource' => 'admin' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'authSource' => 'admin' ];``
        | **Connection URI Example**: ``authSource=admin``
 
 Server Selection and Discovery Options
@@ -293,35 +269,33 @@ Server Selection and Discovery Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 35 10 55
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
    
    * - :manual:`localThresholdMS </reference/connection-string/#mongodb-urioption-urioption.localthresholdms>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'localThresholdMS' => 20 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'localThresholdMS' => 20 ];``
        | **Connection URI Example**: ``localThresholdMS=20``
 
    * - :manual:`serverSelectionTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.serverselectiontimeoutms>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'serverSelectionTimeoutMS' => 40000 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'serverSelectionTimeoutMS' => 40000 ];``
        | **Connection URI Example**: ``serverSelectionTimeoutMS=40000``
 
    * - :manual:`serverSelectionTryOnce </reference/connection-string/#mongodb-urioption-urioption.serverselectiontryonce>`
-     - {+bool-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'serverSelectionTryOnce' => false ];``
+     - | **Data Type**: {+bool-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'serverSelectionTryOnce' => false ];``
        | **Connection URI Example**: ``serverSelectionTryOnce=false``
 
    * - :manual:`heartbeatFrequencyMS </reference/connection-string/#mongodb-urioption-urioption.heartbeatfrequencyms>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'heartbeatFrequencyMS' => 50000 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'heartbeatFrequencyMS' => 50000 ];``
        | **Connection URI Example**: ``heartbeatFrequencyMS=50000``
 
    * - :manual:`socketCheckIntervalMS </reference/connection-string/#mongodb-urioption-urioption.socketcheckintervalms>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'socketCheckIntervalMS' => 4000 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'socketCheckIntervalMS' => 4000 ];``
        | **Connection URI Example**: ``socketCheckIntervalMS=4000``
 
 Miscellaneous Configuration
@@ -332,32 +306,31 @@ Miscellaneous Configuration
    :stub-columns: 1
 
    * - Connection Option
-     - Data Type
-     - Syntax
+     - Description
    
    * - :manual:`appName </reference/connection-string/#mongodb-urioption-urioption.appname>`
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'appName' => 'myApp' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'appName' => 'myApp' ];``
        | **Connection URI Example**: ``appName=myApp``
 
    * - :manual:`retryReads </reference/connection-string/#mongodb-urioption-urioption.retryreads>`
-     - {+bool-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'retryReads' => false ];``
+     - | **Data Type**: {+bool-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'retryReads' => false ];``
        | **Connection URI Example**: ``retryReads=false``
 
    * - :manual:`retryWrites </reference/connection-string/#mongodb-urioption-urioption.retrywrites>`
-     - {+bool-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'retryWrites' => false ];``
+     - | **Data Type**: {+bool-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'retryWrites' => false ];``
        | **Connection URI Example**: ``retryWrites=false``
    
    * - :manual:`loadBalanced </reference/connection-string/#mongodb-urioption-urioption.loadbalanced>`
-     - {+bool-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'loadBalanced' => true ];``
+     - | **Data Type**: {+bool-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'loadBalanced' => true ];``
        | **Connection URI Example**: ``loadBalanced=false``
 
    * - :manual:`srvMaxHosts </reference/connection-string/#mongodb-urioption-urioption.srvmaxhosts>`
-     - {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'srvMaxHosts' => 5 ];``
+     - | **Data Type**: {+int-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'srvMaxHosts' => 5 ];``
        | **Connection URI Example**: ``srvMaxHosts=5``
 
 API Documentation
