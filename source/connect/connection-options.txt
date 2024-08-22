@@ -122,7 +122,7 @@ Timeout Options
 
    * - :manual:`connectTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.connecttimeoutms>`
      - | **Data Type**: {+int-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'connectTimeoutMS' => 20000 ];``
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'connectTimeoutMS' => 20000 ];``
        | **Connection URI Example**: ``connectTimeoutMS=20000``
 
    * - :manual:`socketTimeoutMS </reference/connection-string/#mongodb-urioption-urioption.sockettimeoutms>`
@@ -224,8 +224,9 @@ Read Preference Options
    
    * - :manual:`readPreference </reference/connection-string/#mongodb-urioption-urioption.readpreference>`
      - | **Data Type**: `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
-       | **MongoDB\\Client Example**: ``$uriOptions = [ 'readPreference' => 'secondaryPreferred' ];``
-       |  
+       | **MongoDB\\Client Example**:
+       | ``$uriOptions = [ 'readPreference' => 'secondaryPreferred' ];``
+       | 
        | **Connection URI Example**: ``readPreference=secondaryPreferred``
    
    * - :manual:`maxStalenessSeconds </reference/connection-string/#mongodb-urioption-urioption.maxstalenessseconds>`
@@ -235,7 +236,9 @@ Read Preference Options
 
    * - :manual:`readPreferenceTags </reference/connection-string/#mongodb-urioption-urioption.readpreferencetags>`
      - | **Data Type**: ``array``
-       | **MongoDB\\Client Example**: ``$uriOptions = [ 'readPreferenceTags' => [ [ 'region' => 'east' ], [ 'region' => 'west'] ] ];``
+       | **MongoDB\\Client Example**:
+       | ``$uriOptions = [ 'readPreferenceTags' => [ [ 'region' => 'east' ], [ 'region' => 'west'] ] ];``
+       | 
        | **Connection URI Example**: ``readPreferenceTags=region:east,region:west``
 
 Authentication Options
@@ -255,8 +258,10 @@ Authentication Options
 
    * - :manual:`authMechanismProperties </reference/connection-string/#mongodb-urioption-urioption.authmechanismproperties>`
      - | **Data Type**: {+string-data-type+}
-       | **MongoDB\\Client Example**: ``$uriOptions = [ 'authMechanism' => 'MONGODB-AWS', 'authMechanismProperties' => 'AWS_SESSION_TOKEN:12345' ];``
-       | **Connection URI Example**: ``authMechanism=MONGODB-AWS&authMechanismProperties=AWS_SESSION_TOKEN:12345``
+       | **MongoDB\\Client Example**:
+       | ``$uriOptions = [ 'authMechanismProperties' => 'AWS_SESSION_TOKEN:12345' ];``
+       | 
+       | **Connection URI Example**: ``authMechanismProperties=AWS_SESSION_TOKEN:12345``
 
    * - :manual:`authSource </reference/connection-string/#mongodb-urioption-urioption.authsource>`
      - | **Data Type**: {+string-data-type+}
