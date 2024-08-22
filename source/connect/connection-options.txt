@@ -233,7 +233,10 @@ Read Preference Options
    * - :manual:`readPreference </reference/connection-string/#mongodb-urioption-urioption.readpreference>`
      - `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
      - | **MongoDB\Client**:
-       | ``$uriOptions = [ 'readPreference' => MongoDB\Driver\ReadPreference.RP_SECONDARY_PREFERRED ];``
+       | .. code-block:: 
+       |   
+       |    $uriOptions = [ 'readPreference' =>
+       |    MongoDB\Driver\ReadPreference.RP_SECONDARY_PREFERRED ];
        | **Connection URI**: ``readPreference=secondaryPreferred``
    
    * - :manual:`maxStalenessSeconds </reference/connection-string/#mongodb-urioption-urioption.maxstalenessseconds>`
