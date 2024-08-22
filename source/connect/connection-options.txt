@@ -98,8 +98,8 @@ Replica Set Options
        | **Connection URI Example**: ``directConnection=true``
    
    * - :manual:`replicaSet </reference/connection-string/#mongodb-urioption-urioption.replicaSet>`
-     - {+string-data-type+}
-     - | **MongoDB\\Client Example**: ``$uriOptions = [ 'replicaSet' => 'replicaSetName' ];``
+     - | **Data Type**: {+string-data-type+}
+       | **MongoDB\\Client Example**: ``$uriOptions = [ 'replicaSet' => 'replicaSetName' ];``
        | **Connection URI Example**: ``replicaSet=replicaSetName``
    
 Connection Options
