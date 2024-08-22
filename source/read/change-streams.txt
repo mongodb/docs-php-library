@@ -50,7 +50,7 @@ Open a Change Stream
 
 To open a change stream, call the ``watch()`` method. The instance on which you
 call the ``watch()`` method determines the scope of events that the change
-stream monitors. You can call the ``watch()`` method on the following
+stream monitors. You can call the ``watch()`` method on instances of the following
 classes:
 
 - ``MongoDB\Client``: Monitor all changes in the MongoDB deployment
@@ -182,7 +182,7 @@ change, specify the ``fullDocumentBeforeChange`` or the ``fullDocument``
 options in an array parameter to ``watch()``.
 
 The **pre-image** is the full version of a document *before* a change. To include the
-pre-image in the change stream event, set the ``fullDocumentBeforeChange`` field
+pre-image in the change stream event, set the ``fullDocumentBeforeChange`` option
 to one of the following values:
 
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_BEFORE_CHANGE_WHEN_AVAILABLE``: The change event includes
@@ -193,7 +193,7 @@ to one of the following values:
   {+php-library+} raises an error.  
 
 The **post-image** is the full version of a document *after* a change. To include the
-post-image in the change stream event, set the ``fullDocument`` field to
+post-image in the change stream event, set the ``fullDocument`` option to
 one of the following values:
 
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP``: The change event includes a

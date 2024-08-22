@@ -13,7 +13,7 @@ $collection = $client->sample_restaurants->restaurants;
 $changeStream = $collection->watch();
 
 foreach ($changeStream as $event) {
-    echo json_encode($event), PHP_EOL;
+    echo json_encode($event) . PHP_EOL;
 }
 // end-open-change-stream
 
@@ -31,17 +31,17 @@ $pipeline = [['$match' => ['operationType' => 'update']]];
 $changeStream = $collection->watch($pipeline);
 
 foreach ($changeStream as $event) {
-    echo json_encode($event), PHP_EOL;
+    echo json_encode($event) . PHP_EOL;
 }
 // end-change-stream-pipeline
 
 // Passes an options argument to watch() to include the post-image of updated documents
 // start-change-stream-post-image
-$options = ['fullDocument' => 'updateLookup'];
+$options = ['fullDocument' => MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP];
 $changeStream = $collection->watch([], $options);
 
 foreach ($changeStream as $event) {
-    echo json_encode($event), PHP_EOL;
+    echo json_encode($event) . PHP_EOL;
 }
 // end-change-stream-post-image
 
