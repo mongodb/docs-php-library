@@ -29,10 +29,6 @@ Set Connection Options
 You can configure your connection by specifying options in the connection URI or by
 passing them to the ``MongoDB\Client`` constructor.
 
-.. TODO: 
--code samples
-- move information to right colummn of tables
-
 .. _php-connection-uri:
 
 Using the Connection URI
@@ -48,7 +44,7 @@ the connection URI contains the ``tls`` option with a value of ``true`` and the
    :copyable: true
    :start-after: // start-connection-uri
    :end-before: // end-connection-uri
-   :emphasize-lines: 8
+   :emphasize-lines: 4, 7
 
 .. _php-client-object:
 
