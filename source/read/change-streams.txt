@@ -117,8 +117,8 @@ Modify ``watch()`` Behavior
 ---------------------------
 
 To modify the behavior of the ``watch()`` method, you can pass an options array
-as a parameter to ``watch()``. The following table describes some of the options
-you can set in the array:
+as a parameter to ``watch()``. The following table describes some options you
+can set in the array:
 
 .. list-table::
    :widths: 30 70
