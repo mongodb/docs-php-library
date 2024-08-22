@@ -345,8 +345,12 @@ Miscellaneous Configuration
 API Documentation
 -----------------
 
-For more information about the types used on this page, see the following API
-documentation:
+For more information about the ``MongoDB\Client`` class, see the following {+driver-short+}
+API documentation:
 
 - :ref:`MongoDB\Client <php-mongodbclient>`
+
+For more information about the ``MongoDB\Driver\ReadPreference`` class, see the following
+{+extension-short+} API documentation:
+
 - `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
