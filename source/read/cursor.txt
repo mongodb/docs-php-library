@@ -98,7 +98,8 @@ The following example finds all documents in which the ``name`` field value is
       :dedent:
 
    .. output::
-
+      :visible: false
+      
       {"_id":{"$oid":"..."},..."name":"Dunkin' Donuts","restaurant_id":"40379573"}
       
 Retrieve All Documents
