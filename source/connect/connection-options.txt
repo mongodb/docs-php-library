@@ -224,6 +224,7 @@ Read Preference Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
+   :width: 20 20 60
 
    * - Connection Option
      - Data Type
@@ -249,6 +250,7 @@ Read Preference Options
      - **MongoDB\\Client**: 
        
        .. code-block::
+          :copyable: false
       
           $uriOptions = [ 
             'readPreferenceTags' => [[ 'region' => 'east' ], [ 'region' => 'west']]
