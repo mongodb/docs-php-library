@@ -237,9 +237,17 @@ Read Preference Options
    * - :manual:`readPreferenceTags </reference/connection-string/#mongodb-urioption-urioption.readpreferencetags>`
      - | **Data Type**: ``array``
        | **MongoDB\\Client Example**:
-       | ``$uriOptions = [ 'readPreferenceTags' => [ [ 'region' => 'east' ], [ 'region' => 'west'] ] ];``
-       | 
-       | **Connection URI Example**: ``readPreferenceTags=region:east,region:west``
+       
+       .. code-block:: php
+
+          $uriOptions = [
+            'readPreferenceTags' => [
+              [ 'region' => 'east' ],
+              [ 'region' => 'west']
+            ]
+          ];``
+        
+       **Connection URI Example**: ``readPreferenceTags=region:east,region:west``
 
 Authentication Options
 ~~~~~~~~~~~~~~~~~~~~~~
