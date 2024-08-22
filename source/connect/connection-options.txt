@@ -140,7 +140,6 @@ Compression Options
 .. list-table::
    :header-rows: 1
    :stub-columns: 1
-   :widths: 45 10 45 
 
    * - Connection Option
      - Data Type
