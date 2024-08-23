@@ -185,6 +185,72 @@ skipping the first ``10`` documents:
    perform the sort operation first, the skip operation next, and then the limit
    operation.
 
+.. _php-return-documents-type:
+
+Specify Return Type
+-------------------
+
+To customize the data type of documents returned by a read operation, you can pass the
+``typeMap`` option in an array parameter.
+
+By default, methods called on a ``MongoDB\Client``, ``MongoDB\Database``, or ``MongoDB\Collection``
+instance use the following type map:
+
+.. code-block:: php
+
+   [
+       'array' => 'MongoDB\Model\BSONArray',
+       'document' => 'MongoDB\Model\BSONDocument',
+       'root' => 'MongoDB\Model\BSONDocument',
+   ]
+
+This default type map performs the following conversions:
+
+- Arrays to ``MongoDB\Model\BSONArray`` objects
+- Top-level and embedded BSON documents to ``MongoDB\Model\BSONDocument`` objects
+
+In a custom type map, you can specify conversions to any type that implements
+``MongoDB\BSON\Unserializable``, as well as the ``array``, ``stdClass``, and ``object``
+types. The following example returns all documents that have a ``cuisine`` value of ``'Hawaiian'``
+and specifies the ``typeMap`` option to convert the documents to array values:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/read/limit-skip-sort.php
+      :start-after: start-return-type
+      :end-before: end-return-type
+      :language: php
+      :dedent:
+
+   .. output::
+      :visible: false
+            
+      Array
+      (
+         [_id] => MongoDB\BSON\ObjectId Object
+            (
+                  [oid] => ...
+            )
+
+         [address] => Array
+            (
+                  ...
+            )
+
+         [borough] => Manhattan
+         [cuisine] => Hawaiian
+         [grades] => Array
+            (
+                  ...
+
+            )
+
+         [name] => Makana
+         [restaurant_id] => 41509012
+      )
+      ...
+
 Additional Information
 ----------------------
 

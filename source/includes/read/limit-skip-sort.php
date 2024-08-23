@@ -59,3 +59,18 @@ foreach ($cursor as $doc) {
     echo json_encode($doc) . PHP_EOL;
 }
 // end-limit-sort-skip
+
+// Returns documents with a "cuisine" value of "Hawaiian" as arrays
+// start-return-type
+$options = [
+    'typeMap' => [
+        'root' => 'array', 
+        'document' => 'array'
+    ]
+];
+
+$cursor = $collection->find(['cuisine' => 'Hawaiian'], $options);
+foreach ($cursor as $doc) {
+    print_r($doc) . PHP_EOL;
+}
+// end-return-type
