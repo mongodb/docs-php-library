@@ -213,7 +213,12 @@ This default type map performs the following conversions:
 
 In a custom type map, you can specify conversions to any type that implements
 ``MongoDB\BSON\Unserializable``, as well as the ``array``, ``stdClass``, and ``object``
-types. The following example returns all documents that have a ``cuisine`` value of ``'Hawaiian'``
+types.
+
+Example
+~~~~~~~
+
+The following example returns all documents that have a ``cuisine`` value of ``'Hawaiian'``
 and specifies the ``typeMap`` option to convert the documents to array values:
 
 .. io-code-block::
