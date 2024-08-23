@@ -20,15 +20,17 @@ Specify Documents to Return
 Overview
 --------
 
-In this guide, you can learn how to specify which documents to return from a read
-operation by passing the following options to the ``MongoDB\Collection::find()`` or
-``MongoDB\Collection::findOne()`` method:
+In this guide, you can learn how to specify which documents and which types to return
+from a read operation by passing the following options to the ``MongoDB\Collection::find()``
+or ``MongoDB\Collection::findOne()`` method:
 
 - :ref:`limit <php-return-documents-limit>`: Specifies the maximum number of documents
   to return from a query
 - :ref:`sort <php-return-documents-sort>`: Specifies the sort order for the returned documents
 - :ref:`skip <php-return-documents-skip>`: Specifies the number of documents to skip before
   returning query results
+- :ref:`typeMap <php-return-documents-type>`: Converts the returned documents to a specified data
+  type
 
 Sample Data
 ~~~~~~~~~~~
