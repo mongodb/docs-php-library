@@ -1,6 +1,6 @@
 .. tabs::
 
-   .. tab:: MongoDB\Client
+   .. tab:: MongoDB\\Client
       :tabid: mongoclient
 
       .. code-block:: php
