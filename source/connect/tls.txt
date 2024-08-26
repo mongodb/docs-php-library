@@ -77,7 +77,7 @@ application to establish its identity. Usually, a deployment's certificate has b
 signed by a well-known CA, and your application relies on this CA to validate the certificate.
 
 During testing, however, you might want to act as your own CA.
-In this case, you must instruct {+driver-short+} to
+In this case, you must instruct the {+driver-short+} to
 use your CA certificates instead of ones signed by another CA.
 
 To do so, use the ``tlsCAFile`` connection option to specify the path to a ``.pem`` file
@@ -147,7 +147,7 @@ You can do this in two ways: by passing an argument to the
 
 .. note::
 
-   Even if the ``tlsDisableOCSPEndpointCheck`` option is set to ``true``, {+driver-short+}
+   Even if the ``tlsDisableOCSPEndpointCheck`` option is set to ``true``, the {+driver-short+}
    still verifies any OCSP response stapled to a server's certificate.
 
 .. _php-crl:
