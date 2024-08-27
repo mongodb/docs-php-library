@@ -74,7 +74,8 @@ Specify a CA File
 
 During the TLS handshake, the MongoDB deployment presents a certificate key file to your
 application to establish its identity. Usually, a deployment's certificate has been
-signed by a well-known CA, and your application relies on this CA to validate the certificate.
+signed by a well-known CA (certificate authority), and your application relies on this CA
+to validate the certificate.
 
 During testing, however, you might want to act as your own CA.
 In this case, you must instruct the {+driver-short+} to
