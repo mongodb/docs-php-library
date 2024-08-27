@@ -1,0 +1,14 @@
+.. _php-read:
+
+======================
+Read Data from MongoDB
+======================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   
+   /read/retrieve
+   /read/specify-documents-to-return
+   /read/specify-a-query
+   /read/project
