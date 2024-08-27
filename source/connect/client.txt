@@ -32,7 +32,7 @@ customize the way that the {+driver-short+} behaves
 while connected to MongoDB.
 
 This guide describes the components of a connection string and shows how to
- use a ``MongoDB\Client`` object to connect to a MongoDB deployment.
+use a ``MongoDB\Client`` object to connect to a MongoDB deployment.
 
 .. _php-connection-uri:
 
