@@ -225,7 +225,7 @@ With the change stream application running, updating a document in the
 <php-change-stream-update>` prints a change event resembling the following
 output:
 
-.. code-block:: bash
+.. code-block:: none
    :copyable: false
    :emphasize-lines: 2-5
 
