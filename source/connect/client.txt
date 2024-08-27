@@ -96,11 +96,6 @@ deployment on port ``27017`` of ``localhost``:
    :language: php
    :copyable: true
 
-.. tip:: Reuse Your Client
-
-   Because each ``MongoDB\Client`` object represents a pool of connections to the
-   database, you can use a single instance of the class across multiple requests.
-
 API Documentation
 -----------------
 
