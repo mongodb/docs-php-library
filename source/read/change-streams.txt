@@ -25,8 +25,8 @@ changes to your data. A change stream is a {+mdb-server+} feature that
 allows your application to subscribe to data changes on a collection, database,
 or deployment.
 
-When using the {+php-library+}, you can instantiate a ``MongoDB\ChangeStream`` to
-monitor data changes.
+When using the {+php-library+}, you can create an instance of ``MongoDB\ChangeStream`` to
+monitor data changes, such as updates, insertions, and deletions.
 
 Sample Data
 ~~~~~~~~~~~
@@ -81,7 +81,7 @@ example updates a document that has a ``name`` field value of ``'Blarney Castle'
 When you update the collection, the change stream application prints the change
 as it occurs. The printed change event resembles the following output:
 
-.. code-block:: bash
+.. code-block:: none
    :copyable: false
 
    {"_id":{"_data":"..."},"operationType":"update","clusterTime":{"$timestamp":{...},
@@ -105,7 +105,8 @@ array:
 - ``$unset``: Removes fields from documents
 
 The following passes a pipeline that includes the ``$match`` stage to the ``watch()``
-method. This instructs the ``watch()`` method to output only update operations:
+method. This instructs the ``watch()`` method to output events only when update
+operations occur:
 
 .. literalinclude:: /includes/read/change-streams.php
    :start-after: start-change-stream-pipeline
@@ -117,7 +118,7 @@ Modify ``watch()`` Behavior
 ---------------------------
 
 To modify the behavior of the ``watch()`` method, you can pass an options array
-as a parameter to ``watch()``. The following table describes some options you
+as a parameter to ``watch()``. The following table describes useful options you
 can set in the array:
 
 .. list-table::
@@ -130,7 +131,8 @@ can set in the array:
    * - ``fullDocument``
      - | Specifies whether to show the full document after the change, rather
          than showing only the changes made to the document. To learn more about
-         this option, see :ref:`php-change-stream-pre-post-image`.
+         this option, see the :ref:`php-change-stream-pre-post-image` section of this
+         guide.
 
    * - ``fullDocumentBeforeChange``
      - | Specifies whether to show the full document as it was before the change, rather
@@ -153,6 +155,11 @@ can set in the array:
          field. Pass the entire ``_id`` field of the change event document that
          represents the operation you want to resume after.
        | This option is mutually exclusive with ``resumeAfter`` and ``startAtOperationTime``.
+
+   * - ``startAtOperationTime``
+     - | Instructs the change stream to only provide changes that occurred at or after
+         the specified timestamp. 
+       | This option is mutually exclusive with ``startAfter`` and ``resumeAfter``.
 
    * - ``typeMap``
      - | The type map to apply to cursors, which determines how BSON documents are converted
@@ -216,7 +223,7 @@ of updated documents by setting the ``fullDocument`` option:
 With the change stream application running, updating a document in the
 ``restaurants`` collection by using the :ref:`preceding update example
 <php-change-stream-update>` prints a change event resembling the following
-code:
+output:
 
 .. code-block:: bash
    :copyable: false
