@@ -23,6 +23,7 @@ Get Started with the PHP Library
    /get-started/download-and-install/
    /get-started/create-a-deployment/
    /get-started/create-a-connection-string/
+   /get-started/connect-to-mongodb/
    /get-started/next-steps/
 
 Overview
