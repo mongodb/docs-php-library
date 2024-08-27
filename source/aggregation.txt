@@ -108,6 +108,7 @@ of New York. To do so, it uses an aggregation pipeline that contains the followi
   value
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/aggregation.php
       :start-after: start-match-group
@@ -116,7 +117,8 @@ of New York. To do so, it uses an aggregation pipeline that contains the followi
       :dedent:
 
    .. output:: 
-
+      :visible: false
+      
       {"_id":"Brooklyn","count":173}
       {"_id":"Queens","count":204}
       {"_id":"Bronx","count":71}
@@ -143,6 +145,7 @@ The following example instructs MongoDB to explain the aggregation operation fro
 preceding :ref:`php-aggregation-example`:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/aggregation.php
       :start-after: start-explain
@@ -151,6 +154,7 @@ preceding :ref:`php-aggregation-example`:
       :dedent:
 
    .. output:: 
+      :visible: false
 
       {"explainVersion":"2","queryPlanner":{"namespace":"sample_restaurants.restaurants",
       "indexFilterSet":false,"parsedQuery":{"cuisine":{"$eq":"Bakery"}},"queryHash":"865F14C3",
