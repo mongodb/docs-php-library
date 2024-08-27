@@ -52,7 +52,7 @@ To learn how to configure your MongoDB deployment for TLS, see the
 Enable TLS
 ----------
 
-To enable TLS for the connection to your MongoDB instance, set the ``tls`` connection
+To enable TLS for the connection to your MongoDB deployment, set the ``tls`` connection
 option to ``true``. You can do this in two ways: by using the ``uriOptions`` parameter
 of the ``MongoDB\Client`` constructor or through a parameter in your connection string.
 
