@@ -6,9 +6,7 @@ try {
 
     // Create a MongoDB client with server API options
     $client = new MongoDB\Client($uri, [], [
-        'serverApi' => [
-            'version' => '1'
-        ]
+        'serverApi' => new MongoDB\Driver\ServerApi('1')
     ]);
 
     // Ping the server to verify that the connection works
