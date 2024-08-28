@@ -148,11 +148,11 @@ describes some options you can set in the array:
    * - ``comment``
      - | A comment to attach to the operation. For more information, see the :manual:`insert command
          fields </reference/command/insert/#command-fields>` guide in the
-         {+mdb-server+} manual for more information.
+         {+mdb-server+} manual.
 
 The following example uses the ``updateMany()`` method to find all documents that
 have ``borough`` value of ``'Manhattan'``. It then updates the ``borough`` value
-in these documents to ``'Manhattan (north)''``. Because the ``upsert`` option is
+in these documents to ``'Manhattan (north)'``. Because the ``upsert`` option is
 set to ``true``, the {+php-library+} inserts a new document if the query filter doesn't 
 match any existing documents.
 
@@ -200,6 +200,7 @@ of matching documents from ``'Dunkin' Donuts'`` to ``'Dunkin''``. It calls the
 ``getModifiedCount()`` member function to print the number of modified documents:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/write/update.php
       :start-after: start-update-result
@@ -208,7 +209,8 @@ of matching documents from ``'Dunkin' Donuts'`` to ``'Dunkin''``. It calls the
       :dedent:
 
    .. output:: 
-
+      :visible: false
+      
       Modified documents: 206
 
 Additional Information 
