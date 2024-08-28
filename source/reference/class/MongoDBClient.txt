@@ -1,4 +1,4 @@
-.. _php-mongodb-client:
+.. _php-api-mongodbclient:
 
 =====================
 MongoDB\\Client Class
