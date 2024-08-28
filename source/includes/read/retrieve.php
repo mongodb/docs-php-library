@@ -5,8 +5,7 @@ $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI 
 $client = new MongoDB\Client($uri);
 
 // start-db-coll
-$db = $client->sample_training;
-$collection = $db->companies;
+$collection = $client->sample_training->companies;
 // end-db-coll
 
 // Finds one document with a "name" value of "LinkedIn"
