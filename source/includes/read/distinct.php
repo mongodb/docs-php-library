@@ -29,7 +29,7 @@ foreach ($results as $value) {
 // Retrieves distinct "name" field values for documents matching the "borough" and "cuisine" fields query
 // and attaches a comment to the operation
 // start-distinct-with-comment
-$query = ['$and' => [['borough' => 'Bronx'], ['cuisine' => 'Pizza']]];
+$query = ['borough' => 'Bronx', 'cuisine' => 'Pizza'];
 $options = ['comment' => 'Bronx pizza restaurants'];
 $results = $collection->distinct('name', $query, $options);
 
