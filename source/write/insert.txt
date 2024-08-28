@@ -53,10 +53,10 @@ with a unique field value.
 
 MongoDB allows you to manage this field in two ways:
 
-- You can set this field for each document yourself, ensuring each
-  ``_id`` field value is unique.
-- You can let the driver automatically generate unique ``ObjectId``
-  values for each document ``_id``.
+- Set the ``_id`` field for each document yourself, ensuring each
+  value is unique.
+- Let the driver automatically generate unique ``ObjectId``
+  values for each document ``_id`` field.
 
 Unless you can guarantee uniqueness, we recommend
 letting the driver automatically generate ``_id`` values.
@@ -91,7 +91,7 @@ Insert Multiple Documents
 -------------------------
 
 To add multiple documents to a MongoDB collection, call the ``MongoDB\Collection::insertMany()``
-method and pass an array that stores the documents you want to add.
+method and pass an array that contains the documents you want to add.
 
 The following example inserts two documents into the ``restaurants`` collection:
 
@@ -117,7 +117,7 @@ you can set in the array:
      - Description
 
    * - ``bypassDocumentValidation``
-     - | If set to ``true``, allows the write to opt out of
+     - | If set to ``true``, allows the write operation to opt out of
          :manual:`document-level validation </core/schema-validation>`. 
        | Defaults to ``false``.
        | **Type**: ``bool``
