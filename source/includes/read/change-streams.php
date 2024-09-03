@@ -1,6 +1,11 @@
 <?php
 require 'vendor/autoload.php'; 
 
+function toJSON(object $document): string
+{
+    return MongoDB\BSON\Document::fromPHP($document)->toRelaxedExtendedJSON();
+}
+
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);
 
@@ -12,8 +17,12 @@ $collection = $client->sample_restaurants->restaurants;
 // start-open-change-stream
 $changeStream = $collection->watch();
 
-foreach ($changeStream as $event) {
-    echo json_encode($event) . PHP_EOL;
+for ($changeStream->rewind(); true; $changeStream->next()) {
+    if ( ! $changeStream->valid()) {
+        continue;
+    }
+    $event = $changeStream->current();
+    echo toJSON($event) . PHP_EOL;
 }
 // end-open-change-stream
 
@@ -30,8 +39,12 @@ $result = $collection->updateOne(
 $pipeline = [['$match' => ['operationType' => 'update']]];
 $changeStream = $collection->watch($pipeline);
 
-foreach ($changeStream as $event) {
-    echo json_encode($event) . PHP_EOL;
+for ($changeStream->rewind(); true; $changeStream->next()) {
+    if ( ! $changeStream->valid()) {
+        continue;
+    }
+    $event = $changeStream->current();
+    echo toJSON($event) . PHP_EOL;
 }
 // end-change-stream-pipeline
 
@@ -40,8 +53,12 @@ foreach ($changeStream as $event) {
 $options = ['fullDocument' => MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP];
 $changeStream = $collection->watch([], $options);
 
-foreach ($changeStream as $event) {
-    echo json_encode($event) . PHP_EOL;
+for ($changeStream->rewind(); true; $changeStream->next()) {
+    if ( ! $changeStream->valid()) {
+        continue;
+    }
+    $event = $changeStream->current();
+    echo toJSON($event) . PHP_EOL;
 }
 // end-change-stream-post-image
 
