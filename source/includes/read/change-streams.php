@@ -1,10 +1,12 @@
 <?php
 require 'vendor/autoload.php'; 
 
+// start-to-json
 function toJSON(object $document): string
 {
     return MongoDB\BSON\Document::fromPHP($document)->toRelaxedExtendedJSON();
 }
+// end-to-json
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);

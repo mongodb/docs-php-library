@@ -47,6 +47,15 @@ and create a ``$collection`` variable:
 To learn how to create a free MongoDB Atlas cluster and load the sample datasets, see the
 :atlas:`Get Started with Atlas </getting-started>` guide.
 
+Some examples use the ``toJSON()`` function to format change events, which are BSON 
+documents. To use this function, paste the following code into your application file:
+
+.. literalinclude:: /includes/read/change-streams.php
+   :language: php
+   :dedent:
+   :start-after: start-to-json
+   :end-before: end-to-json
+
 Open a Change Stream
 --------------------
 
