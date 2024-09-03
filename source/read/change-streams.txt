@@ -25,8 +25,10 @@ changes to your data. A change stream is a {+mdb-server+} feature that
 allows your application to subscribe to data changes on a collection, database,
 or deployment.
 
-When using the {+php-library+}, you can create an instance of ``MongoDB\ChangeStream`` to
-monitor data changes, such as updates, insertions, and deletions.
+When using the {+php-library+}, you can call the ``watch()`` method to return an
+instance of ``MongoDB\ChangeStream``. Then, you can iterate through change events stored 
+in the ``MongoDB\ChangeStream`` instance to monitor data changes, such as updates,
+insertions, and deletions.
 
 Sample Data
 ~~~~~~~~~~~
@@ -34,7 +36,7 @@ Sample Data
 The examples in this guide use the ``restaurants`` collection in the ``sample_restaurants``
 database from the :atlas:`Atlas sample datasets </sample-data>`. To access this collection
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
-and assign the following value to your ``collection`` variable:
+and create a ``$collection`` variable:
 
 .. literalinclude:: /includes/read/change-streams.php
    :language: php
@@ -138,14 +140,6 @@ can set in the array:
      - | Specifies whether to show the full document as it was before the change, rather
          than showing only the changes made to the document. To learn more about
          this option, see :ref:`php-change-stream-pre-post-image`.
-    
-   * - ``resumeAfter``
-     - | Instructs ``watch()`` to resume returning changes after the
-         operation specified in the resume token.
-       | Each change stream event document includes a resume token as the ``_id``
-         field. Pass the entire ``_id`` field of the change event document that
-         represents the operation you want to resume after.
-       | This option is mutually exclusive with ``startAfter`` and ``startAtOperationTime``.
 
    * - ``startAfter``
      - | Instructs ``watch()`` to start a new change stream after the
@@ -160,10 +154,6 @@ can set in the array:
      - | Instructs the change stream to only provide changes that occurred at or after
          the specified timestamp. 
        | This option is mutually exclusive with ``startAfter`` and ``resumeAfter``.
-
-   * - ``typeMap``
-     - | The type map to apply to cursors, which determines how BSON documents are converted
-         to PHP values.
 
    * - ``collation``
      - | Sets the collation to use for the change stream cursor.
@@ -206,10 +196,11 @@ one of the following values:
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP``: The change event includes a
   copy of the entire changed document from some time after the change.
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_WHEN_AVAILABLE``: The change event includes
-  a post-image of the modified document for change events only if the post-image is available.
+  a post-image of the modified document for change events. If the post-image is not
+  available, this change event field has a ``null`` value.
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_REQUIRED``: The change event includes a post-image
   of the modified document for change events. If the post-image is not available, the
-  {+php-library+} raises an error.
+  server raises an error.
 
 The following example calls the ``watch()`` method on a collection and includes the post-image
 of updated documents by setting the ``fullDocument`` option:
