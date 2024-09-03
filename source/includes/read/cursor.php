@@ -5,7 +5,8 @@ $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI 
 $client = new MongoDB\Client($uri);
 
 // start-db-coll
-$collection = $client->sample_restaurants->restaurants;
+$db = $client->sample_restaurants;
+$collection = $db->restaurants;
 // end-db-coll
 
 // Iterates over and prints all documents that have a "name" value of "Dunkin' Donuts"
@@ -19,6 +20,7 @@ foreach ($cursor as $doc) {
 // Retrieves and prints the first document stored in the cursor
 // start-cursor-first
 $cursor = $collection->find(['name' => 'Dunkin\' Donuts']);
+$cursor->rewind();
 echo json_encode($cursor->current());
 // end-cursor-first
 
@@ -49,16 +51,15 @@ $result = $collection->insertMany($vegetables);
 // by using a tailable cursor
 // start-tailable
 $cursor = $collection->find([], ['cursorType' => MongoDB\Operation\Find::TAILABLE]);
+$cursor->rewind();
 
 $docs_found = 0;
 while ($docs_found < 3) {
-    foreach ($cursor as $doc) {
+    if ($cursor->valid()) {
+        $doc = $cursor->current();
         echo json_encode($doc) . PHP_EOL;
         $docs_found++;
     }
-
-    // Sleeps for 100 milliseconds before trying to access more documents
-    usleep(100000);
+    $cursor->next();
 }
 // end-tailable
-
