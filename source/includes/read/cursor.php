@@ -5,8 +5,7 @@ $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI 
 $client = new MongoDB\Client($uri);
 
 // start-db-coll
-$db = $client->sample_restaurants;
-$collection = $db->restaurants;
+$collection = $client->sample_restaurants->restaurants;
 // end-db-coll
 
 // Iterates over and prints all documents that have a "name" value of "Dunkin' Donuts"
