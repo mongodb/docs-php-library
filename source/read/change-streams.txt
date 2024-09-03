@@ -231,7 +231,7 @@ output:
 
 .. code-block:: none
    :copyable: false
-   :emphasize-lines: 3-7
+   :emphasize-lines: 3-6
 
    { "_id" : { "_data" : "..." }, "operationType" : "update", "clusterTime" :
    { "$timestamp" : { ... } }, "wallTime" : { "$date" : "..." },
@@ -239,10 +239,10 @@ output:
    "202-24", "coord" : [ -73.925044200000002093, 40.559546199999999772 ], "street"
    : "Rockaway Point Boulevard", "zipcode" : "11697" }, "borough" : "Queens",
    "cuisine" : "Irish", "grades" : [ ...], "name" : "Blarney Castle", "restaurant_id" :
-   "40366356", "blank" : "Irish" }, "ns" : { "db" : "sample_restaurants", "coll" :
-   "restaurants" }, "documentKey" : { "_id" : { "$oid" : "..." } }, "updateDescription" :
-   { "updatedFields" : { "cuisine" : "Irish" }, "removedFields" : [  ], "truncatedArrays" :
-   [  ] } }
+   "40366356" }, "ns" : { "db" : "sample_restaurants", "coll" : "restaurants" },
+   "documentKey" : { "_id" : { "$oid" : "..." } }, "updateDescription" :
+   { "updatedFields" : { "cuisine" : "Irish" }, "removedFields" : [  ],
+   "truncatedArrays" : [  ] } }
 
 .. tip::
 
