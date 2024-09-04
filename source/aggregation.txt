@@ -166,6 +166,11 @@ preceding :ref:`php-aggregation-example`:
 Additional Information
 ----------------------
 
+To view a tutorial that uses the {+php-library+} to create complex aggregation
+pipelines, see `Complex Aggregation Pipelines with Vanilla PHP and MongoDB 
+<https://www.mongodb.com/developer/products/mongodb/aggregations-php-mongodb/>`__
+in the MongoDB Developer Center.
+
 MongoDB Server Manual
 ~~~~~~~~~~~~~~~~~~~~~
 
