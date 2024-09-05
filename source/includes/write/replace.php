@@ -34,7 +34,7 @@ $replace_document = [
     'borough' => 'Manhattan'
 ];
 
-$result_two = $collection->replaceOne(
+$result = $collection->replaceOne(
     ['name' => 'Food Town'],
     $replace_document,
     ['upsert' => true]

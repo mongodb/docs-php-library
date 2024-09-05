@@ -20,10 +20,10 @@ Replace Documents
 Overview
 --------
 
-In this guide, you can learn how to use the {+library-short+} to perform a replace
-operation on a document in a MongoDB collection. A replace operation performs
-differently than an update operation. An update operation modifies only the
-specified fields in a target document. A replace operation removes *all* fields
+In this guide, you can learn how to use the {+php-library+} to run a replace
+operation on MongoDB collection. A replace operation performs differently
+than an update operation. An update operation modifies only the specified
+fields in a target document. A replace operation removes *all* fields
 in the target document and replaces them with new ones.
 
 To replace a document, use the ``MongoDB\Collection::replaceOne()`` method.
@@ -98,18 +98,17 @@ methods:
    * - ``isAcknowledged()``
      - | Returns a boolean indicating whether the write operation was acknowledged.
 
-
-
 Example
 ~~~~~~~
 
 The following example uses the ``replaceOne()`` method to replace the fields and values
-of a document in which the ``name`` field value is ``'Pizza Town'``:
+of a document in which the ``name`` field value is ``'Pizza Town'``. It then prints
+the number of modified documents:
 
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/write/update.php
+   .. input:: /includes/write/replace.php
       :start-after: start-replace-one
       :end-before: end-replace-one
       :language: php
@@ -179,11 +178,14 @@ table describes some options you can set in the array:
          fields </reference/command/insert/#command-fields>` guide in the
          {+mdb-server+} manual.
 
+Example
+~~~~~~~
+
 The following code uses the ``replaceOne()`` method to find the first document
 in which the ``name`` field has the value ``'Food Town'``, then replaces this document 
 with a new document in which the ``name`` value is ``'Food World'``. Because the
 ``upsert`` option is set to ``true``, the library inserts a new document if the query
-filter doesn't match any existing documents.
+filter doesn't match any existing documents:
 
 .. literalinclude:: /includes/write/replace.php
    :start-after: start-replace-options
@@ -204,5 +206,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Collection::replaceOne() <{+api+}/reference/method/MongoDBCollection-replaceOne/>`__
-- `MongoDB\\UpdateResult <{+api+}/reference/class/MongoDBUpdateResult/>`__
+- `MongoDB\\Collection::replaceOne() <{+api+}/method/MongoDBCollection-replaceOne/>`__
+- `MongoDB\\UpdateResult <{+api+}/class/MongoDBUpdateResult/>`__
