@@ -164,7 +164,7 @@ table describes some options you can set in the array:
          in the {+mdb-server+} manual.
 
    * - ``session``
-     - | An instance of ``ClientSession``.
+     - | Specifies the client session to associate with the operation.
 
    * - ``let``
      - | Specifies a document with a list of values to improve operation readability.
