@@ -3,11 +3,11 @@
 
 $uri = "mongodb://<hostname>:<port>";
 
-$client = new MongoDB\Client($uri, [], [
+$driverOptions = [
     'serverApi' => new MongoDB\Driver\ServerApi('1')
-]);
+];
 
-?>
+$client = new MongoDB\Client($uri, [], $driverOptions);
 // end-specify-v1
 
 // start-stable-api-options
@@ -15,9 +15,9 @@ $client = new MongoDB\Client($uri, [], [
 
 $uri = "mongodb://<hostname>:<port>";
 
-$client = new MongoDB\Client($uri, [], [
+$driverOptions = [
     'serverApi' => new MongoDB\Driver\ServerApi('1', true, true)
-]);
+];
 
-?>
+$client = new MongoDB\Client($uri, [], $driverOptions);
 // end-stable-api-options

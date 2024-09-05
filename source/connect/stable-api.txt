@@ -28,7 +28,7 @@ In this guide, you can learn how to specify **{+stable-api+}** compatibility whe
 connecting to a MongoDB deployment.
 
 The {+stable-api+} feature forces the server to run operations with behaviors compatible 
-with the API version you specify. When you update either your driver or server, 
+with the API version you specify. When you update either your library or server version, 
 the API version changes, which can change the way these operations behave.
 Using the {+stable-api+} ensures consistent responses from the server and 
 provides long-term API stability for your application.
@@ -44,7 +44,7 @@ Enable the {+stable-api+}
 To enable the {+stable-api+}, perform the following steps:
 
 1. Construct a ``MongoDB\Driver\ServerApi`` object and pass the {+stable-api+}
-   version you want to use. Currently, the driver supports only version 1.
+   version you want to use. Currently, the library supports only version 1.
 #. Construct a ``MongoDB\Client`` object. For the ``driverOptions`` parameter, pass an
    array that contains the ``serverApi`` connection option. Set this option to the
    ``MongoDB\Driver\ServerApi`` object you created in the previous step.
@@ -56,7 +56,7 @@ The following code example shows how to specify {+stable-api+} version 1:
    :copyable: true
    :start-after: // start-specify-v1
    :end-before: // end-specify-v1
-   :emphasize-lines: 5-7
+   :emphasize-lines: 5-7, 9
 
 .. note::
 
@@ -78,7 +78,7 @@ You can use these parameters to customize the behavior of the {+stable-api+}.
    :stub-columns: 1
    :widths: 25,75
 
-   * - Option Name
+   * - Parameter
      - Description
 
    * - strict
@@ -101,7 +101,7 @@ The following code example shows how you can use these parameters when construct
       :copyable: true
       :start-after: // start-stable-api-options
       :end-before: // end-stable-api-options
-      :emphasize-lines: 5-7
+      :emphasize-lines: 5-7, 9
 
 API Documentation
 -----------------
