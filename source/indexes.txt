@@ -186,7 +186,8 @@ The following example creates an Atlas Search index on the specified field:
 List Search Indexes
 ~~~~~~~~~~~~~~~~~~~
 
-The following example prints a list of Atlas Search indexes in the specified collection:
+The following example prints a list of Atlas Search indexes in the
+specified collection:
 
 .. literalinclude:: /includes/usage-examples/index-code-examples.php
    :start-after: start-search-list
@@ -243,6 +244,19 @@ The following example creates a text index on the specified string field:
 
 .. TODO: To learn more about text indexes, see the :ref:`php-text-index`
 .. guide.
+
+List Indexes
+------------
+
+The following example prints a list indexes in the
+specified collection:
+
+.. literalinclude:: /includes/usage-examples/index-code-examples.php
+   :start-after: start-list
+   :end-before: end-list
+   :language: php
+   :copyable:
+   :dedent:
 
 Delete an Index
 ---------------

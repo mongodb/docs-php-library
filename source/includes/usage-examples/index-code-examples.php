@@ -29,7 +29,7 @@ $result = $collection->createSearchIndex(
 // end-search-create
 
 // start-search-list
-foreach ($collection->listIndexes() as $indexInfo) {
+foreach ($collection->listSearchIndexes() as $indexInfo) {
     var_dump($indexInfo);
 }
 // end-search-list
@@ -73,6 +73,12 @@ $options = [
 
 $database->createCollection('<collection name>', $options);
 // end-clustered
+
+// start-list
+foreach ($collection->listIndexes() as $indexInfo) {
+    var_dump($indexInfo);
+}
+// end-list
 
 // start-remove
 $result = $collection->dropIndex('<index name>');
