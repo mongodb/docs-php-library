@@ -30,7 +30,7 @@ The first column lists the driver version.
 .. include:: /includes/mongodb-compatibility-table-php.rst
 
 For more information on how to read the compatibility tables, see our guide on
-`MongoDB Compatibility Tables. <about-driver-compatibility>`__.
+`MongoDB Compatibility Tables <about-driver-compatibility>`__.
 
 Language Compatibility
 ----------------------
@@ -47,7 +47,7 @@ The first column lists the driver versions.
 .. sharedinclude:: dbx/help-links-php.rst
 
 For more information on how to read the compatibility tables, see our guide on
-`MongoDB Compatibility Tables. <about-driver-compatibility>`__.
+`MongoDB Compatibility Tables <about-driver-compatibility>`__.
 
 How to Get Help
 ---------------
