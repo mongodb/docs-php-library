@@ -23,6 +23,8 @@ toc_landing_pages = [
 [substitutions]
 php-library = "MongoDB PHP Library"
 
+sharedinclude_root = "https://raw.githubusercontent.com/10gen/docs-shared/main/"
+
 [constants]
 
 php-library = "MongoDB PHP Library"

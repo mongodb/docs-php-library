@@ -16,6 +16,7 @@ MongoDB PHP Library
    /upgrade
    /reference
    FAQ </faq>
+   /compatibility
    /whats-new
 
 The |php-library| provides a high-level abstraction around the lower-level
