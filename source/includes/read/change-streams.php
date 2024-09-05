@@ -25,6 +25,10 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
     }
     $event = $changeStream->current();
     echo toJSON($event) . PHP_EOL;
+
+    if ($event['operationType'] === 'invalidate') {
+        break;
+    }
 }
 // end-open-change-stream
 
@@ -47,6 +51,10 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
     }
     $event = $changeStream->current();
     echo toJSON($event) . PHP_EOL;
+
+    if ($event['operationType'] === 'invalidate') {
+        break;
+    }
 }
 // end-change-stream-pipeline
 
@@ -61,6 +69,10 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
     }
     $event = $changeStream->current();
     echo toJSON($event) . PHP_EOL;
+
+    if ($event['operationType'] === 'invalidate') {
+        break;
+    }
 }
 // end-change-stream-post-image
 

@@ -26,8 +26,8 @@ allows your application to subscribe to data changes on a collection, database,
 or deployment.
 
 When using the {+php-library+}, you can call the ``watch()`` method to return an
-instance of ``MongoDB\ChangeStream``. Then, you can iterate through change events stored 
-in the ``MongoDB\ChangeStream`` instance to monitor data changes, such as updates,
+instance of ``MongoDB\ChangeStream``. Then, you can iterate through the 
+``MongoDB\ChangeStream`` instance to monitor data changes, such as updates,
 insertions, and deletions.
 
 Sample Data
@@ -81,8 +81,8 @@ and outputs changes as they occur:
    :dedent:
 
 To begin watching for changes, run the preceding code. Then, in a separate
-application or shell, modify the ``restaurants`` collection. The following
-example updates a document that has a ``name`` field value of ``'Blarney Castle'``:
+shell, modify the ``restaurants`` collection. The following example updates
+a document that has a ``name`` field value of ``'Blarney Castle'``:
 
 .. _php-change-stream-update:
 
@@ -119,9 +119,9 @@ array:
 - ``$redact``: Restricts the contents of the documents
 - ``$unset``: Removes fields from documents
 
-The following passes a pipeline that includes the ``$match`` stage to the ``watch()``
-method. This instructs the ``watch()`` method to output events only when update
-operations occur:
+The following example passes a pipeline that includes the ``$match`` stage to the
+``watch()`` method. This instructs the ``watch()`` method to output events only
+when update operations occur:
 
 .. literalinclude:: /includes/read/change-streams.php
    :start-after: start-change-stream-pipeline
@@ -200,7 +200,7 @@ to one of the following values:
   change event field has a ``null`` value.
 - ``MongoDB\Operation\Watch::FULL_DOCUMENT_BEFORE_CHANGE_REQUIRED``: The change event includes a pre-image
   of the modified document for change events. If the pre-image is not available, the
-  {+php-library+} raises an error.  
+  server raises an error.  
 
 The **post-image** is the full version of a document *after* a change. To include the
 post-image in the change stream event, set the ``fullDocument`` option to
@@ -224,9 +224,9 @@ of updated documents by setting the ``fullDocument`` option:
    :language: php
    :dedent:
 
-With the change stream application running, updating a document in the
-``restaurants`` collection by using the :ref:`preceding update example
-<php-change-stream-update>` prints a change event resembling the following
+With the change stream application running in a separate shell, updating a
+document in the ``restaurants`` collection by using the :ref:`preceding update
+example <php-change-stream-update>` prints a change event resembling the following
 output:
 
 .. code-block:: none
