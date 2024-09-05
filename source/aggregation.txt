@@ -94,8 +94,8 @@ Aggregation Example
    free MongoDB Atlas cluster and load the sample datasets, see the :atlas:`Get Started with Atlas
    </getting-started>` guide.
 
-To perform an aggregation, pass an array containing the aggregation pipeline
-stages to the ``MongoDB\Collection::aggregate()`` method.
+To perform an aggregation, pass an array containing the pipeline stages to
+the ``MongoDB\Collection::aggregate()`` method.
 
 The following code example produces a count of the number of bakeries in each borough
 of New York. To do so, it uses an aggregation pipeline that contains the following stages:
@@ -136,13 +136,12 @@ An execution plan is a potential way in which MongoDB can complete an operation.
 When you instruct MongoDB to explain an operation, it returns both the
 plan MongoDB executed and any rejected execution plans.
 
-To explain an aggregation operation, run the ``explain`` database command by passing
-the command information to the ``MongoDB\Database::command()`` method. You must specify the
-``aggregate``, ``pipeline``, and ``cursor`` fields in the ``explain`` command document
-to explain the aggregation.
+To explain an aggregation operation, construct a ``MongoDB\Operation\Aggregate`` object
+and pass the database, collection, and pipeline stages as parameters. Then, pass the
+``MongoDB\Operation\Aggregate`` object to the ``MongoDB\Collection::explain()`` method.
 
-The following example instructs MongoDB to explain the aggregation operation from the
-preceding :ref:`php-aggregation-example`:
+The following example instructs MongoDB to explain the aggregation operation
+from the preceding :ref:`php-aggregation-example`:
 
 .. io-code-block::
    :copyable:
@@ -161,7 +160,6 @@ preceding :ref:`php-aggregation-example`:
       "planCacheKey":"D56D6F10","optimizedPipeline":true,"maxIndexedOrSolutionsReached":false,
       "maxIndexedAndSolutionsReached":false,"maxScansToExplodeReached":false,"winningPlan":{
       ... }
-
 
 Additional Information
 ----------------------

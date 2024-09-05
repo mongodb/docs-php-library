@@ -4,15 +4,14 @@ require 'vendor/autoload.php';
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);
 
-$db = $client->sample_restaurants;
-$collection = $db->restaurants;
+$collection = $client->sample_restaurants->restaurants;
 
 // Retrieves documents with a cuisine value of "Bakery", groups them by "borough", and
 // counts each borough's matching documents
 // start-match-group
 $pipeline = [
     ['$match' => ['cuisine' => 'Bakery']],
-    ['$group' => ['_id' => '$borough', 'count' => ['$sum' => 1]]]
+    ['$group' => ['_id' => '$borough', 'count' => ['$sum' => 1]]],
 ];
 
 $cursor = $collection->aggregate($pipeline);
@@ -26,18 +25,16 @@ foreach ($cursor as $doc) {
 // start-explain
 $pipeline = [
     ['$match' => ['cuisine' => 'Bakery']],
-    ['$group' => ['_id' => '$borough', 'count' => ['$sum' => 1]]]
+    ['$group' => ['_id' => '$borough', 'count' => ['$sum' => 1]]],
 ];
 
-$command = [
-    'explain' => [
-        'aggregate' => 'restaurants',
-        'pipeline' => $pipeline,
-        'cursor' => new stdClass()
-    ]
-];
+$aggregate = new MongoDB\Operation\Aggregate(
+    $collection->getDatabaseName(),
+    $collection->getCollectionName(),
+    $pipeline
+);
 
-$result = $db->command($command)->toArray();
-echo json_encode($result[0]) . PHP_EOL;
+$result = $collection->explain($aggregate);
+echo json_encode($result) . PHP_EOL;
 // end-explain
 
