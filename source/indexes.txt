@@ -248,7 +248,7 @@ The following example creates a text index on the specified string field:
 List Indexes
 ------------
 
-The following example prints a list indexes in the
+The following example prints a list of indexes in the
 specified collection:
 
 .. literalinclude:: /includes/usage-examples/index-code-examples.php
