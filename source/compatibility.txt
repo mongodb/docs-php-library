@@ -40,6 +40,8 @@ of the PHP driver for use with a specific version of PHP.
 
 The first column lists the driver versions.
 
+.. sharedinclude:: dbx/lifecycle-schedule-callout.rst
+
 .. include:: /includes/language-compatibility-table-php.rst
 
 .. sharedinclude:: dbx/about-driver-compatibility.rst
