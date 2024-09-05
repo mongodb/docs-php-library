@@ -198,6 +198,8 @@ pages in the {+mdb-server+} manual:
 API Documentation
 ~~~~~~~~~~~~~~~~~
 
-For more information about executing aggregation operations by using the {+php-library+},
-see `MongoDB\\Collection::aggregate() <{+api+}/method/MongoDBCollection-aggregate/>`__ in
-the API documentation.
+To learn more about the methods discussed in this guide, see the
+following API documentation:
+
+- `MongoDB\\Collection::aggregate() <{+api+}/method/MongoDBCollection-aggregate/>`__
+- `MongoDB\\Collection::explain() <{+api+}/method/MongoDBCollection-explain/>`__
