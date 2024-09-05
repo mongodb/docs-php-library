@@ -18,7 +18,7 @@ Compatibility
    :keywords: backwards compatibility, versions, upgrade
 
 MongoDB Compatibility
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 The following compatibility table specifies the recommended version or versions
 of the PHP driver for use with a specific version of MongoDB.
@@ -33,7 +33,7 @@ For more information on how to read the compatibility tables, see our guide on
 `MongoDB Compatibility Tables. <about-driver-compatibility>`__.
 
 Language Compatibility
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 The following compatibility table specifies the recommended version or versions
 of the PHP driver for use with a specific version of PHP.
