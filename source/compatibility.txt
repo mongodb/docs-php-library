@@ -40,13 +40,9 @@ of the PHP driver for use with a specific version of PHP.
 
 The first column lists the driver versions.
 
-.. sharedinclude:: dbx/lifecycle-schedule-callout.rst
-
 .. include:: /includes/language-compatibility-table-php.rst
 
 .. sharedinclude:: dbx/about-driver-compatibility.rst
-
-.. sharedinclude:: dbx/help-links-php.rst
 
 For more information on how to read the compatibility tables, see our guide on
 `MongoDB Compatibility Tables <about-driver-compatibility>`__.
@@ -58,4 +54,8 @@ If you have questions about compatibility, visit the following resources for fur
 
 - Ask questions on our :community-forum:`MongoDB Community Forums <>`.
 - Visit our :technical-support:`Support Channels </>`.
-- See `Issues & Help <https://www.mongodb.com/docs/drivers/kotlin/coroutine/current/issues-and-help/>`__.
+- File an issue or feature request in JIRA under one of the following:
+
+  - `Extension <https://jira.mongodb.org/projects/PHPC/summary>`_
+
+  - `Library <https://jira.mongodb.org/projects/PHPLIB/summary>`_
