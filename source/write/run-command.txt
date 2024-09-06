@@ -44,7 +44,8 @@ Execute a Command
 
 To run a database command, you must specify the command and any relevant
 parameters in a command document, then pass the command document to the
-``command()`` method. This method returns a ``Cursor`` object.
+``MongoDB\Database::command()`` method. This method returns a
+``Cursor`` object.
 
 The following code shows how you can use the ``command()``
 method on a database to run the ``hello`` command, which returns
@@ -172,5 +173,13 @@ documentation in the {+mdb-server+} manual:
 API Documentation
 ~~~~~~~~~~~~~~~~~
 
+For more information about the ``command()`` method, see the
+following {+php-library+} API documentation:
+
 - `MongoDB\\Database::command() <{+api+}/method/MongoDBDatabase-command/>`__
-- `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+
+For more information about the ``MongoDB\Driver\ReadPreference`` class,
+see the following {+extension-short+} API documentation:
+
+- `MongoDB\\Driver\\ReadPreference
+  <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
