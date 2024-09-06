@@ -21,7 +21,7 @@ Overview
 --------
 
 In this guide, you can learn how to use the {+php-library+} to run a replace
-operation on MongoDB collection. A replace operation performs differently
+operation on a MongoDB collection. A replace operation performs differently
 than an update operation. An update operation modifies only the specified
 fields in a target document. A replace operation removes *all* fields
 in the target document and replaces them with new ones.
@@ -143,7 +143,7 @@ table describes some options you can set in the array:
          documents match the query filter. For more information, see the :manual:`upsert
          statement </reference/command/update/#std-label-update-command-upsert>`
          in the {+mdb-server+} manual.
-       | Defaults to ``false``
+       | Defaults to ``false``.
 
    * - ``bypassDocumentValidation``
      - | Specifies whether the replace operation bypasses document validation. This lets you 
