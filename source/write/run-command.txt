@@ -173,4 +173,4 @@ API Documentation
 ~~~~~~~~~~~~~~~~~
 
 - `MongoDB\\Database::command() <{+api+}/method/MongoDBDatabase-command/>`__
-- `ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+- `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
