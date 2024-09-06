@@ -147,8 +147,8 @@ operation:
 
 .. note::
 
-   If the preceding example used the ``deleteOne()`` method instead of
-   ``deleteMany()``, the driver would delete only the first document that has
+   If you replace the ``deleteMany()`` method with ``deleteOne()`` in
+   the preceding example, the library deletes only the first document that has
    a ``name`` value containing ``'Mongo'``.
 
 Return Value
