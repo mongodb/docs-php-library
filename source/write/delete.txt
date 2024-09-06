@@ -145,7 +145,7 @@ operation:
    :language: php
    :dedent:
 
-.. tip::
+.. note::
 
    If the preceding example used the ``deleteOne()`` method instead of
    ``deleteMany()``, the driver would delete only the first document that has
@@ -173,6 +173,7 @@ that have a ``cuisine`` value of ``'Greek'``. It then calls the ``getDeletedCoun
 member function to print the number of deleted documents:
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/write/delete.php
       :start-after: start-delete-count
@@ -181,11 +182,12 @@ member function to print the number of deleted documents:
       :dedent:
 
    .. output:: 
+      :visible: false
 
       Deleted documents: 111
 
 API Documentation
-~~~~~~~~~~~~~~~~~
+-----------------
 
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
