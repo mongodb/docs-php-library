@@ -149,7 +149,7 @@ plans. The output also contains information about the execution of the
 ``explain`` command:
 
 .. code-block:: json
-   :emphasize-lines: 
+   :emphasize-lines: 2, 5-6
 
    string(1203)
    "[{"explainVersion":"1","queryPlanner":{"namespace":"plants.flowers",
