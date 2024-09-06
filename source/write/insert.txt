@@ -24,9 +24,10 @@ In this guide, you can learn how to use the {+php-library+} to add
 documents to a MongoDB collection by performing **insert operations**.
 
 An insert operation inserts one or more documents into a MongoDB collection.
-You can perform an insert operation by using the ``MongoDB\Collection::insertOne()``
-method to insert a single document or the ``MongoDB\Collection::insertMany()``
-method to insert one or more documents.
+You can perform an insert operation by using the following methods:
+
+- ``MongoDB\Collection::insertOne()`` to insert a single document
+- ``MongoDB\Collection::insertMany()`` method to insert one or more documents
 
 Sample Data
 ~~~~~~~~~~~
@@ -91,7 +92,7 @@ Insert Multiple Documents
 -------------------------
 
 To add multiple documents to a MongoDB collection, call the ``MongoDB\Collection::insertMany()``
-method and pass an array that contains the documents you want to add.
+method and pass an array that contains the list of documents you want to add.
 
 The following example inserts two documents into the ``restaurants`` collection:
 
