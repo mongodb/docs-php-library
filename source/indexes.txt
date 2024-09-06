@@ -70,7 +70,8 @@ The following example creates an ascending index on the specified field:
 Compound Index
 --------------
 
-The following example creates a compound index on the specified fields:
+The following example creates a compound index of two ascending indexes
+on the specified fields:
 
 .. literalinclude:: /includes/usage-examples/index-code-examples.php
    :start-after: start-compound
@@ -84,7 +85,8 @@ The following example creates a compound index on the specified fields:
 Multikey Index
 --------------
 
-The following example creates a multikey index on the specified array-valued field:
+The following example creates an ascending multikey index on the
+specified array-valued field:
 
 .. literalinclude:: /includes/usage-examples/index-code-examples.php
    :start-after: start-multikey
@@ -115,7 +117,8 @@ that has GeoJSON object values:
 Unique Index
 ------------
 
-The following example creates a unique index on the specified field:
+The following example creates an ascending unique index on the specified
+field:
 
 .. literalinclude:: /includes/usage-examples/index-code-examples.php
    :start-after: start-unique
@@ -130,7 +133,8 @@ The following example creates a unique index on the specified field:
 Wildcard Index
 --------------
 
-The following example creates a wildcard index in the specified collection:
+The following example creates an ascending wildcard index on the
+collection:
 
 .. literalinclude:: /includes/usage-examples/index-code-examples.php
    :start-after: start-wildcard
@@ -146,8 +150,8 @@ Clustered Index
 ---------------
 
 You can create a clustered index when creating a new collection in a
-specified database. The following example creates a new collection with a
-clustered index on the ``_id`` field:
+specified database. The following example creates a new collection with an
+ascending clustered index on the ``_id`` field:
 
 .. literalinclude:: /includes/usage-examples/index-code-examples.php
    :start-after: start-clustered
