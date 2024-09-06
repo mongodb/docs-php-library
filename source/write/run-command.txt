@@ -71,7 +71,10 @@ parameters, see the :ref:`Additional Information section
    .. code-block:: php
 
       $readPref = new MongoDB\Driver\ReadPreference('primaryPreferred');
-      $result = $database->command(['ping' => 1], ['readPreference' => $readPref]);
+      $result = $database->command(
+          ['ping' => 1], 
+          ['readPreference' => $readPref]
+      );
 
    For more information on read preference options, see :manual:`Read
    Preference </core/read-preference/>` in the Server manual.
@@ -148,7 +151,7 @@ the plan selected by the query optimizer, and any rejected
 plans. The output also contains information about the execution of the
 ``explain`` command:
 
-.. code-block:: json
+.. code-block:: none
    :emphasize-lines: 2, 5-6
 
    string(1203)
