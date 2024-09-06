@@ -47,12 +47,12 @@ parameters in a command document, then pass the command document to the
 ``command()`` method. This method returns a ``Cursor`` object.
 
 The following code shows how you can use the ``command()``
-method to run the ``hello`` command, which returns information about
-the current member's role in the replica set, on a database:
+method on a database to run the ``hello`` command, which returns
+information about the current member's role in the replica set:
 
 .. code-block:: php
 
-   $result = $database->command(['ping' => 1]);
+   $result = $database->command(['hello' => 1]);
 
 To find a link to a full list of database commands and corresponding
 parameters, see the :ref:`Additional Information section
@@ -77,7 +77,7 @@ parameters, see the :ref:`Additional Information section
       );
 
    For more information on read preference options, see :manual:`Read
-   Preference </core/read-preference/>` in the Server manual.
+   Preference </core/read-preference/>` in the {+mdb-server+} manual.
 
 .. _php-command-response:
 
@@ -109,12 +109,9 @@ response contains a document with the following fields:
 
    * - ``operationTime``
      - The logical time of the operation. MongoDB uses the
-       logical time to order operations.
-       
-       .. seealso::
-  
-          To learn more about logical time, see our blog post about the
-          :website:`Global Logical Clock </blog/post/transactions-background-part-4-the-global-logical-clock>`.
+       logical time to order operations. To learn more about this
+       concept, see our blog  post about the :website:`Global Logical
+       Clock </blog/post/transactions-background-part-4-the-global-logical-clock>`.
 
    * - ``$clusterTime``
      - A document that contains the signed cluster time. Cluster time is a
@@ -126,15 +123,14 @@ response contains a document with the following fields:
        - ``signature``, a document that contains the hash of the cluster time and the ID
          of the key used to sign the cluster time
 
-.. _rust-command-example:
+.. _php-command-example:
 
 Command Example
 ---------------
 
-The following code shows how you can use the ``command()`` method to run
-the ``explain`` command for a ``count`` operation on the ``flowers``
-collection of the ``plants`` database. The ``explain`` command runs in the
-``"queryPlanner"`` verbosity mode:
+The following example uses the ``command()`` method to run
+the ``explain`` command for a ``count`` operation. The ``explain``
+command runs in the ``queryPlanner`` verbosity mode:
 
 .. literalinclude:: /includes/write/run-command.php
    :language: php
@@ -142,10 +138,7 @@ collection of the ``plants`` database. The ``explain`` command runs in the
    :start-after: start-runcommand
    :end-before: end-runcommand
 
-Output
-~~~~~~
-
-The output includes fields explaining the
+The output of this command includes fields explaining the
 execution of the ``count`` operation, such as the winning plan, which is
 the plan selected by the query optimizer, and any rejected
 plans. The output also contains information about the execution of the
@@ -169,7 +162,7 @@ Additional Information
 ----------------------
 
 For more information about the concepts in this guide, see the following
-documentation in the Server manual:
+documentation in the {+mdb-server+} manual:
 
 - :manual:`db.runCommand() </reference/method/db.runCommand/>`
 - :manual:`Database Commands </reference/command/>`
@@ -180,3 +173,4 @@ API Documentation
 ~~~~~~~~~~~~~~~~~
 
 - `MongoDB\\Database::command() <{+api+}/method/MongoDBDatabase-command/>`__
+- `ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
