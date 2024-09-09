@@ -29,6 +29,6 @@ $result = $collection->deleteMany(
 // Deletes and prints the number of documents that have a "cuisine" value of "Greek"
 // start-delete-count
 $result = $collection->deleteMany(['cuisine' => 'Greek']);
-echo 'Deleted documents: ' . $result->getDeletedCount() . PHP_EOL;
+echo 'Deleted documents: ' , $result->getDeletedCount() , PHP_EOL;
 // end-delete-count
 
