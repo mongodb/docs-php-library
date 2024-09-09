@@ -48,7 +48,7 @@ To learn how to create a free MongoDB Atlas cluster and load the sample datasets
 Replace Operation
 -----------------
 
-You can perform a replace operation by using the ``MongoDB\Collection::replaceOne()`` method. 
+You can perform a replace operation by using ``MongoDB\Collection::replaceOne()``. 
 This method removes all fields except the ``_id`` field from the first document that
 matches the search criteria. It then inserts the fields and values you specify into the 
 document.
