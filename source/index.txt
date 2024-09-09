@@ -13,6 +13,7 @@ MongoDB PHP Library
    Get Started </get-started>
    /read
    /write
+   /aggregation
    /tutorial
    /upgrade
    /reference
