@@ -74,7 +74,7 @@ parameters, see the :ref:`Additional Information section
 
       $readPref = new MongoDB\Driver\ReadPreference('primaryPreferred');
       $result = $database->command(
-          ['ping' => 1], 
+          ['hello' => 1], 
           ['readPreference' => $readPref]
       );
 
@@ -146,8 +146,9 @@ collections:
 
 .. code-block:: none
 
-   string(234)
-   "[{"db":"accounts","collections":2,"views":0,"objects":5,"avgObjSize":22,"dataSize":110,"storageSize":8192,"totalFreeStorageSize":0,"numExtents":0,"indexes":2,"indexSize":8192,"indexFreeStorageSize":0,"fileSize":0,"nsSizeMB":0,"ok":1}]"
+   string(234) "[{"db":"accounts","collections":2,"views":0,"objects":5,"avgObjSize":22,
+   "dataSize":110,"storageSize":8192,"totalFreeStorageSize":0,"numExtents":0,"indexes":2,
+   "indexSize":8192,"indexFreeStorageSize":0,"fileSize":0,"nsSizeMB":0,"ok":1}]"
 
 .. _php-addtl-info-runcommand:
 
