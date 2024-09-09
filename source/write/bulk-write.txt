@@ -51,8 +51,8 @@ Bulk Operations
 ---------------
 
 To run a bulk write operation, pass an array of write operations to the
-``MongoDB\Collection::bulkWrite()`` method. You can specify the following
-operations in the array:
+``MongoDB\Collection::bulkWrite()`` method. Use the following syntax to 
+specify the write operations:
 
 .. code-block:: php
 
@@ -77,109 +77,21 @@ to run the write operations in an arbitrary order, see the :ref:`php-bulk-modify
 Example
 ~~~~~~~
 
-The following example runs a delete, insert, and update operation on the
-``restaurants`` collection:
+This example runs the following write operations on the ``restaurants``
+collection:
+
+- Insert operation, which inserts a document in which the ``name`` value is 
+  ``'Mongo's Deli'``
+
+- Update operation, which updates the ``cuisine`` field of a document in
+  which the ``name`` value is ``'Mongo's Deli'``
+
+- Delete operation, which deletes all documents in which the ``borough`` value
+  is ``'Manhattan'``
 
 .. literalinclude:: /includes/write/bulk-write.php
-   :start-after: start-bulk-insert-one
-   :end-before: end-bulk-insert-one
-   :language: php
-   :dedent:
-
-To insert multiple documents, create an instance of ``mongocxx::model::insert_one``
-for each document.
-
-.. _php-bulk-update-model:
-
-Update Operations
-~~~~~~~~~~~~~~~~~
-
-To update a document, create an instance of ``mongocxx::model::update_one``. This model
-instructs the driver to update *the first* document that matches your query filter. Then,
-append the model instance to an instance of the ``mongocxx::bulk_write`` class. 
-
-Pass the following arguments to the ``mongocxx::model::update_one`` model:
-
-- **Query filter** document, which specifies the criteria used to match documents
-  in your collection.
-- **Update** document, which specifies the kind of update to perform. For more information
-  about update operations, see the :manual:`Field Update Operators
-  </reference/operator/update-field/>` guide in the {+mdb-server+} manual.
-
-The following example creates an instance of ``mongocxx::model::update_one`` and appends
-it to a ``mongocxx::bulk_write`` instance called ``bulk``:
-
-.. literalinclude:: /includes/write/bulk-write.php
-   :start-after: start-bulk-update-one
-   :end-before: end-bulk-update-one
-   :language: php
-   :dedent:
-
-To update multiple documents, create an instance of ``mongocxx::model::update_many``
-and pass in the same arguments. This model instructs the driver to update *all* documents
-that match your query filter.
-
-The following example creates an instance of ``mongocxx::model::update_many`` and appends
-it to ``bulk``:
-
-.. literalinclude:: /includes/write/bulk-write.php
-   :start-after: start-bulk-update-many
-   :end-before: end-bulk-update-many
-   :language: php
-   :dedent:
-
-.. _php-bulk-replace-model:
-
-Replace Operations
-~~~~~~~~~~~~~~~~~~
-
-A replace operation removes all fields and values of a specified document and
-replaces them with new ones. To perform a replace operation, create an instance
-of the ``mongocxx::model::replace_one`` class and pass it a query filter and
-the fields and values you want to store in the matching document. Then, append
-the model instance to an instance of the ``mongocxx::bulk_write`` class.
-
-The following example creates an instance of ``mongocxx::model::replace_one`` and appends
-it to a ``mongocxx::bulk_write`` instance called ``bulk``:
-
-.. literalinclude:: /includes/write/bulk-write.php
-   :start-after: start-bulk-replace-one
-   :end-before: end-bulk-replace-one
-   :language: php
-   :dedent:
-
-To replace multiple documents, you must create a new instance of ``mongocxx::model::replace_one``
-for each document.
-
-.. _php-bulk-delete-model:
-
-Delete Operations
-~~~~~~~~~~~~~~~~~
-
-To delete a document, create an instance of the ``mongocxx::model::delete_one`` class and
-pass in a query filter specifying the document you want to delete. This model instructs
-the driver to delete only *the first* document that matches your query filter. Then, append
-the model instance to an instance of the ``mongocxx::bulk_write`` class.
-
-The following example creates an instance of ``mongocxx::model::delete_one`` and appends
-it to a ``mongocxx::bulk_write`` instance called ``bulk``:
-
-.. literalinclude:: /includes/write/bulk-write.php
-   :start-after: start-bulk-delete-one
-   :end-before: end-bulk-delete-one
-   :language: php
-   :dedent:
-
-To delete multiple documents, create an instance of the ``mongocxx::model::delete_many``
-class and pass in a query filter specifying the document you want to delete. This model
-instructs the driver to delete *all* documents that match your query filter.
-
-The following example creates an instance of ``mongocxx::model::delete_many`` and appends
-it to ``bulk``:
-
-.. literalinclude:: /includes/write/bulk-write.php
-   :start-after: start-bulk-delete-many
-   :end-before: end-bulk-delete-many
+   :start-after: start-run-bulk
+   :end-before: end-run-bulk
    :language: php
    :dedent:
 
@@ -188,61 +100,69 @@ it to ``bulk``:
 Modify Bulk Write Behavior
 --------------------------
 
-You can modify the behavior of the ``create_bulk_write()`` method by passing
-an instance of the ``mongocxx::options::bulk_write`` class as a parameter. The following
-table describes the fields you can set in a ``mongocxx::options::bulk_write``
-instance:
+You can modify the behavior of the ``MongoDB\Collection::bulkWrite()`` method by
+passing an array that specifies option values as a parameter. The following table 
+describes the options you can set in the array:
 
 .. list-table::
    :widths: 30 70
    :header-rows: 1
 
-   * - Field
+   * - Option
      - Description
 
-   * - ``ordered``
-     - | If ``true``, the driver performs the write operations in the order
-         provided. If an error occurs, the remaining operations are not
-         attempted. 
-       |
-       | If ``false``, the driver performs the operations in an
-         arbitrary order and attempts to perform all operations.
-       | Defaults to ``true``.
-
-   * - ``bypass_document_validation``
-     - | Specifies whether the operation bypasses document-level validation. For more
-         information, see :manual:`Schema
+   * - ``bypassDocumentValidation``
+     - | Specifies whether the operation bypasses document validation. This lets you 
+         modify documents that don't meet the schema validation requirements, if any 
+         exist. For more information about schema validation, see :manual:`Schema
          Validation </core/schema-validation/#schema-validation>` in the MongoDB
          Server manual.
        | Defaults to ``false``.
 
-   * - ``write_concern``
-     - | Specifies the write concern for the bulk operation. For more information, see
-         :manual:`Write Concern </reference/write-concern/>` in the {+mdb-server+} manual.
+   * - ``codec``
+     - | Sets the codec to use for encoding or decoding documents. Bulk writes 
+         use the codec for ``insertOne()`` and ``replaceOne()`` operations.
+         For more information, see the :ref:`php-codecs` guide.
 
-   * - ``comment``
-     - | Attaches a comment to the operation. For more information, see the :manual:`delete command
-         fields </reference/command/delete/#command-fields>` guide in the
-         {+mdb-server+} manual.
+   * - ``writeConcern``
+     - | Sets the write concern for the operation.
+         For more information, see :manual:`Write Concern </reference/write-concern/>`
+         in the {+mdb-server+} manual.
 
    * - ``let``
-     - | Specifies a document with a list of values to improve operation readability. Values
-         must be constant or closed expressions that don't reference document fields. For more
-         information, see the :manual:`let statement
-         </reference/command/delete/#std-label-delete-let-syntax>` in the {+mdb-server+} manual.
+     - | Specifies a document with a list of values to improve operation readability.
+         Values must be constant or closed expressions that don't reference document
+         fields. For more information, see the :manual:`let statement
+         </reference/command/update/#std-label-update-let-syntax>` in the
+         {+mdb-server+} manual.
 
-The following example calls the ``create_bulk_write()`` method from the
-:ref:`php-bulk-start-operation` example on this page, but sets the ``ordered`` field
-of a ``mongocxx::options::bulk_write`` instance to ``false``:
+   * - ``ordered``
+     - | If set to ``true``: when a single write fails, the operation stops without
+         performing the remaining writes and throws an exception.
+       | If set to ``false``: when a single write fails, the operation continues to
+         attempt the remaining write operations, if any, and throws an exception.
+       | Defaults to ``true``.
+
+   * - ``comment``
+     - | Attaches a comment to the operation. For more information, see the :manual:`insert command
+         fields </reference/command/insert/#command-fields>` guide in the
+         {+mdb-server+} manual.
+
+   * - ``session``
+     - | Specifies the client session to associate with the operation.
+
+The following example calls the ``bulkWrite()`` method to perform an 
+insert and delete operation and sets the ``ordered`` option to
+``false``:
 
 .. literalinclude:: /includes/write/bulk-write.php
-   :start-after: start-bulk-write-unordered
-   :end-before: end-bulk-write-unordered
+   :start-after: start-bulk-options
+   :end-before: end-bulk-options
    :language: php
    :dedent:
 
-If any of the write operations in an unordered bulk write fail, the {+driver-short+}
-reports the errors only after attempting all operations.
+If the library runs the insert operation first, one document is deleted.
+If it runs the delete operation first, no documents are deleted. 
 
 .. note::
 
@@ -254,8 +174,8 @@ reports the errors only after attempting all operations.
 Return Value
 ------------
 
-The ``execute()`` method returns an instance of the ``mongocxx::result::bulk_write`` class.
-The ``mongocxx::result::bulk_write`` class contains the following member functions:
+The ``MongoDB\Collection::bulkWrite()`` method returns a ``MongoDB\BulkWriteResult``
+object. This class contains the following member functions:
 
 .. list-table::
    :widths: 30 70
@@ -264,24 +184,30 @@ The ``mongocxx::result::bulk_write`` class contains the following member functio
    * - Function
      - Description
          
-   * - ``deleted_count()``
+   * - ``getDeletedCount()``
      - | Returns the number of documents deleted, if any.
 
-   * - ``inserted_count()``
+   * - ``getInsertedCount()``
      - | Returns the number of documents inserted, if any.
 
-   * - ``matched_count()``
-     - | Returns the number of documents matched for an update, if applicable.
+   * - ``getInsertedIds()``
+     - | Returns a map of ``_id`` field values for inserted documents, if any.
 
-   * - ``modified_count()``
+   * - ``getMatchedCount()``
+     - | Returns the number of documents matched during update and replace
+         operations, if applicable.
+
+   * - ``getModifiedCount()``
      - | Returns the number of documents modified, if any.
 
-   * - ``upserted_count()``
+   * - ``getUpsertedCount()``
      - | Returns the number of documents upserted, if any.
 
-   * - ``upserted_ids()``
-     - | Returns a map of the operation's index to the ``_id`` of the upserted documents, if
-         applicable.
+   * - ``getUpsertedIds()``
+     - | Returns a map of ``_id`` field values for upserted documents, if any.
+
+   * - ``isAcknowledged()``
+     - | Returns a boolean indicating whether the bulk operation was acknowledged.
 
 Additional Information
 ----------------------
@@ -291,9 +217,7 @@ To learn how to perform individual write operations, see the following guides:
 - :ref:`php-write-insert`
 - :ref:`php-write-update`
 - :ref:`php-write-delete`
-
-.. TODO:
- - :ref:`php-write-replace`
+- :ref:`php-write-replace`
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
@@ -301,13 +225,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `create_bulk_write() <{+api+}/classmongocxx_1_1v__noabi_1_1collection.html#abbf0932175201384cc902c80740adfdc>`__
-- `mongocxx::model::insert_one <{+api+}/classmongocxx_1_1v__noabi_1_1model_1_1insert__one.html>`__
-- `mongocxx::model::update_one <{+api+}/classmongocxx_1_1v__noabi_1_1model_1_1update__one.html>`__
-- `mongocxx::model::update_many <{+api+}/classmongocxx_1_1v__noabi_1_1model_1_1update__many.html>`__
-- `mongocxx::model::replace_one <{+api+}/classmongocxx_1_1v__noabi_1_1model_1_1replace__one.html>`__
-- `mongocxx::model::delete_one <{+api+}/classmongocxx_1_1v__noabi_1_1model_1_1delete__one.html>`__
-- `mongocxx::model::delete_many <{+api+}/classmongocxx_1_1v__noabi_1_1model_1_1delete__many.html>`__
-- `execute() <{+api+}/classmongocxx_1_1v__noabi_1_1bulk__write.html#a13476d87ed6d00dca52c39dc04b98568>`__
-- `mongocxx::options::bulk_write <{+api+}/classmongocxx_1_1v__noabi_1_1options_1_1bulk__write.html>`__
-- `mongocxx::result::bulk_write <{+api+}/classmongocxx_1_1v__noabi_1_1result_1_1bulk__write.html>`__
+- `MongoDB\\Collection::bulkWrite() <{+api+}/method/MongoDBCollection-bulkWrite>`__
+- `MongoDB\\BulkWriteResult <{+api+}/class/MongoDBBulkWriteResult>`__
