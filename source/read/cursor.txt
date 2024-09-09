@@ -53,7 +53,8 @@ To learn how to create a free MongoDB Atlas cluster and load the sample datasets
 Access Cursor Contents Iteratively
 ----------------------------------
 
-To iterate over the contents of a ``MongoDB\Driver\Cursor`` instance, use a ``foreach`` loop.
+The ``MongoDB\Driver\Cursor`` class implements the ``Iterator`` interface, so you
+can use a ``foreach`` loop to iterate through its contents.
 
 The following example uses the ``MongoDB\Collection::find()`` method to retrieve all documents
 in which the ``name`` field value is ``'Dunkin' Donuts'``. It then prints each document from the
@@ -111,8 +112,14 @@ Retrieve All Documents
    application memory, your program will crash. If you expect a large result
    set, :ref:`access your cursor iteratively <php-cursors-iterate>`.
 
-To retrieve all documents from a cursor, convert the cursor into an array. The following
-example calls the ``toArray()`` method on a cursor to store its results in an array:
+To retrieve all documents from a cursor, convert the cursor into an array by using
+either of the following methods:
+
+- ``MongoDB\\Driver\\Cursor::toArray()``: Call on a ``MongoDB\Driver\Cursor`` object
+- ``iterator_to_array()``: Pass a ``MongoDB\Driver\Cursor`` object as a parameter
+
+The following example calls the ``toArray()`` method on a cursor to store its results
+in an array:
 
 .. literalinclude:: /includes/read/cursor.php
    :language: php
@@ -172,6 +179,7 @@ To learn more about cursors, see the following pages in the PHP manual:
 - `MongoDB\\Driver\\Cursor <{+php-manual+}/class.mongodb-driver-cursor.php>`__
 - `MongoDB\\Driver\\Cursor::current() <{+php-manual+}/mongodb-driver-cursor.current.php>`__
 - `MongoDB\\Driver\\Cursor::toArray() <{+php-manual+}/mongodb-driver-cursor.toarray.php>`__
+- `iterator_to_array() <{+php-manual+}/function.iterator-to-array.php>`__
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
