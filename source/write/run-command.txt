@@ -48,11 +48,13 @@ parameters in a command document, then pass the command document to the
 ``Cursor`` object.
 
 The following code shows how you can use the ``command()``
-method on a database to run the ``hello`` command, which returns
-information about the current member's role in the replica set:
+method on a ``MongoDB\Driver\Database`` instance to run the ``hello``
+command, which returns information about the current member's role in
+the replica set:
 
 .. code-block:: php
 
+   $database = $client->selectDatabase('<db>');
    $result = $database->command(['hello' => 1]);
 
 To find a link to a full list of database commands and corresponding
@@ -61,10 +63,9 @@ parameters, see the :ref:`Additional Information section
 
 .. note:: Read Preference
 
-   The ``command()`` method does not
-   obey the read preference you might have set on your ``Database``
-   instance elsewhere in your code. By default, ``command()`` uses the ``primary``
-   read preference.
+   The ``command()`` method does not obey the read preference you might
+   have set on your ``Database`` instance elsewhere in your code. By
+   default, ``command()`` uses the ``primary`` read preference.
    
    You can set a read preference for command execution by setting one
    in the options parameter, as shown in the following code:
@@ -130,8 +131,8 @@ Command Example
 ---------------
 
 The following example uses the ``command()`` method to run
-the ``explain`` command for a ``count`` operation. The ``explain``
-command runs in the ``queryPlanner`` verbosity mode:
+the ``dbStats`` command to retrieve storage statistics for the
+``accounts`` database:
 
 .. literalinclude:: /includes/write/run-command.php
    :language: php
@@ -139,23 +140,14 @@ command runs in the ``queryPlanner`` verbosity mode:
    :start-after: start-runcommand
    :end-before: end-runcommand
 
-The output of this command includes fields explaining the
-execution of the ``count`` operation, such as the winning plan, which is
-the plan selected by the query optimizer, and any rejected
-plans. The output also contains information about the execution of the
-``explain`` command:
+The output of this command includes information about the collections in
+the database and describes the amount and size of data stored across
+collections:
 
 .. code-block:: none
-   :emphasize-lines: 2, 5-6
 
-   string(1203)
-   "[{"explainVersion":"1","queryPlanner":{"namespace":"plants.flowers",
-   "indexFilterSet":false,"maxIndexedOrSolutionsReached":false,
-   "maxIndexedAndSolutionsReached":false,"maxScansToExplodeReached":false,"winningPlan":
-   {"stage":"RECORD_STORE_FAST_COUNT"},"rejectedPlans":[]},"command":{"count":"flowers",
-   "$db":"plants"},"serverInfo":{"host":"...","port":27017,"version":"7.0.12",
-   "gitVersion":"..."},"serverParameters":{...},"ok":1,"$clusterTime":{...},"signature":{...},
-   "keyId":...}},"operationTime":{"$timestamp":{"t":1725637892,"i":12}}}]"
+   string(234)
+   "[{"db":"accounts","collections":2,"views":0,"objects":5,"avgObjSize":22,"dataSize":110,"storageSize":8192,"totalFreeStorageSize":0,"numExtents":0,"indexes":2,"indexSize":8192,"indexFreeStorageSize":0,"fileSize":0,"nsSizeMB":0,"ok":1}]"
 
 .. _php-addtl-info-runcommand:
 
@@ -168,7 +160,7 @@ documentation in the {+mdb-server+} manual:
 - :manual:`db.runCommand() </reference/method/db.runCommand/>`
 - :manual:`Database Commands </reference/command/>`
 - :manual:`hello Command </reference/command/hello/>`
-- :manual:`explain Command </reference/command/explain/>`
+- :manual:`dbStats Command </reference/command/dbStats/>`
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
@@ -178,8 +170,10 @@ following {+php-library+} API documentation:
 
 - `MongoDB\\Database::command() <{+api+}/method/MongoDBDatabase-command/>`__
 
-For more information about the ``MongoDB\Driver\ReadPreference`` class,
+For more information about the ``Cursor`` and ``ReadPreference`` classes,
 see the following {+extension-short+} API documentation:
 
+- `MongoDB\\Driver\\Cursor
+  <https://www.php.net/manual/en/class.mongodb-driver-cursor.php>`__
 - `MongoDB\\Driver\\ReadPreference
   <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
