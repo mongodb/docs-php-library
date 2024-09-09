@@ -1,0 +1,12 @@
+.. _php-write:
+
+=====================
+Write Data to MongoDB
+=====================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   
+   /write/insert
+   /write/update
