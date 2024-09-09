@@ -7,8 +7,11 @@ Read Data from MongoDB
 .. toctree::
    :titlesonly:
    :maxdepth: 1
-   
+
    /read/retrieve
+   /read/project
+   /read/count
    /read/specify-documents-to-return
    /read/specify-a-query
-   /read/project
+   /read/distinct
+   /read/change-streams
