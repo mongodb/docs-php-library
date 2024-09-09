@@ -24,9 +24,9 @@ toc_landing_pages = [
 php-library = "MongoDB PHP Library"
 
 [constants]
-
 php-library = "MongoDB PHP Library"
 driver-short = "PHP library"
 stable-api = "Stable API"
 mdb-server = "MongoDB Server"
 api = "https://www.mongodb.com/docs/php-library/current/reference"
+php-manual = "https://www.php.net/manual/en"

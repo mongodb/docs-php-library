@@ -17,7 +17,7 @@ $cursor = $collection->find(
 );
 
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-limit
 
@@ -29,7 +29,7 @@ $cursor = $collection->find(
 );
 
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-sort
 
@@ -41,7 +41,7 @@ $cursor = $collection->find(
 );
 
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-skip
 
@@ -56,7 +56,7 @@ $options = [
 
 $cursor = $collection->find(['cuisine' => 'Italian'], $options);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-limit-sort-skip
 
