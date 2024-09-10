@@ -12,3 +12,4 @@ Write Data to MongoDB
    /write/replace
    /write/insert
    /write/update
+   /write/gridfs
