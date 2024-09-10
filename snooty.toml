@@ -18,6 +18,7 @@ toc_landing_pages = [
     "/reference/class/MongoDBModelDatabaseInfo",
     "/reference/class/MongoDBModelIndexInfo",
     "/get-started",
+    "/write",
 ]
 
 [substitutions]
