@@ -7,6 +7,7 @@ Write Data to MongoDB
 .. toctree::
    :titlesonly:
    :maxdepth: 1
-   
+
+   /write/replace
    /write/insert
    /write/update
