@@ -92,7 +92,7 @@ $database->createCollection('<collection name>', $options);
 
 // start-list
 foreach ($collection->listIndexes() as $indexInfo) {
-    echo toJSON($indexInfo) . PHP_EOL;
+    echo $indexInfo;
 }
 // end-list
 
