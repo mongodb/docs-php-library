@@ -88,7 +88,7 @@ Modify the Delete Operation
 ---------------------------
 
 You can modify the behavior of the ``MongoDB\Collection::deleteOne()`` and
-``MongoDB\Collection::deleteMany()`` methods by by passing an array that
+``MongoDB\Collection::deleteMany()`` methods by passing an array that
 specifies option values as a parameter. The following table describes the
 options you can set in the array:
 
@@ -100,12 +100,13 @@ options you can set in the array:
      - Description
 
    * - ``collation``
-     - | Specifies the kind of language collation to use when sorting
-         results. For more information, see :manual:`Collation </reference/collation/#std-label-collation>`
+     - | Specifies the kind of language collation to use when comparing
+         strings. For more information, see :manual:`Collation </reference/collation/#std-label-collation>`
          in the {+mdb-server+} manual.
 
    * - ``writeConcern``
-     - | Sets the write concern for the operation.
+     - | Sets the write concern for the operation. This option defaults to
+         the collection's write concern.
          For more information, see :manual:`Write Concern </reference/write-concern/>`
          in the {+mdb-server+} manual.
 
@@ -159,8 +160,9 @@ methods return a ``MongoDB\DeleteResult`` object. This class contains the
 following member functions:
 
 - ``isAcknowledged()``, which returns a boolean indicating whether the operation
-  was acknowledged
-- ``getDeletedCount()``, which returns the number of documents deleted
+  was acknowledged.
+- ``getDeletedCount()``, which returns the number of documents deleted. If the write
+  operation was not acknowledged, this method throws an error.
 
 If the query filter does not match any documents, the driver doesn't delete any
 documents and ``getDeletedCount()`` returns ``0``.

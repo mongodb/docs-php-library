@@ -10,18 +10,18 @@ $collection = $client->sample_restaurants->restaurants;
 
 // Deletes a document that has a "name" value of "Ready Penny Inn"
 // start-delete-one
-$result = $collection->deleteOne(['name' => 'Ready Penny Inn']);
+$collection->deleteOne(['name' => 'Ready Penny Inn']);
 // end-delete-one
 
 // Deletes documents that have a "borough" value of "Brooklyn"
 // start-delete-many
-$result = $collection->deleteMany(['borough' => 'Brooklyn']);
+$collection->deleteMany(['borough' => 'Brooklyn']);
 // end-delete-many
 
 // Deletes matching documents and attaches a comment to the operation
 // start-delete-options
-$result = $collection->deleteMany(
-    ['name' => new MongoDB\BSON\Regex('Mongo', '')],
+$collection->deleteMany(
+    ['name' => new MongoDB\BSON\Regex('Mongo')],
     ['comment' => 'Deleting Mongo restaurants'],
 );
 // end-delete-options
