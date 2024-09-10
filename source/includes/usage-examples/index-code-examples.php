@@ -32,7 +32,7 @@ $indexName = $collection->createIndex(['<array field name>' => 1]);
 // start-search-create
 $indexName = $collection->createSearchIndex(
     ['mappings' => ['dynamic' => true]],
-    ['name' => '<index name>']
+    ['name' => '<Search index name>']
 );
 // end-search-create
 
@@ -44,7 +44,7 @@ foreach ($collection->listSearchIndexes() as $indexInfo) {
 
 // start-search-update
 $collection->updateSearchIndex(
-    ['name' => '<Search name>'],
+    '<Search index name>',
     ['mappings' => [
         'dynamic' => false,
         'fields' => [
