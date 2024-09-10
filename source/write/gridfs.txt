@@ -77,7 +77,8 @@ To store or retrieve files from GridFS, call the ``MongoDB\Database::selectGridF
 method on your database. This method accesses an existing bucket or creates
 a new bucket if one does not exist.
 
-The following example calls the ``selectGridFSBucket()`` on the ``db`` database:
+The following example calls the ``selectGridFSBucket()`` method on the ``db``
+database:
 
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
@@ -91,7 +92,7 @@ parameters:
 
 - ``MongoDB\library\Manager`` object, which maintains connections between the
   PHP extension and MongoDB
-- Name of the database for which to create the bucket, as a string
+- Name of the database, as a string, for which to create the bucket
 
 The following example explicitly constructs a GridFS bucket:
 
