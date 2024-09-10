@@ -10,7 +10,9 @@ Read Data from MongoDB
 
    /read/retrieve
    /read/project
+   /read/cursor
    /read/count
    /read/specify-documents-to-return
    /read/specify-a-query
    /read/distinct
+   /read/change-streams
