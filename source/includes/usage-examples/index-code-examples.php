@@ -2,13 +2,21 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use MongoDB\Client;
+$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
+$client = new MongoDB\Client($uri);
 
-$client = new Client('<connection string>');
-$collection = $client-><database>-><collection>;
+$database = $client->sample_db;
+$collection = $database->sample_coll;
+
+// start-to-json
+function toJSON(object $document): string
+{
+    return MongoDB\BSON\Document::fromPHP($document)->toRelaxedExtendedJSON();
+}
+// end-to-json
 
 // start-single-field
-$result = $collection->createIndex(['<field name>' => 1]);
+$indexName = $collection->createIndex(['<field name>' => 1]);
 // end-single-field
 
 // start-compound
@@ -18,11 +26,11 @@ $indexName = $collection->createIndex(
 // end-compound
 
 // start-multikey
-$result = $collection->createIndex(['<array field name>' => 1]);
+$indexName = $collection->createIndex(['<array field name>' => 1]);
 // end-multikey
 
 // start-search-create
-$result = $collection->createSearchIndex(
+$indexName = $collection->createSearchIndex(
     ['mappings' => ['dynamic' => true]],
     ['name' => '<index name>']
 );
@@ -30,37 +38,45 @@ $result = $collection->createSearchIndex(
 
 // start-search-list
 foreach ($collection->listSearchIndexes() as $indexInfo) {
-    var_dump($indexInfo);
+    echo toJSON($indexInfo) . PHP_EOL;
 }
 // end-search-list
 
 // start-search-update
-$result = $collection->updateSearchIndex(
-    ['name' => '<index name>'],
-    ['mappings' => ['dynamic' => true]],
+$collection->updateSearchIndex(
+    ['name' => '<Search name>'],
+    ['mappings' => [
+        'dynamic' => false,
+        'fields' => [
+            '<string field name>' => [
+                'type' => 'string',
+                'analyzer' => 'lucene.standard'
+            ]
+        ]
+    ]]
  );
 // end-search-update
 
 // start-search-delete
-$result = $collection->dropIndex('<index name>');
+$collection->dropSearchIndex('<Search index name>');
 // end-search-delete
 
 // start-text
-$result = $collection->createIndex(['<field name>' => 'text']);
+$indexName = $collection->createIndex(['<field name>' => 'text']);
 // end-text
 
 // start-geo
-$result = $collection->createIndex(
-    [ '<GeoJSON object field>' => '2dsphere'], ['name' => '<index name>']
+$indexName = $collection->createIndex(
+    [ '<GeoJSON object field>' => '2dsphere']
 );
 // end-geo
 
 // start-unique
-$result = $collection->createIndex(['<field name>' => 1], ['unique' => true]);
+$indexName = $collection->createIndex(['<field name>' => 1], ['unique' => true]);
 // end-unique
 
 // start-wildcard
-$result = $collection->createIndex(['$**' => 1]);
+$indexName = $collection->createIndex(['$**' => 1]);
 // end-wildcard
 
 // start-clustered
@@ -76,10 +92,10 @@ $database->createCollection('<collection name>', $options);
 
 // start-list
 foreach ($collection->listIndexes() as $indexInfo) {
-    var_dump($indexInfo);
+    echo toJSON($indexInfo) . PHP_EOL;
 }
 // end-list
 
 // start-remove
-$result = $collection->dropIndex('<index name>');
+$collection->dropIndex('<index name>');
 // end-remove

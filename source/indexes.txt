@@ -53,6 +53,16 @@ target namespace.
    :linenos:
    :emphasize-lines: 10-12
 
+Some examples use the ``toJSON()`` function to represent change events, which are BSON 
+documents, as Extended JSON. To use this function, paste the following code into your
+application file:
+
+.. literalinclude:: /includes/usage-examples/index-code-examples.php
+   :language: php
+   :dedent:
+   :start-after: start-to-json
+   :end-before: end-to-json
+
 Single Field Index
 ------------------
 
@@ -112,6 +122,9 @@ that has GeoJSON object values:
    :copyable:
    :dedent:
 
+To learn more about the GeoJSON data type, see :manual:`GeoJSON Objects
+</reference/geojson/>` in the {+mdb-server+} manual.
+
 .. TODO: To learn more about geospatial indexes, see the :ref:`php-geospatial-index`
 .. guide.
 
@@ -164,11 +177,61 @@ ascending clustered index on the ``_id`` field:
 .. TODO: To learn more about clustered indexes, see the :ref:`php-clustered-index`
 .. guide.
 
+Text Index
+----------
+
+The following example creates a text index on the specified string field:
+
+.. literalinclude:: /includes/usage-examples/index-code-examples.php
+   :start-after: start-text
+   :end-before: end-text
+   :language: php
+   :copyable:
+   :dedent:
+
+.. TODO: To learn more about text indexes, see the :ref:`php-text-index`
+.. guide.
+
+List Indexes
+------------
+
+The following example prints a list of indexes in the
+specified collection:
+
+.. literalinclude:: /includes/usage-examples/index-code-examples.php
+   :start-after: start-list
+   :end-before: end-list
+   :language: php
+   :copyable:
+   :dedent:
+
+Delete an Index
+---------------
+
+The following example deletes an index with the specified name:
+
+.. literalinclude:: /includes/usage-examples/index-code-examples.php
+   :start-after: start-remove
+   :end-before: end-remove
+   :language: php
+   :copyable:
+   :dedent:
+
+.. TODO: To learn more about removing indexes, see :ref:`php-indexes-remove`
+.. in the Work with Indexes guide.
+
 Atlas Search Index Management
 -----------------------------
 
 The following sections contain code examples that describe how to manage
 :atlas:`Atlas Search indexes </atlas-search/manage-indexes/>`. 
+
+.. note:: Search Index Management is Asynchronous
+
+   The {+php-library+} manages Atlas Search indexes asynchronously. The
+   library methods described in the following sections return the server
+   response immediately, but the changes to your Search indexes take
+   place in the background and might not complete until some time later.
 
 .. To learn more about Atlas Search indexes, see the :ref:`php-atlas-search-index`
 .. guide.
@@ -234,46 +297,3 @@ The following example deletes an Atlas Search index with the specified name:
 
 .. To learn more about deleting search indexes, see the :ref:`php-atlas-search-index-drop`
 .. guide.
-
-Text Index
-----------
-
-The following example creates a text index on the specified string field:
-
-.. literalinclude:: /includes/usage-examples/index-code-examples.php
-   :start-after: start-text
-   :end-before: end-text
-   :language: php
-   :copyable:
-   :dedent:
-
-.. TODO: To learn more about text indexes, see the :ref:`php-text-index`
-.. guide.
-
-List Indexes
-------------
-
-The following example prints a list of indexes in the
-specified collection:
-
-.. literalinclude:: /includes/usage-examples/index-code-examples.php
-   :start-after: start-list
-   :end-before: end-list
-   :language: php
-   :copyable:
-   :dedent:
-
-Delete an Index
----------------
-
-The following example deletes an index with the specified name:
-
-.. literalinclude:: /includes/usage-examples/index-code-examples.php
-   :start-after: start-remove
-   :end-before: end-remove
-   :language: php
-   :copyable:
-   :dedent:
-
-.. TODO: To learn more about removing indexes, see :ref:`php-indexes-remove`
-.. in the Work with Indexes guide.
