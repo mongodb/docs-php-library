@@ -51,7 +51,8 @@ load the sample datasets, see the :atlas:`Get Started with Atlas
 Create Single-Field Index
 -------------------------
 
-The following example creates an index in ascending order on the
+Use the ``MongoDB\Collection::createIndex()`` method to create a single
+field index. The following example creates an index in ascending order on the
 ``title`` field:
 
 .. literalinclude:: /includes/indexes/indexes.php
