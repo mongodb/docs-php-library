@@ -24,7 +24,7 @@ $custom_bucket = $db->selectGridFSBucket(['bucketName' => 'myCustomBucket']);
 // end create custom bucket
 
 // start upload files
-$stream = $bucket->openUploadStream("my_file", [
+$stream = $bucket->openUploadStream('my_file', [
     'chunkSizeBytes' => 1048576,
     'metadata' => ['contentType' => 'text/plain']
 ]);
@@ -58,6 +58,5 @@ $bucket->rename(new ObjectID('66b3c86e672a17b6c8a4a4a9'), 'new_file_name');
 // end rename files
 
 // start delete files
-$bucket->delete(new ObjectID("66b3c86e672a17b6c8a4a4a9"));
+$bucket->delete(new ObjectID('66b3c86e672a17b6c8a4a4a9'));
 // end delete files
-?>

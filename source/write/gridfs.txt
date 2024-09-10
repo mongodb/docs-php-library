@@ -43,17 +43,17 @@ defined in the GridFS specification:
 - The ``chunks`` collection stores the binary file chunks.
 - The ``files`` collection stores the file metadata.
 
-When you create a new GridFS bucket, the driver creates the preceding 
+When you create a new GridFS bucket, the library creates the preceding 
 collections, prefixed with the default bucket name ``fs``, unless
-you specify a different name. The driver also creates an index on each
+you specify a different name. The library also creates an index on each
 collection to ensure efficient retrieval of the files and related
-metadata. The driver creates the GridFS bucket, if it doesn't exist, only when the first write
-operation is performed. The driver creates indexes only if they don't exist and when the
+metadata. The library creates the GridFS bucket, if it doesn't exist, only when the first write
+operation is performed. The library creates indexes only if they don't exist and when the
 bucket is empty. For more information about
 GridFS indexes, see :manual:`GridFS Indexes </core/gridfs/#gridfs-indexes>`
 in the {+mdb-server+} manual.
 
-When storing files with GridFS, the driver splits the files into smaller
+When storing files with GridFS, the library splits the files into smaller
 chunks, each represented by a separate document in the ``chunks`` collection.
 It also creates a document in the ``files`` collection that contains
 a file ID, file name, and other file metadata. You can upload the file from
@@ -89,7 +89,7 @@ You can also explicitly create a GridFS bucket by calling the
 constructor for the ``MongoDB\GridFS\Bucket`` class and passing the following
 parameters:
 
-- ``MongoDB\Driver\Manager`` object, which maintains connections between the
+- ``MongoDB\library\Manager`` object, which maintains connections between the
   PHP extension and MongoDB
 - Name of the database for which to create the bucket, as a string
 
@@ -129,7 +129,7 @@ method allows you to specify configuration information in an options
 array, which you can pass as a parameter to the ``openUploadStream()`` method.
 
 The following example uses an upload stream to upload a file named
-``"my_file"`` to a GridFS bucket and writes data to the file. The code
+``'my_file'`` to a GridFS bucket and writes data to the file. The code
 also specifies the ``chunkSizeBytes`` and ``metadata`` options in an
 array parameter:
 
@@ -155,7 +155,7 @@ about the file it refers to, including:
 - A ``metadata`` document in which you can store any other information
 
 To retrieve files from a GridFS bucket, call the ``MongoDB\GridFS\Bucket::find()``
-method on the ``MongoDB\GridFS\Bucket`` instance. The method returns a ``MongoDB\Driver\Cursor``
+method on the ``MongoDB\GridFS\Bucket`` instance. The method returns a ``MongoDB\library\Cursor``
 instance from which you can access the results. To learn more about ``Cursor`` objects in
 the {+php-library+}, see the :ref:`<php-cursors>` guide.
 
@@ -225,7 +225,7 @@ a GridFS file in your bucket. You must specify the file to rename by its
 ``_id`` field rather than its file name.
 
 The following example shows how to update the ``filename`` field to
-``''new_file_name'`` by referencing a document's ``_id`` field:
+``'new_file_name'`` by referencing a document's ``_id`` field:
 
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
@@ -272,7 +272,7 @@ To learn more about using the {+php-library+} to store and retrieve large files,
 see the following API documentation:
 
 - `MongoDB\\Database::selectGridFSBucket() <{+api+}/method/MongoDBDatabase-selectGridFSBucket/>`__
-- `MongoDB\GridFS\Bucket::__construct() <{+api+}/method/MongoDBGridFSBucket__construct/>`__
+- `MongoDB\\GridFS\\Bucket::__construct() <{+api+}/method/MongoDBGridFSBucket__construct/>`__
 - `MongoDB\\GridFS\\Bucket::openUploadStream() <{+api+}/method/MongoDBGridFSBucket-openUploadStream/>`__
 - `MongoDB\\GridFS\\Bucket::find() <{+api+}/method/MongoDBGridFSBucket-find/>`__
 - `MongoDB\\GridFS\\Bucket::openDownloadStream() <{+api+}/method/MongoDBGridFSBucket-openDownloadStream/>`__
