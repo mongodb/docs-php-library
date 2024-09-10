@@ -38,7 +38,7 @@ $indexName = $collection->createSearchIndex(
 
 // start-search-list
 foreach ($collection->listSearchIndexes() as $indexInfo) {
-    echo toJSON($indexInfo) . PHP_EOL;
+    echo toJSON($indexInfo) , PHP_EOL;
 }
 // end-search-list
 
