@@ -160,17 +160,28 @@ instance from which you can access the results. To learn more about ``Cursor`` o
 the {+php-library+}, see the :ref:`<php-cursors>` guide.
 
 The following code example shows you how to retrieve and print file metadata
-from all your files in a GridFS bucket. It uses a ``foreach`` loop to iterate through
-the returned cursor and display the results:
+from files in a GridFS bucket. It uses a ``foreach`` loop to iterate through
+the returned cursor and display the contents of the file uploaded in the
+:ref:`gridfs-upload-files` example:
 
-.. literalinclude:: /includes/write/gridfs.php
-   :language: php
-   :dedent:
-   :start-after: start retrieve file info
-   :end-before: end retrieve file info
+.. io-code-block::
+   :copyable:
 
-The ``find()`` method accepts various query specifications. You can use
-its ``$options`` parameter to specify the sort order, maximum number of documents to return,
+   .. input:: /includes/write/gridfs.php
+      :start-after: start retrieve file info
+      :end-before: end retrieve file info
+      :language: php
+      :dedent:
+
+   .. output::
+      :visible: false
+
+      {"_id":{"$oid":"..."},"chunkSize":1048576,"filename":"my_file",
+      "length":13,"uploadDate":{"$date":{"$numberLong":"..."}},"metadata":
+      {"contentType":"text\/plain"},"md5":"6b24249b03ea3dd176c5a04f037a658c"}
+
+The ``find()`` method accepts various query specifications. You can use its
+``$options`` parameter to specify the sort order, maximum number of documents to return,
 and the number of documents to skip before returning. To view a list of available
 options, see the `API documentation <{+api+}/method/MongoDBGridFSBucket-find/#parameters>`__.
 
@@ -183,14 +194,23 @@ You can download files from your MongoDB database by using the
 ``MongoDB\GridFS\Bucket::openDownloadStreamByName()`` method to
 create a download stream.
 
-The following example shows you how to download a file referenced
-by the file name, ``'my_file'``, and read its contents:
+The following example shows you how to download the file named ``'my_file'``,
+which was uploaded in the :ref:`gridfs-upload-files` example, and read its
+contents:
 
-.. literalinclude:: /includes/write/gridfs.php
-   :language: php
-   :dedent:
-   :start-after: start download files name 
-   :end-before: end download files name
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/write/gridfs.php
+      :start-after: start download files name
+      :end-before: end download files name
+      :language: php
+      :dedent:
+
+   .. output::
+      :visible: false
+
+      "Data to store"
 
 .. note::
 
