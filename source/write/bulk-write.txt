@@ -71,8 +71,9 @@ specify the write operations:
     operations, see the :ref:`Write operation guides <php-write>`.
 
 When you call the ``bulkWrite()`` method, the library automatically runs the
-write operations in the order they're specified in the array. To instruct ``bulkWrite()``
-to run the write operations in an arbitrary order, see the :ref:`php-bulk-modify` section.
+write operations in the order they're specified in the array. To learn how to
+instruct ``bulkWrite()`` to run the write operations in an arbitrary order,
+see the :ref:`php-bulk-modify` section.
 
 Example
 ~~~~~~~
@@ -80,13 +81,13 @@ Example
 This example runs the following write operations on the ``restaurants``
 collection:
 
-- Insert operation, which inserts a document in which the ``name`` value is 
+- **Insert operation** to insert a document in which the ``name`` value is 
   ``'Mongo's Deli'``
 
-- Update operation, which updates the ``cuisine`` field of a document in
+- **Update operation** to update the ``cuisine`` field of a document in
   which the ``name`` value is ``'Mongo's Deli'``
 
-- Delete operation, which deletes all documents in which the ``borough`` value
+- **Delete operation** to delete all documents in which the ``borough`` value
   is ``'Manhattan'``
 
 .. literalinclude:: /includes/write/bulk-write.php
@@ -115,8 +116,8 @@ describes the options you can set in the array:
      - | Specifies whether the operation bypasses document validation. This lets you 
          modify documents that don't meet the schema validation requirements, if any 
          exist. For more information about schema validation, see :manual:`Schema
-         Validation </core/schema-validation/#schema-validation>` in the MongoDB
-         Server manual.
+         Validation </core/schema-validation/#schema-validation>` in the {+mdb-server+}
+         manual.
        | Defaults to ``false``.
 
    * - ``codec``
@@ -140,7 +141,7 @@ describes the options you can set in the array:
      - | If set to ``true``: when a single write fails, the operation stops without
          performing the remaining writes and throws an exception.
        | If set to ``false``: when a single write fails, the operation continues to
-         attempt the remaining write operations, if any, and throws an exception.
+         attempt the remaining write operations, if any, then throws an exception.
        | Defaults to ``true``.
 
    * - ``comment``
