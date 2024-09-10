@@ -8,6 +8,7 @@ Write Data to MongoDB
    :titlesonly:
    :maxdepth: 1
 
+   /write/delete
    /write/replace
    /write/insert
    /write/update
