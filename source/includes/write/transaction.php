@@ -33,12 +33,13 @@ $callback = function (MongoDB\Driver\Session $session)
 
     $receipts->insertOne([
         'account_id' => $accountId,
-        'description' => $summary,
+        'summary' => $summary,
         'timestamp' => new MongoDB\BSON\UTCDateTime(),
     ],
     ['session' => $session]);
 
-    echo 'Successfully performed transaction!' , "\n";
+    echo 'Successfully performed transaction!' , PHP_EOL;
+    echo 'Summary: ', $summary, PHP_EOL;
 };
 // end-callback
 
