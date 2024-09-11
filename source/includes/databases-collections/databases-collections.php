@@ -17,13 +17,11 @@ $db = $client->selectDatabase('test_database');
 // Accesses the "test_collection" collection
 // start-access-collection
 $collection = $client->test_database->selectCollection('test_collection');
-//$collection->insertOne(['name' => 'first doc']);
 // end-access-collection
 
 // Explicitly creates the "example_collection" collection
 // start-create-collection
 $result = $client->test_database->createCollection('example_collection');
-//$db->example_collection->insertOne(['name' => 'second doc']);
 // end-create-collection
 
 // Lists the collections in the "test_database" database
