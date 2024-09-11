@@ -300,10 +300,10 @@ API Documentation
 To learn more about using the {+php-library+} to store and retrieve large files,
 see the following API documentation:
 
-- `MongoDB\\Database::selectGridFSBucket() <{+api+}/method/MongoDBDatabase-selectGridFSBucket/>`__
-- `MongoDB\\GridFS\\Bucket::__construct() <{+api+}/method/MongoDBGridFSBucket__construct/>`__
-- `MongoDB\\GridFS\\Bucket::openUploadStream() <{+api+}/method/MongoDBGridFSBucket-openUploadStream/>`__
-- `MongoDB\\GridFS\\Bucket::find() <{+api+}/method/MongoDBGridFSBucket-find/>`__
-- `MongoDB\\GridFS\\Bucket::openDownloadStream() <{+api+}/method/MongoDBGridFSBucket-openDownloadStream/>`__
-- `MongoDB\\GridFS\\Bucket::rename() <{+api+}/method/MongoDBGridFSBucket-rename/>`__
-- `MongoDB\\GridFS\\Bucket::delete() <{+api+}/method/MongoDBGridFSBucket-delete/>`__
+- :phpmethod:`MongoDB\Database::selectGridFSBucket()`
+- :phpmethod:`MongoDB\GridFS\Bucket::__construct()`
+- :phpmethod:`MongoDB\GridFS\Bucket::openUploadStream()`
+- :phpmethod:`MongoDB\GridFS\Bucket::find()`
+- :phpmethod:`MongoDB\GridFS\Bucket::openDownloadStream()`
+- :phpmethod:`MongoDB\GridFS\Bucket::rename()`
+- :phpmethod:`MongoDB\GridFS\Bucket::delete()`
