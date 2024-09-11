@@ -37,7 +37,7 @@ Access a Database
 Access a database by passing the database name to the ``MongoDB\Client::selectDatabase()``
 method.
 
-The following example accesses a database named ``'test_database'``:
+The following example accesses a database named ``test_database``:
 
 .. literalinclude:: /includes/databases-collections/databases-collections.php
     :language: php
@@ -116,8 +116,18 @@ and :ref:`php-db-coll-create-collection` examples:
       :language: console
       :visible: false
 
-      Collection: { "name" : "test_collection", "type" : "collection", ...}
-      Collection: { "name" : "example_collection", "type" : "collection", ... }
+      MongoDB\Model\CollectionInfo Object
+      (
+         [name] => example_collection
+         [type] => collection
+         ...
+      )
+      MongoDB\Model\CollectionInfo Object
+      (
+         [name] => test_collection
+         [type] => collection
+         ...
+      )
 
 For more information about iterating over a cursor, see the :ref:`php-cursors`
 guide. 
@@ -163,13 +173,13 @@ To change the read preference, read concern, and write concern of your database
 or collection, set the following options in the array parameter:
 
 - ``readPreference``: Sets the read preference. For a list of available read
-  preferences, see `MongoDB\Driver\ReadPreference <{+php-manual}/class.mongodb-driver-readpreference>`__
+  preferences, see `MongoDB\\Driver\\ReadPreference <{+php-manual+}/class.mongodb-driver-readpreference>`__
   in the extension API documentation.
 - ``readConcern``: Sets the read concern. For a list of available read
-  concerns, see `MongoDB\Driver\ReadConcern <{+php-manual}/class.mongodb-driver-readconcern>`__
+  concerns, see `MongoDB\\Driver\\ReadConcern <{+php-manual+}/class.mongodb-driver-readconcern>`__
   in the extension API documentation.
 - ``writeConcern``: Sets the write concern. For a list of available write
-  concerns, see `MongoDB\Driver\ReadConcern <{+php-manual}/class.mongodb-driver-writeconcern>`__
+  concerns, see `MongoDB\\Driver\\ReadConcern <{+php-manual+}/class.mongodb-driver-writeconcern>`__
   in the extension API documentation.
 
 .. tip::
@@ -184,7 +194,7 @@ or collection, set the following options in the array parameter:
 Database Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows how to set the read preference, read concern and
+The following example shows how to set the read preference, read concern, and
 write preference of a database called ``test_database`` by passing an options
 array to ``selectDatabase()``:
 
@@ -197,7 +207,7 @@ array to ``selectDatabase()``:
 Collection Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows how to set the read preference, read concern and
+The following example shows how to set the read preference, read concern, and
 write preference of a collection called ``test_collection`` by passing an options
 array to ``selectCollection()``:
 
@@ -222,7 +232,7 @@ constructor. Then, set the ``MongoDB\Driver\ReadPreference`` object as
 the value of the ``readPreference`` database option.
 
 The following code example sets the ``readPreference`` option to a tag set
-that instructs the {+php-library+} to prefer reads from the New York data
+that instructs ``test_database`` to prefer reads from the New York data
 center (``'dc' => 'ny'``) and to fall back to the San Francisco data
 center (``'dc' => 'sf'``):
 
