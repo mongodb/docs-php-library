@@ -64,7 +64,7 @@ The following example shows how to use the ``$uriOptions`` parameter of the
    :copyable: true
    :start-after: // start-client-options 
    :end-before: // end-client-options
-   :emphasize-lines: 2, 5-8, 11
+   :emphasize-lines: 5-8, 11
 
 .. note::
    
@@ -348,7 +348,7 @@ API Documentation
 For more information about the ``MongoDB\Client`` class, see the following {+driver-short+}
 API documentation:
 
-- :ref:`MongoDB\Client <php-mongodbclient>`
+- :phpclass:`MongoDB\Client`
 
 For more information about the ``MongoDB\Driver\ReadPreference`` class, see the following
 {+extension-short+} API documentation:
