@@ -20,10 +20,10 @@ Perform a Transaction
 Overview
 --------
 
-In this guide, you can learn how to use the {+driver-short+} to perform
+In this guide, you can learn how to use the {+php-library+} to perform
 **transactions**. Transactions allow you to perform a series of operations
 that change data only if the entire transaction is committed.
-If any operation in the transaction does not succeed, the driver stops the
+If any operation in the transaction does not succeed, the library stops the
 transaction and discards all data changes before they ever become
 visible. This feature is called **atomicity**.
 
@@ -116,6 +116,7 @@ completes the following actions:
 
    .. input:: /includes/write/transaction.php
       :language: php
+      :copyable:
       :dedent:
       :start-after: begin-txn
       :end-before: end-txn
@@ -125,6 +126,7 @@ completes the following actions:
       :visible: false
 
       Successfully performed transaction!
+      Summary: SAVINGS +1000 CHECKING -1000
 
 Additional Information
 ----------------------
@@ -135,7 +137,7 @@ following pages in the {+mdb-server+} manual:
 - :manual:`Transactions </core/transactions/>`
 - :manual:`Server Sessions </reference/server-sessions/>`
 - :manual:`Read Isolation, Consistency, and Recency
-  </core/read-isolation-consistency-recency/#causal-consistency>`
+  </core/read-isolation-consistency-recency/>`
 
 To learn more about ACID compliance, see the :website:`What are ACID
 Properties in Database Management Systems? </basics/acid-transactions>`
@@ -159,10 +161,10 @@ To learn more about the ``Session`` class and methods,
 see the following {+extension-short+} API documentation:
 
 - `MongoDB\\Driver\\Session
-  <https://www.php.net/manual/en/class.mongodb-driver-session.php>`__
+  <{+php-manual+}/class.mongodb-driver-session.php>`__
 - `MongoDB\\Driver\\Session::abortTransaction()
-  <https://www.php.net/manual/en/mongodb-driver-session.aborttransaction.php>`__
+  <{+php-manual+}/mongodb-driver-session.aborttransaction.php>`__
 - `MongoDB\\Driver\\Session::commitTransaction()
-  <https://www.php.net/manual/en/mongodb-driver-session.committransaction.php>`__
+  <{+php-manual+}/mongodb-driver-session.committransaction.php>`__
 - `MongoDB\\Driver\\Session::startTransaction()
-  <https://www.php.net/manual/en/mongodb-driver-session.starttransaction.php>`__
+  <{+php-manual+}/mongodb-driver-session.starttransaction.php>`__

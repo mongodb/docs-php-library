@@ -28,7 +28,7 @@ $callback = function (MongoDB\Driver\Session $session)
     );
 
     $summary = sprintf(
-        "SAVINGS +%u CHECKING -%u.", $transferAmount, $transferAmount
+        "SAVINGS +%u CHECKING -%u", $transferAmount, $transferAmount
     );
 
     $receipts->insertOne([
