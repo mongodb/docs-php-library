@@ -4,6 +4,7 @@ require 'vendor/autoload.php'; // include Composer's autoloader
 use MongoDB\Client;
 use MongoDB\BSON\ObjectID;
 use MongoDB\GridFS\Bucket;
+use MongoDB\Driver\Manager;
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);

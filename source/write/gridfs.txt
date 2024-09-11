@@ -90,7 +90,7 @@ You can also explicitly create a GridFS bucket by calling the
 constructor for the ``MongoDB\GridFS\Bucket`` class and passing the following
 parameters:
 
-- ``MongoDB\library\Manager`` object, which maintains connections between the
+- ``MongoDB\Driver\Manager`` object, which maintains connections between the
   PHP extension and MongoDB
 - Name of the database, as a string, for which to create the bucket
 
