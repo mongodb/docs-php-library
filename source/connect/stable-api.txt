@@ -56,7 +56,7 @@ The following code example shows how to specify {+stable-api+} version 1:
    :copyable: true
    :start-after: // start-specify-v1
    :end-before: // end-specify-v1
-   :emphasize-lines: 5-7, 9
+   :emphasize-lines: 3,5
 
 .. note::
 
@@ -70,7 +70,7 @@ The following code example shows how to specify {+stable-api+} version 1:
 Configure the {+stable-api+}
 ------------------------
 
-The following table describes the parameters of the ``MongoDB\Driver\ServerApi`` constructor.
+The ``MongoDB\Driver\ServerApi`` constructor also accepts the following optional parameters.
 You can use these parameters to customize the behavior of the {+stable-api+}.
 
 .. list-table::
@@ -83,15 +83,17 @@ You can use these parameters to customize the behavior of the {+stable-api+}.
 
    * - strict
      - | **Optional**. When ``true``, if you call a command that isn't part of 
-         the declared API version, the library raises an exception.
+         the declared API version, the server raises an exception.
        |
-       | Default: ``false``
+       | Default: ``null``. If this parameter is null, the server applies its default
+         value of ``false``. 
 
    * -  deprecationErrors
      - | **Optional**. When ``true``, if you call a command that is deprecated in the 
-         declared API version, the library raises an exception.
+         declared API version, the server raises an exception.
        |
-       | Default: ``false``
+       | Default: ``null``. If this parameter is null, the server applies its default
+         value of ``false``. 
 
 The following code example shows how you can use these parameters when constructing a 
 ``MongoDB\Driver\ServerApi`` object:
@@ -101,7 +103,7 @@ The following code example shows how you can use these parameters when construct
       :copyable: true
       :start-after: // start-stable-api-options
       :end-before: // end-stable-api-options
-      :emphasize-lines: 5-7, 9
+      :emphasize-lines: 3,5
 
 API Documentation
 -----------------
@@ -109,7 +111,7 @@ API Documentation
 For more information about the ``MongoDB\Client`` class, see the following {+driver-short+}
 API documentation:
 
-- :ref:`MongoDB\Client <php-api-mongodbclient>`
+- :phpclass:`MongoDB\Client`
 
 For more information about the ``MongoDB\Driver\ServerApi`` class, see the following
 {+extension-short+} API documentation:
