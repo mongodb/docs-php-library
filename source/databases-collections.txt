@@ -278,9 +278,9 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Client::selectDatabase() <{+api+}/method/MongoDBClient-selectDatabase/>`__
-- `MongoDB\\Client::selectCollection() <{+api+}/method/MongoDBClient-selectCollection/>`__
-- `MongoDB\\Database::selectCollection() <{+api+}/method/MongoDBDatabase-selectCollection/>`__
-- `MongoDB\\Database::createCollection() <{+api+}/method/MongoDBDatabase-createCollection/>`__
-- `MongoDB\\Database::listCollections() <{+api+}/method/MongoDBDatabase-listCollections/>`__
-- `MongoDB\\Database::dropCollection() <{+api+}/method/MongoDBDatabase-dropCollection/>`__
+- :phpmethod:`MongoDB\Client::selectDatabase()`
+- :phpmethod:`MongoDB\Client::selectCollection()`
+- :phpmethod:`MongoDB\Database::selectCollection()`
+- :phpmethod:`MongoDB\Database::createCollection()`
+- :phpmethod:`MongoDB\Database::listCollections()`
+- :phpmethod:`MongoDB\Database::dropCollection()`
