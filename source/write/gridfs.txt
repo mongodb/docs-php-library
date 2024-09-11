@@ -53,12 +53,12 @@ bucket is empty. For more information about
 GridFS indexes, see :manual:`GridFS Indexes </core/gridfs/#gridfs-indexes>`
 in the {+mdb-server+} manual.
 
-When storing files with GridFS, the library splits the files into smaller
+When using GridFS to store files, the library splits the files into smaller
 chunks, each represented by a separate document in the ``chunks`` collection.
 It also creates a document in the ``files`` collection that contains
 a file ID, file name, and other file metadata. You can upload the file from
-memory or from a stream. See the following diagram to see how GridFS splits
-the files when uploaded to a bucket.
+memory or from a stream. View the following diagram to see how GridFS splits
+the files when uploaded to a bucket:
 
 .. figure:: /includes/figures/GridFS-upload.png
    :alt: A diagram that shows how GridFS uploads a file to a bucket
@@ -129,10 +129,14 @@ create an upload stream for a given file name. The ``openUploadStream()``
 method allows you to specify configuration information in an options
 array, which you can pass as a parameter to the ``openUploadStream()`` method.
 
-The following example uses an upload stream to upload a file named
-``'my_file'`` to a GridFS bucket and writes data to the file. The code
-also specifies the ``chunkSizeBytes`` and ``metadata`` options in an
-array parameter:
+This example uses an upload stream to perform the following
+actions:
+
+- Opens a writable stream for a new GridFS file named ``'my_file'``
+- Sets the ``chunkSizeBytes`` and ``metadata`` options in an array parameter
+  to the ``openUploadStream()`` method
+- Calls the ``fwrite()`` method to write data to ``'my_file'``, which the stream points to
+- Calls the ``fclose()`` method to close the stream pointing to ``'my_file'`` 
 
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
@@ -195,9 +199,13 @@ You can download files from your MongoDB database by using the
 ``MongoDB\GridFS\Bucket::openDownloadStreamByName()`` method to
 create a download stream.
 
-The following example shows you how to download the file named ``'my_file'``,
-which was uploaded in the :ref:`gridfs-upload-files` example, and read its
-contents:
+This example uses a download stream to perform the following actions:
+
+- Selects a GridFS file named ``'my_file'``, uploaded in the
+  :ref:`gridfs-upload-files` example, and opens it as a readable stream 
+- Calls the ``stream_get_contents()`` method to read the contents of ``'my_file'``
+- Prints the file contents
+- Calls the ``fclose()`` method to close the download stream pointing to ``'my_file'`` 
 
 .. io-code-block::
    :copyable:

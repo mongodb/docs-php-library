@@ -22,8 +22,9 @@ $bucket = new Bucket($manager, 'db');
 
 // Creates or references a GridFS bucket with a custom name
 // start create custom bucket
-$db = $client->db_gridfs;
-$custom_bucket = $db->selectGridFSBucket(['bucketName' => 'myCustomBucket']);
+$custom_bucket = $client->db->selectGridFSBucket(
+    ['bucketName' => 'myCustomBucket']
+);
 // end create custom bucket
 
 // Uploads a file called "my_file" to the GridFS bucket and writes data to it
