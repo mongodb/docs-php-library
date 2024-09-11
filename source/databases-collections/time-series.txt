@@ -1,8 +1,8 @@
 .. _php-time-series:
 
-================
-Time Series Data
-================
+=======================
+Time Series Collections
+=======================
 
 .. default-domain:: mongodb
 
@@ -60,11 +60,11 @@ Create a Time Series Collection
 You can create a time series collection to store time series data.  
 To create a time series collection, pass an options array to the 
 ``MongoDB\Database::createCollection()`` method that sets the
-``timeseries`` option. When setting this option, specify the following fields:
+``timeseries`` option. When setting this option, include the following fields:
 
-- ``timeField``: The field that stores a timestamp in each time series document.
-- ``metaField``: The field that stores metadata in each time series document.
-- ``granularity``: The approximate time between consecutive timestamps. The possible
+- ``timeField``: Specifies the field that stores a timestamp in each time series document.
+- ``metaField``: Specifies the field that stores metadata in each time series document.
+- ``granularity``: Specifies the approximate time between consecutive timestamps. The possible
   values are ``'seconds'``, ``'minutes'``, and ``'hours'``.
 
 .. _php-time-series-create-example:
@@ -135,7 +135,7 @@ print the results:
 
     MongoDB stores system data associated with time series collections
     in the ``<database>.system.buckets`` namespace. For more information,
-    see :manual:`<database>.system.buckets </reference/system-collections/#mongodb-data--database-.system.buckets>`
+    see :manual:`database.system.buckets </reference/system-collections/#mongodb-data--database-.system.buckets>`
     in the {+mdb-server+} manual.
 
 .. _php-time-series-insert:
