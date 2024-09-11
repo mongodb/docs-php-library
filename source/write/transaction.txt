@@ -131,6 +131,7 @@ completes the following actions:
       :dedent:
       :start-after: begin-txn
       :end-before: end-txn
+      :emphasize-lines: 1, 4
 
    .. output:: 
       :language: console
