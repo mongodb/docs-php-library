@@ -28,6 +28,5 @@ $indexName = $collection->createIndex(['title' => 1]);
 
 // start-index-single-query
 $document = $collection->findOne(['title' => 'Sweethearts']);
-echo json_encode($document) , "\n";
+echo json_encode($document) , PHP_EOL;
 // end-index-single-query
-
