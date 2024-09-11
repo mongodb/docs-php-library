@@ -95,11 +95,22 @@ following table describes these methods:
 Transaction Example
 -------------------
 
-The following code defines the ``transferTxn()`` callback function that
-modifies data in the ``saving_accounts``, ``checking_accounts``, and ``receipts``
-collections of the ``bank`` database:
+This example defines a callback function that
+modifies data in the collections of the ``bank`` database for a
+banking transaction. The code performs the following actions:
+
+- Creates ``Collection`` instances to access the target
+  collections.
+- Specifies the account number and amount to be transferred between
+  accounts.
+- Defines the callback function, passing the ``Session`` instance as a
+  parameter.
+- Updates the customer's balances to reflect the money transfer.
+- Records a receipt of the transaction with a timestamp.
+- Prints a message if the transaction committed successfully.
 
 .. literalinclude:: /includes/write/transaction.php
+   :copyable:
    :language: php
    :dedent:
    :start-after: begin-callback
@@ -113,10 +124,10 @@ completes the following actions:
    passing the session and the callback as parameters.
 
 .. io-code-block::
+   :copyable:
 
    .. input:: /includes/write/transaction.php
       :language: php
-      :copyable:
       :dedent:
       :start-after: begin-txn
       :end-before: end-txn
