@@ -4,13 +4,18 @@
 Time Series Collections
 =======================
 
-.. default-domain:: mongodb
-
 .. contents:: On this page
    :local:
    :backlinks: none
    :depth: 1
    :class: singlecol
+
+.. facet::
+   :name: genre
+   :values: reference
+ 
+.. meta::
+   :keywords: chronological, data format, code example
 
 Overview
 --------
