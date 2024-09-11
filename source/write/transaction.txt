@@ -166,6 +166,7 @@ guide, see the following API documentation:
 
 - :phpclass:`MongoDB\Client`
 - :phpmethod:`MongoDB\Client::startSession()`
+- :phpmethod:`MongoDB\with_transaction()`
 - :phpmethod:`MongoDB\Collection::updateOne()`
 - :phpmethod:`MongoDB\Collection::insertOne()`
 
