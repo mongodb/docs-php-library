@@ -1,0 +1,11 @@
+.. _php-databases-collections:
+
+=========================
+Databases and Collections
+=========================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   /databases-collections/time-series
