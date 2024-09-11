@@ -34,10 +34,11 @@ $callback = function (MongoDB\Driver\Session $session)
     $receipts->insertOne([
         'account_id' => $accountId,
         'description' => $summary,
-        'timestamp' => new MongoDB\BSON\UTCDateTime((new DateTime())->getTimestamp()*1000),
-    ], ['session' => $session]);
+        'timestamp' => new MongoDB\BSON\UTCDateTime(),
+    ],
+    ['session' => $session]);
 
-    echo 'Successfully performed transaction!\n';
+    echo 'Successfully performed transaction!' , "\n";
 };
 // end-callback
 
@@ -47,6 +48,6 @@ $session = $client->startSession();
 try {
     MongoDB\with_transaction($session, $callback);
 } catch (Exception $e) {
-    echo 'Caught exception: ', $e->getMessage(), '\n';
+    echo 'Caught exception: ', $e->getMessage(), "\n";
 }
 // end-txn

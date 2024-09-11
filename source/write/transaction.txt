@@ -124,7 +124,7 @@ completes the following actions:
       :language: console
       :visible: false
 
-      Successfully committed transaction!
+      Successfully performed transaction!
 
 Additional Information
 ----------------------
