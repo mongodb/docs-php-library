@@ -5,16 +5,25 @@ $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI 
 $client = new MongoDB\Client($uri);
 $collection = $client->db->coll;
 
-// Inserts one document that stores the specified value
+// Inserts one document that stores the specified values
 // start-insert-one
-$result = $collection->insertOne(['<field name>' => '<value>']);
+$result = $collection->insertOne([
+    '<field name 1>' => '<value 1>',
+    '<field name 2>' => '<value 2>',
+]);
 // end-insert-one
 
 // Inserts multiple documents that store the specified values
 // start-insert-multiple
 $result = $collection->insertMany(
-    ['<field name>' => '<value>'],
-    ['<field name>' => '<value>'],
+    [
+        '<field name 1>' => '<value 1>',
+        '<field name 2>' => '<value 2>',
+    ],
+    [
+        '<field name 1>' => '<value 1>',
+        '<field name 2>' => '<value 2>',
+    ],
 );
 // end-insert-multiple
 
@@ -38,8 +47,8 @@ $result = $collection->updateMany(
 $result = $collection->replaceOne(
     ['<field to match>' => '<value to match>'],
     [
-        '<first new field>' => '<value>',
-        '<second new field>' => '<value>',
+        '<new field 1>' => '<value 1>',
+        '<new field 2>' => '<value 2>',
     ],
 );
 // end-replace-one
