@@ -81,5 +81,5 @@ API Documentation
 To learn more about any of the methods discussed in this guide, see the following API
 documentation:
 
-:phpmethod:`MongoDB\Collection::createIndex()`
-:phpmethod:`MongoDB\Collection::findOne()`
+- :phpmethod:`MongoDB\Collection::createIndex()`
+- :phpmethod:`MongoDB\Collection::findOne()`

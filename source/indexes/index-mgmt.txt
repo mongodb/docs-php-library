@@ -135,6 +135,6 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-:phpmethod:`MongoDB\Collection::listIndexes()`
-:phpmethod:`MongoDB\Collection::dropIndex()`
-:phpmethod:`MongoDB\Collection::dropIndexes()`
+- :phpmethod:`MongoDB\Collection::listIndexes()`
+- :phpmethod:`MongoDB\Collection::dropIndex()`
+- :phpmethod:`MongoDB\Collection::dropIndexes()`
