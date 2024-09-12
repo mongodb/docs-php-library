@@ -20,8 +20,18 @@ Authentication Mechanisms
 Overview
 --------
 
-This guide describes the {+php-library+} mechanisms you can use to authenticate
+This guide describes the mechanisms you can use in the {+driver-short+} to authenticate
 users.
+
+.. important:: Percent-Encoding
+
+   You must :wikipedia:`percent-encode <Percent-encoding>` a username and password before
+   you include them in a MongoDB URI. To encode these values, you can use the ``rawurlencode()``
+   PHP method. For more information, see `rawurlencode <{+php-manual+}/rawurlencode>`__ in
+   the PHP manual.
+
+   Don't percent-encode the username or password when passing them to the
+   ``MongoDB\Client`` constructor.
 
 .. _php-scram-sha-256:
 
@@ -30,25 +40,48 @@ SCRAM-SHA-256
 
 SCRAM-SHA-256, as defined by `RFC 7677 <https://www.rfc-editor.org/rfc/rfc7677>`__,
 is the default authentication mechanism on MongoDB deployments
-running MongoDB v4.0 or later.
+running {+mdb-server+} v4.0 or later.
 
 To authenticate with this mechanism, set the following connection options:
 
-- ``db_username``: The database username to authenticate.
-- ``db_password``: The database password to authenticate.
+- ``username``: The username to authenticate. Percent-encode this value before including
+  it in a connection URI.
+- ``password``: The password to authenticate. Percent-encode this value before including
+  it in a connection URI.
 - ``authSource``: The MongoDB database to authenticate against. By default,
-  the {+php-library+} authenticates against the database in the connection
+  {+driver-short+} authenticates against the database in the connection
   URI, if you include one. If you don't, it authenticates against the ``admin`` database.
-- ``authMechanism``: Set to ``'SCRAM-SHA-256'``.
+- ``authMechanism``: Set to ``SCRAM-SHA-256``.
 
-You can set these options in the connection string when creating a
-``MongoDB\Client`` object, as shown in the following example:
+You can set these options in two ways: by passing arguments to the
+``MongoDB\Client`` constructor or through parameters in your connection string.
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-scram-sha-256
-   :end-before: // end-scram-sha-256
+.. tabs::
+
+   .. tab:: MongoDB\Client
+      :tabid: Client
+
+      .. code-block:: php
+
+         $options = [
+             'username' => '<username>',
+             'password' => '<password>',
+             'authSource' => '<authentication database>',
+             'authMechanism' => 'SCRAM-SHA-256',
+         ];
+
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            $options,
+         );
+
+   .. tab:: Connection String
+      :tabid: connectionstring
+
+      .. code-block:: php
+
+         $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-256';
+         $client = new Client($uri);
 
 .. _php-scram-sha-1:
 
@@ -57,110 +90,161 @@ SCRAM-SHA-1
 
 SCRAM-SHA-1, as defined by `RFC 5802 <https://www.rfc-editor.org/rfc/rfc5802>`__,
 is the default authentication mechanism on MongoDB deployments
-running MongoDB v3.6.
+running {+mdb-server+} v3.6.
 
 To authenticate with this mechanism, set the following connection options:
 
-- ``db_username``: The username to authenticate. 
-- ``db_password``: The password to authenticate.
-- ``authSource``: The MongoDB database to authenticate against. By default,
-  the {+php-library+} authenticates against the ``admin`` database.
+- ``username``: The username to authenticate. Percent-encode this value before including
+  it in a connection URI.
+- ``password``: The password to authenticate. Percent-encode this value before including
+  it in a connection URI.
+- ``authSource``: The MongoDB database to authenticate against. By default, the
+  {+php-library+} authenticates against the ``admin`` database.
 - ``authMechanism``: Set to ``'SCRAM-SHA-1'``.
 
-You can set these options in the connection string when creating a
-``MongoDB\Client`` object, as shown in the following example:
+You can set these options in two ways: by passing arguments to the
+``MongoDB\Client`` constructor or through parameters in your connection string.
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-scram-sha-1
-   :end-before: // end-scram-sha-1
+.. tabs::
 
-.. _php-x509:
+   .. tab:: MongoDB\Client
+      :tabid: Client
 
-MONGODB X.509
--------------
+      .. code-block:: php
+
+         $options = [
+             'username' => '<username>',
+             'password' => '<password>',
+             'authSource' => '<authentication database>',
+             'authMechanism' => 'SCRAM-SHA-1',
+         ];
+
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            $options,
+         );
+
+   .. tab:: Connection String
+      :tabid: connectionstring
+
+      .. code-block:: php
+
+         $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-1';
+         $client = new Client($uri);
+
+.. _php-mongodb-x509:
+
+MONGODB-X509
+------------
 
 If you enable TLS, during the TLS handshake, the {+php-library+} can present an X.509
-client certificate to MongoDB to prove its identity. The ``MONGODB-X509`` authentication
+client certificate to MongoDB to prove its identity. The MONGODB-X509 authentication
 mechanism uses this certificate to authenticate the client.
 
 To authenticate with this mechanism, set the following connection options:
 
-- ``tls``: Set to ``True``.
+- ``tls``: Set to ``true``.
 - ``tlsCertificateKeyFile``: The file path of the ``.pem`` file that contains your
   client certificate and private key.
 - ``authMechanism``: Set to ``'MONGODB-X509'``.
 
-You can set these options in the connection string when creating a
-``MongoDB\Client`` object, as shown in the following example:
+You can set these options in two ways: by passing arguments to the
+``MongoDB\Client`` constructor or through parameters in your connection string.
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-x509
-   :end-before: // end-x509
+.. tabs::
 
-To learn more about enabling TLS, see the :ref:`php-tls` guide.
+   .. tab:: MongoDB\Client
+      :tabid: Client
 
-.. _php-mongo-aws:
+      .. code-block:: php
+
+         $options = [
+             'tls' => true,
+             'tlsCertificateKeyFile' => '<file path>',
+             'authMechanism' => 'MONGODB-X509',
+         ];
+
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            $options,
+         );
+
+   .. tab:: Connection String
+      :tabid: connectionstring
+
+      .. code-block:: php
+
+         $uri = 'mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=<file path>&authMechanism=MONGODB-X509';
+         $client = new Client($uri);
+
+.. _php-mongodb-aws:
 
 MONGODB-AWS
 -----------
 
 .. important::
 
-   The MONGODB-AWS authentication mechanism requires MongoDB Server v4.4 or later.
+   The MONGODB-AWS authentication mechanism requires MongoDB v4.4 or later.
 
-The ``MONGODB-AWS`` authentication mechanism uses AWS IAM (Amazon Web Services Identity and
-Access Management) or AWS Lambda credentials to authenticate your application.
-To authenticate using this mechanism, first create a user with an associated Amazon Resource Name (ARN) on
-the ``$external`` database, then specify the ``MONGODB-AWS`` authMechanism in the
-URI.
+The MONGODB-AWS authentication mechanism uses AWS IAM (Amazon Web Services Identity and
+Access Management) or AWS Lambda credentials to authenticate your application. The
+{+php-library+} tries to retrieve AWS credentials from the following sources, in the order listed:
 
-When you use the ``MONGODB-AWS`` mechanism, the {+php-library+} attempts to
-retrieve your AWS credentials from the following sources, in the order listed:
-
-1. Named parameters passed to the Connection URI
+1. Named arguments passed to the ``MongoDB\Client`` constructor or parameters in the
+   connection URI
 #. Environment variables
-#. AWS EKS AssumeRoleWithWebIdentity request
-#. ECS container metadata
-#. EC2 instance metadata
+#. ``AssumeRoleWithWebIdentity`` request to the AWS STS
+#. Instance metadata service on an Amazon EC2 instance with an IAM role configured
 
 The following sections describe how to use the {+php-library+} to retrieve credentials from
 these sources and use them to authenticate your application.
 
-Connection URI
-~~~~~~~~~~~~~~
+.. _php-mongodb-aws-credentials:
 
-First, the {+php-library+} checks whether you passed AWS credentials to the
-``MongoDB\Client`` constructor as part of the connection
-URI. To pass your credentials in the connection URI, set the following connection
-options:
+``MongoDB\Client`` Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- ``username``: The AWS IAM access key ID to authenticate.
-- ``password``: The AWS IAM secret access key.
+First, the {+php-library+} checks whether you passed AWS credentials
+to the ``MongoDB\Client`` constructor, either as an options parameter or as part of the
+connection URI. To pass your credentials to ``MongoDB\Client``,
+set the following connection options:
+
+- ``username``: The AWS IAM access key ID to authenticate. Percent-encode this value
+  before including it in a connection URI.
+- ``password``: The AWS IAM secret access key. Percent-encode this value before including
+  it in a connection URI.
 - ``authMechanism``: Set to ``'MONGODB-AWS'``.
 
-You can set these options in the connection string when creating a
-``MongoDB\Client`` object, as shown in the following example:
+You can set these options in two ways: by passing parameter to the
+``MongoDB\Client`` constructor or through parameters in your connection string.
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-aws-connection-uri
-   :end-before: // end-aws-connection-uri
+.. tabs::
 
-You can also include an AWS session token by passing it into the
-``authMechanismProperties`` parameter:
+   .. tab:: MongoDB\Client
+      :tabid: Client
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-aws-connection-uri-session
-   :end-before: // end-aws-connection-uri-session
+      .. code-block:: php
 
-.. _php-mongo-aws-environment:
+         $options = [
+             'username' => '<AWS IAM access key ID>',
+             'password' => '<AWS IAM secret access key>',
+             'authMechanism' => 'MONGODB-AWS',
+         ];
+
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            $options,
+         );
+
+   .. tab:: Connection String
+      :tabid: connectionstring
+
+      .. code-block:: php
+
+         $uri = 'mongodb://<AWS IAM access key ID>:<AWS IAM secret access key>@<hostname>:<port>/?authMechanism=MONGODB-AWS';
+         $client = new Client($uri);
+
+.. _php-mongodb-aws-env-vars:
 
 Environment Variables
 ~~~~~~~~~~~~~~~~~~~~~
@@ -171,7 +255,7 @@ environment variables:
 
 - ``AWS_ACCESS_KEY_ID``
 - ``AWS_SECRET_ACCESS_KEY``
-- ``AWS_SESSION_TOKEN`` (optional)
+- ``AWS_SESSION_TOKEN``
 
 To use these environment variables to authenticate your application, first set them to the
 AWS IAM values needed for authentication, as shown in the following code
@@ -183,20 +267,47 @@ example:
    export AWS_SECRET_ACCESS_KEY=<AWS IAM secret access key>
    export AWS_SESSION_TOKEN=<AWS session token>
 
+.. important::
+  
+   Don't percent-encode the values in these environment variables.
+
 After you set these environment variables, set the ``authMechanism``
-parameter in your connection URI to ``'MONGODB-AWS'``, as shown in the
-following example:
+connection option to ``'MONGODB-AWS'``.
+You can set this option in two ways: by passing an argument to the
+``MongoDB\Client`` constructor or through a parameter in your connection string.
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-aws-environment
-   :end-before: // end-aws-environment
+.. tabs::
 
-.. _php-mongo-aws-assume-role:
+   .. tab:: MongoDB\Client
+      :tabid: Client
 
-AssumeRoleWithWebIdentity Request
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      .. code-block:: php
+
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            ['authMechanism' => 'MONGODB-AWS'],
+         );
+
+   .. tab:: Connection String
+      :tabid: connectionstring
+
+      .. code-block:: php
+
+         $uri = 'mongodb://<hostname>:<port>/?&authMechanism=MONGODB-AWS';
+         $client = new Client($uri);
+
+.. tip:: AWS Lambda
+   
+   AWS Lambda runtimes can automatically set these environment variables during
+   initialization. For more information about using environment variables in an AWS Lambda
+   environment, see
+   `Using Lambda environment variables <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime>`__
+   in the AWS documentation.
+
+.. _php-mongodb-aws-oidc:
+
+AssumeRoleWithWebIdentity
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your application authenticates users for your EKS cluster from an OpenID Connect (OIDC)
 identity provider, the {+php-library+} can make an ``AssumeRoleWithWebIdentity`` request
@@ -204,74 +315,74 @@ to exchange the OIDC token for temporary AWS credentials for your application.
 
 To authenticate with temporary AWS IAM credentials returned by an
 ``AssumeRoleWithWebIdentity`` request, ensure that the AWS config file exists in your
-environment and is configured with the ``AWS_WEB_IDENTITY_TOKEN_FILE``
-and ``AWS_ROLE_ARN`` environment variables. To learn how to create and configure
+environment and is configured correctly. To learn how to create and configure
 an AWS config file, see `Configuration <https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html>`__
 in the AWS documentation.
 
 After you configure your environment for an ``AssumeRoleWithWebIdentity`` request,
-set the ``authMechanism`` parameter in your connection URI to ``'MONGODB-AWS'``,
-as shown in the following example:
+set the ``authMechanism`` connection option to ``'MONGODB-AWS'``.
+You can set this option in two ways: by passing an argument to the
+``MongoDB\Client`` constructor or through a parameter in your connection string.
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-aws-environment
-   :end-before: // end-aws-environment
+.. tabs::
+
+   .. tab:: MongoDB\Client
+      :tabid: Client
+
+      .. code-block:: php
+
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            ['authMechanism' => 'MONGODB-AWS'],
+         );
+
+   .. tab:: Connection String
+      :tabid: connectionstring
+
+      .. code-block:: php
+
+         $uri = 'mongodb://<hostname>:<port>/?&authMechanism=MONGODB-AWS';
+         $client = new Client($uri);
 
 For more information about using an ``AssumeRoleWithWebIdentity`` request to
 authenticate your application, see the following AWS documentation:
 
-- `AssumeRoleWithWebIdentity <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html>`__
 - `Authenticating users for your cluster from an OpenID Connect identity provider <https://docs.aws.amazon.com/eks/latest/userguide/authenticate-oidc-identity-provider.html>`__
+- `AssumeRoleWithWebIdentity <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html>`__
 
-.. _php-mongo-aws-ecs:
+.. _php-mongodb-aws-ec:
 
-ECS Metadata
-~~~~~~~~~~~~
+ECS Container or EC2 Instance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If your application runs in an Elastic Container Service (ECS) container,
-the {+php-library+} can automatically retrieve temporary AWS credentials from an
-ECS endpoint. To do so, specify the URI of the ECS endpoint in an environment variable called
-``AWS_CONTAINER_CREDENTIALS_RELATIVE_URI``, as shown in the following example:
+If your application runs in an Amazon Elastic Cloud Compute (EC2) instance in an 
+Elastic Container Service (ECS) container, the {+php-library+} can automatically retrieve
+temporary AWS credentials from an ECS endpoint.
 
-.. code-block:: sh
+To use temporary credentials from within an EC2 instance, set the ``authMechanism``
+connection option to ``'MONGODB-AWS'``.
+You can set this option in two ways: by passing an argument to the
+``MongoDB\Client`` constructor or through a parameter in your connection string.
 
-   export AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=<URI of the ECS endpoint>
+.. tabs::
 
-After you set the environment variable, set the ``authMechanism``
-parameter in your connection URI to ``'MONGODB-AWS'``, as shown in the
-following example:
+   .. tab:: MongoDB\Client
+      :tabid: Client
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-aws-environment
-   :end-before: // end-aws-environment
+      .. code-block:: php
 
-.. _php-mongo-aws-ec2:
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            ['authMechanism' => 'MONGODB-AWS'],
+         );
 
-EC2 Instance Metadata
-~~~~~~~~~~~~~~~~~~~~~
+   .. tab:: Connection String
+      :tabid: connectionstring
 
-the {+php-library+} can automatically retrieve temporary AWS credentials from an
-Amazon Elastic Cloud Compute (EC2) instance. To use temporary credentials from
-within an EC2 instance, set the ``authMechanism`` parameter in your connection
-URI to ``'MONGODB-AWS'``, as shown in the following example:
+      .. code-block:: php
 
-.. literalinclude:: /includes/authentication.php
-   :language: php
-   :copyable: true
-   :start-after: // start-aws-environment
-   :end-before: // end-aws-environment
-
-.. note::
-
-   If you set any of the environment variables from the preceding AWS authentication
-   methods, the {+php-library+} attempts to retrieve credentials by using those
-   methods before attempting to retrieve them from an EC2 instance. To attempt
-   to retrieve credentials only from an EC2 instance, ensure that the
-   environment variables are not set.
+         $uri = 'mongodb://<hostname>:<port>/?&authMechanism=MONGODB-AWS';
+         $client = new Client($uri);
 
 Additional Information
 ----------------------
