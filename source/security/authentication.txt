@@ -53,7 +53,7 @@ To authenticate with this mechanism, set the following connection options:
   URI, if you include one. If you don't, it authenticates against the ``admin`` database.
 - ``authMechanism``: Set to ``SCRAM-SHA-256``.
 
-You can set these options in two ways: by passing arguments to the
+You can set these options in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through parameters in your connection string.
 
 .. tabs::
@@ -102,7 +102,7 @@ To authenticate with this mechanism, set the following connection options:
   {+php-library+} authenticates against the ``admin`` database.
 - ``authMechanism``: Set to ``'SCRAM-SHA-1'``.
 
-You can set these options in two ways: by passing arguments to the
+You can set these options in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through parameters in your connection string.
 
 .. tabs::
@@ -148,7 +148,7 @@ To authenticate with this mechanism, set the following connection options:
   client certificate and private key.
 - ``authMechanism``: Set to ``'MONGODB-X509'``.
 
-You can set these options in two ways: by passing arguments to the
+You can set these options in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through parameters in your connection string.
 
 .. tabs::
@@ -215,7 +215,7 @@ set the following connection options:
   it in a connection URI.
 - ``authMechanism``: Set to ``'MONGODB-AWS'``.
 
-You can set these options in two ways: by passing parameter to the
+You can set these options in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through parameters in your connection string.
 
 .. tabs::
@@ -273,7 +273,7 @@ example:
 
 After you set these environment variables, set the ``authMechanism``
 connection option to ``'MONGODB-AWS'``.
-You can set this option in two ways: by passing an argument to the
+You can set this option in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through a parameter in your connection string.
 
 .. tabs::
@@ -321,7 +321,7 @@ in the AWS documentation.
 
 After you configure your environment for an ``AssumeRoleWithWebIdentity`` request,
 set the ``authMechanism`` connection option to ``'MONGODB-AWS'``.
-You can set this option in two ways: by passing an argument to the
+You can set this option in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through a parameter in your connection string.
 
 .. tabs::
@@ -361,7 +361,7 @@ temporary AWS credentials from an ECS endpoint.
 
 To use temporary credentials from within an EC2 instance, set the ``authMechanism``
 connection option to ``'MONGODB-AWS'``.
-You can set this option in two ways: by passing an argument to the
+You can set this option in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through a parameter in your connection string.
 
 .. tabs::
