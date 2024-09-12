@@ -109,5 +109,5 @@ $result = $collection->bulkWrite(
 
 // Creates a GridFS bucket or references an existing one
 // start-gridfs
-$bucket = $client-><database name>->selectGridFSBucket();
+$bucket = $client->selectDatabase('<database name>')->selectGridFSBucket();
 // end-gridfs
