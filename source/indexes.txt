@@ -18,11 +18,12 @@ Optimize Queries by Using Indexes
    :description: Learn how to use indexes by using the MongoDB PHP Library.
    :keywords: query, optimization, efficiency, usage example, code example
 
-.. .. toctree::
-..    :titlesonly:
-..    :maxdepth: 1
-.. 
-..    /work-with-indexes
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   /indexes/index-mgmt
+   /indexes/single-field-index
 
 Overview
 --------
