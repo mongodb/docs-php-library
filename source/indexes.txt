@@ -24,6 +24,7 @@ Optimize Queries by Using Indexes
 
    /indexes/index-mgmt
    /indexes/single-field-index
+   /indexes/multikey-index
 
 Overview
 --------
