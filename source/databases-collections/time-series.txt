@@ -28,7 +28,7 @@ time series data, which is composed of the following components:
 - Timestamp for the measurement
 - Metadata that describes the measurement
 
-The following table describes sample situations for which you could store time
+The following table describes sample situations for which you can store time
 series data:
 
 .. list-table::
