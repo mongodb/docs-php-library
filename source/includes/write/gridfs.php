@@ -29,13 +29,22 @@ $custom_bucket = $client->db->selectGridFSBucket(
 // end-create-custom-bucket
 
 // Uploads a file called "my_file" to the GridFS bucket and writes data to it
-// start-upload-files
+// start-open-upload-stream
 $stream = $bucket->openUploadStream('my_file', [
     'metadata' => ['contentType' => 'text/plain']
 ]);
 fwrite($stream, 'Data to store');
 fclose($stream);
-// end-upload-files
+// end-open-upload-stream
+
+// Uploads data to a stream, then writes the stream to a GridFS file
+// start-upload-from-stream
+$stream = fopen('php://temp', 'w+b');
+fwrite($stream, 'Data to store');
+rewind($stream);
+
+$bucket->uploadFromStream('new_file', $stream);
+// end-upload-from-stream
 
 // Prints information about each file in the bucket
 // start-retrieve-file-info
@@ -46,12 +55,12 @@ foreach ($files as $file_doc) {
 // end-retrieve-file-info
 
 // Downloads the "my_file" file from the GridFS bucket and prints its contents
-// start-download-files-name
+// start-open-download-stream-name
 $stream = $bucket->openDownloadStreamByName('my_file');
 $contents = stream_get_contents($stream);
 echo $contents, PHP_EOL;
 fclose($stream);
-// end-download-files-name
+// end-open-download-stream-name
 
 // Downloads a file from the GridFS bucket by referencing its ObjectID value
 // start-download-files-id
@@ -59,6 +68,15 @@ $stream = $bucket->openDownloadStream(new ObjectID('66e0a5487c880f844c0a32b1'));
 $contents = stream_get_contents($stream);
 fclose($stream);
 // end-download-files-id
+
+// Downloads an entire GridFS file to a download stream
+// start-download-to-stream
+$stream = fopen('php://temp', 'w+b');
+$bucket->downloadToStream(
+    new ObjectID('66e0a5487c880f844c0a32b1'),
+    $stream
+);
+// end-download-to-stream
 
 // Renames a file from the GridFS bucket with the specified ObjectID
 // start-rename-files
