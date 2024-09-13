@@ -69,6 +69,13 @@ $contents = stream_get_contents($stream);
 fclose($stream);
 // end-download-files-id
 
+// Downloads the original "my_file" file from the GridFS bucket
+// start-download-file-revision
+$stream = $bucket->openDownloadStreamByName('my_file', ['revision' => 0]);
+$contents = stream_get_contents($stream);
+fclose($stream);
+// end-open-download-stream-name
+
 // Downloads an entire GridFS file to a download stream
 // start-download-to-stream
 $stream = fopen('php://temp', 'w+b');

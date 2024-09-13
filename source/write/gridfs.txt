@@ -211,9 +211,12 @@ about the file it refers to, including:
 - A ``metadata`` document in which you can store any other information
 
 To retrieve files from a GridFS bucket, call the ``MongoDB\GridFS\Bucket::find()``
-method on the ``MongoDB\GridFS\Bucket`` instance. The method returns a ``MongoDB\library\Cursor``
+method on the ``MongoDB\GridFS\Bucket`` instance. The method returns a ``MongoDB\Driver\Cursor``
 instance from which you can access the results. To learn more about ``Cursor`` objects in
 the {+php-library+}, see the :ref:`<php-cursors>` guide.
+
+Example 
+~~~~~~~
 
 The following code example shows you how to retrieve and print file metadata
 from files in a GridFS bucket. It uses a ``foreach`` loop to iterate through
@@ -305,6 +308,30 @@ method, which takes the ``_id`` field of a file as a parameter:
    into memory. The 255-kilobyte default chunk size is usually
    sufficient, but you can reduce the chunk size to reduce memory
    overhead.
+
+Download a File Revision
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+When your bucket contains multiple files that share the same file name,
+GridFS chooses the most recently uploaded version of the file by default.
+To differentiate between each file that shares the same name, GridFS assigns them
+a revision number, ordered by upload time.
+
+The original file revision number is ``0`` and the next most recent file revision
+number is ``1``. You can also specify negative values that correspond to the recency
+of the revision. The revision value ``-1`` references the most recent revision and ``-2``
+references the next most recent revision.
+
+You can instruct GridFS to download a specific file revision by passing an options
+array to the ``openDownloadStreamByName()`` method and specifying the ``revision``
+option. The following example reads the contents of the original file named
+``'my_file'`` rather than the most recent revision:
+
+.. literalinclude:: /includes/write/gridfs.php
+   :language: php
+   :dedent:
+   :start-after: start-download-file-revision
+   :end-before: end-download-file-revision
 
 Download to an Existing Stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
