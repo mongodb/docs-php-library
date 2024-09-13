@@ -108,8 +108,8 @@ specified array-valued field:
    :copyable:
    :dedent:
 
-.. TODO To learn more about multikey indexes, see the :ref:`php-multikey-index`
-.. guide.
+To learn more about multikey indexes, see the :ref:`php-multikey-index`
+guide.
 
 Geospatial Index
 ----------------
