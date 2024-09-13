@@ -83,6 +83,9 @@ created in the preceding code example:
 Additional Information
 ----------------------
 
+To view runnable examples that demonstrate how to manage indexes, see
+:ref:`php-indexes`.
+
 To learn more about single-field indexes, see :manual:`Single Field
 Indexes </core/index-single>` in the {+mdb-server+} manual.
 
@@ -92,5 +95,5 @@ API Documentation
 To learn more about any of the methods discussed in this guide, see the following API
 documentation:
 
-- `MongoDB\\Collection::createIndex() <{+api+}/method/MongoDBCollection-createIndex/>`__
-- `MongoDB\\Collection::findOne() <{+api+}/method/MongoDBCollection-findOne/>`__
+- :phpmethod:`MongoDB\Collection::createIndex()`
+- :phpmethod:`MongoDB\Collection::findOne()`
