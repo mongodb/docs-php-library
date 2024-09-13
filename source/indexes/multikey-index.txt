@@ -23,7 +23,8 @@ Overview
 **Multikey indexes** are indexes that improve the performance of queries
 on array-valued fields. You can create a multikey index on a collection
 by using the ``MongoDB\Collection::createIndex()`` method and the same
-syntax that you use to create single field or compound indexes.
+syntax that you use to create :ref:`single field
+<php-single-field-index>` or compound indexes.
 
 Sample Data
 ~~~~~~~~~~~
@@ -74,6 +75,9 @@ coverage, index bound computation, and sort behavior. To learn more
 about the behavior and limitations of multikey indexes, see
 :manual:`Multikey Indexes </core/index-multikey>` in the {+mdb-server+}
 manual.
+
+To view runnable examples that demonstrate how to manage indexes, see
+:ref:`php-indexes`.
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
