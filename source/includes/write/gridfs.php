@@ -74,7 +74,7 @@ fclose($stream);
 $stream = $bucket->openDownloadStreamByName('my_file', ['revision' => 0]);
 $contents = stream_get_contents($stream);
 fclose($stream);
-// end-open-download-stream-name
+// end-download-file-revision
 
 // Downloads an entire GridFS file to a download stream
 // start-download-to-stream
