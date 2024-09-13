@@ -244,6 +244,17 @@ The ``find()`` method accepts various query specifications. You can use its
 and the number of documents to skip before returning. To view a list of available
 options, see the `API documentation <{+api+}/method/MongoDBGridFSBucket-find/#parameters>`__.
 
+.. note::
+
+   The preceding example calls the ``toJSON()`` to print file metadata as 
+   Extended JSON, defined in the following code:
+
+   .. literalinclude:: /includes/write/gridfs.php
+      :language: php
+      :dedent:
+      :start-after: start-to-json
+      :end-before: end-to-json
+
 .. _gridfs-download-files:
 
 Download Files
