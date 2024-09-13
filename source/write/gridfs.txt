@@ -221,7 +221,7 @@ Example
 The following code example shows you how to retrieve and print file metadata
 from files in a GridFS bucket. It uses a ``foreach`` loop to iterate through
 the returned cursor and display the contents of the file uploaded in the
-:ref:`gridfs-upload-files` example:
+:ref:`gridfs-upload-files` examples:
 
 .. io-code-block::
    :copyable:
@@ -235,9 +235,11 @@ the returned cursor and display the contents of the file uploaded in the
    .. output::
       :visible: false
 
-      {"_id":{"$oid":"..."},"chunkSize":1048576,"filename":"my_file",
-      "length":13,"uploadDate":{"$date":{"$numberLong":"..."}},"metadata":
-      {"contentType":"text\/plain"},"md5":"6b24249b03ea3dd176c5a04f037a658c"}
+      { "_id" : { "$oid" : "..." }, "chunkSize" : 261120, "filename" : "my_file",
+      "length" : 13, "uploadDate" : { ... }, "metadata" : { "contentType" : "text/plain" },
+      "md5" : "6b24249b03ea3dd176c5a04f037a658c" }
+      { "_id" : { "$oid" : "..." }, "chunkSize" : 261120, "filename" : "new_file",
+      "length" : 13, "uploadDate" : { ... }, "md5" : "6b24249b03ea3dd176c5a04f037a658c" }
 
 The ``find()`` method accepts various query specifications. You can use its
 ``$options`` parameter to specify the sort order, maximum number of documents to return,
@@ -246,7 +248,7 @@ options, see the `API documentation <{+api+}/method/MongoDBGridFSBucket-find/#pa
 
 .. note::
 
-   The preceding example calls the ``toJSON()`` to print file metadata as 
+   The preceding example calls the ``toJSON()`` method to print file metadata as 
    Extended JSON, defined in the following code:
 
    .. literalinclude:: /includes/write/gridfs.php
@@ -420,8 +422,10 @@ see the following API documentation:
 
 - :phpmethod:`MongoDB\Database::selectGridFSBucket()`
 - :phpmethod:`MongoDB\GridFS\Bucket::openUploadStream()`
+- :phpmethod:`MongoDB\GridFS\Bucket::uploadFromStream()`
 - :phpmethod:`MongoDB\GridFS\Bucket::find()`
 - :phpmethod:`MongoDB\GridFS\Bucket::openDownloadStreamByName()`
 - :phpmethod:`MongoDB\GridFS\Bucket::openDownloadStream()`
+- :phpmethod:`MongoDB\GridFS\Bucket::downloadToStream()`
 - :phpmethod:`MongoDB\GridFS\Bucket::rename()`
 - :phpmethod:`MongoDB\GridFS\Bucket::delete()`
