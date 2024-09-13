@@ -183,9 +183,8 @@ information in an options array, which you can pass as a parameter.
 
 This example performs the following actions:
 
-- Calls the ``fopen()`` method to create a temporary memory-based stream
-  that you can write to and read from
-- Calls the ``fwrite()`` method to write data to the stream
+- Calls the ``fopen()`` method to open a file located at ``/path/to/file``
+  as a stream in binary read (``rb``) mode
 - Calls the ``uploadFromStream()`` method to upload the contents of the stream
   to a GridFS file named ``'new_file'`` 
 
@@ -320,7 +319,9 @@ method, which takes the ``_id`` field of a file as a parameter:
    stream needs to pull a chunk from MongoDB, it pulls the entire chunk
    into memory. The 255-kilobyte default chunk size is usually
    sufficient, but you can reduce the chunk size to reduce memory
-   overhead.
+   overhead or increase the chunk size when working with larger files.
+   For more information about setting the chunk size, see the 
+   :ref:`gridfs-create-custom-bucket` section of this page.
 
 Download a File Revision
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -355,8 +356,9 @@ on your bucket.
 
 This example performs the following actions:
 
-- Calls the ``fopen()`` method to open a download stream
-- Downloads a file that has an ``_id`` value of ``ObjectID('66e0a5487c880f844c0a32b1')``
+- Calls the ``fopen()`` method to open a file located at ``/path/to/output-file``
+  as a stream in binary write (``wb``) mode
+- Downloads a GridFS file that has an ``_id`` value of ``ObjectID('66e0a5487c880f844c0a32b1')``
   to the stream
 
 .. literalinclude:: /includes/write/gridfs.php
