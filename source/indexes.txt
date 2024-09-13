@@ -24,6 +24,7 @@ Optimize Queries by Using Indexes
 
    /indexes/index-mgmt
    /indexes/single-field-index
+   /indexes/compound-index
    /indexes/multikey-index
 
 Overview
@@ -32,11 +33,11 @@ Overview
 On this page, you can see copyable code examples that show how to manage
 different types of indexes by using the {+php-library+}.
 
-.. .. tip::
-.. 
-..    To learn more about working with indexes, see the :ref:`php-work-indexes`
-..    guide. To learn more about any of the indexes shown on this page, see the link
-..    provided in each section.
+.. tip::
+
+   To learn more about working with indexes, see the :ref:`php-index-mgmt`
+   guide. To learn more about any of the indexes shown on this page, see the link
+   provided in each section.
 
 To use an example from this page, copy the code example into the
 :ref:`sample application <php-index-sample>` or your own application.
@@ -77,8 +78,8 @@ The following example creates an ascending index on the specified field:
    :copyable:
    :dedent:
 
-.. To learn more about single field indexes, see the
-.. :ref:`php-single-field-index` guide.
+To learn more about single field indexes, see the
+:ref:`php-single-field-index` guide.
 
 Compound Index
 --------------
@@ -93,7 +94,8 @@ on the specified fields:
    :copyable:
    :dedent:
 
-.. To learn more about compound indexes, see the :ref:`php-compound-index` guide.
+To learn more about compound indexes, see the :ref:`php-compound-index`
+guide.
 
 Multikey Index
 --------------

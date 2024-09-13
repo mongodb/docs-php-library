@@ -86,7 +86,7 @@ Additional Information
 To view runnable examples that demonstrate how to manage indexes, see
 :ref:`php-indexes`.
 
-To learn more about single-field indexes, see :manual:`Single Field
+To learn more about single field indexes, see :manual:`Single Field
 Indexes </core/index-single>` in the {+mdb-server+} manual.
 
 API Documentation

@@ -31,6 +31,20 @@ $document = $collection->findOne(['title' => 'Sweethearts']);
 echo json_encode($document), PHP_EOL;
 // end-index-single-query
 
+// start-index-compound
+$indexName = $collection->createIndex(
+    ['title' => 1, 'year' => 1]
+);
+// end-index-compound
+
+// start-compound-query
+$document = $collection->findOne(
+    ['title' => ['$regex' => 'Sunrise'],
+    'year' => ['$gte' => 1990]]
+);
+echo json_encode($document) , PHP_EOL;
+// end-compound-query
+
 // start-multikey
 $indexName = $collection->createIndex(['cast' => 1]);
 // end-multikey
