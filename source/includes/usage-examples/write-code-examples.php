@@ -108,6 +108,13 @@ $result = $collection->bulkWrite(
 // end-bulk-write
 
 // Creates a GridFS bucket or references an existing one
-// start-gridfs
+// start-gridfs-bucket
 $bucket = $client->selectDatabase('<database name>')->selectGridFSBucket();
-// end-gridfs
+// end-gridfs-bucket
+
+// Stores a file in a GridFS bucket and writes data to the file
+// start-gridfs-upload
+$stream = $bucket->openUploadStream('<file name>');
+fwrite($stream, '<data>');
+fclose($stream);
+// end-gridfs-upload
