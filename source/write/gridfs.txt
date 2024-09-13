@@ -152,6 +152,8 @@ You can upload files to a GridFS bucket by using the following methods:
 - ``MongoDB\GridFS\Bucket::uploadFromStream()``: Uploads the contents of
   an existing stream to a GridFS file
 
+.. _gridfs-open-upload-stream:
+
 Write to an Upload Stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -183,7 +185,7 @@ information in an options array, which you can pass as a parameter.
 
 This example performs the following actions:
 
-- Calls the ``fopen()`` method to open a file located at ``/path/to/file``
+- Calls the ``fopen()`` method to open a file located at ``/path/to/input_file``
   as a stream in binary read (``rb``) mode
 - Calls the ``uploadFromStream()`` method to upload the contents of the stream
   to a GridFS file named ``'new_file'`` 
@@ -219,7 +221,7 @@ Example
 
 The following code example shows you how to retrieve and print file metadata
 from files in a GridFS bucket. It uses a ``foreach`` loop to iterate through
-the returned cursor and display the contents of the file uploaded in the
+the returned cursor and display the contents of the files uploaded in the
 :ref:`gridfs-upload-files` examples:
 
 .. io-code-block::
@@ -279,7 +281,7 @@ create a download stream.
 This example uses a download stream to perform the following actions:
 
 - Selects a GridFS file named ``'my_file'``, uploaded in the
-  :ref:`gridfs-upload-files` example, and opens it as a readable stream 
+  :ref:`gridfs-open-upload-stream` example, and opens it as a readable stream 
 - Calls the ``stream_get_contents()`` method to read the contents of ``'my_file'``
 - Prints the file contents
 - Calls the ``fclose()`` method to close the download stream pointing to ``'my_file'`` 
@@ -356,7 +358,7 @@ on your bucket.
 
 This example performs the following actions:
 
-- Calls the ``fopen()`` method to open a file located at ``/path/to/output-file``
+- Calls the ``fopen()`` method to open a file located at ``/path/to/output_file``
   as a stream in binary write (``wb``) mode
 - Downloads a GridFS file that has an ``_id`` value of ``ObjectID('66e0a5487c880f844c0a32b1')``
   to the stream

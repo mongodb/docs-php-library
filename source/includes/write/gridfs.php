@@ -39,7 +39,7 @@ fclose($stream);
 
 // Uploads data to a stream, then writes the stream to a GridFS file
 // start-upload-from-stream
-$file = fopen('/path/to/file', 'rb');
+$file = fopen('/path/to/input_file', 'rb');
 $bucket->uploadFromStream('new_file', $file);
 // end-upload-from-stream
 
@@ -75,7 +75,7 @@ fclose($stream);
 
 // Downloads an entire GridFS file to a download stream
 // start-download-to-stream
-$stream = fopen('/path/to/output-file', 'wb');
+$stream = fopen('/path/to/output_file', 'wb');
 $bucket->downloadToStream(
     new ObjectID('66e0a5487c880f844c0a32b1'),
     $stream,
