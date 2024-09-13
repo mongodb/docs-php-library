@@ -56,9 +56,13 @@ in the {+mdb-server+} manual.
 When using GridFS to store files, the library splits the files into smaller
 chunks, each represented by a separate document in the ``chunks`` collection.
 It also creates a document in the ``files`` collection that contains
-a file ID, file name, and other file metadata. You can upload the file from
-memory or from a stream. View the following diagram to see how GridFS splits
-the files when uploaded to a bucket:
+a file ID, file name, and other file metadata. You can upload the file by passing
+a stream to the {+php-library+} to consume or creating a new stream and writing to it
+directly. To learn more about streams, see `Streams <{+php-manual+}/book.stream.php>`__
+in the PHP manual.
+
+View the following diagram to see how GridFS splits the files when uploaded to
+a bucket:
 
 .. figure:: /includes/figures/GridFS-upload.png
    :alt: A diagram that shows how GridFS uploads a file to a bucket
@@ -66,7 +70,8 @@ the files when uploaded to a bucket:
 When retrieving files, GridFS fetches the metadata from the ``files``
 collection in the specified bucket and uses the information to reconstruct
 the file from documents in the ``chunks`` collection. You can read the file
-into memory or output it to a stream.
+by writing its contents to an existing stream or creating a new stream that points
+to the file.
 
 .. _gridfs-create-bucket:
 
@@ -83,41 +88,57 @@ database:
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
    :dedent:
-   :start-after: start create bucket
-   :end-before: end create bucket
-
-You can also explicitly create a GridFS bucket by calling the
-constructor for the ``MongoDB\GridFS\Bucket`` class and passing the following
-parameters:
-
-- ``MongoDB\Driver\Manager`` object, which maintains connections between the
-  PHP extension and MongoDB
-- Name of the database, as a string, for which to create the bucket
-
-The following example explicitly constructs a GridFS bucket:
-
-.. literalinclude:: /includes/write/gridfs.php
-   :language: php
-   :dedent:
-   :start-after: start create bucket explicit
-   :end-before: end create bucket explicit
+   :start-after: start-create-bucket
+   :end-before: end-create-bucket
 
 .. _gridfs-create-custom-bucket:
 
-Customize the Bucket Name
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Customize the Bucket
+~~~~~~~~~~~~~~~~~~~~
 
-To create or reference a bucket with a custom name other than the default name
-``fs``, pass an options array to the ``selectGridFSBucket()`` method that sets
-the ``bucketName`` option. 
+You can customize the GridFS bucket configuration by passing an array that specifies
+option values to the ``selectGridFSBucket()`` method. The following table describes
+some options you can set in the array:
 
-The following example creates a bucket named ``'myCustomBucket'``:
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Option
+     - Description
+
+   * - ``bucketName`` 
+     - | Specifies the bucket name to use as a prefix for the files and chunks collections.
+         The default value is ``'fs'``.
+       | **Type**: ``string``
+
+   * - ``chunkSizeBytes`` 
+     - | Specifies the chunk size that GridFS splits files into. The default value is ``261120``.
+       | **Type**: ``integer``
+
+   * - ``readConcern`` 
+     - | Specifies the read concern to use for bucket operations. The default value is the 
+         database's read concern.
+       | **Type**: ``MongoDB\Driver\ReadConcern``
+
+   * - ``readPreference`` 
+     - | Specifies the read preference to use for bucket operations. The default value is the 
+         database's read preference.
+       | **Type**: ``MongoDB\Driver\ReadPreference``
+
+   * - ``writeConcern`` 
+     - | Specifies the write concern to use for bucket operations. The default value is the 
+         database's write concern.
+       | **Type**: ``MongoDB\Driver\WriteConcern``
+
+The following example creates a bucket named ``'myCustomBucket'`` by passing an
+array to ``selectGridFSBucket()`` that sets the ``bucketName`` option:
 
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
    :dedent:
-   :start-after: start create custom bucket
-   :end-before: end create custom bucket
+   :start-after: start-create-custom-bucket
+   :end-before: end-create-custom-bucket
 
 .. _gridfs-upload-files:
 
@@ -133,7 +154,7 @@ This example uses an upload stream to perform the following
 actions:
 
 - Opens a writable stream for a new GridFS file named ``'my_file'``
-- Sets the ``chunkSizeBytes`` and ``metadata`` options in an array parameter
+- Sets the ``metadata`` option in an array parameter
   to the ``openUploadStream()`` method
 - Calls the ``fwrite()`` method to write data to ``'my_file'``, which the stream points to
 - Calls the ``fclose()`` method to close the stream pointing to ``'my_file'`` 
@@ -141,8 +162,8 @@ actions:
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
    :dedent:
-   :start-after: start upload files
-   :end-before: end upload files
+   :start-after: start-upload-files
+   :end-before: end-upload-files
 
 .. _gridfs-retrieve-file-info:
 
@@ -173,8 +194,8 @@ the returned cursor and display the contents of the file uploaded in the
    :copyable:
 
    .. input:: /includes/write/gridfs.php
-      :start-after: start retrieve file info
-      :end-before: end retrieve file info
+      :start-after: start-retrieve-file-info
+      :end-before: end-retrieve-file-info
       :language: php
       :dedent:
 
@@ -211,8 +232,8 @@ This example uses a download stream to perform the following actions:
    :copyable:
 
    .. input:: /includes/write/gridfs.php
-      :start-after: start download files name
-      :end-before: end download files name
+      :start-after: start-download-files-name
+      :end-before: end-download-files-name
       :language: php
       :dedent:
 
@@ -233,8 +254,8 @@ method, which takes the ``_id`` field of a file as a parameter:
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
    :dedent:
-   :start-after: start download files id
-   :end-before: end download files id
+   :start-after: start-download-files-id
+   :end-before: end-download-files-id
 
 .. note::
 
@@ -251,7 +272,7 @@ Rename Files
 
 Use the ``MongoDB\GridFS\Bucket::rename()`` method to update the name of
 a GridFS file in your bucket. You must specify the file to rename by its
-``_id`` field rather than its file name.
+``_id`` field rather than its file name. 
 
 The following example shows how to update the ``filename`` field to
 ``'new_file_name'`` by referencing a document's ``_id`` field:
@@ -259,16 +280,15 @@ The following example shows how to update the ``filename`` field to
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
    :dedent:
-   :start-after: start rename files
-   :end-before: end rename files
+   :start-after: start-rename-files
+   :end-before: end-rename-files
 
-.. note::
+.. note:: File Revisions
 
    The ``rename()`` method supports updating the name of only one file at
-   a time. To rename multiple files, retrieve a list of files matching the
-   file name from the bucket, extract the ``_id`` field from the files you
-   want to rename, and pass each value in separate calls to the ``rename()``
-   method.
+   a time. If you want to rename each file revision, or files with different upload
+   times that share the same file name, collect the ``_id`` values of each revision.
+   Then, pass each value in separate calls to the ``rename()`` method.
 
 .. _gridfs-delete-files:
 
@@ -284,15 +304,15 @@ The following example shows you how to delete a file by referencing its ``_id`` 
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
    :dedent:
-   :start-after: start delete files
-   :end-before: end delete files
+   :start-after: start-delete-files
+   :end-before: end-delete-files
 
-.. note::
+.. note:: File Revisions
 
-   The ``delete()`` method supports deleting only one file at a time. To
-   delete multiple files, retrieve the files from the bucket, extract
-   the ``_id`` field from the files you want to delete, and pass each value
-   in separate calls to the ``delete()`` method.
+   The ``delete()`` method supports deleting only one file at a time. If
+   you want to delete each file revision, or files with different upload
+   times that share the same file name, collect the ``_id`` values of each revision.
+   Then, pass each value in separate calls to the ``delete()`` method.
 
 API Documentation
 -----------------
@@ -301,9 +321,9 @@ To learn more about using the {+php-library+} to store and retrieve large files,
 see the following API documentation:
 
 - :phpmethod:`MongoDB\Database::selectGridFSBucket()`
-- :phpmethod:`MongoDB\GridFS\Bucket::__construct()`
 - :phpmethod:`MongoDB\GridFS\Bucket::openUploadStream()`
 - :phpmethod:`MongoDB\GridFS\Bucket::find()`
+- :phpmethod:`MongoDB\GridFS\Bucket::openDownloadStreamByName()`
 - :phpmethod:`MongoDB\GridFS\Bucket::openDownloadStream()`
 - :phpmethod:`MongoDB\GridFS\Bucket::rename()`
 - :phpmethod:`MongoDB\GridFS\Bucket::delete()`
