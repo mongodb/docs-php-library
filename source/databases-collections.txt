@@ -45,6 +45,24 @@ The following example accesses a database named ``test_database``:
     :start-after: start-access-database
     :end-before: end-access-database
 
+Alternatively, you can implicitly call the ``MongoDB\Client::__get()`` magic method on
+a client object. This method allows you to select a database by using the syntax for
+accessing a class property. The following example uses this shorthand syntax to access
+the ``test_database`` database:
+
+.. literalinclude:: /includes/databases-collections/databases-collections.php
+    :language: php
+    :dedent:
+    :start-after: start-access-database-short
+    :end-before: end-access-database-short
+
+.. tip::
+
+   To learn more about ``__get()`` and PHP magic methods, see the following resources:
+
+   - :phpmethod:`MongoDB\Client::__get()` in the API documentation
+   - `Magic Methods <{+php-manual+}/language.oop5.magic.php>`__ in the PHP manual
+
 .. _php-db-coll-access-collection:
 
 Access a Collection
@@ -70,6 +88,20 @@ The following example accesses a collection named ``test_collection`` by using t
    If the provided collection name does not already exist in the database,
    MongoDB implicitly creates the collection when you first insert data
    into it.
+
+Alternatively, you can implicitly call the ``MongoDB\Database::__get()`` magic method on
+a database object. This method allows you to select a collection by using the syntax for
+accessing a class property. The following example uses this shorthand syntax to access
+the ``test_collection`` collection:
+
+.. literalinclude:: /includes/databases-collections/databases-collections.php
+    :language: php
+    :dedent:
+    :start-after: start-access-collection-short
+    :end-before: end-access-collection-short
+
+To learn more, see the :phpmethod:`MongoDB\Database::__get()`
+API documentation.
 
 .. _php-db-coll-create-collection:
 
@@ -100,7 +132,7 @@ You can query for a list of collections in a database by calling the
 cursor containing all collections in the database and their associated metadata.
 
 The following example calls the ``listCollections()`` method and iterates over
-the returned cursor to print the collections from the :ref:`php-db-coll-access-collection`
+the returned iterator to print the collections from the :ref:`php-db-coll-access-collection`
 and :ref:`php-db-coll-create-collection` examples:
 
 .. io-code-block::
@@ -128,9 +160,6 @@ and :ref:`php-db-coll-create-collection` examples:
          [type] => collection
          ...
       )
-
-For more information about iterating over a cursor, see the :ref:`php-cursors`
-guide. 
 
 Delete a Collection
 -------------------
@@ -164,22 +193,23 @@ read and write operations on a replica set by setting a **read concern** and a
 **write concern**.
 
 By default, databases inherit read and write settings from the ``MongoDB\Client``
-instance, and collections inherit them from the database. You can change
-these settings on your database by passing an options array to the
-``MongoDB\Client::selectDatabase()``. You can change these settings on your collection
-by passing an options array to the ``MongoDB\Client::selectCollection()`` method.
+instance. Collections inherit these settings from the ``MongoDB\Client`` or
+``MongoDB\Database`` instance on which the ``selectCollection()`` method is called.
+You can change these settings by passing an options array to the
+``MongoDB\Client::selectDatabase()``, ``MongoDB\Client::selectCollection()``, or
+``MongoDB\Database::selectCollection()`` methods.
 
 To change the read preference, read concern, and write concern of your database
 or collection, set the following options in the array parameter:
 
 - ``readPreference``: Sets the read preference. For a list of available read
-  preferences, see `MongoDB\\Driver\\ReadPreference <{+php-manual+}/class.mongodb-driver-readpreference>`__
+  preferences, see :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference>`
   in the extension API documentation.
 - ``readConcern``: Sets the read concern. For a list of available read
-  concerns, see `MongoDB\\Driver\\ReadConcern <{+php-manual+}/class.mongodb-driver-readconcern>`__
+  concerns, see :php:`MongoDB\Driver\ReadConcern <mongodb-driver-readconcern>`
   in the extension API documentation.
 - ``writeConcern``: Sets the write concern. For a list of available write
-  concerns, see `MongoDB\\Driver\\WriteConcern <{+php-manual+}/class.mongodb-driver-writeconcern>`__
+  concerns, see :php:`MongoDB\Driver\WriteConcern <mongodb-driver-writeconcern>`
   in the extension API documentation.
 
 .. tip::
@@ -217,8 +247,11 @@ array to ``selectCollection()``:
     :start-after: start-collection-settings
     :end-before: end-collection-settings
 
+Advanced Read Configurations 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Tag Sets
-~~~~~~~~
+````````
 
 In {+mdb-server+}, you can apply key-value :manual:`tags
 </core/read-preference-tags/>` to replica-set
@@ -243,7 +276,7 @@ center (``'dc' => 'sf'``):
     :end-before: end-tag-set
 
 Local Threshold
-~~~~~~~~~~~~~~~
+```````````````
 
 If multiple replica-set members match the read preference and tag sets you specify,
 the {+php-library+} reads from the nearest replica-set members, chosen according to

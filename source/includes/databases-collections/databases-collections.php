@@ -1,12 +1,11 @@
 <?php
 require 'vendor/autoload.php';
 
-use MongoDB\BSON\Document;
 use MongoDB\Driver\ReadConcern;
 use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
 
-$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
+$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your connection URI');
 $client = new MongoDB\Client($uri);
 
 // Accesses the "test_database" database
@@ -14,10 +13,20 @@ $client = new MongoDB\Client($uri);
 $db = $client->selectDatabase('test_database');
 // end-access-database
 
+// Invokes the __get() method to access the "test_database" database
+// start-access-database-short
+$db = $client->test_database;
+// end-access-database-short
+
 // Accesses the "test_collection" collection
 // start-access-collection
 $collection = $client->test_database->selectCollection('test_collection');
 // end-access-collection
+
+// Invokes the __get() method to access the "test_collection" collection
+// start-access-collection-short
+$collection = $db->test_collection;
+// end-access-collection-short
 
 // Explicitly creates the "example_collection" collection
 // start-create-collection
@@ -63,13 +72,15 @@ $collection = $client->selectCollection('test_database', 'test_collection', [
 
 // end-collection-settings
 
-// Instructs the library to prefer New York data center reads using a tag set
+// Instructs the library to prefer reads from secondary replica set members
+// located in New York but fall back to those in San Francisco
 // start-tag-set
 $readPreference = new ReadPreference(
     ReadPreference::RP_SECONDARY,
     [
         ['dc' => 'ny'],
         ['dc' => 'sf'],
+        [],
     ],
 );
 
@@ -86,7 +97,7 @@ $db = $client->selectDatabase(
 $options = [
     'replicaSet' => 'repl0',
     'readPreference' => new ReadPreference(ReadPreference::RP_SECONDARY_PREFERRED),
-    'localThresholdMS' => 35
+    'localThresholdMS' => 35,
 ];
 
 $client = new Client('<connection string>', [], $options);
