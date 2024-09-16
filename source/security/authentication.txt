@@ -187,14 +187,20 @@ MONGODB-AWS
    The MONGODB-AWS authentication mechanism requires MongoDB v4.4 or later.
 
 The MONGODB-AWS authentication mechanism uses AWS IAM (Amazon Web Services Identity and
-Access Management) or AWS Lambda credentials to authenticate your application. The
-{+php-library+} tries to retrieve AWS credentials from the following sources, in the order listed:
+Access Management) or AWS Lambda credentials to authenticate your application. To
+authenticate using this mechanism, first create a user with an associated Amazon Resource
+Name (ARN) on the ``$external`` database, then specify the MONGODB-AWS authMechanism
+in the URI.
+
+When you use the MONGODB-AWS mechanism, the {+php-library+} tries to retrieve AWS
+credentials from the following sources, in the order listed:
 
 1. Named arguments passed to the ``MongoDB\Client`` constructor or parameters in the
    connection URI
 #. Environment variables
-#. ``AssumeRoleWithWebIdentity`` request to the AWS STS
-#. Instance metadata service on an Amazon EC2 instance with an IAM role configured
+#. AWS EKS ``AssumeRoleWithWebIdentity`` request
+#. ECS container metadata
+#. EC2 instance metadata
 
 The following sections describe how to use the {+php-library+} to retrieve credentials from
 these sources and use them to authenticate your application.
@@ -300,14 +306,14 @@ You can set this option in two ways: by passing an options array to the
    
    AWS Lambda runtimes can automatically set these environment variables during
    initialization. For more information about using environment variables in an AWS Lambda
-   environment, see
-   `Using Lambda environment variables <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime>`__
+   environment, see `Using Lambda environment variables
+   <https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime>`__
    in the AWS documentation.
 
 .. _php-mongodb-aws-oidc:
 
-AssumeRoleWithWebIdentity
-~~~~~~~~~~~~~~~~~~~~~~~~~
+``AssumeRoleWithWebIdentity`` Request
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your application authenticates users for your EKS cluster from an OpenID Connect (OIDC)
 identity provider, the {+php-library+} can make an ``AssumeRoleWithWebIdentity`` request
@@ -350,16 +356,21 @@ authenticate your application, see the following AWS documentation:
 - `Authenticating users for your cluster from an OpenID Connect identity provider <https://docs.aws.amazon.com/eks/latest/userguide/authenticate-oidc-identity-provider.html>`__
 - `AssumeRoleWithWebIdentity <https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html>`__
 
-.. _php-mongodb-aws-ec:
+.. _php-mongodb-aws-ecs:
 
-ECS Container or EC2 Instance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ECS Metadata
+~~~~~~~~~~~~
 
-If your application runs in an Amazon Elastic Cloud Compute (EC2) instance in an 
-Elastic Container Service (ECS) container, the {+php-library+} can automatically retrieve
-temporary AWS credentials from an ECS endpoint.
+If your application runs in an Elastic Container Service (ECS) container,
+the {+php-library+} can automatically retrieve temporary AWS credentials from an
+ECS endpoint. To do so, specify the URI of the ECS endpoint in an environment variable called
+``AWS_CONTAINER_CREDENTIALS_RELATIVE_URI``, as shown in the following example:
 
-To use temporary credentials from within an EC2 instance, set the ``authMechanism``
+.. code-block:: sh
+
+   export AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=<URI of the ECS endpoint>
+
+After you set the environment variable, set the ``authMechanism``
 connection option to ``'MONGODB-AWS'``.
 You can set this option in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through a parameter in your connection string.
@@ -383,6 +394,45 @@ You can set this option in two ways: by passing an options array to the
 
          $uri = 'mongodb://<hostname>:<port>/?&authMechanism=MONGODB-AWS';
          $client = new Client($uri);
+
+.. _php-mongo-aws-ec2:
+
+EC2 Instance Metadata
+~~~~~~~~~~~~~~~~~~~~~
+
+The {+driver-short+} can automatically retrieve temporary AWS credentials from an
+Amazon Elastic Cloud Compute (EC2) instance. To use temporary credentials from
+within an EC2 instance, set the ``authMechanism`` connection option to ``'MONGODB-AWS'``.
+You can set this option in two ways: by passing an options array to the
+``MongoDB\Client`` constructor or through a parameter in your connection string.
+
+.. tabs::
+
+   .. tab:: MongoDB\Client
+      :tabid: Client
+
+      .. code-block:: php
+
+         $client = new Client(
+            'mongodb://<hostname>:<port>',
+            ['authMechanism' => 'MONGODB-AWS'],
+         );
+
+   .. tab:: Connection String
+      :tabid: connectionstring
+
+      .. code-block:: php
+
+         $uri = 'mongodb://<hostname>:<port>/?&authMechanism=MONGODB-AWS';
+         $client = new Client($uri);
+
+.. note::
+
+   If you set any of the environment variables from the preceding AWS authentication
+   methods, the {+php-library+} attempts to retrieve credentials by using those
+   methods before attempting to retrieve them from an EC2 instance. To attempt
+   to retrieve credentials only from an EC2 instance, ensure that the
+   environment variables are not set.
 
 Additional Information
 ----------------------
