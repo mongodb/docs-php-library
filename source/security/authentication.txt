@@ -26,8 +26,8 @@ users.
 .. important:: Percent-Encoding
 
    You must :wikipedia:`percent-encode <Percent-encoding>` a username and password before
-   you include them in a MongoDB URI. To encode these values, you can use the ``rawurlencode()``
-   PHP method. For more information, see `rawurlencode <{+php-manual+}/rawurlencode>`__ in
+   you include them in a MongoDB URI. You can use the ``rawurlencode()`` method to encode 
+   these values. To learn more, see `rawurlencode <{+php-manual+}/rawurlencode>`__ in
    the PHP manual.
 
    Don't percent-encode the username or password when passing them to the
@@ -48,10 +48,10 @@ To authenticate with this mechanism, set the following connection options:
   it in a connection URI.
 - ``password``: The password to authenticate. Percent-encode this value before including
   it in a connection URI.
-- ``authSource``: The MongoDB database to authenticate against. By default,
-  {+driver-short+} authenticates against the database in the connection
+- ``authSource``: The MongoDB database to authenticate against. By default, the
+  {+php-library+} authenticates against the database in the connection
   URI, if you include one. If you don't, it authenticates against the ``admin`` database.
-- ``authMechanism``: Set to ``SCRAM-SHA-256``.
+- ``authMechanism``: Set to ``'SCRAM-SHA-256'``.
 
 You can set these options in two ways: by passing an options array to the
 ``MongoDB\Client`` constructor or through parameters in your connection string.
