@@ -360,7 +360,7 @@ This example performs the following actions:
 
 - Calls the ``fopen()`` method to open a file located at ``/path/to/output_file``
   as a stream in binary write (``wb``) mode
-- Downloads a GridFS file that has an ``_id`` value of ``ObjectID('66e0a5487c880f844c0a32b1')``
+- Downloads a GridFS file that has an ``_id`` value of ``ObjectId('66e0a5487c880f844c0a32b1')``
   to the stream
 
 .. literalinclude:: /includes/write/gridfs.php

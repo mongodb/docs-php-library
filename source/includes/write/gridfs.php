@@ -1,13 +1,11 @@
 <?php
-require 'vendor/autoload.php'; // include Composer's autoloader
+require 'vendor/autoload.php';
 
 use MongoDB\Client;
-use MongoDB\BSON\ObjectID;
-use MongoDB\GridFS\Bucket;
-use MongoDB\Driver\Manager;
+use MongoDB\BSON\ObjectId;
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
-$client = new MongoDB\Client($uri);
+$client = new Client($uri);
 
 // start-to-json
 function toJSON(object $document): string
@@ -59,9 +57,9 @@ echo $contents, PHP_EOL;
 fclose($stream);
 // end-open-download-stream-name
 
-// Downloads a file from the GridFS bucket by referencing its ObjectID value
+// Downloads a file from the GridFS bucket by referencing its ObjectId value
 // start-download-files-id
-$stream = $bucket->openDownloadStream(new ObjectID('66e0a5487c880f844c0a32b1'));
+$stream = $bucket->openDownloadStream(new ObjectId('66e0a5487c880f844c0a32b1'));
 $contents = stream_get_contents($stream);
 fclose($stream);
 // end-download-files-id
@@ -75,19 +73,19 @@ fclose($stream);
 
 // Downloads an entire GridFS file to a download stream
 // start-download-to-stream
-$stream = fopen('/path/to/output_file', 'wb');
+$file = fopen('/path/to/output_file', 'wb');
 $bucket->downloadToStream(
-    new ObjectID('66e0a5487c880f844c0a32b1'),
-    $stream,
+	new ObjectId('66e0a5487c880f844c0a32b1'),
+	$file,
 );
 // end-download-to-stream
 
-// Renames a file from the GridFS bucket with the specified ObjectID
+// Renames a file from the GridFS bucket with the specified ObjectId
 // start-rename-files
-$bucket->rename(new ObjectID('66e0a5487c880f844c0a32b1'), 'new_file_name');
+$bucket->rename(new ObjectId('66e0a5487c880f844c0a32b1'), 'new_file_name');
 // end-rename-files
 
-// Deletes a file from the GridFS bucket with the specified ObjectID
+// Deletes a file from the GridFS bucket with the specified ObjectId
 // start-delete-files
-$bucket->delete(new ObjectID('66e0a5487c880f844c0a32b1'));
+$bucket->delete(new ObjectId('66e0a5487c880f844c0a32b1'));
 // end-delete-files
