@@ -171,23 +171,8 @@ operation:
 To learn more about the ``MongoDB\Collection::bulkWrite()`` method, see the
 :ref:`Bulk Write <php-bulk-write>` guide.
 
-Create a GridFS Bucket
-----------------------
-
-The following code shows how to create or reference a GridFS bucket, which
-you can write large files to:
-
-.. literalinclude:: /includes/usage-examples/write-code-examples.php
-   :start-after: start-gridfs-bucket
-   :end-before: end-gridfs-bucket
-   :language: php
-   :dedent:
-
-To learn more about the ``MongoDB\Database::selectGridFSBucket()`` method, see the
-:ref:`Store Large Files <php-gridfs>` guide.
-
-Store GridFS Files
-------------------
+Store Large Files
+-----------------
 
 The following code shows how to store files in a GridFS bucket by
 creating an upload stream:
@@ -198,5 +183,4 @@ creating an upload stream:
    :language: php
    :dedent:
 
-To learn more about the ``MongoDB\GridFS\Bucket::openUploadStream()`` method, see the
-:ref:`Store Large Files <php-gridfs>` guide.
+To learn more about GridFS, see the :ref:`Store Large Files <php-gridfs>` guide.
