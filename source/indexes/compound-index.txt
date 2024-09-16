@@ -22,7 +22,7 @@ Overview
 
 **Compound indexes** hold references to multiple
 fields within a collection's documents, improving query and sort
-performance. You can create a multikey index on a collection
+performance. You can create a compound index on a collection
 by using the ``MongoDB\Collection::createIndex()`` method and the same
 syntax that you use to create :ref:`single field indexes
 <php-single-field-index>`.
