@@ -71,6 +71,7 @@ When you run the application, your subscriber records the SDAM event and
 outputs messages such as the following:
 
 .. code-block:: none
+   :copyable: false
 
    Server opening on ac-rmuag0v-shard-00-00.gh0qg50.mongodb.net:27017
    Server opening on ac-rmuag0v-shard-00-01.gh0qg50.mongodb.net:27017
@@ -130,5 +131,5 @@ following API documentation:
 To learn more about subscriber classes and methods, see the following
 pages in the PHP manual:
 
-- :php:`mongodb-driver-monitoring-sdamsubscriber`
-- :php:`mongodb-driver-monitoring-serveropeningevent`
+- :php:`MongoDB\Driver\Monitoring\SDAMSubscriber <mongodb-driver-monitoring-sdamsubscriber>`
+- :php:`MongoDB\Driver\Monitoring\ServerOpeningEvent <mongodb-driver-monitoring-serveropeningevent>`
