@@ -55,3 +55,60 @@ $document = $collection->findOne(
 );
 echo json_encode($document), PHP_EOL;
 // end-index-array-query
+
+// start-create-search-index
+$indexName = $collection->createSearchIndex(
+    ['mappings' => ['dynamic' => true]],
+    ['name' => 'mySearchIdx']
+);
+// end-create-search-index
+
+// start-create-search-indexes
+$indexNames = $collection->createSearchIndexes(
+    [
+        [
+            'name' => 'SearchIdx_dynamic',
+            'definition' => ['mappings' => ['dynamic' => true]],
+        ],
+        [
+            'name' => 'SearchIdx_simple',
+            'definition' => [
+                'mappings' => [
+                    'dynamic' => false,
+                    'fields' => [
+                        'title' => [
+                            'type' => 'string',
+                            'analyzer' => 'lucene.simple'
+                        ]
+                    ]
+                ]
+            ],
+        ],
+    ]
+);
+// end-create-search-indexes
+
+// start-list-search-indexes
+foreach ($collection->listSearchIndexes() as $indexInfo) {
+    echo json_encode($indexInfo), PHP_EOL;
+}
+// end-list-search-indexes
+
+// start-update-search-indexes
+$collection->updateSearchIndex(
+    'mySearchIdx',
+    ['mappings' => [
+        'dynamic' => false,
+        'fields' => [
+            'title' => [
+                'type' => 'string',
+                'analyzer' => 'lucene.simple'
+            ]
+        ]
+    ]]
+);
+// end-update-search-indexes
+
+// start-delete-search-index
+$collection->dropSearchIndex('mySearchIdx');
+// end-delete-search-index

@@ -230,15 +230,15 @@ Atlas Search Index Management
 The following sections contain code examples that describe how to manage
 :atlas:`Atlas Search indexes </atlas-search/manage-indexes/>`. 
 
-.. note:: Search Index Management is Asynchronous
+.. note:: Atlas Search Index Management is Asynchronous
 
    The {+php-library+} manages Atlas Search indexes asynchronously. The
    library methods described in the following sections return the server
    response immediately, but the changes to your Search indexes take
    place in the background and might not complete until some time later.
 
-.. To learn more about Atlas Search indexes, see the :ref:`php-atlas-search-index`
-.. guide.
+To learn more about Atlas Search indexes, see the :ref:`php-atlas-search-index`
+guide.
 
 Create Search Index
 ~~~~~~~~~~~~~~~~~~~
