@@ -26,6 +26,7 @@ Optimize Queries by Using Indexes
    /indexes/single-field-index
    /indexes/compound-index
    /indexes/multikey-index
+   /indexes/atlas-search-index
 
 Overview
 --------
