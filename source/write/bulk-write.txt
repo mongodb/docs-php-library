@@ -226,5 +226,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Collection::bulkWrite() <{+api+}/method/MongoDBCollection-bulkWrite>`__
-- `MongoDB\\BulkWriteResult <{+api+}/class/MongoDBBulkWriteResult>`__
+- :phpmethod:`MongoDB\Collection::bulkWrite()`
+- :phpclass:`MongoDB\BulkWriteResult`
