@@ -73,7 +73,8 @@ $collection = $client->selectCollection('test_database', 'test_collection', [
 // end-collection-settings
 
 // Instructs the library to prefer reads from secondary replica set members
-// located in New York but fall back to those in San Francisco
+// located in New York, followed by a secondary in San Francisco, and
+// lastly fall back to any secondary.
 // start-tag-set
 $readPreference = new ReadPreference(
     ReadPreference::RP_SECONDARY,

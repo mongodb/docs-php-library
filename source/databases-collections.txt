@@ -264,10 +264,13 @@ pass them as a parameter to your ``MongoDB\Driver\ReadPreference`` class
 constructor. Then, set the ``MongoDB\Driver\ReadPreference`` object as
 the value of the ``readPreference`` database option.
 
-The following code example sets the ``readPreference`` option to a tag set
-that instructs ``test_database`` to prefer reads from the New York data
-center (``'dc' => 'ny'``) and to fall back to the San Francisco data
-center (``'dc' => 'sf'``):
+This code example sets the ``readPreference`` option to a tag set
+that instructs ``test_database`` to prefer reads from secondary replica set
+members in the following order:
+
+1. Members from the New York data center (``['dc' => 'ny']``)
+#. Members from the San Francisco data center (``['dc' => 'sf']``)
+#. Any secondary members (``[]``)
 
 .. literalinclude:: /includes/databases-collections/databases-collections.php
     :language: php
