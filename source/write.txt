@@ -21,11 +21,12 @@ Write Data to MongoDB
 .. toctree::
    :titlesonly:
    :maxdepth: 1
-
+   
+   /write/update
+   /write/insert
    /write/delete
    /write/replace
-   /write/insert
-   /write/update
+   /write/bulk-write
    /write/gridfs
 
 Overview
