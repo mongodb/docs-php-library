@@ -9,3 +9,4 @@ Secure Your Data
    :maxdepth: 1
 
    /security/authentication
+   /security/in-use-encryption
