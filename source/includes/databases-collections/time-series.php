@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php'; 
 
-$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
+$uri = getenv('MONGODB_URI') ?: 'mongodb://localhost:27017';
 $client = new MongoDB\Client($uri);
 
 // Creates a time series collection to store precipitation data
@@ -12,7 +12,7 @@ $options = [
     'timeseries' => [
         'timeField' => 'timestamp',
         'metaField' => 'location',
-        'granularity' => 'minutes'
+        'granularity' => 'minutes',
     ]
 ];
 
@@ -36,13 +36,13 @@ $result = $collection->insertMany(
         [
             'precipitation_mm' => 0.5,
             'location' => 'New York City',
-            'timestamp' => new MongoDB\BSON\UTCDateTime(1694829060000)
+            'timestamp' => new MongoDB\BSON\UTCDateTime(1694829060000),
         ],
         [
             'precipitation_mm' => 2.8,
             'location' => 'New York City',
-            'timestamp' => new MongoDB\BSON\UTCDateTime(1695594780000)
-        ]
+            'timestamp' => new MongoDB\BSON\UTCDateTime(1695594780000),
+        ],
     ]
 );
 // end-insert-ts
