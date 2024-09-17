@@ -54,11 +54,11 @@ To authenticate with this mechanism, set the following connection options:
 - ``authMechanism``: Set to ``'SCRAM-SHA-256'``.
 
 You can set these options in two ways: by passing an options array to the
-``MongoDB\Client`` constructor or through parameters in your connection string.
+``MongoDB\Client`` constructor or through parameters in your connection URI.
 
 .. tabs::
 
-   .. tab:: MongoDB\Client
+   .. tab:: MongoDB\\Client
       :tabid: Client
 
       .. code-block:: php
@@ -75,7 +75,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: Connection String
+   .. tab:: connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -103,11 +103,11 @@ To authenticate with this mechanism, set the following connection options:
 - ``authMechanism``: Set to ``'SCRAM-SHA-1'``.
 
 You can set these options in two ways: by passing an options array to the
-``MongoDB\Client`` constructor or through parameters in your connection string.
+``MongoDB\Client`` constructor or through parameters in your connection URI.
 
 .. tabs::
 
-   .. tab:: MongoDB\Client
+   .. tab:: MongoDB\\Client
       :tabid: Client
 
       .. code-block:: php
@@ -124,7 +124,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: Connection String
+   .. tab:: connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -149,11 +149,11 @@ To authenticate with this mechanism, set the following connection options:
 - ``authMechanism``: Set to ``'MONGODB-X509'``.
 
 You can set these options in two ways: by passing an options array to the
-``MongoDB\Client`` constructor or through parameters in your connection string.
+``MongoDB\Client`` constructor or through parameters in your connection URI.
 
 .. tabs::
 
-   .. tab:: MongoDB\Client
+   .. tab:: MongoDB\\Client
       :tabid: Client
 
       .. code-block:: php
@@ -169,7 +169,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: Connection String
+   .. tab:: connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -184,12 +184,12 @@ MONGODB-AWS
 
 .. important::
 
-   The MONGODB-AWS authentication mechanism requires MongoDB v4.4 or later.
+   The MONGODB-AWS authentication mechanism requires {+mdb-server+} v4.4 or later.
 
 The MONGODB-AWS authentication mechanism uses AWS IAM (Amazon Web Services Identity and
-Access Management) or AWS Lambda credentials to authenticate your application. To
-authenticate using this mechanism, first create a user with an associated Amazon Resource
-Name (ARN) on the ``$external`` database, then specify ``'MONGODB-AWS'`` as the value of
+Access Management) or AWS Lambda credentials to authenticate your application. To use this
+method to authenticate, create a user with an associated Amazon Resource
+Name (ARN) on the ``$external`` database. Then, specify ``'MONGODB-AWS'`` as the value of
 the ``authMechanism`` connection option.
 
 When you use the MONGODB-AWS mechanism, the {+php-library+} tries to retrieve AWS
@@ -207,8 +207,8 @@ these sources and use them to authenticate your application.
 
 .. _php-mongodb-aws-credentials:
 
-``MongoDB\Client`` Credentials
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+MongoDB\Client Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, the {+php-library+} checks whether you passed AWS credentials
 to the ``MongoDB\Client`` constructor, either as an options parameter or as part of the
@@ -222,11 +222,11 @@ set the following connection options:
 - ``authMechanism``: Set to ``'MONGODB-AWS'``.
 
 You can set these options in two ways: by passing an options array to the
-``MongoDB\Client`` constructor or through parameters in your connection string.
+``MongoDB\Client`` constructor or through parameters in your connection URI.
 
 .. tabs::
 
-   .. tab:: MongoDB\Client
+   .. tab:: MongoDB\\Client
       :tabid: Client
 
       .. code-block:: php
@@ -242,7 +242,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: Connection String
+   .. tab:: connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -287,11 +287,11 @@ Example
 
 The following example sets the ``authMechanism`` connection option. 
 You can set this option in two ways: by passing an options array to the
-``MongoDB\Client`` constructor or through a parameter in your connection string.
+``MongoDB\Client`` constructor or through a parameter in your connection URI.
 
 .. tabs::
 
-   .. tab:: MongoDB\Client
+   .. tab:: MongoDB\\Client
       :tabid: Client
 
       .. code-block:: php
@@ -301,7 +301,7 @@ You can set this option in two ways: by passing an options array to the
             ['authMechanism' => 'MONGODB-AWS'],
          );
 
-   .. tab:: Connection String
+   .. tab:: connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -319,8 +319,8 @@ You can set this option in two ways: by passing an options array to the
 
 .. _php-mongodb-aws-oidc:
 
-``AssumeRoleWithWebIdentity`` Request
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+AssumeRoleWithWebIdentity Request
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your application authenticates users for your EKS cluster from an OpenID Connect (OIDC)
 identity provider, the {+php-library+} can make an ``AssumeRoleWithWebIdentity`` request
@@ -379,11 +379,9 @@ To view an example that sets the ``authMechanism`` option, see the :ref:`authMec
 
 .. note::
 
-   If you set any of the environment variables from the preceding AWS authentication
-   methods, the {+php-library+} attempts to retrieve credentials by using those
-   methods before attempting to retrieve them from an EC2 instance. To attempt
-   to retrieve credentials only from an EC2 instance, ensure that the
-   environment variables are not set.
+   The {+php-library+} retrieves credentials from an EC2 instance only if the
+   environment variables described in the :ref:`php-mongodb-aws-env-vars` section
+   are not set.
 
 Additional Information
 ----------------------
