@@ -21,8 +21,9 @@ Overview
 --------
 
 The MongoDB Atlas Search feature enables you to perform full-text
-searches on collections hosted on Atlas. The indexes specify the
-behavior which fields to index and how they are indexed.
+searches on collections hosted on Atlas. Before you can perform Atlas
+Search queries, you must create indexes that specify which
+fields to index and how they are indexed.
 
 To learn more about Atlas Search, see the :atlas:`Atlas Search Overview
 </atlas-search/atlas-search-overview/>`.
