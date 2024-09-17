@@ -21,31 +21,31 @@ MongoDB Compatibility
 ---------------------
 
 The following compatibility table specifies the recommended version or versions
-of the PHP driver for use with a specific version of MongoDB.
+of the {+php-library+} and extension that you can use with a specific version of MongoDB.
 
-The first column lists the driver version.
+The first column lists the version of the library and extension.
 
 .. sharedinclude:: dbx/lifecycle-schedule-callout.rst
 
 .. include:: /includes/mongodb-compatibility-table-php.rst
 
 For more information on how to read the compatibility tables, see our guide on
-`MongoDB Compatibility Tables <about-driver-compatibility>`__.
+`MongoDB Compatibility Tables <https://www.mongodb.com/docs/drivers/about-compatibility/>`__.
 
 Language Compatibility
 ----------------------
 
 The following compatibility table specifies the recommended version or versions
-of the PHP driver for use with a specific version of PHP.
+of the {+php-library+} and extension that you can use with a specific version of PHP.
 
-The first column lists the driver versions.
+The first column lists the version of the library and extension.
 
 .. include:: /includes/language-compatibility-table-php.rst
 
 .. sharedinclude:: dbx/about-driver-compatibility.rst
 
 For more information on how to read the compatibility tables, see our guide on
-`MongoDB Compatibility Tables <about-driver-compatibility>`__.
+`MongoDB Compatibility Tables <https://www.mongodb.com/docs/drivers/about-compatibility/>`__.
 
 How to Get Help
 ---------------
@@ -54,8 +54,7 @@ If you have questions about compatibility, visit the following resources for fur
 
 - Ask questions on our :community-forum:`MongoDB Community Forums <>`.
 - Visit our :technical-support:`Support Channels </>`.
-- File an issue or feature request in JIRA under one of the following:
-
-  - `Extension <https://jira.mongodb.org/projects/PHPC/summary>`_
-
-  - `Library <https://jira.mongodb.org/projects/PHPLIB/summary>`_
+- File an issue or feature request in our issue tracker, JIRA, under one of the
+  following projects::
+  - `PHPC - Extension <https://jira.mongodb.org/projects/PHPC/summary>`_
+  - `PHPLIB - Library <https://jira.mongodb.org/projects/PHPLIB/summary>`_

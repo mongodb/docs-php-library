@@ -214,7 +214,7 @@
      -
      -
 
-.. [#PHP1.15-version-parity] Version 1.14 of the MongoDB PHP library has been 
+.. [#PHP1.15-version-parity] Version 1.14 of the {+php-library+} has been 
    skipped to restore version parity between the library and extension.
 
 .. [#PHPC1.10-PHPLIB1.9-driver-support] The extension 1.10 + library 1.9
