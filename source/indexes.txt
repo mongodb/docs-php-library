@@ -221,8 +221,8 @@ The following example deletes an index with the specified name:
    :copyable:
    :dedent:
 
-.. TODO: To learn more about removing indexes, see :ref:`php-indexes-remove`
-.. in the Work with Indexes guide.
+To learn more about deleting indexes, see :ref:`php-remove-idx`
+in the Index Considerations and Management guide.
 
 Atlas Search Index Management
 -----------------------------
@@ -252,9 +252,6 @@ The following example creates an Atlas Search index on the specified field:
    :copyable:
    :dedent:
 
-.. To learn more about creating search indexes, see the
-.. :ref:`php-atlas-search-index-create` guide. 
-
 List Search Indexes
 ~~~~~~~~~~~~~~~~~~~
 
@@ -267,9 +264,6 @@ specified collection:
    :language: php
    :copyable:
    :dedent:
-
-.. To learn more about listing search indexes, see the :ref:`php-atlas-search-index-list`
-.. guide.
 
 Update Search Indexes
 ~~~~~~~~~~~~~~~~~~~~~
@@ -284,9 +278,6 @@ new index definition:
    :copyable:
    :dedent:
 
-.. To learn more about updating search indexes, see the :ref:`php-atlas-search-index-update`
-.. guide.
-
 Delete Search Indexes
 ~~~~~~~~~~~~~~~~~~~~~
 
@@ -298,6 +289,3 @@ The following example deletes an Atlas Search index with the specified name:
    :language: php
    :copyable:
    :dedent:
-
-.. To learn more about deleting search indexes, see the :ref:`php-atlas-search-index-drop`
-.. guide.
