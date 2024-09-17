@@ -75,7 +75,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: connection URI
+   .. tab:: Connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -124,7 +124,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: connection URI
+   .. tab:: Connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -169,7 +169,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: connection URI
+   .. tab:: Connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -242,7 +242,7 @@ You can set these options in two ways: by passing an options array to the
             $options,
          );
 
-   .. tab:: connection URI
+   .. tab:: Connection URI
       :tabid: connectionstring
 
       .. code-block:: php
@@ -301,7 +301,7 @@ You can set this option in two ways: by passing an options array to the
             ['authMechanism' => 'MONGODB-AWS'],
          );
 
-   .. tab:: connection URI
+   .. tab:: Connection URI
       :tabid: connectionstring
 
       .. code-block:: php
