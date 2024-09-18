@@ -47,7 +47,7 @@ The first column lists the version of the library and extension.
 For more information on how to read the compatibility tables, see our guide on
 `MongoDB Compatibility Tables <https://www.mongodb.com/docs/drivers/about-compatibility/>`__.
 
-How To Get Help
+How to Get Help
 ---------------
 
 If you have questions about compatibility, visit the following resources for further guidance:
@@ -55,6 +55,8 @@ If you have questions about compatibility, visit the following resources for fur
 - Ask questions on our :community-forum:`MongoDB Community Forums <>`.
 - Visit our :technical-support:`Support Channels </>`.
 - File an issue or feature request in our issue tracker, JIRA, under one of the
-  following projects::
+  following projects:
+
   - `PHPC - Extension <https://jira.mongodb.org/projects/PHPC/summary>`_
+  
   - `PHPLIB - Library <https://jira.mongodb.org/projects/PHPLIB/summary>`_
