@@ -11,7 +11,12 @@ MongoDB PHP Library
    :titlesonly:
 
    Get Started </get-started>
+   /databases-collections
    /read
+   /write
+   /aggregation
+   /indexes
+   /security
    /tutorial
    /upgrade
    /reference
