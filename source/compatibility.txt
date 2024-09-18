@@ -47,7 +47,7 @@ The first column lists the version of the library and extension.
 For more information on how to read the compatibility tables, see our guide on
 `MongoDB Compatibility Tables <https://www.mongodb.com/docs/drivers/about-compatibility/>`__.
 
-How to Get Help
+How To Get Help
 ---------------
 
 If you have questions about compatibility, visit the following resources for further guidance:
