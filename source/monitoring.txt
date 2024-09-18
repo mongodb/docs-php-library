@@ -12,7 +12,7 @@ Monitor Your Application
 .. /monitoring/command-monitoring
 .. /monitoring/connection-monitoring
 
-- :ref:`Cluster Monitoring <php-cluster-monitoring>`: monitor changes
+- :ref:`Cluster Monitoring <php-cluster-monitoring>`: Monitor changes
   in your cluster configuration
 
 .. TODO - :ref:`Command Monitoring <php-command-monitoring>`: monitor command
