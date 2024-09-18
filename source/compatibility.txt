@@ -27,12 +27,10 @@ The first column lists the version of the library and extension.
 
 .. sharedinclude:: dbx/lifecycle-schedule-callout.rst
 
-.. sharedinclude:: dbx/compatibility-table-legend.rst
-
 .. include:: /includes/mongodb-compatibility-table-php.rst
 
 For more information on how to read the compatibility tables, see our guide on
-:ref:`MongoDB Compatibility Tables. <about-driver-compatibility>`.
+:ref:`MongoDB Compatibility Tables <about-driver-compatibility>`.
 
 Language Compatibility
 ----------------------
@@ -47,7 +45,7 @@ The first column lists the version of the library and extension.
 .. sharedinclude:: dbx/about-driver-compatibility.rst
 
 For more information on how to read the compatibility tables, see our guide on
-`MongoDB Compatibility Tables <https://www.mongodb.com/docs/drivers/about-compatibility/>`__.
+:ref:`MongoDB Compatibility Tables <about-driver-compatibility>`.
 
 How to Get Help
 ---------------
@@ -62,3 +60,4 @@ If you have questions about compatibility, visit the following resources for fur
   - `PHPC - Extension <https://jira.mongodb.org/projects/PHPC/summary>`_
   
   - `PHPLIB - Library <https://jira.mongodb.org/projects/PHPLIB/summary>`_
+  
