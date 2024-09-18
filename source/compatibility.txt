@@ -27,6 +27,8 @@ The first column lists the version of the library and extension.
 
 .. sharedinclude:: dbx/lifecycle-schedule-callout.rst
 
+.. sharedinclude:: dbx/compatibility-table-legend.rst
+
 .. include:: /includes/mongodb-compatibility-table-php.rst
 
 For more information on how to read the compatibility tables, see our guide on
@@ -60,4 +62,3 @@ If you have questions about compatibility, visit the following resources for fur
   - `PHPC - Extension <https://jira.mongodb.org/projects/PHPC/summary>`_
   
   - `PHPLIB - Library <https://jira.mongodb.org/projects/PHPLIB/summary>`_
-  
