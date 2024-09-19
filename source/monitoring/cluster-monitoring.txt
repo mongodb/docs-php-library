@@ -20,15 +20,17 @@ Cluster Monitoring
 Overview
 --------
 
-This guide shows you how to use the {+php-library+} to monitor topology
-events in a MongoDB instance, replica set, or sharded cluster. The
-driver creates topology events, also known as Server Discovery and
-Monitoring (SDAM) events, when there are any changes in the state of the
-MongoDB instance or cluster that you are connected to.
+This guide shows you how to use the {+php-library+} to monitor server
+discovery and monitoring (SDAM) events in a MongoDB instance, replica
+set, or sharded cluster. These events occur when there
+are any changes in the state of the MongoDB instance or cluster that you
+are connected to.
 
-You might use information about topology events in your
-application to understand cluster changes, assess cluster health, or
-perform capacity planning.
+You might use information about SDAM events in your application to
+understand cluster changes, assess cluster health, or perform capacity
+planning.
+
+.. _php-subscribe-sdam:
 
 Subscribe to Events
 -------------------
@@ -55,8 +57,8 @@ server:
 
    As shown in the preceding code, you must implement all of the methods
    of the ``SDAMSubscriber`` interface, even for events you are not subscribing to.
-   You can implement these methods with empty bodies so that the library
-   does not generate any messages for these events.
+   The example defines the extra methods as empty so that the
+   application does not output any messages for those events.
 
 Then, use the ``addSubscriber()`` method to register ``MySubscriber``
 with the client, as shown in the following code:
@@ -81,44 +83,70 @@ outputs messages such as the following:
 Event Descriptions
 ------------------
 
-You can subscribe to the following SDAM events by implementing the
-corresponding method from the ``SDAMSubscriber`` interface:
+You can subscribe to SDAM events by implementing the corresponding
+method from the ``SDAMSubscriber`` interface. The following table
+provides the name of each SDAM event, linked to the class's API
+documentation, and a description of when the event is published:
 
 .. list-table::
    :widths: 35 65 
    :header-rows: 1
 
-   * - Event Name
+   * - Event Type
      - Description
 
-   * - ``ServerChangedEvent``
-     - Created when an instance state changes, such as from secondary to
-       primary.
+   * - :php:`ServerChangedEvent <mongodb-driver-monitoring-serverchangedevent.php>`
+     - Created when the server description changes, such as the server's type
+       changing from secondary to primary.
 
-   * - ``ServerOpeningEvent``
-     - Created when the server is initialized.
+   * - :php:`ServerOpeningEvent <mongodb-driver-monitoring-serveropeningevent.php>`
+     - Created when the server description is instantiated with its
+       defaults.
 
-   * - ``ServerClosedEvent``
+   * - :php:`ServerClosedEvent <mongodb-driver-monitoring-serverclosedevent.php>`
      - Created when the server is closed.
 
-   * - ``TopologyChangedEvent``
-     - Created when the topology changes, such as an election of a new
-       primary or disconnection of a ``mongos`` proxy.
+   * - :php:`TopologyChangedEvent <mongodb-driver-monitoring-topologychangedevent.php>`
+     - Created when the topology description changes, such when there is
+       an election of a new primary or disconnection of a ``mongos`` proxy.
 
-   * - ``TopologyOpeningEvent``
-     - Created when the topology is initialized.
+   * - :php:`TopologyOpeningEvent <mongodb-driver-monitoring-topologyopeningevent.php>`
+     - Created when the topology description is initialized.
 
-   * - ``TopologyClosedEvent``
+   * - :php:`TopologyClosedEvent <mongodb-driver-monitoring-topologyclosedevent.php>`
      - Created when the topology is closed.
 
-   * - ``ServerHeartbeatStartedEvent``
-     - Created when the heartbeat is started.
+   * - :php:`ServerHeartbeatStartedEvent <mongodb-driver-monitoring-serverheartbeatstartedevent.php>`
+     - Created when the server monitor sends a ``hello`` call to the server.
+       This action is called a heartbeat.
 
-   * - ``ServerHeartbeatSucceededEvent``
+   * - :php:`ServerHeartbeatSucceededEvent <mongodb-driver-monitoring-serverheartbeatsucceededevent.php>`
      - Created when the heartbeat succeeds.
 
-   * - ``ServerHeartbeatFailedEvent``
+   * - :php:`ServerHeartbeatFailedEvent <mongodb-driver-monitoring-serverheartbeatfailedevent.php>`
      - Created when the heartbeat fails.
+
+You can find a list of the monitoring subscriber classes and event
+methods in the :php:`Monitoring classes and subscriber functions
+<mongodb.monitoring.php>` section of the PHP manual.
+
+Remove a Subscriber
+-------------------
+
+Later in your application, you might not want to subscribe to
+SDAM events. To unregister a subscriber from your client, use the
+``MongoDB\Client::removeSubscriber()`` method. If you attempt to remove
+a nonexistent subscriber, the method doesn't perform any action.
+
+The following code shows how to remove the subscriber that you
+registered in the :ref:`php-subscribe-sdam` section:
+
+.. literalinclude:: /includes/monitoring/sdam.php
+   :start-after: start-remove-sub
+   :end-before: end-remove-sub
+   :language: php
+   :copyable:
+   :dedent:
 
 API Documentation
 -----------------
@@ -127,7 +155,7 @@ To learn more about any of the classes or methods discussed in this guide, see t
 following API documentation:
 
 - :phpmethod:`MongoDB\Client::addSubscriber()`
-- :phpclass:`MongoDB\Client`
+- :phpmethod:`MongoDB\Client::removeSubscriber()`
 
 To learn more about subscriber classes and methods, see the following
 pages in the PHP manual:

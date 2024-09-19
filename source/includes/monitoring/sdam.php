@@ -1,24 +1,26 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . "/vendor/autoload.php";
 
 // start-mysubscriber
 class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
 {
     private $stream;
+
     public function __construct($stream)
     {
         $this->stream = $stream;
     }
-    public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void
-    {
-        fwrite($this->stream, sprintf(
-            'Server opening on %s:%s%s',
+
+    public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void {
+        fprintf(
+            $this->stream,
+            "Server opening on %s:%s\n",
             $event->getHost(),
             $event->getPort(),
-            PHP_EOL,
-        ));
+        );
     }
+
     public function serverClosed(MongoDB\Driver\Monitoring\ServerClosedEvent $event): void {}
     public function serverChanged(MongoDB\Driver\Monitoring\ServerChangedEvent $event): void {}
     public function serverHeartbeatFailed(MongoDB\Driver\Monitoring\ServerHeartbeatFailedEvent $event): void {}
@@ -30,15 +32,18 @@ class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
 }
 // end-mysubscriber
 
-$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
+$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your connection URI');
 $client = new MongoDB\Client($uri);
 
-$database = $client->db;
-$collection = $database->my_coll;
+$collection = $client->db->my_coll;
 
 // start-add-sub
 $subscriber = new MySubscriber(STDERR);
 $client->addSubscriber($subscriber);
 // end-add-sub
 
-$collection->insertOne(['x' => 100]);
+$collection->insertOne(["x" => 100]);
+
+// start-remove-sub
+$client->removeSubscriber($subscriber);
+// end-remove-sub
