@@ -95,40 +95,40 @@ documentation, and a description of when the event is published:
    * - Event Type
      - Description
 
-   * - :php:`ServerChangedEvent <mongodb-driver-monitoring-serverchangedevent.php>`
+   * - :php:`ServerChangedEvent <mongodb-driver-monitoring-serverchangedevent>`
      - Created when the server description changes, such as the server's type
        changing from secondary to primary.
 
-   * - :php:`ServerOpeningEvent <mongodb-driver-monitoring-serveropeningevent.php>`
+   * - :php:`ServerOpeningEvent <mongodb-driver-monitoring-serveropeningevent>`
      - Created when the server description is instantiated with its
        defaults.
 
-   * - :php:`ServerClosedEvent <mongodb-driver-monitoring-serverclosedevent.php>`
+   * - :php:`ServerClosedEvent <mongodb-driver-monitoring-serverclosedevent>`
      - Created when the server is closed.
 
-   * - :php:`TopologyChangedEvent <mongodb-driver-monitoring-topologychangedevent.php>`
+   * - :php:`TopologyChangedEvent <mongodb-driver-monitoring-topologychangedevent>`
      - Created when the topology description changes, such when there is
        an election of a new primary or disconnection of a ``mongos`` proxy.
 
-   * - :php:`TopologyOpeningEvent <mongodb-driver-monitoring-topologyopeningevent.php>`
+   * - :php:`TopologyOpeningEvent <mongodb-driver-monitoring-topologyopeningevent>`
      - Created when the topology description is initialized.
 
-   * - :php:`TopologyClosedEvent <mongodb-driver-monitoring-topologyclosedevent.php>`
+   * - :php:`TopologyClosedEvent <mongodb-driver-monitoring-topologyclosedevent>`
      - Created when the topology is closed.
 
-   * - :php:`ServerHeartbeatStartedEvent <mongodb-driver-monitoring-serverheartbeatstartedevent.php>`
+   * - :php:`ServerHeartbeatStartedEvent <mongodb-driver-monitoring-serverheartbeatstartedevent>`
      - Created when the server monitor sends a ``hello`` call to the server.
        This action is called a heartbeat.
 
-   * - :php:`ServerHeartbeatSucceededEvent <mongodb-driver-monitoring-serverheartbeatsucceededevent.php>`
+   * - :php:`ServerHeartbeatSucceededEvent <mongodb-driver-monitoring-serverheartbeatsucceededevent>`
      - Created when the heartbeat succeeds.
 
-   * - :php:`ServerHeartbeatFailedEvent <mongodb-driver-monitoring-serverheartbeatfailedevent.php>`
+   * - :php:`ServerHeartbeatFailedEvent <mongodb-driver-monitoring-serverheartbeatfailedevent>`
      - Created when the heartbeat fails.
 
 You can find a list of the monitoring subscriber classes and event
 methods in the :php:`Monitoring classes and subscriber functions
-<mongodb.monitoring.php>` section of the PHP manual.
+<mongodb.monitoring>` section of the PHP manual.
 
 Remove a Subscriber
 -------------------
