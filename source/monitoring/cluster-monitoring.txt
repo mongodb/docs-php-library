@@ -55,7 +55,7 @@ server:
 
 .. note::
 
-   As shown in the preceding code, you must implement all of the methods
+   As shown in the preceding code, you must implement all the methods
    of the ``SDAMSubscriber`` interface, even for events you are not subscribing to.
    The example defines the extra methods as empty so that the
    application does not output any messages for those events.
