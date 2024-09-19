@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/vendor/autoload.php";
+require __DIR__ . '/vendor/autoload.php';
 
 // start-mysubscriber
 class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
@@ -15,7 +15,7 @@ class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
     public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void {
         fprintf(
             $this->stream,
-            "Server opening on %s:%s\n",
+            'Server opening on %s:%s\n',
             $event->getHost(),
             $event->getPort(),
         );
@@ -42,7 +42,7 @@ $subscriber = new MySubscriber(STDERR);
 $client->addSubscriber($subscriber);
 // end-add-sub
 
-$collection->insertOne(["x" => 100]);
+$collection->insertOne(['x' => 100]);
 
 // start-remove-sub
 $client->removeSubscriber($subscriber);
