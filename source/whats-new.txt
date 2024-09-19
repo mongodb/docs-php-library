@@ -33,3 +33,14 @@ What's New in 1.20
    library.
 
 - Adds support for MongoDB Server v8.0.
+
+What's New in 1.18
+------------------
+
+- Adds a new GridFS API to make it more convenient to work with files using PHP's 
+  existing filesystem functions. The :ref:`MongoDB\GridFS\Bucket::registerGlobalStreamWrapperAlias() <gridfs-bucket-register-global>` 
+  method may be used to register a global alias for a GridFS bucket. After doing so, files within that bucket 
+  can be accessed using only a file URI (e.g. "gridfs://mybucket/hello.txt"). A demonstration of this 
+  API can be found in the `gridfs_stream_wrapper.php <https://github.com/mongodb/mongo-php-library/blob/1.18.0/examples/gridfs_stream_wrapper.php>`_ 
+  example script.
+
