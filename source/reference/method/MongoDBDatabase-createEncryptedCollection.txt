@@ -1,3 +1,5 @@
+.. _api-database-create-encrypted:
+
 ==============================================
 MongoDB\\Database::createEncryptedCollection()
 ==============================================

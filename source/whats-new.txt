@@ -52,13 +52,13 @@ What's New in 1.18
   method may be used to register a global alias for a GridFS bucket. After 
   doing so, files within that bucket can be accessed using only a file URI 
   (e.g. "gridfs://mybucket/hello.txt"). A demonstration of this API can be found
-  in the `gridfs_stream_wrapper.php <https://github.com/mongodb/mongo-php-library/blob/1.18.0/examples/gridfs_stream_wrapper.php>`_ 
+  in the `gridfs_stream_wrapper.php <https://github.com/mongodb/mongo-php-library/blob/1.18.0/examples/gridfs_stream_wrapper.php>`__ 
   example script.
 
-- The ``MongoDB\Client`` class now has :ref:`addSubscriber() <api-client-add-subscriber>` 
-  and :ref:`removeSubscriber()<api-client-remove-subscriber>` methods to make it 
-  easier to register monitoring classes on the underlying ``MongoDB\Driver\Manager``
-  object.
+- Adds :ref:`addSubscriber() <api-client-add-subscriber>` and 
+  :ref:`removeSubscriber()<api-client-remove-subscriber>` methods to the 
+  ``MongoDB\Client`` class to make it easier to register monitoring classes 
+  on the underlying ``MongoDB\Driver\Manager`` object.
 
 To learn more about this release, see the `v1.18 Release Notes 
 <https://github.com/mongodb/mongo-php-library/releases/tag/1.18.0>`__ on GitHub.

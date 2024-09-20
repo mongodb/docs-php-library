@@ -1,3 +1,5 @@
+.. _api-mongodb-collection-class:
+
 =========================
 MongoDB\\Collection Class
 =========================
