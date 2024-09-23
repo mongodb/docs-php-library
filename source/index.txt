@@ -16,10 +16,12 @@ MongoDB PHP Library
    /write
    /aggregation
    /indexes
+   /security
    /tutorial
    /upgrade
    /reference
    FAQ </faq>
+   /compatibility
    /whats-new
 
 The |php-library| provides a high-level abstraction around the lower-level
