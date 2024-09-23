@@ -199,6 +199,9 @@ You can change these settings by passing an options array to the
 ``MongoDB\Client::selectDatabase()``, ``MongoDB\Client::selectCollection()``, or
 ``MongoDB\Database::selectCollection()`` methods.
 
+To learn more about setting a read preference, read concern, and write concern,
+see the :ref:`php-crud-write-read-pref` guide.
+
 To change the read preference, read concern, and write concern of your database
 or collection, set the following options in the array parameter:
 

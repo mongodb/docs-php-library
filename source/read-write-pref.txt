@@ -1,0 +1,201 @@
+.. _php-read-write-pref:
+
+===============================================
+Specify How CRUD Operations Run on Replica Sets
+===============================================
+
+.. facet::
+   :name: genre
+   :values: reference
+
+.. meta:: 
+   :keywords: customize, preferences, replica set, consistency
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+Overview
+--------
+
+In this guide, you can learn how to use the **write concern**, **read concern**, and
+**read preference** configurations to modify the way that MongoDB runs
+create, read, update, and delete (CRUD) operations on replica sets.
+
+You can set write concern, read concern, and read preference options at the following
+levels:
+
+- Client, which sets the *default for all operation executions* unless overridden
+- Session
+- Transaction
+- Database
+- Collection
+
+This list also indicates the increasing order of precedence of the option settings. For
+example, if you set a read concern level for a transaction, it will override a read
+concern level set for the client.
+
+These options allow you to customize the causal consistency and availability of the data
+in your replica sets.
+
+.. _php-read-write-config:
+
+Configure Read and Write Operations
+-----------------------------------
+
+This section shows how to configure the read preference, read concern, and write
+concern at various levels by passing an options array parameter to the following
+objects and methods:
+
+- :ref:`MongoDB\\Client <php-read-write-client>`
+- :ref:`MongoDB\\Driver\\Session <php-read-write-session>`
+- :ref:`MongoDB\\with_transaction() <php-read-write-transaction>`
+- :ref:`MongoDB\\Database <php-read-write-database>`
+- :ref:`MongoDB\\Collection <php-read-write-collection>`
+
+In the options parameter, specify the following values:
+
+- ``readPreference``: Sets the read preference. For a list of available read
+  preferences, see :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference>`
+  in the extension API documentation.
+- ``readConcern``: Sets the read concern. For a list of available read
+  concerns, see :php:`MongoDB\Driver\ReadConcern <mongodb-driver-readconcern>`
+  in the extension API documentation.
+- ``writeConcern``: Sets the write concern. For a list of available write
+  concerns, see :php:`MongoDB\Driver\WriteConcern <mongodb-driver-writeconcern>`
+  in the extension API documentation.
+
+.. _php-read-write-client:
+
+Client Configuration Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following example shows how to set the read preference, read concern, and
+write concern of a ``MongoDB\Client`` instance by passing an array to
+the constructor:
+
+.. literalinclude:: /includes/databases-collections/databases-collections.php
+    :language: php
+    :dedent:
+    :start-after: start-database-settings
+    :end-before: end-database-settings
+
+.. _php-read-write-session:
+
+Session Configuration Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _php-read-write-transaction:
+
+Transaction Configuration Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _php-read-write-database:
+
+Database Configuration Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following example shows how to set the read preference, read concern, and
+write concern of a database called ``test_database`` by passing an options
+array to ``selectDatabase()``:
+
+.. literalinclude:: /includes/databases-collections/databases-collections.php
+    :language: php
+    :dedent:
+    :start-after: start-database-settings
+    :end-before: end-database-settings
+
+.. _php-read-write-collection:
+
+Collection Configuration Example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following example shows how to set the read preference, read concern, and
+write concern of a collection called ``test_collection`` by passing an options
+array to ``selectCollection()``:
+
+.. literalinclude:: /includes/databases-collections/databases-collections.php
+    :language: php
+    :dedent:
+    :start-after: start-collection-settings
+    :end-before: end-collection-settings
+
+Advanced Read Configurations 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Tag Sets
+````````
+
+In {+mdb-server+}, you can apply key-value :manual:`tags
+</core/read-preference-tags/>` to replica-set
+members according to any criteria you choose. You can then use
+those tags to target one or more members for a read operation.
+
+By default, the {+php-library+} ignores tags when choosing a member
+to read from. To instruct the {+php-library+} to prefer certain tags,
+pass them as a parameter to your ``MongoDB\Driver\ReadPreference`` class
+constructor. Then, set the ``MongoDB\Driver\ReadPreference`` object as
+the value of the ``readPreference`` database option.
+
+This code example sets the ``readPreference`` option to a tag set
+that instructs ``test_database`` to prefer reads from secondary replica set
+members in the following order:
+
+1. Members from the New York data center (``['dc' => 'ny']``)
+#. Members from the San Francisco data center (``['dc' => 'sf']``)
+#. Any secondary members (``[]``)
+
+.. literalinclude:: /includes/databases-collections/databases-collections.php
+    :language: php
+    :dedent:
+    :start-after: start-tag-set
+    :end-before: end-tag-set
+
+Local Threshold
+```````````````
+
+If multiple replica-set members match the read preference and tag sets you specify,
+the {+php-library+} reads from the nearest replica-set members, chosen according to
+their ping time.
+
+By default, the library uses only members whose ping times are within 15 milliseconds
+of the nearest member for queries. To distribute reads between members with
+higher latencies, pass an options array to the ``MongoDB\Client`` constructor that
+sets the ``localThresholdMS`` option.
+
+The following example specifies a local threshold of 35 milliseconds:
+
+.. literalinclude:: /includes/databases-collections/databases-collections.php
+    :language: php
+    :dedent:
+    :start-after: start-local-threshold
+    :end-before: end-local-threshold
+
+In the preceding example, the {+php-library+} distributes reads among matching members
+within 35 milliseconds of the closest member's ping time.
+
+.. note::
+  
+   The {+php-library+} ignores the value of ``localThresholdMS`` when communicating with a
+   replica set through a ``mongos`` instance. In this case, use the
+   :manual:`localThreshold </reference/program/mongos/#std-option-mongos.--localThreshold>`
+   command-line option.
+
+
+Additional Information
+----------------------
+
+To learn more about read preferences and read and write concerns, see the
+following guides in the {+mdb-server+} manual:
+
+- :manual:`Read Preference </core/read-preference/>`
+- :manual:`Read Concern </reference/read-concern/>`
+- :manual:`Write Concern </reference/write-concern/>`
+
+API Documentation
+~~~~~~~~~~~~~~~~~
+
+To learn more about any of the methods or types discussed in this
+guide, see the following API documentation:
