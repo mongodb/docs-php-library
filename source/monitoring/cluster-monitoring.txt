@@ -96,8 +96,8 @@ documentation, and a description of when the event is published:
      - Description
 
    * - :php:`ServerChangedEvent <mongodb-driver-monitoring-serverchangedevent>`
-     - Created when the server description changes, such as the server's type
-       changing from secondary to primary.
+     - Created when the server description changes, such as the server's
+       type changing from secondary to primary.
 
    * - :php:`ServerOpeningEvent <mongodb-driver-monitoring-serveropeningevent>`
      - Created when a server connection is established.
@@ -106,8 +106,8 @@ documentation, and a description of when the event is published:
      - Created when a server connection is closed.
 
    * - :php:`TopologyChangedEvent <mongodb-driver-monitoring-topologychangedevent>`
-     - Created when the topology description changes, such when there is
-       an election of a new primary.
+     - Created when the topology description changes, such as when there
+       is an election of a new primary.
 
    * - :php:`TopologyOpeningEvent <mongodb-driver-monitoring-topologyopeningevent>`
      - Created when the driver first connects to the cluster.
@@ -116,7 +116,7 @@ documentation, and a description of when the event is published:
      - Created when the driver disconnects from the cluster.
 
    * - :php:`ServerHeartbeatStartedEvent <mongodb-driver-monitoring-serverheartbeatstartedevent>`
-     - Created when the server monitor sends a ``hello`` call to the server.
+     - Created when the server monitor sends a ``hello`` command to the server.
        This action is called a heartbeat.
 
    * - :php:`ServerHeartbeatSucceededEvent <mongodb-driver-monitoring-serverheartbeatsucceededevent>`
