@@ -82,7 +82,7 @@ What's New in 1.17
 - Introduces new :phpclass:`MongoDB\Collection` methods to create and manage 
   Atlas Search indexes. Atlas Search indexes can be queried using the ``$search`` 
   aggregation pipeline stage, which is supported in all versions of the library.
-  To learn more about Atlas Search indexes and the specfics of the ``$search`` 
+  To learn more about Atlas Search indexes and the specifics of the ``$search`` 
   aggregation stage, see the :atlas:`Atlas Search indexes </atlas-search>` 
   documentation and :manual:`$search </reference/operator/aggregation/search/>`, 
   respectively.
