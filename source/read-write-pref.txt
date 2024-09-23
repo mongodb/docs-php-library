@@ -47,13 +47,18 @@ Configure Read and Write Operations
 
 This section shows how to configure the read preference, read concern, and write
 concern at various levels by passing an options array parameter to the following
-objects and methods:
+methods:
 
-- :ref:`MongoDB\\Client <php-read-write-client>`
-- :ref:`MongoDB\\Driver\\Session <php-read-write-session>`
-- :ref:`MongoDB\\with_transaction() <php-read-write-transaction>`
-- :ref:`MongoDB\\Database <php-read-write-database>`
-- :ref:`MongoDB\\Collection <php-read-write-collection>`
+- :ref:`MongoDB\\Client::__construct() <php-read-write-client>`: Configures read
+  and write settings at the client level
+- :ref:`MongoDB\\Client::startSession() <php-read-write-session>`: Configures read
+  and write settings at the session level
+- :ref:`MongoDB\\Driver\\Session::startTransaction() <php-read-write-transaction>`:
+  Configures read and write settings at the transaction level
+- :ref:`MongoDB\\Client::selectDatabase() <php-read-write-database>`: Configures read
+  and write settings at the database level
+- :ref:`MongoDB\\Client::selectCollection() <php-read-write-collection>`: Configures read
+  and write settings at the collection level
 
 In the options parameter, specify the following values:
 
@@ -67,6 +72,13 @@ In the options parameter, specify the following values:
   concerns, see :php:`MongoDB\Driver\WriteConcern <mongodb-driver-writeconcern>`
   in the extension API documentation.
 
+.. note::
+
+    When setting a write concern at the ``MongoDB\Client`` level, specify the ``w``
+    value in an options array rather than ``writeConcern.`` You can also specify
+    read and write settings in the connection URI. For more information,
+    see the :ref:`php-read-write-client`.
+
 .. _php-read-write-client:
 
 Client Configuration Example
@@ -76,21 +88,50 @@ The following example shows how to set the read preference, read concern, and
 write concern of a ``MongoDB\Client`` instance by passing an array to
 the constructor:
 
-.. literalinclude:: /includes/databases-collections/databases-collections.php
+.. literalinclude:: /includes/read-write-pref.php
     :language: php
     :dedent:
-    :start-after: start-database-settings
-    :end-before: end-database-settings
+    :start-after: start-client-settings
+    :end-before: end-client-settings
+
+Alternatively, you can specify the read and write settings in the connection
+URI, which is passed as a parameter to the ``MongoDB\Client`` constructor:
+
+.. literalinclude:: /includes/read-write-pref.php
+    :language: php
+    :dedent:
+    :start-after: start-client-settings-uri
+    :end-before: end-client-settings-uri
 
 .. _php-read-write-session:
 
 Session Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+The following example shows how to set the read preference, read concern, and
+write concern of a session by passing an array to the ``startSession()``
+method:
+
+.. literalinclude:: /includes/read-write-pref.php
+    :language: php
+    :dedent:
+    :start-after: start-session-settings
+    :end-before: end-session-settings
+
 .. _php-read-write-transaction:
 
 Transaction Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following example shows how to set the read preference, read concern, and
+write concern of a transaction by passing an array to the ``startTransaction()``
+method:
+
+.. literalinclude:: /includes/read-write-pref.php
+    :language: php
+    :dedent:
+    :start-after: start-transaction-settings
+    :end-before: end-transaction-settings
 
 .. _php-read-write-database:
 
@@ -99,7 +140,7 @@ Database Configuration Example
 
 The following example shows how to set the read preference, read concern, and
 write concern of a database called ``test_database`` by passing an options
-array to ``selectDatabase()``:
+array to the ``selectDatabase()`` method:
 
 .. literalinclude:: /includes/databases-collections/databases-collections.php
     :language: php
@@ -114,7 +155,7 @@ Collection Configuration Example
 
 The following example shows how to set the read preference, read concern, and
 write concern of a collection called ``test_collection`` by passing an options
-array to ``selectCollection()``:
+array to the ``selectCollection()`` method:
 
 .. literalinclude:: /includes/databases-collections/databases-collections.php
     :language: php
@@ -122,11 +163,21 @@ array to ``selectCollection()``:
     :start-after: start-collection-settings
     :end-before: end-collection-settings
 
+.. _php-read-write-advanced:
+
 Advanced Read Configurations 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
+
+This section shows how to further customize your read operation
+settings in the following ways:
+
+- :ref:`Apply a tag set <php-tag-sets>`
+- :ref:`Specify a local threshold <php-local-threshold>`
+
+.. _php-tag-sets:
 
 Tag Sets
-````````
+~~~~~~~~
 
 In {+mdb-server+}, you can apply key-value :manual:`tags
 </core/read-preference-tags/>` to replica-set
@@ -153,8 +204,10 @@ members in the following order:
     :start-after: start-tag-set
     :end-before: end-tag-set
 
+.. _php-local-threshold:
+
 Local Threshold
-```````````````
+~~~~~~~~~~~~~~~
 
 If multiple replica-set members match the read preference and tag sets you specify,
 the {+php-library+} reads from the nearest replica-set members, chosen according to
@@ -199,3 +252,9 @@ API Documentation
 
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
+
+- :phpmethod:`MongoDB\Client::__construct()`
+- :phpmethod:`MongoDB\Client::startSession()`
+- :php:`MongoDB\Driver\Session::startTransaction()`
+- :phpmethod:`MongoDB\Client::selectDatabase()`
+- :phpmethod:`MongoDB\Client::selectCollection()`
