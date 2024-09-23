@@ -414,8 +414,6 @@ following example finds restaurants whose name starts with "(Library)":
        'name' => new MongoDB\BSON\Regex('^' . preg_quote('(Library)')),
    ]);
 
-.. _php-aggregation:
-
 Complex Queries with Aggregation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

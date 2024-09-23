@@ -17,6 +17,12 @@ Databases and Collections
 .. meta::
    :keywords: table, row, organize, storage, code example
 
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   /databases-collections/time-series
+
 Overview
 --------
 
