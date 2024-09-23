@@ -1,5 +1,3 @@
-.. _api-client-add-subscriber:
-
 ================================
 MongoDB\\Client::addSubscriber()
 ================================

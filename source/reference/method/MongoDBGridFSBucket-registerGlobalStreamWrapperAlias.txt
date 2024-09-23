@@ -1,5 +1,3 @@
-.. _api-gridfs-bucket-register-global:
-
 ===========================================================
 MongoDB\\GridFS\\Bucket::registerGlobalStreamWrapperAlias()
 ===========================================================

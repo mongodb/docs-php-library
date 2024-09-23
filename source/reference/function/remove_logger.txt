@@ -1,5 +1,3 @@
-.. _api-remove-logger:
-
 ========================
 MongoDB\\remove_logger()
 ========================

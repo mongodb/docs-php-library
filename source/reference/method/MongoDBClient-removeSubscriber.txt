@@ -1,5 +1,3 @@
-.. _api-client-remove-subscriber:
-
 ===================================
 MongoDB\\Client::removeSubscriber()
 ===================================
