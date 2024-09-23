@@ -279,6 +279,6 @@ guide, see the following API documentation:
 
 - :phpmethod:`MongoDB\Client::__construct()`
 - :phpmethod:`MongoDB\Client::startSession()`
-- :php:`MongoDB\Driver\Session::startTransaction() <mongodb-driver-session.starttransaction.php>`
+- :php:`MongoDB\Driver\Session::startTransaction() <mongodb-driver-session.starttransaction>`
 - :phpmethod:`MongoDB\Client::selectDatabase()`
 - :phpmethod:`MongoDB\Client::selectCollection()`
