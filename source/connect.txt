@@ -269,7 +269,7 @@ the TLS Configuration guide.
 Allow Insecure TLS
 ~~~~~~~~~~~~~~~~~~
 
-The following code shows how to disable certificate verification:
+The following code shows how to enable insecure TLS:
 
 .. tabs::
 
