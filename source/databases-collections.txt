@@ -187,10 +187,8 @@ The following example deletes the ``test_collection`` collection:
 Configure Read and Write Operations
 -----------------------------------
 
-You can control how the library routes read operations by setting a **read preference**.
-You can also control options for how the library waits for acknowledgment of
-read and write operations on a replica set by setting a **read concern** and a
-**write concern**.
+You can control how read and write operations run on replica sets
+by specifying a read preference, read concern, and write concern.
 
 By default, databases inherit read and write settings from the ``MongoDB\Client``
 instance. Collections inherit these settings from the ``MongoDB\Client`` or

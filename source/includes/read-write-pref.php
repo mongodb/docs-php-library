@@ -10,7 +10,7 @@ use MongoDB\Client;
 $clientOptions = [
     'readPreference' => 'secondary',
     'readConcernLevel' => 'local',
-    'w' => 'majority',
+    'w' => '2',
 ];
 
 $client = new Client('mongodb://localhost:27017', $clientOptions);
@@ -23,7 +23,7 @@ $client = new Client($uri);
 
 // start-session-settings
 $sessionOptions = [
-    'readPreference' => new ReadPreference(ReadPreference::RP_SECONDARY),
+    'readPreference' => new ReadPreference(ReadPreference::PRIMARY_PREFERRED),
     'readConcern' => new ReadConcern(ReadConcern::LOCAL),
     'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
 ];
@@ -33,9 +33,9 @@ $session = $client->startSession($sessionOptions);
 
 // start-transaction-settings
 $transactionOptions = [
-    'readPreference' => new ReadPreference(ReadPreference::RP_PRIMARY),
-    'readConcern' => new ReadConcern(ReadConcern::AVAILABLE),
-    'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
+    'readPreference' => new ReadPreference(ReadPreference::PRIMARY),
+    'readConcern' => new ReadConcern(ReadConcern::MAJORITY),
+    'writeConcern' => new WriteConcern(1),
 ];
 
 // Start the transaction
@@ -44,8 +44,8 @@ $session->startTransaction($transactionOptions);
 
 // Sets read and write settings for the "test_database" database
 // start-database-settings
-$readPreference = new ReadPreference(ReadPreference::RP_PRIMARY_PREFERRED);
-$readConcern = new ReadConcern(ReadConcern::LOCAL);
+$readPreference = new ReadPreference(ReadPreference::PRIMARY_PREFERRED);
+$readConcern = new ReadConcern(ReadConcern::AVAILABLE);
 $writeConcern = new WriteConcern(WriteConcern::MAJORITY);
 
 $db = $client->selectDatabase('test_database', [
@@ -57,9 +57,9 @@ $db = $client->selectDatabase('test_database', [
 
 // Sets read and write settings for the "test_collection" collection
 // start-collection-settings
-$readPreference = new ReadPreference(ReadPreference::RP_PRIMARY);
+$readPreference = new ReadPreference(ReadPreference::SECONDARY_PREFERRED);
 $readConcern = new ReadConcern(ReadConcern::AVAILABLE);
-$writeConcern = new WriteConcern(WriteConcern::MAJORITY);
+$writeConcern = new WriteConcern(0);
 
 $collection = $client->selectCollection('test_database', 'test_collection', [
     'readPreference' => $readPreference,

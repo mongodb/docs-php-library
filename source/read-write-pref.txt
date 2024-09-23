@@ -45,6 +45,11 @@ in your replica sets.
 Configure Read and Write Operations
 -----------------------------------
 
+You can control how the library routes read operations by setting a **read preference**.
+You can also control options for how the library waits for acknowledgment of
+read and write operations on a replica set by setting a **read concern** and a
+**write concern**.
+
 This section shows how to configure the read preference, read concern, and write
 concern at various levels by passing an options array parameter to the following
 methods:
@@ -84,9 +89,17 @@ In the options parameter, specify the following values:
 Client Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows how to set the read preference, read concern, and
+This example shows how to set the read preference, read concern, and
 write concern of a ``MongoDB\Client`` instance by passing an array to
-the constructor:
+the constructor. The code configures the following settings:
+
+- ``secondary`` read preference: Read operations retrieve data from 
+  secondary replica set members
+- ``local`` read concern: Read operations return the instance's most recent data 
+  without guaranteeing that the data has been written to a majority of the replica
+  set members
+- ``2`` write concern: The primary and one secondary replica set member
+  must acknowledge the write operation
 
 .. literalinclude:: /includes/read-write-pref.php
     :language: php
@@ -108,9 +121,18 @@ URI, which is passed as a parameter to the ``MongoDB\Client`` constructor:
 Session Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows how to set the read preference, read concern, and
+This example shows how to set the read preference, read concern, and
 write concern of a session by passing an array to the ``startSession()``
-method:
+method. The code configures the following settings:
+
+- ``PRIMARY_PREFERRED`` read preference: Read operations retrieve data from 
+  the primary replica set member, or secondary members if the primary is unavailable
+- ``LOCAL`` read concern: Read operations return the instance's most recent data 
+  without guaranteeing that the data has been written to a majority of the replica
+  set members
+- ``MAJORITY`` write concern: The majority of all replica set members
+  must acknowledge the write operation
+
 
 .. literalinclude:: /includes/read-write-pref.php
     :language: php
@@ -123,9 +145,16 @@ method:
 Transaction Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows how to set the read preference, read concern, and
+This example shows how to set the read preference, read concern, and
 write concern of a transaction by passing an array to the ``startTransaction()``
-method:
+method. The code configures the following settings:
+
+- ``PRIMARY`` read preference: Read operations retrieve data from 
+  the primary replica set member
+- ``MAJORITY`` read concern: Read operations return the instance's most recent data 
+  that has been written to a majority of replica set members
+- ``1`` write concern: The primary replica set member must acknowledge the
+  write operation
 
 .. literalinclude:: /includes/read-write-pref.php
     :language: php
@@ -138,9 +167,17 @@ method:
 Database Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows how to set the read preference, read concern, and
+This example shows how to set the read preference, read concern, and
 write concern of a database called ``test_database`` by passing an options
-array to the ``selectDatabase()`` method:
+array to the ``selectDatabase()`` method. The code configures the following settings:
+
+- ``PRIMARY_PREFERRED`` read preference: Read operations retrieve data from 
+  the primary replica set member, or secondary members if the primary is unavailable
+- ``AVAILABLE`` read concern: Read operations return the instance's most recent data 
+  without guaranteeing that the data has been written to a majority of the replica
+  set members
+- ``MAJORITY`` write concern: The majority of all replica set members
+  must acknowledge the write operation
 
 .. literalinclude:: /includes/databases-collections/databases-collections.php
     :language: php
@@ -153,9 +190,16 @@ array to the ``selectDatabase()`` method:
 Collection Configuration Example
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows how to set the read preference, read concern, and
+This example shows how to set the read preference, read concern, and
 write concern of a collection called ``test_collection`` by passing an options
-array to the ``selectCollection()`` method:
+array to the ``selectCollection()`` method. The code configures the following settings:
+
+- ``SECONDARY_PREFERRED`` read preference: Read operations retrieve data from 
+  secondary replica set members, or the primary members if no secondaries are available
+- ``AVAILABLE`` read concern: Read operations return the instance's most recent data 
+  without guaranteeing that the data has been written to a majority of the replica
+  set members
+- ``0`` write concern: Requests no acknowledgment of the write operation
 
 .. literalinclude:: /includes/databases-collections/databases-collections.php
     :language: php
