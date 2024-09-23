@@ -16,6 +16,7 @@ MongoDB PHP Library
    /write
    /aggregation
    /indexes
+   /monitoring
    /security
    /tutorial
    /upgrade
