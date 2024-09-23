@@ -22,9 +22,9 @@ Overview
 
 This guide shows you how to use the {+php-library+} to monitor server
 discovery and monitoring (SDAM) events in a MongoDB instance, replica
-set, or sharded cluster. These events occur when there
-are any changes in the state of the MongoDB instance or cluster that you
-are connected to.
+set, or sharded cluster. These events occur when there are any changes
+in the state of the MongoDB instance or cluster that you are connected
+to.
 
 You might use information about SDAM events in your application to
 understand cluster changes, assess cluster health, or perform capacity
@@ -100,21 +100,20 @@ documentation, and a description of when the event is published:
        changing from secondary to primary.
 
    * - :php:`ServerOpeningEvent <mongodb-driver-monitoring-serveropeningevent>`
-     - Created when the server description is instantiated with its
-       defaults.
+     - Created when a server connection is established.
 
    * - :php:`ServerClosedEvent <mongodb-driver-monitoring-serverclosedevent>`
-     - Created when the server is closed.
+     - Created when a server connection is closed.
 
    * - :php:`TopologyChangedEvent <mongodb-driver-monitoring-topologychangedevent>`
      - Created when the topology description changes, such when there is
-       an election of a new primary or disconnection of a ``mongos`` proxy.
+       an election of a new primary.
 
    * - :php:`TopologyOpeningEvent <mongodb-driver-monitoring-topologyopeningevent>`
-     - Created when the topology description is initialized.
+     - Created when the driver first connects to the cluster.
 
    * - :php:`TopologyClosedEvent <mongodb-driver-monitoring-topologyclosedevent>`
-     - Created when the topology is closed.
+     - Created when the driver disconnects from the cluster.
 
    * - :php:`ServerHeartbeatStartedEvent <mongodb-driver-monitoring-serverheartbeatstartedevent>`
      - Created when the server monitor sends a ``hello`` call to the server.
