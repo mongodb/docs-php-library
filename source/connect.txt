@@ -350,67 +350,6 @@ The following code shows how to disable hostname verification:
 To learn more about disabling hostname verification, see :ref:`php-insecure-tls` in
 the TLS Configuration guide.
 
-Network Compression
--------------------
-
-Compression Algorithms
-~~~~~~~~~~~~~~~~~~~~~~
-
-The following code shows how to enable compression for the connection
-to your MongoDB instance by specifying each compression algorithm:
-
-.. tabs::
-
-   .. tab:: MongoDB\\Client
-      :tabid: Client
-
-      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
-         :language: php
-         :dedent:
-         :start-after: start-compression-all-client
-         :end-before: end-compression-all-client
-
-   .. tab:: Connection URI
-      :tabid: connectionstring
-
-      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
-         :language: php
-         :dedent:
-         :start-after: start-compression-all-uri
-         :end-before: end-compression-all-uri
-
-To learn more about specifying compression algorithms, see
-:ref:`php-enable-compression` in the Network Compression guide.
-
-zlib Compression Level
-~~~~~~~~~~~~~~~~~~~~~~
-
-The following code shows how to specify the ``zlib`` compression algorithm
-and set its compression level:
-
-.. tabs::
-
-   .. tab:: MongoDB\\Client
-      :tabid: Client
-
-      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
-         :language: php
-         :dedent:
-         :start-after: start-compression-zlib-client
-         :end-before: end-compression-zlib-client
-
-   .. tab:: Connection URI
-      :tabid: connectionstring
-
-      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
-         :language: php
-         :dedent:
-         :start-after: start-compression-zlib-uri
-         :end-before: end-compression-zlib-uri
-
-To learn more about setting the zlib compression level, see
-:ref:`php-enable-compression` in the Network Compression guide.
-
 {+stable-api+}
 --------------
 
@@ -425,4 +364,6 @@ connection to your MongoDB instance:
 
 To learn more about the {+stable-api+}, see the :ref:`php-stable-api` guide.
 
-
+.. TODO:
+ Network Compression
+ -------------------

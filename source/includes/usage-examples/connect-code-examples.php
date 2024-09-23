@@ -160,36 +160,6 @@ $uri = 'mongodb://<hostname>:<port>/?tls=true&tlsAllowInvalidHostnames=true';
 $client = new Client($uri);
 // end-disable-hostname-uri
 
-// Enables compression for a MongoDB connection and specifies each compression algorithm
-// using client options
-// start-compression-all-client
-$client = new Client(
-    'mongodb://<hostname>:<port>/',
-    ['tls' => true, 'compressors' => 'snappy,zstd,zlib'],
-);
-// end-compression-all-client
-
-// Enables compression for a MongoDB connection and specifies each compression algorithm
-// using connection URI parameters
-// start-compression-all-uri
-$uri = 'mongodb://<hostname>:<port>/?compressors=snappy,zstd,zlib';
-$client = new Client($uri);
-// end-compression-all-uri
-
-// Enables zlib compression for a MongoDB connection using client options
-// start-compression-zlib-client
-$client = new Client(
-    'mongodb://<hostname>:<port>/',
-    ['tls' => true, 'compressors' => 'zlib', 'zlibCompressionLevel' => 1],
-);
-// end-compression-zlib-client
-
-// Enables zlib compression for a MongoDB connection using connection URI parameters
-// start-compression-zlib-uri
-$uri = 'mongodb://<hostname>:<port>/?compressors=zlib&zlibCompressionLevel=1';
-$client = new Client($uri);
-// end-compression-zlib-uri
-
 // Connects to a MongoDB deployment and enables the stable API
 // start-stable-api
 $uri = '<connection string>';
