@@ -195,8 +195,8 @@ $client = new Client($uri);
 $uri = '<connection string>';
 $clientOptions = [
     'serverApi' => [
-        'version' => '1'
-    ]
+        'version' => '1',
+    ],
 ];
 $client = new Client($uri, $clientOptions);
 // end-stable-api
