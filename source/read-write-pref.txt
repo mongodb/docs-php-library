@@ -66,8 +66,8 @@ methods:
 
 .. _php-read-write-client:
 
-Client Configuration Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Client Configuration
+~~~~~~~~~~~~~~~~~~~~
 
 This example shows how to set the read preference, read concern, and
 write concern of a ``MongoDB\Client`` instance by passing an array to
@@ -98,8 +98,8 @@ URI, which is passed as a parameter to the ``MongoDB\Client`` constructor:
 
 .. _php-read-write-session:
 
-Session Configuration Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Session Configuration
+~~~~~~~~~~~~~~~~~~~~~
 
 This example shows how to set the read preference, read concern, and
 write concern of a session by passing an array to the ``startSession()``
@@ -122,8 +122,8 @@ method. The code configures the following settings:
 
 .. _php-read-write-transaction:
 
-Transaction Configuration Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Transaction Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example shows how to set the read preference, read concern, and
 write concern of a transaction by passing an array to the ``startTransaction()``
@@ -144,8 +144,8 @@ method. The code configures the following settings:
 
 .. _php-read-write-database:
 
-Database Configuration Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Database Configuration
+~~~~~~~~~~~~~~~~~~~~~~
 
 This example shows how to set the read preference, read concern, and
 write concern of a database called ``test_database`` by passing an options
@@ -167,8 +167,8 @@ array to the ``selectDatabase()`` method. The code configures the following sett
 
 .. _php-read-write-collection:
 
-Collection Configuration Example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Collection Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 This example shows how to set the read preference, read concern, and
 write concern of a collection called ``test_collection`` by passing an options
