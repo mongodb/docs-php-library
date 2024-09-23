@@ -58,7 +58,7 @@ What's New in 1.18
 - Adds :phpmethod:`MongoDB\Client::addSubscriber()` and 
   :phpmethod:`MongoDB\Client::removeSubscriber()` methods to the 
   ``MongoDB\Client`` class to make it easier to register monitoring classes 
-  on the underlying ``MongoDB\Driver\Manager`` object.
+  scoped to the underlying ``MongoDB\Driver\Manager`` object.
 
 To learn more about this release, see the `v1.18 Release Notes 
 <https://github.com/mongodb/mongo-php-library/releases/tag/1.18.0>`__ on GitHub.
@@ -104,7 +104,7 @@ What's New in 1.16
   This method automatically creates data encryption keys when creating a new 
   encrypted collection.
 
-- This release upgrades the ``mongodb`` extension requirement to 1.16.0.
+- Upgrades the ``mongodb`` extension requirement to 1.16.0.
 
 To learn more about this release, see the `v1.16 Release Notes 
 <https://github.com/mongodb/mongo-php-library/releases/tag/1.16.0>`__ on GitHub.
