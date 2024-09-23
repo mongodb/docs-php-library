@@ -43,10 +43,8 @@ to MongoDB with various settings.
 
 To use a connection example from this page, copy the code example into the
 :ref:`sample application <php-connect-sample>` or your own application.
-Make sure to set the ``MONGODB_URI`` environment variable to the
-connection string for your MongoDB deployment and replace all placeholders
-in the code examples, such as ``<hostname>``, with the relevant values for your
-MongoDB deployment.
+Make sure to replace all placeholders in the code examples, such as
+``<hostname>``, with the relevant values for your MongoDB deployment.
 
 .. _php-connect-sample:
 
@@ -56,7 +54,7 @@ MongoDB deployment.
    :language: php
    :copyable: true
    :linenos:
-   :emphasize-lines: 8-10
+   :emphasize-lines: 5-7
 
 Connection
 ----------
