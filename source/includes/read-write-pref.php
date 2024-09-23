@@ -17,7 +17,7 @@ $client = new Client('mongodb://localhost:27017', $clientOptions);
 // end-client-settings
 
 // start-client-settings-uri
-$uri = 'mongodb://localhost:27017/?readPreference=secondary&readConcernLevel=local&w=majority';
+$uri = 'mongodb://localhost:27017/?readPreference=secondary&readConcernLevel=local&w=2';
 $client = new Client($uri);
 // end-client-settings-uri
 

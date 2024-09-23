@@ -45,44 +45,24 @@ in your replica sets.
 Configure Read and Write Operations
 -----------------------------------
 
-You can control how the library routes read operations by setting a **read preference**.
-You can also control options for how the library waits for acknowledgment of
-read and write operations on a replica set by setting a **read concern** and a
-**write concern**.
+You can control how the library routes read operations by setting a read preference.
+You can also control how the library waits for acknowledgment of read and write operations
+on a replica set by setting a read and write concern.
 
 This section shows how to configure the read preference, read concern, and write
 concern at various levels by passing an options array parameter to the following
 methods:
 
-- :ref:`MongoDB\\Client::__construct() <php-read-write-client>`: Configures read
-  and write settings at the client level
-- :ref:`MongoDB\\Client::startSession() <php-read-write-session>`: Configures read
-  and write settings at the session level
-- :ref:`MongoDB\\Driver\\Session::startTransaction() <php-read-write-transaction>`:
-  Configures read and write settings at the transaction level
-- :ref:`MongoDB\\Client::selectDatabase() <php-read-write-database>`: Configures read
-  and write settings at the database level
-- :ref:`MongoDB\\Client::selectCollection() <php-read-write-collection>`: Configures read
-  and write settings at the collection level
-
-In the options parameter, specify the following values:
-
-- ``readPreference``: Sets the read preference. For a list of available read
-  preferences, see :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference>`
-  in the extension API documentation.
-- ``readConcern``: Sets the read concern. For a list of available read
-  concerns, see :php:`MongoDB\Driver\ReadConcern <mongodb-driver-readconcern>`
-  in the extension API documentation.
-- ``writeConcern``: Sets the write concern. For a list of available write
-  concerns, see :php:`MongoDB\Driver\WriteConcern <mongodb-driver-writeconcern>`
-  in the extension API documentation.
-
-.. note::
-
-    When setting a write concern at the ``MongoDB\Client`` level, specify the ``w``
-    value in an options array rather than ``writeConcern.`` You can also specify
-    read and write settings in the connection URI. For more information,
-    see the :ref:`php-read-write-client`.
+- :ref:`MongoDB\Client::__construct() <php-read-write-client>`: Configures client-level
+  settings
+- :ref:`MongoDB\Client::startSession() <php-read-write-session>`: Configures session-level
+  settings
+- :ref:`MongoDB\Driver\Session::startTransaction() <php-read-write-transaction>`:
+  Configures transaction-level settings
+- :ref:`MongoDB\Client::selectDatabase() <php-read-write-database>`: Configures
+  database-level settings
+- :ref:`MongoDB\Client::selectCollection() <php-read-write-collection>`: Configures read
+  collection-level settings
 
 .. _php-read-write-client:
 
@@ -179,7 +159,7 @@ array to the ``selectDatabase()`` method. The code configures the following sett
 - ``MAJORITY`` write concern: The majority of all replica set members
   must acknowledge the write operation
 
-.. literalinclude:: /includes/databases-collections/databases-collections.php
+.. literalinclude:: /includes/read-write-pref.php
     :language: php
     :dedent:
     :start-after: start-database-settings
@@ -201,7 +181,7 @@ array to the ``selectCollection()`` method. The code configures the following se
   set members
 - ``0`` write concern: Requests no acknowledgment of the write operation
 
-.. literalinclude:: /includes/databases-collections/databases-collections.php
+.. literalinclude:: /includes/read-write-pref.php
     :language: php
     :dedent:
     :start-after: start-collection-settings
@@ -299,6 +279,6 @@ guide, see the following API documentation:
 
 - :phpmethod:`MongoDB\Client::__construct()`
 - :phpmethod:`MongoDB\Client::startSession()`
-- :php:`MongoDB\Driver\Session::startTransaction()`
+- :php:`MongoDB\Driver\Session::startTransaction`
 - :phpmethod:`MongoDB\Client::selectDatabase()`
 - :phpmethod:`MongoDB\Client::selectCollection()`
