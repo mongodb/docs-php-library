@@ -76,7 +76,7 @@ What's New in 1.17
   :phpmethod:`MongoDB\remove_logger()` functions to the library. 
   These functions allow applications to register a `PSR-3 Logger <https://www.php-fig.org/psr/psr-3/>`__
   to receive log messages emitted by the driver. Previously, logs were only 
-  accessible via the extension's `mongodb.debug <https://www.php.net/manual/en/mongodb.configuration.php#ini.mongodb.debug>`__ 
+  available through the extension's `mongodb.debug <https://www.php.net/manual/en/mongodb.configuration.php#ini.mongodb.debug>`__ 
   INI setting.
 
 - Introduces new :phpclass:`MongoDB\Collection` methods to create and manage 
@@ -84,8 +84,7 @@ What's New in 1.17
   aggregation pipeline stage, which is supported in all versions of the library.
   To learn more about Atlas Search indexes and the specifics of the ``$search`` 
   aggregation stage, see the :atlas:`Atlas Search indexes </atlas-search>` 
-  documentation and :manual:`$search </reference/operator/aggregation/search/>`, 
-  respectively.
+  documentation and :manual:`$search </reference/operator/aggregation/search/>`.
 
 - Upgrades the ``mongodb`` extension requirement to 1.17.0. Support for PHP 
   7.2 and 7.3 has been removed and the library now requires PHP 7.4 or newer.
@@ -116,7 +115,7 @@ What's New in 1.15
 
 - Adds new ``examples/`` and ``tools/`` directories to the library repository, 
   which contain code snippets and scripts that may prove useful when writing 
-  or debugging applications, respectively. These directories are intended to 
+  or debugging applications. These directories are intended to 
   supplement the library's existing documentation and will be added to over time.
 
 - Adds various backwards compatible typing improvements throughout the
