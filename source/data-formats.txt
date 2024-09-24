@@ -21,8 +21,8 @@ Specialized Data Formats
    :titlesonly:
    :maxdepth: 1
 
-   /data-formats/codecs
    /data-formats/custom-types
+   /data-formats/codecs
    /data-formats/decimal128
    /data-formats/modeling-bson-data
 
