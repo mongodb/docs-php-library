@@ -27,11 +27,14 @@ users.
 
    You must :wikipedia:`percent-encode <Percent-encoding>` a username and password before
    you include them in a MongoDB URI. You can use the ``rawurlencode()`` method to encode 
-   these values. To learn more, see `rawurlencode <{+php-manual+}/rawurlencode>`__ in
-   the PHP manual.
+   these values according to the URI syntax specified in RFC 3986. Don't percent-encode the
+   username or password when passing them in an options array parameter to the ``MongoDB\Client``
+   constructor.
 
-   Don't percent-encode the username or password when passing them to the
-   ``MongoDB\Client`` constructor.
+   To learn more, see the following resources:
+
+   - `RFC 3986 <http://www.faqs.org/rfcs/rfc3986.html>`__
+   - `rawurlencode <{+php-manual+}/rawurlencode>`__ in the PHP manual
 
 .. _php-scram-sha-256:
 
@@ -63,16 +66,16 @@ You can set these options in two ways: by passing an options array to the
 
       .. code-block:: php
 
-         $options = [
+         $uriOptions = [
              'username' => '<username>',
              'password' => '<password>',
              'authSource' => '<authentication database>',
              'authMechanism' => 'SCRAM-SHA-256',
          ];
 
-         $client = new Client(
+         $client = new MongoDB\Client(
             'mongodb://<hostname>:<port>',
-            $options,
+            $uriOptions,
          );
 
    .. tab:: Connection URI
@@ -81,7 +84,7 @@ You can set these options in two ways: by passing an options array to the
       .. code-block:: php
 
          $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-256';
-         $client = new Client($uri);
+         $client = new MongoDB\Client($uri);
 
 .. _php-scram-sha-1:
 
@@ -92,45 +95,14 @@ SCRAM-SHA-1, as defined by `RFC 5802 <https://www.rfc-editor.org/rfc/rfc5802>`__
 is the default authentication mechanism on MongoDB deployments
 running {+mdb-server+} v3.6.
 
-To authenticate with this mechanism, set the following connection options:
+.. note::
 
-- ``username``: The username to authenticate. Percent-encode this value before including
-  it in a connection URI.
-- ``password``: The password to authenticate. Percent-encode this value before including
-  it in a connection URI.
-- ``authSource``: The MongoDB database to authenticate against. By default, the
-  {+php-library+} authenticates against the ``admin`` database.
-- ``authMechanism``: Set to ``'SCRAM-SHA-1'``.
+   {+php-library+} v1.20 drops support for {+mdb-server+} v3.6. When using v1.20+ of
+   the library, all supported server versions default to the SCRAM-SHA-256 authentication
+   mechanism.
 
-You can set these options in two ways: by passing an options array to the
-``MongoDB\Client`` constructor or through parameters in your connection URI.
-
-.. tabs::
-
-   .. tab:: MongoDB\\Client
-      :tabid: Client
-
-      .. code-block:: php
-
-         $options = [
-             'username' => '<username>',
-             'password' => '<password>',
-             'authSource' => '<authentication database>',
-             'authMechanism' => 'SCRAM-SHA-1',
-         ];
-
-         $client = new Client(
-            'mongodb://<hostname>:<port>',
-            $options,
-         );
-
-   .. tab:: Connection URI
-      :tabid: connectionstring
-
-      .. code-block:: php
-
-         $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-1';
-         $client = new Client($uri);
+To authenticate with this mechanism, use the same syntax as the :ref:`php-scram-sha-256`,
+but change the value of the ``authMechanism`` option to ``'SCRAM-SHA-1'``.
 
 .. _php-mongodb-x509:
 
@@ -158,15 +130,15 @@ You can set these options in two ways: by passing an options array to the
 
       .. code-block:: php
 
-         $options = [
+         $uriOptions = [
              'tls' => true,
              'tlsCertificateKeyFile' => '<file path>',
              'authMechanism' => 'MONGODB-X509',
          ];
 
-         $client = new Client(
+         $client = new MongoDB\Client(
             'mongodb://<hostname>:<port>',
-            $options,
+            $uriOptions,
          );
 
    .. tab:: Connection URI
@@ -175,7 +147,7 @@ You can set these options in two ways: by passing an options array to the
       .. code-block:: php
 
          $uri = 'mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=<file path>&authMechanism=MONGODB-X509';
-         $client = new Client($uri);
+         $client = new MongoDB\Client($uri);
 
 .. _php-mongodb-aws:
 
@@ -231,15 +203,15 @@ You can set these options in two ways: by passing an options array to the
 
       .. code-block:: php
 
-         $options = [
+         $uriOptions = [
              'username' => '<AWS IAM access key ID>',
              'password' => '<AWS IAM secret access key>',
              'authMechanism' => 'MONGODB-AWS',
          ];
 
-         $client = new Client(
+         $client = new MongoDB\Client(
             'mongodb://<hostname>:<port>',
-            $options,
+            $uriOptions,
          );
 
    .. tab:: Connection URI
@@ -248,7 +220,7 @@ You can set these options in two ways: by passing an options array to the
       .. code-block:: php
 
          $uri = 'mongodb://<AWS IAM access key ID>:<AWS IAM secret access key>@<hostname>:<port>/?authMechanism=MONGODB-AWS';
-         $client = new Client($uri);
+         $client = new MongoDB\Client($uri);
 
 .. _php-mongodb-aws-env-vars:
 
@@ -264,14 +236,28 @@ environment variables:
 - ``AWS_SESSION_TOKEN``
 
 To use these environment variables to authenticate your application, first set them to the
-AWS IAM values needed for authentication, as shown in the following code
-example:
+AWS IAM values needed for authentication. You can run the ``export`` command in your shell or
+add the variables to a ``.env`` file, as shown in the following code example:
 
-.. code-block:: sh
+.. tabs::
 
-   export AWS_ACCESS_KEY_ID=<AWS IAM access key ID>
-   export AWS_SECRET_ACCESS_KEY=<AWS IAM secret access key>
-   export AWS_SESSION_TOKEN=<AWS session token>
+   .. tab:: Shell Commands
+      :tabid: shell
+
+      .. code-block:: sh
+
+         export AWS_ACCESS_KEY_ID=<AWS IAM access key ID>
+         export AWS_SECRET_ACCESS_KEY=<AWS IAM secret access key>
+         export AWS_SESSION_TOKEN=<AWS session token>
+
+   .. tab:: .env File
+      :tabid: dotenv
+
+      .. code-block:: php
+
+         AWS_ACCESS_KEY_ID=<AWS IAM access key ID>
+         AWS_SECRET_ACCESS_KEY=<AWS IAM secret access key>
+         AWS_SESSION_TOKEN=<AWS session token>
 
 .. important::
   
@@ -296,7 +282,7 @@ You can set this option in two ways: by passing an options array to the
 
       .. code-block:: php
 
-         $client = new Client(
+         $client = new MongoDB\Client(
             'mongodb://<hostname>:<port>',
             ['authMechanism' => 'MONGODB-AWS'],
          );
@@ -306,8 +292,8 @@ You can set this option in two ways: by passing an options array to the
 
       .. code-block:: php
 
-         $uri = 'mongodb://<hostname>:<port>/?&authMechanism=MONGODB-AWS';
-         $client = new Client($uri);
+         $uri = 'mongodb://<hostname>:<port>/?authMechanism=MONGODB-AWS';
+         $client = new MongoDB\Client($uri);
 
 .. tip:: AWS Lambda
    
@@ -355,11 +341,25 @@ ECS Metadata
 If your application runs in an Elastic Container Service (ECS) container,
 the {+php-library+} can automatically retrieve temporary AWS credentials from an
 ECS endpoint. To do so, specify the URI of the ECS endpoint in an environment variable called
-``AWS_CONTAINER_CREDENTIALS_RELATIVE_URI``, as shown in the following example:
+``AWS_CONTAINER_CREDENTIALS_RELATIVE_URI``. You can set this variable by running
+the ``export`` shell command or adding it to your ``.env`` file, as shown in the following
+example:
 
-.. code-block:: sh
+.. tabs::
 
-   export AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=<URI of the ECS endpoint>
+   .. tab:: Shell Commands
+      :tabid: shell
+
+      .. code-block:: sh
+
+         export AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=<URI of the ECS endpoint>
+
+   .. tab:: .env File
+      :tabid: dotenv
+
+      .. code-block:: php
+
+         AWS_CONTAINER_CREDENTIALS_RELATIVE_URI=<URI of the ECS endpoint>
 
 After you set the environment variable, set the ``authMechanism``
 connection option to ``'MONGODB-AWS'``. To view an example that sets the
@@ -396,6 +396,6 @@ To learn more about the ``MongoDB\Client`` class, see :phpclass:`MongoDB\Client`
 in the library API documentation.
 
 To view a full list of URI options that you can pass to a ``MongoDB\Client``, see
-`MongoDB\\Driver\\Manager::__construct Parameters
+`MongoDB\\Driver\\Manager::__construct() Parameters
 <{+php-manual+}/mongodb-driver-manager.construct.php#refsect1-mongodb-driver-manager.construct-parameters>`__
 in the extension API documentation.
