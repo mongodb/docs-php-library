@@ -46,7 +46,7 @@ To enable the {+stable-api+}, perform the following steps:
 1. Construct a ``MongoDB\Driver\ServerApi`` object and pass the {+stable-api+}
    version you want to use. Currently, the library supports only version 1.
 #. Construct a ``MongoDB\Client`` object. For the ``driverOptions`` parameter, pass an
-   array that contains the ``serverApi`` connection option. Set this option to the
+   array that contains the ``serverApi`` option. Set this option to the
    ``MongoDB\Driver\ServerApi`` object you created in the previous step.
 
 The following code example shows how to specify {+stable-api+} version 1:
