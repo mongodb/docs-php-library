@@ -66,7 +66,7 @@ following methods:
   Configures transaction-level settings
 - :ref:`MongoDB\Client::selectDatabase() <php-read-write-database>`: Configures
   database-level settings
-- :ref:`MongoDB\Client::selectCollection() <php-read-write-collection>`: Configures read
+- :ref:`MongoDB\Client::selectCollection() <php-read-write-collection>`: Configures
   collection-level settings
 
 .. _php-read-write-client:
