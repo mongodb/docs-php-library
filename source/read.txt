@@ -10,6 +10,14 @@ Read Data from MongoDB
    :depth: 2
    :class: singlecol
 
+.. facet::
+   :name: genre
+   :values: reference
+ 
+.. meta::
+   :description: Learn how to use the PHP Library to read data to MongoDB.
+   :keywords: usage examples, save, crud, read, code example
+
 .. toctree::
    :titlesonly:
    :maxdepth: 1
