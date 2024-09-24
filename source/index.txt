@@ -18,6 +18,7 @@ MongoDB PHP Library
    /indexes
    /monitoring
    /security
+   /data-formats
    /compatibility
    /whats-new
    FAQ </faq>
@@ -88,6 +89,12 @@ Secure Your Data
 
 Learn about ways you can authenticate your application and encrypt your data in
 the :ref:`php-security` section.
+
+Specialized Data Formats
+------------------------
+
+Learn how to work with specialized data formats and custom types in the
+:ref:`php-data-formats` section.
 
 Compatibility
 -------------

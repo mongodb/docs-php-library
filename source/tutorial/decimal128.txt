@@ -1,4 +1,4 @@
-:orphan:
+.. _php-decimal128:
 
 ==========
 Decimal128

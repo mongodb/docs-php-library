@@ -1,4 +1,4 @@
-:orphan:
+.. _php-custom-types:
 
 =================
 Custom Data-Types
