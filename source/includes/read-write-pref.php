@@ -38,33 +38,24 @@ $transactionOptions = [
     'writeConcern' => new WriteConcern(1),
 ];
 
-// Start the transaction
 $session->startTransaction($transactionOptions);
 // end-transaction-settings
 
 // Sets read and write settings for the "test_database" database
 // start-database-settings
-$readPreference = new ReadPreference(ReadPreference::PRIMARY_PREFERRED);
-$readConcern = new ReadConcern(ReadConcern::AVAILABLE);
-$writeConcern = new WriteConcern(WriteConcern::MAJORITY);
-
 $db = $client->selectDatabase('test_database', [
-    'readPreference' => $readPreference,
-    'readConcern' => $readConcern,
-    'writeConcern' => $writeConcern,
+    'readPreference' => new ReadPreference(ReadPreference::PRIMARY_PREFERRED),
+    'readConcern' => new ReadConcern(ReadConcern::AVAILABLE),
+    'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
 ]);
 // end-database-settings
 
 // Sets read and write settings for the "test_collection" collection
 // start-collection-settings
-$readPreference = new ReadPreference(ReadPreference::SECONDARY_PREFERRED);
-$readConcern = new ReadConcern(ReadConcern::AVAILABLE);
-$writeConcern = new WriteConcern(0);
-
 $collection = $client->selectCollection('test_database', 'test_collection', [
-    'readPreference' => $readPreference,
-    'readConcern' => $readConcern,
-    'writeConcern' => $writeConcern,
+    'readPreference' => new ReadPreference(ReadPreference::SECONDARY_PREFERRED),
+    'readConcern' => new ReadConcern(ReadConcern::AVAILABLE),
+    'writeConcern' => new WriteConcern(0),
 ]);
 
 // end-collection-settings
@@ -98,5 +89,5 @@ $options = [
     'localThresholdMS' => 35,
 ];
 
-$client = new Client('<connection string>', [], $options);
+$client = new Client('mongodb://localhost:27017', [], $options);
 // end-local-threshold

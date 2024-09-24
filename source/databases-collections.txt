@@ -188,7 +188,7 @@ Configure Read and Write Operations
 -----------------------------------
 
 You can control how read and write operations run on replica sets
-by specifying a read preference, read concern, and write concern.
+by specifying a read preference, read concern, or write concern.
 
 By default, databases inherit read and write settings from the ``MongoDB\Client``
 instance. Collections inherit these settings from the ``MongoDB\Client`` or

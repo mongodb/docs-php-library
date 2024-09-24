@@ -20,9 +20,9 @@ Specify How CRUD Operations Run on Replica Sets
 Overview
 --------
 
-In this guide, you can learn how to use the **write concern**, **read concern**, and
-**read preference** configurations to modify the way that MongoDB runs
-create, read, update, and delete (CRUD) operations on replica sets.
+In this guide, you can learn how to configure **write concern**, **read concern**,
+and **read preference** options to modify the way that the {+php-library+} runs create,
+read, update, and delete (CRUD) operations on replica sets.
 
 You can set write concern, read concern, and read preference options at the following
 levels:
@@ -35,10 +35,15 @@ levels:
 
 This list also indicates the increasing order of precedence of the option settings. For
 example, if you set a read concern level for a transaction, it will override a read
-concern level set for the client.
+concern level inherited from the client.
 
 These options allow you to customize the causal consistency and availability of the data
-in your replica sets.
+in your replica sets. To see a full list of read preference, read concern, and write concern
+options, see the following guides in the {+mdb-server+} manual:
+
+- :manual:`Read Preference </core/read-preference/>`
+- :manual:`Read Concern </reference/read-concern/>`
+- :manual:`Write Concern </reference/write-concern/>`
 
 .. _php-read-write-config:
 
@@ -47,11 +52,11 @@ Configure Read and Write Operations
 
 You can control how the library routes read operations by setting a read preference.
 You can also control how the library waits for acknowledgment of read and write operations
-on a replica set by setting a read and write concern.
+on a replica set by setting read and write concerns.
 
 This section shows how to configure the read preference, read concern, and write
-concern at various levels by passing an options array parameter to the following
-methods:
+concern at various levels by passing an options array parameter to any one of the
+following methods:
 
 - :ref:`MongoDB\Client::__construct() <php-read-write-client>`: Configures client-level
   settings
@@ -96,6 +101,14 @@ URI, which is passed as a parameter to the ``MongoDB\Client`` constructor:
     :start-after: start-client-settings-uri
     :end-before: end-client-settings-uri
 
+.. note::
+
+   The ``readPreference``, ``readConcernLevel``, and ``w`` client options accept
+   string values. When configuring read and write settings at any other level,
+   you must assign values of type ``MongoDB\Driver\ReadPreference``,
+   ``MongoDB\Driver\ReadConcern``, and ``MongoDB\Driver\WriteConcern`` to the corresponding
+   options.
+
 .. _php-read-write-session:
 
 Session Configuration
@@ -112,7 +125,6 @@ method. The code configures the following settings:
   set members
 - ``MAJORITY`` write concern: The majority of all replica set members
   must acknowledge the write operation
-
 
 .. literalinclude:: /includes/read-write-pref.php
     :language: php
@@ -203,7 +215,7 @@ settings in the following ways:
 Tag Sets
 ~~~~~~~~
 
-In {+mdb-server+}, you can apply key-value :manual:`tags
+The {+mdb-server+} allows you to apply key-value :manual:`tags
 </core/read-preference-tags/>` to replica-set
 members according to any criteria you choose. You can then use
 those tags to target one or more members for a read operation.
@@ -214,19 +226,20 @@ pass them as a parameter to your ``MongoDB\Driver\ReadPreference`` class
 constructor. Then, set the ``MongoDB\Driver\ReadPreference`` object as
 the value of the ``readPreference`` database option.
 
-This code example sets the ``readPreference`` option to a tag set
-that instructs ``test_database`` to prefer reads from secondary replica set
-members in the following order:
+Suppose you are connected to a replica set that contains members hosted
+at multiple data centers across the United States. This code example sets
+the ``readPreference`` option to a tag set that instructs ``test_database``
+to prefer reads from secondary replica set members in the following order:
 
 1. Members from the New York data center (``['dc' => 'ny']``)
 #. Members from the San Francisco data center (``['dc' => 'sf']``)
 #. Any secondary members (``[]``)
 
 .. literalinclude:: /includes/databases-collections/databases-collections.php
-    :language: php
-    :dedent:
-    :start-after: start-tag-set
-    :end-before: end-tag-set
+   :language: php
+   :dedent:
+   :start-after: start-tag-set
+   :end-before: end-tag-set
 
 .. _php-local-threshold:
 
