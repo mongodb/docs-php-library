@@ -235,7 +235,7 @@ to prefer reads from secondary replica set members in the following order:
 #. Members from the San Francisco data center (``['dc' => 'sf']``)
 #. Any secondary members (``[]``)
 
-.. literalinclude:: /includes/databases-collections/databases-collections.php
+.. literalinclude:: /includes/read-write-pref.php
    :language: php
    :dedent:
    :start-after: start-tag-set
@@ -257,7 +257,7 @@ sets the ``localThresholdMS`` option.
 
 The following example specifies a local threshold of 35 milliseconds:
 
-.. literalinclude:: /includes/databases-collections/databases-collections.php
+.. literalinclude:: /includes/read-write-pref.php
     :language: php
     :dedent:
     :start-after: start-local-threshold
