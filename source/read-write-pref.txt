@@ -273,25 +273,16 @@ within 35 milliseconds of the closest member's ping time.
    :manual:`localThreshold </reference/program/mongos/#std-option-mongos.--localThreshold>`
    command-line option.
 
-
-Additional Information
-----------------------
-
-To learn more about read preferences and read and write concerns, see the
-following guides in the {+mdb-server+} manual:
-
-- :manual:`Read Preference </core/read-preference/>`
-- :manual:`Read Concern </reference/read-concern/>`
-- :manual:`Write Concern </reference/write-concern/>`
-
 API Documentation
-~~~~~~~~~~~~~~~~~
+-----------------
 
 To learn more about any of the methods or types discussed in this
-guide, see the following API documentation:
+guide, see the following library API documentation:
 
 - :phpmethod:`MongoDB\Client::__construct()`
 - :phpmethod:`MongoDB\Client::startSession()`
-- :php:`MongoDB\Driver\Session::startTransaction() <mongodb-driver-session.starttransaction>`
 - :phpmethod:`MongoDB\Client::selectDatabase()`
 - :phpmethod:`MongoDB\Client::selectCollection()`
+
+To learn more about the ``startTransaction()`` method, see :php:`MongoDB\Driver\Session::startTransaction()
+<mongodb-driver-session.starttransaction>` in the extension API documentation.
