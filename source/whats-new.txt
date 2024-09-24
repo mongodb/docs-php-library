@@ -77,7 +77,7 @@ What's New in 1.17
   These functions allow applications to register a `PSR-3 Logger <https://www.php-fig.org/psr/psr-3/>`__
   to receive log messages emitted by the driver. Previously, logs were only 
   available through the extension's `mongodb.debug <https://www.php.net/manual/en/mongodb.configuration.php#ini.mongodb.debug>`__ 
-  INI setting.
+  ``INI`` setting.
 
 - Introduces new :phpclass:`MongoDB\Collection` methods to create and manage 
   Atlas Search indexes. Atlas Search indexes can be queried using the ``$search`` 
