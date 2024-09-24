@@ -64,27 +64,20 @@ You can set these options in two ways: by passing an options array to the
    .. tab:: MongoDB\\Client
       :tabid: Client
 
-      .. code-block:: php
-
-         $uriOptions = [
-             'username' => '<username>',
-             'password' => '<password>',
-             'authSource' => '<authentication database>',
-             'authMechanism' => 'SCRAM-SHA-256',
-         ];
-
-         $client = new MongoDB\Client(
-            'mongodb://<hostname>:<port>',
-            $uriOptions,
-         );
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-scram-sha-256-client
+         :end-before: end-scram-sha-256-client
 
    .. tab:: Connection URI
       :tabid: connectionstring
 
-      .. code-block:: php
-
-         $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-256';
-         $client = new MongoDB\Client($uri);
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-scram-sha-256-uri
+         :end-before: end-scram-sha-256-uri
 
 .. _php-scram-sha-1:
 
@@ -128,26 +121,20 @@ You can set these options in two ways: by passing an options array to the
    .. tab:: MongoDB\\Client
       :tabid: Client
 
-      .. code-block:: php
-
-         $uriOptions = [
-             'tls' => true,
-             'tlsCertificateKeyFile' => '<file path>',
-             'authMechanism' => 'MONGODB-X509',
-         ];
-
-         $client = new MongoDB\Client(
-            'mongodb://<hostname>:<port>',
-            $uriOptions,
-         );
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-mongodb-X509-client
+         :end-before: end-mongodb-X509-client
 
    .. tab:: Connection URI
       :tabid: connectionstring
 
-      .. code-block:: php
-
-         $uri = 'mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=<file path>&authMechanism=MONGODB-X509';
-         $client = new MongoDB\Client($uri);
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-mongodb-X509-uri
+         :end-before: end-mongodb-X509-uri
 
 .. _php-mongodb-aws:
 
@@ -201,26 +188,20 @@ You can set these options in two ways: by passing an options array to the
    .. tab:: MongoDB\\Client
       :tabid: Client
 
-      .. code-block:: php
-
-         $uriOptions = [
-             'username' => '<AWS IAM access key ID>',
-             'password' => '<AWS IAM secret access key>',
-             'authMechanism' => 'MONGODB-AWS',
-         ];
-
-         $client = new MongoDB\Client(
-            'mongodb://<hostname>:<port>',
-            $uriOptions,
-         );
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-mongodb-aws-client
+         :end-before: end-mongodb-aws-client
 
    .. tab:: Connection URI
       :tabid: connectionstring
 
-      .. code-block:: php
-
-         $uri = 'mongodb://<AWS IAM access key ID>:<AWS IAM secret access key>@<hostname>:<port>/?authMechanism=MONGODB-AWS';
-         $client = new MongoDB\Client($uri);
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-mongodb-aws-uri
+         :end-before: end-mongodb-aws-uri
 
 .. _php-mongodb-aws-env-vars:
 
@@ -280,20 +261,20 @@ You can set this option in two ways: by passing an options array to the
    .. tab:: MongoDB\\Client
       :tabid: Client
 
-      .. code-block:: php
-
-         $client = new MongoDB\Client(
-            'mongodb://<hostname>:<port>',
-            ['authMechanism' => 'MONGODB-AWS'],
-         );
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-mongodb-aws-env-client
+         :end-before: end-mongodb-aws-env-client
 
    .. tab:: Connection URI
       :tabid: connectionstring
 
-      .. code-block:: php
-
-         $uri = 'mongodb://<hostname>:<port>/?authMechanism=MONGODB-AWS';
-         $client = new MongoDB\Client($uri);
+      .. literalinclude:: /includes/authentication.php
+         :language: php
+         :dedent:
+         :start-after: start-mongodb-aws-env-uri
+         :end-before: end-mongodb-aws-env-uri
 
 .. tip:: AWS Lambda
    
