@@ -46,7 +46,7 @@ the Atlas sample datasets.
          .. tab:: .env File
             :tabid: dotenv
 
-            .. code-block:: php
+            .. code-block:: none
 
                MONGODB_URI=<connection string>
 
@@ -75,9 +75,9 @@ the Atlas sample datasets.
             ...
          }
 
-      If you encounter an error or see no output, ensure that you specified the
-      proper connection string in the ``quickstart.php`` file and that you loaded the
-      sample data.
+      If you encounter an error or see no output, ensure that you assigned the
+      proper connection string to the ``MONGODB_URI`` environment variable and
+      that you loaded the sample data.
 
 After you complete these steps, you have a PHP application that
 connects to your MongoDB deployment, runs a query on the sample
