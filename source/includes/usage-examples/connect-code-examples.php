@@ -168,7 +168,7 @@ $client = new MongoDB\Client($uri);
 
 // Connects to a MongoDB deployment and enables the stable API
 // start-stable-api
-$driverOptions = ['serverApi' => new MongoDB\Driver\ServerApi(ServerApi::V1)];
+$driverOptions = ['serverApi' => new MongoDB\Driver\ServerApi('1')];
 $client = new MongoDB\Client(
     'mongodb://<hostname>:<port>/',
     [],

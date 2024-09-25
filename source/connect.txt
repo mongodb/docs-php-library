@@ -125,6 +125,12 @@ The following code shows how to connect to a replica set deployment:
          :start-after: start-replica-set-uri
          :end-before: end-replica-set-uri
 
+.. tip::
+
+   To maintain your connection to a replica set deployment when one
+   host is down, you can provide multiple replica set members in the
+   connection URI.
+
 To learn more about connecting to a replica set, see :ref:`php-connection-replica-set`
 in the Connection Targets guide.
 
@@ -290,8 +296,8 @@ client certificate:
 
 .. important::
 
-   When replacing the ``<password>`` placeholder, ensure that you :wikipedia:`percent-encode
-   <Percent-encoding>` the value.
+   When replacing the ``<password>`` placeholder in the connection URI, ensure
+   that you :wikipedia:`percent-encode <Percent-encoding>` the value.
 
 To learn more about providing a key file password, see :ref:`php-key-file-password` in
 the TLS Configuration guide.
