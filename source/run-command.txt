@@ -179,12 +179,10 @@ API Documentation
 For more information about the ``command()`` method, see the
 following {+php-library+} API documentation:
 
-- `MongoDB\\Database::command() <{+api+}/method/MongoDBDatabase-command/>`__
+:phpmethod:`MongoDB\Database::command()`
 
 For more information about the ``Cursor`` and ``ReadPreference`` classes,
 see the following {+extension-short+} API documentation:
 
-- `MongoDB\\Driver\\Cursor
-  <https://www.php.net/manual/en/class.mongodb-driver-cursor.php>`__
-- `MongoDB\\Driver\\ReadPreference
-  <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+- :php:`MongoDB\Driver\Cursor <mongodb-driver-cursor.php>`
+- :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference.php>`
