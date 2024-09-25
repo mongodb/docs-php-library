@@ -29,14 +29,14 @@ Overview
 
 Welcome to the documentation site for the official {+php-library+}.
 
-The {+driver-short+} provides a high-level abstraction around the lower-level
+The {+library-short+} provides a high-level abstraction around the lower-level
 :php:`mongodb extension <mongodb>`.
 
 The ``mongodb`` extension provides a limited API to connect to a MongoDB
 database and execute generic commands, queries, and write operations. In
-contrast, the {+driver-short+} provides a full-featured API and models client,
+contrast, the {+library-short+} provides a full-featured API and models client,
 database, and collection objects. If you are developing a PHP application with
-MongoDB, consider using the {+driver-short+} instead of the extension alone.
+MongoDB, consider using the {+library-short+} instead of the extension alone.
 
 Get Started
 -----------
@@ -53,7 +53,7 @@ in the :ref:`php-connect` section.
 Databases and Collections
 -------------------------
 
-Learn how to use the {+driver-short+} to work with MongoDB databases and collections
+Learn how to use the {+library-short+} to work with MongoDB databases and collections
 in the :ref:`php-databases-collections` section.
 
 Read Data from MongoDB
@@ -69,7 +69,7 @@ Learn how you can write data to MongoDB in the :ref:`php-write` section.
 Transform Your Data with Aggregation
 ------------------------------------
 
-Learn how to use the {+driver-short+} to perform aggregation operations in the
+Learn how to use the {+library-short+} to perform aggregation operations in the
 :ref:`php-aggregation` section.
 
 Optimize Queries with Indexes
@@ -99,7 +99,7 @@ Learn how to work with specialized data formats and custom types in the
 Compatibility
 -------------
 
-See compatibility tables showing the recommended {+driver-short+} version to use for
+See compatibility tables showing the recommended {+library-short+} version to use for
 specific PHP and {+mdb-server+} versions in the :ref:`php-compatibility` section.
 
 What's New
@@ -109,13 +109,14 @@ Learn about new features and changes in each version in the :ref:`<php-lib-whats
 section.
 
 .. TODO:
- Upgrade {+driver-short+} Versions
- ---------------------------------
- Learn what changes you might need to make to your application to upgrade driver versions
- in the :ref:`php-upgrade` section.
+ Upgrade {+library-short+} Versions
+ ----------------------------------
+ 
+ .. Learn what changes you must make to your application to upgrade driver versions
+ .. in the :ref:`php-upgrade` section.
 
 FAQ
 ---
 
-See answers to commonly asked questions about the {+driver-short+} in the
+See answers to commonly asked questions about the {+library-short+} in the
 the :ref:`php-faq` section.

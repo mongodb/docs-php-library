@@ -22,13 +22,13 @@ Overview
 
 To connect to a MongoDB deployment, you must create the following items:
 
-- **Connection URI**, also known as a *connection string*, which tells the {+driver-short+}
+- **Connection URI**, also known as a *connection string*, which tells the {+library-short+}
   which MongoDB deployment to connect to.
 - **MongoDB\\Client** object, which creates the connection to the MongoDB deployment
   and lets you perform operations on it.
 
 You can also set options within either or both of these components to
-customize the way that the {+driver-short+} behaves
+customize the way that the {+library-short+} behaves
 while connected to MongoDB.
 
 This guide describes the components of a connection string and shows how to
@@ -99,7 +99,7 @@ deployment on port ``27017`` of ``localhost``:
 API Documentation
 -----------------
 
-To learn more about creating a ``MongoDB\Client`` object in the {+driver-short+},
+To learn more about creating a ``MongoDB\Client`` object in the {+library-short+},
 see the following API documentation:
 
 - :ref:`MongoDB\Client <php-api-mongodbclient>`

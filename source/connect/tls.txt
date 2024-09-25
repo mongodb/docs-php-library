@@ -23,7 +23,7 @@ Overview
 In this guide, you can learn how to use the :wikipedia:`TLS <Transport_Layer_Security>`
 protocol to secure your connection to a MongoDB deployment.
 
-When you enable TLS for a connection, the {+driver-short+} performs the following actions:
+When you enable TLS for a connection, the {+library-short+} performs the following actions:
 
 - Uses TLS to connect to the MongoDB deployment
 - Verifies the deployment's certificate
@@ -41,7 +41,7 @@ To learn how to configure your MongoDB deployment for TLS, see the
 
 .. tip::
 
-   The {+driver-short+} delegates most TLS behavior to the MongoDB C Driver.
+   The {+library-short+} delegates most TLS behavior to the MongoDB C Driver.
    For information about how the C driver handles TLS, including configuration steps
    and expected behavior, see
    `Configuring TLS <https://www.mongodb.com/docs/languages/c/c-driver/current/libmongoc/guides/configuring_tls/#supported-libraries>`__
@@ -78,7 +78,7 @@ signed by a well-known CA (certificate authority), and your application relies o
 to validate the certificate.
 
 During testing, however, you might want to act as your own CA.
-In this case, you must instruct the {+driver-short+} to
+In this case, you must instruct the {+library-short+} to
 use your CA certificates instead of ones signed by another CA.
 
 To do so, use the ``tlsCAFile`` connection option to specify the path to a ``.pem`` file
@@ -95,7 +95,7 @@ Specify a CA Directory
 
 If you are using OpenSSL or LibreSSL (``libtls``) for TLS support, you can also use
 the ``ca_dir`` option to instruct
-the {+driver-short+} to search for a CA file within a directory. The driver searches this
+the {+library-short+} to search for a CA file within a directory. The driver searches this
 directory if it doesn't find a CA file at the path specified in the ``tlsCAFile`` option.
  
 The following code example shows how to use the ``driverOptions`` parameter to specify the
@@ -119,7 +119,7 @@ Check Certificate Revocation
 ----------------------------
 
 When an X.509 certificate is no longer trustworthy—for example, if its private key
-has been compromised—the CA revokes the certificate. The {+driver-short+} includes two ways
+has been compromised—the CA revokes the certificate. The {+library-short+} includes two ways
 to check whether a server's certificate has been revoked.
 
 .. _php-disable-ocsp:
@@ -131,15 +131,15 @@ The Online Certificate Status Protocol (OCSP) process varies depending on the ve
 {+mdb-server+} you're connecting to:
 
 - **MongoDB v4.4 or later:** The server staples a
-  time-stamped OCSP response to its certificate. The {+driver-short+} validates the certificate
+  time-stamped OCSP response to its certificate. The {+library-short+} validates the certificate
   against the OCSP response. If the CA has revoked the certificate, or if the OCSP response
   is otherwise invalid, the TLS handshake fails.
-- **MongoDB v4.3 or earlier:** The server supplies an OCSP endpoint, which the {+driver-short+}
-  contacts directly. The {+driver-short+} then validates the certificate against the OCSP
+- **MongoDB v4.3 or earlier:** The server supplies an OCSP endpoint, which the {+library-short+}
+  contacts directly. The {+library-short+} then validates the certificate against the OCSP
   response. If the CA hasn't revoked the certificate, the TLS handshake continues, even if
   the OCSP response is invalid or malformed.
 
-To stop the {+driver-short+} from contacting the OCSP endpoint, set the
+To stop the {+library-short+} from contacting the OCSP endpoint, set the
 ``tlsDisableOCSPEndpointCheck`` connection option to ``true``.
 You can do this in two ways: by passing an argument to the
 ``MongoDB\Client`` constructor or through a parameter in your connection string.
@@ -148,7 +148,7 @@ You can do this in two ways: by passing an argument to the
 
 .. note::
 
-   Even if the ``tlsDisableOCSPEndpointCheck`` option is set to ``true``, the {+driver-short+}
+   Even if the ``tlsDisableOCSPEndpointCheck`` option is set to ``true``, the {+library-short+}
    still verifies any OCSP response stapled to a server's certificate.
 
 .. _php-crl:
@@ -156,7 +156,7 @@ You can do this in two ways: by passing an argument to the
 Certificate Revocation List
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Instead of using OCSP, you can use the instruct the {+driver-short+}
+Instead of using OCSP, you can use the instruct the {+library-short+}
 to check the server's certificate
 against a Certificate Revocation List (CRL) published by the CA. To do so, set the
 ``crl_file`` option to the file path of the CRL. Include this option in the
@@ -177,7 +177,7 @@ Present a Client Certificate
 ----------------------------
 
 Some MongoDB deployments require every connecting application to present a client certificate
-that proves its identity. To specify the client certificate for the {+driver-short+} to
+that proves its identity. To specify the client certificate for the {+library-short+} to
 present, set the ``tleCertificateKeyFile`` option to the file path of the ``.pem`` file that
 contains your certificate and private key.
 
@@ -214,7 +214,7 @@ of the ``MongoDB\Client`` constructor or through a parameter in your connection 
 Allow Insecure TLS
 ------------------
 
-When TLS is enabled, the {+driver-short+} automatically verifies the certificate that
+When TLS is enabled, the {+library-short+} automatically verifies the certificate that
 the server presents. When testing your code, you can disable this verification.
 This is known as *insecure TLS.*
 
@@ -262,7 +262,7 @@ To disable only hostname verification, set the ``tlsAllowInvalidHostnames`` opti
 API Documentation
 -----------------
 
-To learn more about configuring TLS for the {+driver-short+},
+To learn more about configuring TLS for the {+library-short+},
 see the following API documentation:
 
 - :phpclass:`MongoDB\Client`

@@ -30,7 +30,7 @@ Specialized Data Formats
 Overview
 --------
 
-You can use several types of specialized data formats in your {+driver-short+}
+You can use several types of specialized data formats in your {+library-short+}
 application. To learn how to work with these data formats, see the following
 guides:
 
