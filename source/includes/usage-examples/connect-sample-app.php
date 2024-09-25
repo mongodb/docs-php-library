@@ -6,11 +6,9 @@ require __DIR__ . '/../vendor/autoload.php';
 
 // End example code here
 
-$admin = $client->admin;
-$result = $admin->command(['ping' => 1]);
-
-if ($result) {
+try {
+    $client->test->command(['ping' => 1]);
     echo 'Successfully pinged the MongoDB server.', PHP_EOL;
-} else {
-    echo 'Ping to MongoDB server failed.', PHP_EOL;
+} catch (MongoDB\Driver\Exception\RuntimeException $e) {
+    printf("Failed to ping the MongoDB server: %s\n", $e->getMessage());
 }

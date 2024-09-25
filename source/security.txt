@@ -146,8 +146,8 @@ The following sections show how to connect to MongoDB by using the ``MONGODB-AWS
 authentication mechanism. When you use the ``MONGODB-AWS`` mechanism, the {+php-library+}
 attempts to retrieve your AWS credentials from the following sources, in the order listed:
 
-1. Options parameter passed to the ``MongoDB\Client`` constructor or parameters in the
-   connection URI
+1. Options passed to the ``MongoDB\Client`` constructor, either as part of the connection
+   string or the ``$uriOptions`` array parameter
 #. Environment variables
 #. AWS EKS ``AssumeRoleWithWebIdentity`` request
 #. ECS container metadata
