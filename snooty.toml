@@ -25,6 +25,7 @@ toc_landing_pages = [
     "/databases-collections",
     "/write",
     "/indexes",
+    "/security"
     "/data-formats"
 ]
 

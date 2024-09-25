@@ -11,8 +11,8 @@ $uriOptions = [
 ];
 
 $client = new MongoDB\Client(
-   'mongodb://<hostname>:<port>',
-   $uriOptions,
+    'mongodb://<hostname>:<port>',
+    $uriOptions,
 );
 // end-scram-sha-256-client
 
@@ -20,6 +20,25 @@ $client = new MongoDB\Client(
 $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-256';
 $client = new MongoDB\Client($uri);
 // end-scram-sha-256-uri
+
+// start-scram-sha-1-client
+$uriOptions = [
+    'username' => '<username>',
+    'password' => '<password>',
+    'authSource' => '<authentication database>',
+    'authMechanism' => 'SCRAM-SHA-1',
+];
+
+$client = new MongoDB\Client(
+    'mongodb://<hostname>:<port>',
+    $uriOptions,
+);
+// end-scram-sha-1-client
+
+// start-scram-sha-1-uri
+$uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-1';
+$client = new MongoDB\Client($uri);
+// end-scram-sha-1-uri
 
 // start-mongodb-X509-client
 $uriOptions = [
@@ -29,8 +48,8 @@ $uriOptions = [
 ];
 
 $client = new MongoDB\Client(
-   'mongodb://<hostname>:<port>',
-   $uriOptions,
+    'mongodb://<hostname>:<port>',
+    $uriOptions,
 );
 // end-mongodb-X509-client
 
@@ -47,8 +66,8 @@ $uriOptions = [
 ];
 
 $client = new MongoDB\Client(
-   'mongodb://<hostname>:<port>',
-   $uriOptions,
+    'mongodb://<hostname>:<port>',
+    $uriOptions,
 );
 // end-mongodb-aws-client
 
@@ -59,8 +78,8 @@ $client = new MongoDB\Client($uri);
 
 // start-mongodb-aws-env-client
 $client = new MongoDB\Client(
-   'mongodb://<hostname>:<port>',
-   ['authMechanism' => 'MONGODB-AWS']
+    'mongodb://<hostname>:<port>',
+    ['authMechanism' => 'MONGODB-AWS']
 );
 // end-mongodb-aws-env-client
 
