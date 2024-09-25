@@ -56,6 +56,14 @@ Make sure to replace all placeholders in the code examples, such as
    :linenos:
    :emphasize-lines: 5-7
 
+.. important:: Percent-Encoding
+
+   You must :wikipedia:`percent-encode <Percent-encoding>` a username and password before
+   you include them in a MongoDB URI. You can use the ``rawurlencode()`` method to encode 
+   these values according to the URI syntax specified in `RFC 3986 <http://www.faqs.org/rfcs/rfc3986.html>`__.
+   Don't percent-encode the username or password when passing them in an options array
+   parameter to the ``MongoDB\Client`` constructor.
+
 Connection
 ----------
 
@@ -83,6 +91,11 @@ The following code shows how to connect to a local MongoDB deployment:
     :dedent:
     :start-after: start-local
     :end-before: end-local
+
+.. note::
+
+   If you don't specify the ``$uri`` parameter, the connection URI defaults to
+   ``'mongodb://127.0.0.1:27017'``.
 
 To learn more about connecting to a local deployment, see :ref:`php-connection-local`
 in the Connection Targets guide.
@@ -261,13 +274,20 @@ client certificate:
          :start-after: start-key-file-uri
          :end-before: end-key-file-uri
 
+.. important::
+
+   When replacing the ``<password>`` placeholder, ensure that you :wikipedia:`percent-encode
+   <Percent-encoding>` the value.
+
 To learn more about providing a key file password, see :ref:`php-key-file-password` in
 the TLS Configuration guide.
 
 Allow Insecure TLS
 ~~~~~~~~~~~~~~~~~~
 
-The following code shows how to enable insecure TLS:
+The following code shows how to relax TLS constraints, which has the same
+effect as disabling both :ref:`certificate validation <php-connect-disable-cert>`
+and :ref:`hostname verification <php-connect-disable-hostname>`:
 
 .. tabs::
 
@@ -291,6 +311,15 @@ The following code shows how to enable insecure TLS:
 
 To learn more about allowing insecure TLS, see :ref:`php-insecure-tls` in
 the TLS Configuration guide.
+
+.. warning::
+
+   Setting the ``tlsInsecure`` option to ``true`` might expose your application
+   to security risks. Enabling this option makes your application insecure and
+   potentially vulnerable to expired certificates and to foreign processes posing
+   as valid client instances.
+
+.. _php-connect-disable-cert:
 
 Disable Certificate Validation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -319,6 +348,8 @@ The following code shows how to disable certificate validation:
 
 To learn more about disabling certificate validation, see :ref:`php-insecure-tls` in
 the TLS Configuration guide.
+
+.. _php-connect-disable-hostname:
 
 Disable Hostname Verification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
