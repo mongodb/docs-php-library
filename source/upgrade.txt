@@ -92,6 +92,8 @@ This driver version introduces the following breaking changes:
 Version 1.16 Breaking Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+This driver version introduces the following breaking changes:
+
 - Upgrades the ``mongodb`` extension requirement to 1.16.0.
 
 - Deprecate ``IndexInfo::isGeoHaystack()``. ``geoHaystack`` was removed in
@@ -105,5 +107,7 @@ Version 1.16 Breaking Changes
 
 Version 1.15 Breaking Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This driver version introduces the following breaking changes:
 
 - Upgrades the ``mongodb`` extension requirement to 1.15.0.
