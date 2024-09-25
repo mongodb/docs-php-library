@@ -50,7 +50,7 @@ $result = $collection->insertMany($fruits);
 // start-find-exact
 $cursor = $collection->find(['color' => 'yellow']);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-find-exact
 
@@ -58,7 +58,7 @@ foreach ($cursor as $doc) {
 // start-find-all
 $cursor = $collection->find([]);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-find-all
 
@@ -66,7 +66,7 @@ foreach ($cursor as $doc) {
 // start-find-comparison
 $cursor = $collection->find(['rating' => ['$gt' => 2]]);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-find-comparison
 
@@ -79,7 +79,7 @@ $cursor = $collection->find([
     ]
 ]);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-find-logical
 
@@ -87,7 +87,7 @@ foreach ($cursor as $doc) {
 // start-find-array
 $cursor = $collection->find(['type' => ['$size' => 2]]);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-find-array
 
@@ -95,7 +95,7 @@ foreach ($cursor as $doc) {
 // start-find-element
 $cursor = $collection->find(['color' => ['$exists' => true]]);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-find-element
 
@@ -103,6 +103,6 @@ foreach ($cursor as $doc) {
 // start-find-evaluation
 $cursor = $collection->find(['name' => ['$regex' => 'p{2,}']]);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc) , PHP_EOL;
 }
 // end-find-evaluation
