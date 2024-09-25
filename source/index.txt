@@ -16,6 +16,7 @@ MongoDB PHP Library
    /read
    /write
    /read-write-pref
+   /run-command
    /aggregation
    /indexes
    /monitoring
@@ -67,6 +68,11 @@ Write Data to MongoDB
 ---------------------
 
 Learn how you can write data to MongoDB in the :ref:`php-write` section.
+
+Run a Database Command
+----------------------
+
+Learn how to run a database command in the :ref:`php-run-command` section.
 
 Transform Your Data with Aggregation
 ------------------------------------
