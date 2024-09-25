@@ -36,8 +36,10 @@ php-library = "MongoDB PHP Library"
 
 [constants]
 php-library = "MongoDB PHP Library"
-library-short = "PHP library"
-stable-api = "Stable API"
+driver-short = "PHP library"
+extension-short = "PHP extension"
 mdb-server = "MongoDB Server"
+stable-api = "Stable API"
+library-short = "PHP library"
 api = "https://www.mongodb.com/docs/php-library/current/reference"
 php-manual = "https://www.php.net/manual/en"
