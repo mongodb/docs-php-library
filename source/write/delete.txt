@@ -194,6 +194,6 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Collection::deleteOne() <{+api+}/method/MongoDBCollection-deleteOne/>`__
-- `MongoDB\\Collection::deleteMany() <{+api+}/method/MongoDBCollection-deleteMany/>`__
-- `MongoDB\\DeleteResult <{+api+}/class/MongoDBDeleteResult/>`__
+- :phpmethod:`MongoDB\Collection::deleteOne()`
+- :phpmethod:`MongoDB\Collection::deleteMany()`
+- :phpclass:`MongoDB\DeleteResult`

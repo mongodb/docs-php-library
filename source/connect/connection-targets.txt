@@ -113,4 +113,4 @@ API Documentation
 To learn more about using the ``MongoDB\Client`` class,
 see the following API documentation:
 
-- :ref:`MongoDB\Client <php-api-mongodbclient>`
+- :phpclass:`MongoDB\Client`

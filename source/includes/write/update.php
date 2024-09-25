@@ -40,6 +40,6 @@ $result = $collection->updateMany(
     ['name' => 'Dunkin\' Donuts'],
     ['$set' => ['name' => 'Dunkin\'']]
 );
-echo 'Modified documents: ' . $result->getModifiedCount();
+echo 'Modified documents: ', $result->getModifiedCount();
 // end-update-result
 

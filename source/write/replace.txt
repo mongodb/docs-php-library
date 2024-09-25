@@ -206,5 +206,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Collection::replaceOne() <{+api+}/method/MongoDBCollection-replaceOne/>`__
-- `MongoDB\\UpdateResult <{+api+}/class/MongoDBUpdateResult/>`__
+- :phpmethod:`MongoDB\Collection::replaceOne()`
+- :phpclass:`MongoDB\UpdateResult`

@@ -20,7 +20,7 @@ $replace_document = [
 ];
 
 $result = $collection->replaceOne(['name' => 'Pizza Town'], $replace_document);
-echo 'Modified documents: ' . $result->getModifiedCount();
+echo 'Modified documents: ', $result->getModifiedCount();
 // end-replace-one
 
 // start-replace-options

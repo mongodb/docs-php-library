@@ -29,9 +29,26 @@ the Atlas sample datasets.
 
    .. step:: Assign the connection string
 
-      Replace the ``<connection string>`` placeholder with the 
-      connection string that you copied from the :ref:`php-connection-string`
-      step of this guide.
+      Assign the ``MONGODB_URI`` environment variable to the connection string that you copied
+      from the :ref:`php-connection-string` step of this guide. You can assign this
+      variable by running a shell command or creating a ``.env`` file in your application,
+      as show in the following tabs:
+
+      .. tabs::
+
+         .. tab:: Shell Command
+            :tabid: shell
+
+            .. code-block:: sh
+
+               export MONGODB_URI=<connection string>
+
+         .. tab:: .env File
+            :tabid: dotenv
+
+            .. code-block:: php
+
+               MONGODB_URI=<connection string>
 
    .. step:: Run your PHP application
 

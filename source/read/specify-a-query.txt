@@ -251,9 +251,9 @@ Additional Information
 To learn more about querying documents, see the :manual:`Query Documents
 </tutorial/query-documents/>` guide in the {+mdb-server+} manual.
 
-.. TODO:
- To learn more about retrieving documents with the {+php-library+}, see the
- :ref:`php-retrieve` guide.
+
+To learn more about retrieving documents with the {+php-library+}, see the
+:ref:`php-retrieve` guide.
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
@@ -261,5 +261,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Collection::find() <{+api+}/method/MongoDBCollection-find/>`__
-- `MongoDB\\Collection::insertMany() <{+api+}/method/MongoDBCollection-insertMany/>`__
+- :phpmethod:`MongoDB\Collection::insertMany()`
+- :phpmethod:`MongoDB\Collection::find()`

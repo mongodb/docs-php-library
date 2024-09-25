@@ -14,7 +14,7 @@ $collection = $client->sample_restaurants->restaurants;
 // start-distinct
 $results = $collection->distinct('borough', []);
 foreach ($results as $value) {
-    echo json_encode($value) . PHP_EOL;
+    echo json_encode($value), PHP_EOL;
 }
 // end-distinct
 
@@ -22,7 +22,7 @@ foreach ($results as $value) {
 // start-distinct-with-query
 $results = $collection->distinct('borough', ['cuisine' => 'Italian']);
 foreach ($results as $value) {
-    echo json_encode($value) . PHP_EOL;
+    echo json_encode($value), PHP_EOL;
 }
 // end-distinct-with-query
 
@@ -34,7 +34,7 @@ $options = ['comment' => 'Bronx pizza restaurants'];
 $results = $collection->distinct('name', $query, $options);
 
 foreach ($results as $value) {
-    echo json_encode($value) . PHP_EOL;
+    echo json_encode($value), PHP_EOL;
 }
 // end-distinct-with-comment
 

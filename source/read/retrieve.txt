@@ -31,7 +31,7 @@ Sample Data
 The examples in this guide use the ``companies`` collection in the ``sample_training``
 database from the :atlas:`Atlas sample datasets </sample-data>`. To access this collection
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
-and assign the following value to your ``collection`` variable:
+and assign the following value to your ``$collection`` variable:
 
 .. literalinclude:: /includes/read/retrieve.php
     :language: php
@@ -52,7 +52,9 @@ The {+php-library+} includes two methods for retrieving documents from a collect
 take a **query filter** and return one or more matching documents. A query filter
 specifies the search criteria that the driver uses to retrieve documents in your query.
 
-.. TODO: To learn more about query filters, see :ref:`php-specify-query`.
+.. tip::
+
+   To learn more about query filters, see the :ref:`php-specify-query` guide.
 
 .. _php-retrieve-find-one:
 
@@ -229,16 +231,16 @@ For a full list of options, see the API documentation for the
 Additional Information
 ----------------------
 
-.. TODO:
- To learn more about query filters, see :ref:`php-specify-query`.
- For runnable code examples of retrieving documents with the {+php-library+},
- see :ref:`php-read`.
+To learn more about query filters, see the :ref:`php-specify-query` guide.
+
+To view code examples of retrieving documents with the {+php-library+},
+see :ref:`php-read`.
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
 
-To learn more about any of the methods or types discussed in this
+To learn more about any of the methods discussed in this
 guide, see the following API documentation:
 
-- `findOne() <{+api+}/method/MongoDBCollection-findOne/>`__
-- `find() <{+api+}/method/MongoDBCollection-find/>`__
+- :phpmethod:`MongoDB\Collection::findOne()`
+- :phpmethod:`MongoDB\Collection::find()`

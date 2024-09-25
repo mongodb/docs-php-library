@@ -36,7 +36,7 @@ Sample Data
 The examples in this guide use the ``companies`` collection in the ``sample_training``
 database from the :atlas:`Atlas sample datasets </sample-data>`. To access this collection
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
-and assign the following value to your ``collection`` variable:
+and assign the following value to your ``$collection`` variable:
 
 .. literalinclude:: /includes/read/count.php
     :language: php
@@ -248,5 +248,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Collection::countDocuments() <{+api+}/method/MongoDBCollection-countDocuments/>`__
-- `MongoDB\\Collection::estimatedDocumentCount() <{+api+}/method/MongoDBCollection-estimatedDocumentCount/>`__
+- :phpmethod:`MongoDB\Collection::countDocuments()`
+- :phpmethod:`MongoDB\Collection::estimatedDocumentCount()`

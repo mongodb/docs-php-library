@@ -24,7 +24,7 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
         continue;
     }
     $event = $changeStream->current();
-    echo toJSON($event) . PHP_EOL;
+    echo toJSON($event), PHP_EOL;
 
     if ($event['operationType'] === 'invalidate') {
         break;
@@ -50,7 +50,7 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
         continue;
     }
     $event = $changeStream->current();
-    echo toJSON($event) . PHP_EOL;
+    echo toJSON($event), PHP_EOL;
 
     if ($event['operationType'] === 'invalidate') {
         break;
@@ -68,7 +68,7 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
         continue;
     }
     $event = $changeStream->current();
-    echo toJSON($event) . PHP_EOL;
+    echo toJSON($event), PHP_EOL;
 
     if ($event['operationType'] === 'invalidate') {
         break;

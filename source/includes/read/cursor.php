@@ -12,7 +12,7 @@ $collection = $client->sample_restaurants->restaurants;
 // start-cursor-iterate
 $cursor = $collection->find(['name' => 'Dunkin\' Donuts']);
 foreach ($cursor as $doc) {
-    echo json_encode($doc) . PHP_EOL;
+    echo json_encode($doc), PHP_EOL;
 }
 // end-cursor-iterate
 
@@ -56,7 +56,7 @@ $docs_found = 0;
 while ($docs_found < 3) {
     if ($cursor->valid()) {
         $doc = $cursor->current();
-        echo json_encode($doc) . PHP_EOL;
+        echo json_encode($doc), PHP_EOL;
         $docs_found++;
     }
     $cursor->next();

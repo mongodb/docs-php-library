@@ -201,5 +201,5 @@ API Documentation
 To learn more about the methods discussed in this guide, see the
 following API documentation:
 
-- `MongoDB\\Collection::aggregate() <{+api+}/method/MongoDBCollection-aggregate/>`__
-- `MongoDB\\Collection::explain() <{+api+}/method/MongoDBCollection-explain/>`__
+- :phpmethod:`MongoDB\Collection::aggregate()`
+- :phpmethod:`MongoDB\Collection::explain()`
