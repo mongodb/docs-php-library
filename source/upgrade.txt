@@ -20,8 +20,12 @@ Upgrade Driver Versions
 Overview
 --------
 
-This page describes the changes you must make to your application
-when you upgrade to a new version of the {+driver-short+}.
+This page describes how to upgrade your driver to a new version and the changes 
+you must make to your application when you upgrade to a new version of the 
+{+driver-short+}.
+
+How to Upgrade
+--------------
 
 Before you upgrade, perform the following actions:
 
@@ -38,6 +42,17 @@ Before you upgrade, perform the following actions:
 
    To ensure compatibility across {+mdb-server+} versions when
    upgrading driver versions, use the :ref:`{+stable-api+} <php-stable-api>`.
+
+To upgrade your driver version, replace "version number" with the version number 
+you would like to upgrade to and run the following command in your application's 
+directory:
+
+.. code-block:: bash
+
+   composer require mongodb/mongodb:<version number>
+
+Installation instructions for the ``mongodb`` extension may be found in the 
+`PHP.net documentation <https://www.php.net/manual/en/mongodb.installation.php>`__.
 
 .. _php-breaking-changes:
 
