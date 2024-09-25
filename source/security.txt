@@ -22,9 +22,8 @@ Secure Your Data
    :titlesonly:
    :maxdepth: 1
 
-   /security/in-use-encryption
-.. TODO:
    /security/authentication
+   /security/in-use-encryption
 
 Overview
 --------
