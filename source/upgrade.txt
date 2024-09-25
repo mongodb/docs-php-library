@@ -23,15 +23,12 @@ Overview
 This page describes the changes you must make to your application
 when you upgrade to a new version of the {+driver-short+}.
 
-This page describes the changes you must make to your application
-when you upgrade to a new version of the {+driver-short+}.
-
 Before you upgrade, perform the following actions:
 
 - Ensure the new {+driver-short+} version is compatible with the {+mdb-server+} versions
   your application connects to and the PHP version your
   application compiles with. For version compatibility information, see the
-  :ref:`{+driver-short+} Compatibility <php-compatibility>`
+  :ref:`{+php-library+} Compatibility <php-compatibility>`
   page.
 - Address any breaking changes between the driver version
   your application is using and your planned upgrade version in the
@@ -84,10 +81,8 @@ This driver version introduces the following breaking changes:
 
 - Requires PHP 7.4 or newer.
 
-- Removes support for PHP 7.2 and 7.3.
-
-- Remove aggregate compatibility logic for {+mdb-server+} versions less than 
-  3.6, including removing the ``useCursor`` option. 
+- Remove aggregate compatibility logic, like the ``useCursor`` option, for 
+  {+mdb-server+} versions less than 3.6.
 
 Version 1.16 Breaking Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
