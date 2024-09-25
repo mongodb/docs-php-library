@@ -1,3 +1,5 @@
+.. _php-custom-types:
+
 =================
 Custom Data-Types
 =================
