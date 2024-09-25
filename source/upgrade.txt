@@ -22,7 +22,7 @@ Overview
 
 On this page, you can learn how to upgrade your driver to a new version. This
 page also includes the changes you must make to your application when you 
-upgrade to a new version of the {+driver-short+}.
+upgrade to a new version of the {+php-library+}.
 
 How to Upgrade
 --------------
