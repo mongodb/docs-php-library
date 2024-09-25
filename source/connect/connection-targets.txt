@@ -42,7 +42,7 @@ breaking changes when Atlas upgrades to a new version of {+mdb-server+}.
 To learn more about the {+stable-api+} feature, see the :ref:`{+stable-api+} page
 <php-stable-api>`.
 
-The following code shows how to use the {+driver-short+} to connect to an Atlas cluster.
+The following code shows how to use the {+library-short+} to connect to an Atlas cluster.
 The code also uses the ``serverApi`` option to specify a {+stable-api+} version.
 
 .. literalinclude:: /includes/connect/atlas.php
@@ -63,7 +63,7 @@ To connect to a local MongoDB deployment, use ``localhost`` as the hostname. By
 default, the ``mongod`` process runs on port 27017, though you can customize this for
 your deployment.
 
-The following code shows how to use the {+driver-short+} to connect to a local MongoDB
+The following code shows how to use the {+library-short+} to connect to a local MongoDB
 deployment:
 
 .. literalinclude:: /includes/connect/client.php
@@ -79,7 +79,7 @@ To connect to a replica set, specify the hostnames (or IP addresses) and
 port numbers of the replica set members in your connection string.
 
 If you aren't able to provide a full list of hosts in the replica set, you can 
-specify one or more of the hosts in the replica set and instruct the {+driver-short+} to 
+specify one or more of the hosts in the replica set and instruct the {+library-short+} to 
 perform automatic discovery to find the others. To instruct the driver to perform
 automatic discovery, choose one of the following actions:
 
