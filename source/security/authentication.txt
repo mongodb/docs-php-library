@@ -153,17 +153,17 @@ the ``authMechanism`` connection option.
 
 .. note::
 
-   The {+php-library+} uses the C driver's implementation of the MONGODB-AWS
+   The {+php-library+} uses libmongoc's implementation of the MONGODB-AWS
    authentication mechanism. To learn more about using this authentication mechanism
-   with the C driver, see `Authentication via AWS IAM
+   with libmongoc, see `Authentication via AWS IAM
    <https://www.mongodb.com/docs/languages/c/c-driver/current/libmongoc/authentication/#authentication-via-aws-iam>`__
-   in the C documentation.
+   in the C driver documentation.
 
-When you use the MONGODB-AWS mechanism, the C driver tries to retrieve AWS
+When you use the MONGODB-AWS mechanism, the driver tries to retrieve AWS
 credentials from the following sources, in the order listed:
 
-1. Options parameter passed to the ``MongoDB\Client`` constructor or parameters in the
-   connection URI
+1. Options passed to the ``MongoDB\Client`` either as part of the connection
+   URI or an options parameter
 #. Environment variables
 #. AWS EKS ``AssumeRoleWithWebIdentity`` request
 #. ECS container metadata
@@ -177,10 +177,10 @@ these sources and use them to authenticate your PHP application.
 MongoDB\Client Credentials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-First, the C driver checks whether you passed AWS credentials to the
-``MongoDB\Client`` constructor, either as an options parameter or as part of the
-connection URI. To pass your credentials to ``MongoDB\Client``,
-set the following connection options:
+First, the driver checks whether you passed AWS credentials to the
+``MongoDB\Client`` constructor, either as as part of the connection
+URI or the ``$uriOptions`` array parameter. To pass your credentials to
+``MongoDB\Client``, set the following connection options:
 
 - ``username``: The AWS IAM access key ID to authenticate. Percent-encode this value
   before including it in a connection URI.
@@ -298,7 +298,7 @@ AssumeRoleWithWebIdentity Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If your application authenticates users for your EKS cluster from an OpenID Connect (OIDC)
-identity provider, the C driver can make an ``AssumeRoleWithWebIdentity`` request
+identity provider, the driver can make an ``AssumeRoleWithWebIdentity`` request
 to exchange the OIDC token for temporary AWS credentials for your application. 
 
 To authenticate with temporary AWS IAM credentials returned by an
@@ -328,7 +328,7 @@ ECS Metadata
 ~~~~~~~~~~~~
 
 If your application runs in an Elastic Container Service (ECS) container,
-the C driver can automatically retrieve temporary AWS credentials from an
+the driver can automatically retrieve temporary AWS credentials from an
 ECS endpoint. To do so, specify the URI of the ECS endpoint in an environment variable called
 ``AWS_CONTAINER_CREDENTIALS_RELATIVE_URI``. You can set this variable by running
 the ``export`` shell command or adding it to your ``.env`` file, as shown in the following
@@ -360,7 +360,7 @@ connection option to ``'MONGODB-AWS'``. To view an example that sets the
 EC2 Instance Metadata
 ~~~~~~~~~~~~~~~~~~~~~
 
-The C driver can automatically retrieve temporary AWS credentials from an
+The driver can automatically retrieve temporary AWS credentials from an
 Amazon Elastic Cloud Compute (EC2) instance. To use temporary credentials from
 within an EC2 instance, set the ``authMechanism`` connection option to ``'MONGODB-AWS'``.
 To view an example that sets the ``authMechanism`` option, see the :ref:`authMechanism example
