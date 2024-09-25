@@ -14,11 +14,19 @@ $uri = '<Atlas connection string>';
 $client = new MongoDB\Client($uri);
 // end-atlas
 
-// Connects to a replica set
-// start-replica-set
+// Connects to a replica set using client options
+// start-replica-set-client
+$client = new MongoDB\Client(
+    'mongodb://<replica set member>:<port>/',
+    ['replicaSet' => '<replica set name>'],
+);
+// end-replica-set-client
+
+// Connects to a replica set using a connection URI parameter
+// start-replica-set-uri
 $uri = 'mongodb://<replica set member>:<port>/?replicaSet=<replica set name>';
 $client = new MongoDB\Client($uri);
-// end-replica-set
+// end-replica-set-uri
 
 // Connects to a MongoDB deployment and enables TLS using client
 // options

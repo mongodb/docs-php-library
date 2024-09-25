@@ -105,11 +105,25 @@ Replica Set
 
 The following code shows how to connect to a replica set deployment:
 
-.. literalinclude:: /includes/usage-examples/connect-code-examples.php
-    :language: php
-    :dedent:
-    :start-after: start-replica-set
-    :end-before: end-replica-set
+.. tabs::
+
+   .. tab:: MongoDB\\Client
+      :tabid: Client
+
+      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
+         :language: php
+         :dedent:
+         :start-after: start-replica-set-client
+         :end-before: end-replica-set-client
+
+   .. tab:: Connection URI
+      :tabid: connectionstring
+
+      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
+         :language: php
+         :dedent:
+         :start-after: start-replica-set-uri
+         :end-before: end-replica-set-uri
 
 To learn more about connecting to a replica set, see :ref:`php-connection-replica-set`
 in the Connection Targets guide.
