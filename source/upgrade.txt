@@ -1,0 +1,109 @@
+.. php-upgrade:
+
+=======================
+Upgrade Driver Versions
+=======================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. facet::
+   :name: genre
+   :values: reference
+ 
+.. meta::
+   :keywords: compatibility, backwards compatibility
+
+Overview
+--------
+
+This page describes the changes you must make to your application
+when you upgrade to a new version of the {+driver-short+}.
+
+This page describes the changes you must make to your application
+when you upgrade to a new version of the {+driver-short+}.
+
+Before you upgrade, perform the following actions:
+
+- Ensure the new {+driver-short+} version is compatible with the {+mdb-server+} versions
+  your application connects to and the PHP version your
+  application compiles with. For version compatibility information, see the
+  :ref:`{+driver-short+} Compatibility <php-compatibility>`
+  page.
+- Address any breaking changes between the driver version
+  your application is using and your planned upgrade version in the
+  :ref:`Breaking Changes <php-breaking-changes>` section.
+
+.. tip::
+
+   To ensure compatibility across {+mdb-server+} versions when
+   upgrading driver versions, use the :ref:`{+stable-api+} <php-stable-api>`.
+
+.. _php-breaking-changes:
+
+Breaking Changes
+----------------
+
+A breaking change is a change of a convention or a behavior starting in a specific
+version of the driver. This type of change may prevent your application from working
+properly if not addressed before upgrading the driver.
+
+The breaking changes in this section are categorized by the driver version that introduced
+them. When upgrading driver versions, address all the breaking changes between the current
+and upgrade versions.
+
+For more information on release changes, see the release notes and associated 
+JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.
+
+Version 1.20 Breaking Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This driver version introduces the following breaking changes:
+
+- Drops support for {+mdb-server+} 3.6.
+
+- Deprecate iterators for database, collection, and index enumeration.
+
+Version 1.18 Breaking Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This driver version introduces the following breaking changes:
+
+- Deprecate setting ``disableMD5`` to ``false`` when instantiating a Bucket due to 
+  deprecated MD5 encoding. The default value for the setting is now ``true``. 
+
+Version 1.17 Breaking Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This driver version introduces the following breaking changes:
+
+- Upgrades the ``mongodb`` extension requirement to 1.17.0.
+
+- Requires PHP 7.4 or newer.
+
+- Removes support for PHP 7.2 and 7.3.
+
+- Remove aggregate compatibility logic for {+mdb-server+} versions less than 
+  3.6, including removing the ``useCursor`` option. 
+
+Version 1.16 Breaking Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Upgrades the ``mongodb`` extension requirement to 1.16.0.
+
+- Deprecate ``IndexInfo::isGeoHaystack()``. ``geoHaystack`` was removed in
+  {+mdb-server+} 5.0 and later.
+
+- Drop support for Composer 1.x.
+
+- Remove ``$server`` argument in ``Explainable::getCommandDocument``.
+
+- Remove ``getNonce`` command usage for {+mdb-server+} 6.2 and later.
+
+Version 1.15 Breaking Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Upgrades the ``mongodb`` extension requirement to 1.15.0.
