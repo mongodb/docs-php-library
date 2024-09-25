@@ -22,9 +22,11 @@ toc_landing_pages = [
     "/reference/class/MongoDBModelDatabaseInfo",
     "/reference/class/MongoDBModelIndexInfo",
     "/get-started",
+    "/databases-collections",
     "/write",
     "/indexes",
     "/security"
+    "/data-formats"
 ]
 
 sharedinclude_root =  "https://raw.githubusercontent.com/10gen/docs-shared/main/"
@@ -34,7 +36,7 @@ php-library = "MongoDB PHP Library"
 
 [constants]
 php-library = "MongoDB PHP Library"
-driver-short = "PHP library"
+library-short = "PHP library"
 stable-api = "Stable API"
 mdb-server = "MongoDB Server"
 api = "https://www.mongodb.com/docs/php-library/current/reference"
