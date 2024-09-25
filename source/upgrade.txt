@@ -44,7 +44,7 @@ Before you upgrade, perform the following actions:
    upgrading driver versions, use the :ref:`{+stable-api+} <php-stable-api>`.
 
 To upgrade your driver version, replace "version number" with the version number 
-you would like to upgrade to and run the following command in your application's 
+you want to upgrade to and run the following command in your application's 
 directory:
 
 .. code-block:: bash
