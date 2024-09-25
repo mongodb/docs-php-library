@@ -184,5 +184,5 @@ following {+php-library+} API documentation:
 For more information about the ``Cursor`` and ``ReadPreference`` classes,
 see the following {+extension-short+} API documentation:
 
-- :php:`MongoDB\Driver\Cursor <mongodb-driver-cursor.php>`
-- :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference.php>`
+- :php:`MongoDB\Driver\Cursor <mongodb-driver-cursor>`
+- :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference>`
