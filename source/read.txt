@@ -100,7 +100,7 @@ a collection:
    :dedent:
 
 To learn more about the ``countDocuments()`` method, see the
-:ref:`php-accurate-count` section in the Count Documents guide.
+:ref:`php-count-all` section in the Count Documents guide.
 
 Count Documents Returned from a Query
 -------------------------------------
@@ -115,7 +115,7 @@ that match the specified criteria:
    :dedent:
 
 To learn more about the ``countDocuments()`` method, see the
-:ref:`php-accurate-count` section in the Count Documents guide.
+:ref:`php-count-specific` section in the Count Documents guide.
 
 Estimated Document Count
 ------------------------
