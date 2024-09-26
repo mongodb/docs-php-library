@@ -25,7 +25,7 @@ and estimated count of the number of documents in a collection. The following me
 count documents in a collection:
 
 - ``MongoDB\Collection::countDocuments()``: Returns the exact number of documents that
-   match a query filter or that exist in a collection
+  match a query filter or that exist in a collection
 
 - ``MongoDB\Collection::estimatedDocumentCount()``: Returns the estimated number of documents
   in a collection
