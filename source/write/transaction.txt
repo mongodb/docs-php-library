@@ -38,10 +38,7 @@ consistent, even if the operations encounter unexpected errors.
 
 When using the {+php-library+}, you can create a new session from a
 ``MongoDB\Client`` instance. Then, you can use the resulting
-``MongoDB\Driver\Session`` instance to perform transactions. You can
-improve your app's performance by reusing your client for multiple
-sessions and transactions instead of instantiating a new client each
-time.
+``MongoDB\Driver\Session`` instance to perform transactions.
 
 .. warning::
 
@@ -49,17 +46,41 @@ time.
    ``Client`` that created it. Using a ``Session`` with a
    different ``Client`` results in operation errors.
 
-Methods
--------
+Transaction APIs
+----------------
 
-Create a ``Session`` by using the ``MongoDB\Client::startSession()``
-method on your ``Client`` instance. The {+php-library+} provides a
-Convenient Transaction API to manage the transaction lifecyle. Use the
-``MongoDB\with_transaction()`` method to run custom callback within a
-transaction. The ``with_transaction()`` method starts the transaction,
-then either commits it or ends it if there are errors. The
-:ref:`php-txn-example` section of this guide demonstrates how to use
+In this section, you can learn about the transaction APIs provided by
+the {+php-library+}. Before you begin a transaction, you must create a
+``Session`` by using the ``MongoDB\Client::startSession()``
+method on your ``Client`` instance. Then, you can use either of the
+following APIs to perform a transaction:
+
+- :ref:`php-convenient-txn`
+- :ref:`php-core-txn`
+
+.. _php-convenient-txn:
+
+Convenient API
+~~~~~~~~~~~~~~
+
+The {+php-library+} provides a **Convenient Transaction API** to manage
+the transaction lifecyle. Implement this API by using the
+``MongoDB\with_transaction()`` function to run custom callback within a
+transaction. The ``with_transaction()`` function performs the following
+tasks:
+
+- Starts the transaction
+- Handles errors by either ending the transaction or retrying it, such
+  as when the operation returns a ``TransientTransactionError``
+- Commits the transaction
+
+The :ref:`php-txn-example` section of this guide demonstrates how to use
 this API to perform a transaction. 
+
+.. _php-core-txn:
+
+Core API
+~~~~~~~~
 
 Alternatively, you can have more control over your transaction lifecyle
 by using the methods provided by the ``Session`` class. The
@@ -82,8 +103,9 @@ following table describes these methods:
 
    * - ``commitTransaction()``
      - | Commits the active transaction for this session. This method returns an
-         error if there is no active transaction for the session or the
-         transaction was previously ended.
+         error if there is no active transaction for the session, the
+         transaction was previously ended, or if there is a write
+         conflict.
 
    * - ``abortTransaction()``
      - | Ends the active transaction for this session. This method returns an
@@ -103,8 +125,8 @@ banking transaction. The code performs the following actions:
   collections.
 - Specifies the account number and amount to be transferred between
   accounts.
-- Defines the callback function, passing the ``Session`` instance as a
-  parameter.
+- Defines the callback function, which receives the ``Session`` instance
+  as a parameter.
 - Updates the customer's balances to reflect the money transfer.
 - Records a receipt of the transaction with a timestamp.
 - Prints a message if the transaction committed successfully.
@@ -120,7 +142,7 @@ Then, run the following code to perform the transaction. This code
 completes the following actions:
 
 1. Creates a session from the client by using the ``startSession()`` method.
-#. Calls the ``with_transaction()`` method to manage the transaction,
+#. Calls the ``with_transaction()`` function to manage the transaction,
    passing the session and the callback as parameters.
 
 .. io-code-block::
@@ -173,11 +195,7 @@ guide, see the following API documentation:
 To learn more about the ``Session`` class and methods,
 see the following {+extension-short+} API documentation:
 
-- `MongoDB\\Driver\\Session
-  <{+php-manual+}/class.mongodb-driver-session.php>`__
-- `MongoDB\\Driver\\Session::abortTransaction()
-  <{+php-manual+}/mongodb-driver-session.aborttransaction.php>`__
-- `MongoDB\\Driver\\Session::commitTransaction()
-  <{+php-manual+}/mongodb-driver-session.committransaction.php>`__
-- `MongoDB\\Driver\\Session::startTransaction()
-  <{+php-manual+}/mongodb-driver-session.starttransaction.php>`__
+- :php:`MongoDB\Driver\Session <mongodb-driver-session>`
+- :php:`MongoDB\Driver\Session::abortTransaction() <mongodb-driver-session.aborttransaction>`
+- :php:`MongoDB\Driver\Session::commitTransaction() <mongodb-driver-session.committransaction>`
+- :php:`MongoDB\Driver\Session::startTransaction() <mongodb-driver-session.starttransaction>`
