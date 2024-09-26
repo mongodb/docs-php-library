@@ -43,15 +43,28 @@ Before you upgrade, perform the following actions:
    To ensure compatibility across {+mdb-server+} versions when
    upgrading driver versions, use the :ref:`{+stable-api+} <php-stable-api>`.
 
-To upgrade your driver version, replace ``<version-number>`` with the version number 
+Major and minor versions of the PHP extension and library are in sync. This
+means you can run an upgrade command for the extension to also upgrade the PHP 
+library. 
+
+Patch versions (x.x.x) for the library and extension are not in sync. Run the 
+respective commands to update to the patch versions for the library or extension. 
+
+To upgrade the PHP extension, replace ``<version-number>`` with the version number 
 you want to upgrade to and run the following command in your application's 
 directory:
 
 .. code-block:: bash
 
+   pecl upgrade mongodb-<version-number>
+
+To upgrade the PHP Library version, use the following command:
+
+.. code-block:: bash
+
    composer require mongodb/mongodb:<version-number>
 
-Installation instructions for the ``mongodb`` extension may be found in the 
+Detailed installation instructions may be found in the 
 :php:`PHP.net documentation <manual/en/mongodb.installation.php>`.
 
 .. _php-breaking-changes:
@@ -77,47 +90,8 @@ This driver version introduces the following breaking changes:
 
 - Drops support for {+mdb-server+} 3.6.
 
-- Deprecates iterators for database, collection, and index enumeration.
+Version 1.19 and Earlier
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version 1.18 Breaking Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This driver version introduces the following breaking changes:
-
-- Deprecates setting ``disableMD5`` to ``false`` when instantiating a Bucket due to 
-  deprecated MD5 encoding. The default value for the setting is now ``true``. 
-
-Version 1.17 Breaking Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This driver version introduces the following breaking changes:
-
-- Upgrades the ``mongodb`` extension requirement to 1.17.0.
-
-- Requires PHP 7.4 or newer.
-
-- Removes aggregate compatibility logic, like the ``useCursor`` option, for 
-  {+mdb-server+} versions less than 3.6.
-
-Version 1.16 Breaking Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This driver version introduces the following breaking changes:
-
-- Upgrades the ``mongodb`` extension requirement to 1.16.0.
-
-- Deprecates ``IndexInfo::isGeoHaystack()``. ``geoHaystack`` was removed in
-  {+mdb-server+} 5.0 and later.
-
-- Drops support for Composer 1.x.
-
-- Removes ``$server`` argument in ``Explainable::getCommandDocument``.
-
-- Removes ``getNonce`` command usage for {+mdb-server+} 6.2 and later.
-
-Version 1.15 Breaking Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This driver version introduces the following breaking changes:
-
-- Upgrades the ``mongodb`` extension requirement to 1.15.0.
+For driver versions 1.19 and earlier, see the release notes and associated 
+JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.  
