@@ -90,6 +90,7 @@ the ``name`` field has the value ``'LinkedIn'``:
       :dedent:
 
    .. output::
+      :visible: false
 
       {"_id":{"$oid":"..."},"name":"LinkedIn","permalink":"linkedin","crunchbase_url":
       "http:\/\/www.crunchbase.com\/company\/linkedin","homepage_url":"http:\/\/linkedin.com",
@@ -138,6 +139,7 @@ the following example:
       :dedent:
 
    .. output::
+      :visible: false
 
       {"_id":{"$oid":"..."},"name":"Mitsubishi Motors","permalink":"mitsubishi-motors",
       "crunchbase_url":"http:\/\/www.crunchbase.com\/company\/mitsubishi-motors",

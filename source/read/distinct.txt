@@ -68,6 +68,7 @@ the ``restaurants`` collection:
       :dedent:
 
    .. output::
+      :visible: false
 
       "Bronx"
       "Manhattan"
