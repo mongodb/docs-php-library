@@ -100,10 +100,10 @@ documentation, and a description of when the event is published:
        type changing from secondary to primary.
 
    * - :php:`ServerOpeningEvent <mongodb-driver-monitoring-serveropeningevent>`
-     - Created when a server connection is established.
+     - Created when a new server is added to the topology.
 
    * - :php:`ServerClosedEvent <mongodb-driver-monitoring-serverclosedevent>`
-     - Created when a server connection is closed.
+     - Created when an existing server is removed from the topology.
 
    * - :php:`TopologyChangedEvent <mongodb-driver-monitoring-topologychangedevent>`
      - Created when the topology description changes, such as when there
