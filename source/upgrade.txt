@@ -58,7 +58,7 @@ directory:
 
    pecl upgrade mongodb-<version-number>
 
-To upgrade the PHP Library version, use the following command:
+To upgrade the PHP library version, run the following command:
 
 .. code-block:: bash
 
