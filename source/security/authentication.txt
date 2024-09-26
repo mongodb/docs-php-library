@@ -174,8 +174,8 @@ these sources and use them to authenticate your PHP application.
 
 .. _php-mongodb-aws-credentials:
 
-MongoDB\Client Credentials
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+MongoDB\\Client Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, the driver checks whether you passed AWS credentials to the
 ``MongoDB\Client`` constructor, either as as part of the connection
