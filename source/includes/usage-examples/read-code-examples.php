@@ -43,7 +43,7 @@ echo "Estimated number of documents: " . $result;
 
 // Distinct Values
 // start-distinct
-$results = $collection->distinct('year', []);
+$results = $collection->distinct('year');
 foreach ($results as $value) {
     echo json_encode($value) . PHP_EOL;
 }
