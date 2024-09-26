@@ -23,6 +23,7 @@ toc_landing_pages = [
     "/reference/class/MongoDBModelIndexInfo",
     "/get-started",
     "/connect",
+    "/read",
     "/databases-collections",
     "/write",
     "/indexes",
