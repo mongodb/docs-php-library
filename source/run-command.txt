@@ -49,7 +49,8 @@ To run a database command, you must specify the command and any relevant
 parameters in a command document, then pass the command document to the
 ``MongoDB\Database::command()`` method. Many database commands return
 multiple result documents, so the ``command()`` method returns a
-``MongoDB\Driver\Cursor`` object that you can iterate through.
+:php:`MongoDB\Driver\Cursor <mongodb-driver-cursor>` object that you can
+iterate through.
 
 The following code shows how you can use the ``command()``
 method on a :phpclass:`MongoDB\Database` instance to run the ``hello``
@@ -80,7 +81,11 @@ parameters, see the :ref:`Additional Information section
       :start-after: start-readpref
       :end-before: end-readpref
 
-   For more information on read preference options, see :manual:`Read
+   Learn more about the ``ReadPreference`` class in the
+   :php:`{+extension-short+} API documentation
+   <mongodb-driver-readpreference>`.
+
+   To learn more about read preference options, see :manual:`Read
    Preference </core/read-preference/>` in the {+mdb-server+} manual.
 
 .. _php-command-response:
@@ -179,10 +184,4 @@ API Documentation
 For more information about the ``command()`` method, see the
 following {+php-library+} API documentation:
 
-:phpmethod:`MongoDB\Database::command()`
-
-For more information about the ``Cursor`` and ``ReadPreference`` classes,
-see the following {+extension-short+} API documentation:
-
-- :php:`MongoDB\Driver\Cursor <mongodb-driver-cursor>`
-- :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference>`
+- :phpmethod:`MongoDB\Database::command()`
