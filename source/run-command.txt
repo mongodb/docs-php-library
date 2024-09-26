@@ -36,7 +36,9 @@ statistics, initializing a replica set, or running an aggregation pipeline.
    that might not be available in the library.
    
    If there are no available helpers in the library or the shell, you
-   can use the ``db.runCommand()`` shell method.
+   can use the ``db.runCommand()`` shell method or the library's
+   ``MongoDB\Database::command()`` method, which is described in this
+   guide.
 
 .. _php-execute-command:
 
@@ -47,12 +49,11 @@ To run a database command, you must specify the command and any relevant
 parameters in a command document, then pass the command document to the
 ``MongoDB\Database::command()`` method. Many database commands return
 multiple result documents, so the ``command()`` method returns a
-``Cursor`` object that you can iterate through.
+``MongoDB\Driver\Cursor`` object that you can iterate through.
 
 The following code shows how you can use the ``command()``
 method on a :phpclass:`MongoDB\Database` instance to run the ``hello``
-command, which returns information about the current member's role in
-the replica set:
+command, which returns information about the server:
 
 .. literalinclude:: /includes/write/run-command.php
    :language: php
@@ -66,7 +67,7 @@ parameters, see the :ref:`Additional Information section
 
 .. note:: Read Preference
 
-   The ``command()`` method does not obey the read preference you might
+   The ``command()`` method does not inherit the read preference you might
    have set on your ``Database`` instance elsewhere in your code. By
    default, ``command()`` uses the ``primary`` read preference.
    
@@ -90,8 +91,12 @@ Response
 The ``command()`` method returns a ``Cursor`` object that contains
 the response from the database for the given command. Each database
 command performs a different function, so the response
-content can vary. Some command responses contain multiple result
-documents. In these situations, the library converts the cursor
+content can vary.
+
+For commands that return a single result document,
+that result is available as the first and only document in the
+cursor. For commands that return multiple result
+documents, the library converts the cursor
 envelope in the raw command response, which includes the cursor ID and
 the first batch of results, into an iterable cursor.
 
@@ -100,11 +105,6 @@ command so that your application either iterates through multiple
 results or extracts the first and only document in the cursor. See the
 :ref:`php-addtl-info-runcommand` section of this guide to find a link to
 the full list of database commands.
-
-If the number of documents in the command response is sufficiently large, you
-can run a :manual:`getMore </reference/command/getMore/>` command to
-retrieve the next batch of results from the cursor by using the cursor
-ID.
 
 The raw command response contains the following fields:
 
