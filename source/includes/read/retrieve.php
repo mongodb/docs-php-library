@@ -11,7 +11,7 @@ $collection = $client->sample_training->companies;
 // Finds one document with a "name" value of "LinkedIn"
 // start-find-one
 $document = $collection->findOne(['name' => 'LinkedIn']);
-echo json_encode($document) , "\n";
+echo json_encode($document), "\n";
 // end-find-one
 
 // Finds documents with a "founded_year" value of 1970
@@ -22,7 +22,7 @@ $results = $collection->find(['founded_year' => 1970]);
 // Prints documents with a "founded_year" value of 1970
 // start-cursor
 foreach ($results as $doc) {
-    echo json_encode($doc) , "\n";
+    echo json_encode($doc), "\n";
 }
 // end-cursor
 
@@ -34,6 +34,6 @@ $results = $collection->find(
 );
 
 foreach ($results as $doc) {
-    echo json_encode($doc) , "\n";
+    echo json_encode($doc), "\n";
 }
 // end-modify

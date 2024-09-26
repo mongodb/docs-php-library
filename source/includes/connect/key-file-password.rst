@@ -5,7 +5,7 @@
 
       .. code-block:: php
 
-         $uri = "mongodb://<hostname>:<port>";
+         $uri = 'mongodb://<hostname>:<port>';
 
          $options = [
             'tls' => true,
@@ -20,5 +20,5 @@
 
       .. code-block:: php
 
-         $uri = "mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=/path/to/client.pem&tlsCertificateKeyFilePassword=<passphrase>";
+         $uri = 'mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=/path/to/client.pem&tlsCertificateKeyFilePassword=<passphrase>';
          $client = MongoDB\Client($uri);

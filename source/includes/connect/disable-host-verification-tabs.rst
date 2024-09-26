@@ -5,7 +5,7 @@
 
       .. code-block:: php
 
-         $uri = "mongodb://<hostname>:<port>";
+         $uri = 'mongodb://<hostname>:<port>';
 
          $options = [
             'tls' => true,
@@ -19,5 +19,5 @@
 
       .. code-block:: php
 
-         $uri = "mongodb://<hostname>:<port>/?tls=true&tlsAllowInvalidHostnames=true";
+         $uri = 'mongodb://<hostname>:<port>/?tls=true&tlsAllowInvalidHostnames=true';
          $client = MongoDB\Client($uri);
