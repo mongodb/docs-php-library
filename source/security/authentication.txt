@@ -355,7 +355,7 @@ connection option to ``'MONGODB-AWS'``. To view an example that sets the
 ``authMechanism`` option, see the :ref:`authMechanism example
 <php-mongodb-aws-env-example>` on this page.
 
-.. _php-mongo-aws-ec2:
+.. _php-mongodb-aws-ec2:
 
 EC2 Instance Metadata
 ~~~~~~~~~~~~~~~~~~~~~

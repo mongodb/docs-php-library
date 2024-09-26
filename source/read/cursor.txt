@@ -127,6 +127,8 @@ in an array:
    :start-after: start-cursor-array
    :end-before: end-cursor-array
 
+.. _php-tailable-cursor:
+
 Tailable Cursors
 ----------------
 
