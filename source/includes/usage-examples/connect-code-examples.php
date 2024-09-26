@@ -175,5 +175,3 @@ $client = new MongoDB\Client(
     $driverOptions,
 );
 // end-stable-api
-
-?>
