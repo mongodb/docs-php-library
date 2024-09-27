@@ -27,6 +27,7 @@ Write Data to MongoDB
    /write/delete
    /write/replace
    /write/bulk-write
+   /write/transaction
    /write/gridfs
 
 Overview

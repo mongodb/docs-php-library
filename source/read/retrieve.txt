@@ -52,7 +52,7 @@ The {+php-library+} includes two methods for retrieving documents from a collect
 take a **query filter** and return one or more matching documents. A query filter
 specifies the search criteria that the driver uses to retrieve documents in your query.
 
-.. TODO: To learn more about query filters, see :ref:`php-specify-query`.
+To learn more about query filters, see :ref:`php-specify-query`.
 
 .. _php-retrieve-find-one:
 
