@@ -35,7 +35,7 @@ Sample Data
 The examples in this guide use the ``restaurants`` collection in the ``sample_restaurants``
 database from the :atlas:`Atlas sample datasets </sample-data>`. To access this collection
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
-and assign the following value to your ``collection`` variable:
+and assign the following value to your ``$collection`` variable:
 
 .. literalinclude:: /includes/write/insert.php
     :language: php
@@ -158,9 +158,8 @@ insert operation bypasses document-level validation:
 Additional Information
 ----------------------
 
-.. TODO:
-  For runnable code examples of inserting documents with the {+php-library+}, see
-  :ref:`php-write`.
+To view runnable code examples of inserting documents with the {+php-library+}, see
+:ref:`php-write`.
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
@@ -168,5 +167,5 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Collection::insertOne() <{+api+}/method/MongoDBCollection-insertOne/>`__
-- `MongoDB\\Collection::insertMany() <{+api+}/method/MongoDBCollection-insertMany/>`__
+- :phpmethod:`MongoDB\Collection::insertOne()`
+- :phpmethod:`MongoDB\Collection::insertMany()`

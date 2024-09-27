@@ -35,7 +35,7 @@ Sample Data
 The examples in this guide use the ``restaurants`` collection in the ``sample_restaurants``
 database from the :atlas:`Atlas sample datasets </sample-data>`. To access this collection
 from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
-and assign the following value to your ``collection`` variable:
+and assign the following value to your ``$collection`` variable:
 
 .. literalinclude:: /includes/read/distinct.php
     :language: php
@@ -68,6 +68,7 @@ the ``restaurants`` collection:
       :dedent:
 
    .. output::
+      :visible: false
 
       "Bronx"
       "Manhattan"
@@ -167,5 +168,5 @@ in an options array to add a comment to the operation:
 API Documentation
 -----------------
 
-To learn more about the ``MongoDB\Collection::distinct()`` method, see the
-`distinct() API documentation <{+api+}/method/MongoDBCollection-distinct/>`__.
+To learn more about the ``distinct()`` method, see
+:phpmethod:`MongoDB\Collection::distinct()` in the API documentation.

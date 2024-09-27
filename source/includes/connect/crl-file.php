@@ -1,4 +1,4 @@
-$uri = "mongodb://<hostname>:<port>";
+$uri = 'mongodb://<hostname>:<port>';
 
 $uriOptions = [
    'tls' => true,

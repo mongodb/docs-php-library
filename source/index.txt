@@ -70,6 +70,12 @@ Write Data to MongoDB
 
 Learn how you can write data to MongoDB in the :ref:`php-write` section.
 
+Specify How CRUD Operations Run on Replica Sets
+-----------------------------------------------
+
+Learn how to configure settings for read and write operations on replica
+sets in the :ref:`php-read-write-pref` section.
+
 Run a Database Command
 ----------------------
 
@@ -117,12 +123,12 @@ What's New
 Learn about new features and changes in each version in the :ref:`<php-lib-whats-new>`
 section.
 
-.. TODO:
- Upgrade {+library-short+} Versions
- ----------------------------------
+
+Upgrade Library Versions
+------------------------
  
- .. Learn what changes you must make to your application to upgrade driver versions
- .. in the :ref:`php-upgrade` section.
+Learn what changes you must make to your application to upgrade library and
+extension versions in the :ref:`php-upgrade` section.
 
 FAQ
 ---

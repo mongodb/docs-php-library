@@ -20,7 +20,7 @@ Authentication Mechanisms
 Overview
 --------
 
-This guide describes the mechanisms you can use in the {+driver-short+} to authenticate
+This guide describes the mechanisms you can use in the {+library-short+} to authenticate
 users.
 
 .. important:: Percent-Encoding
@@ -34,7 +34,7 @@ users.
    To learn more, see the following resources:
 
    - `RFC 3986 <http://www.faqs.org/rfcs/rfc3986.html>`__
-   - `rawurlencode <{+php-manual+}/rawurlencode>`__ in the PHP manual
+   - :php:`rawurlencode <rawurlencode>` in the PHP manual
 
 .. _php-scram-sha-256:
 
@@ -174,8 +174,8 @@ these sources and use them to authenticate your PHP application.
 
 .. _php-mongodb-aws-credentials:
 
-MongoDB\Client Credentials
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+MongoDB\\Client Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First, the driver checks whether you passed AWS credentials to the
 ``MongoDB\Client`` constructor, either as as part of the connection
@@ -355,7 +355,7 @@ connection option to ``'MONGODB-AWS'``. To view an example that sets the
 ``authMechanism`` option, see the :ref:`authMechanism example
 <php-mongodb-aws-env-example>` on this page.
 
-.. _php-mongo-aws-ec2:
+.. _php-mongodb-aws-ec2:
 
 EC2 Instance Metadata
 ~~~~~~~~~~~~~~~~~~~~~

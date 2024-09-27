@@ -102,4 +102,4 @@ API Documentation
 To learn more about creating a ``MongoDB\Client`` object in the {+library-short+},
 see the following API documentation:
 
-- :ref:`MongoDB\Client <php-api-mongodbclient>`
+- :phpclass:`MongoDB\Client`

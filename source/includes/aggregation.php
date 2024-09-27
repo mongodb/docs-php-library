@@ -17,7 +17,7 @@ $pipeline = [
 $cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
-    echo json_encode($doc) , PHP_EOL;
+    echo json_encode($doc), PHP_EOL;
 }
 // end-match-group
 
@@ -35,6 +35,6 @@ $aggregate = new MongoDB\Operation\Aggregate(
 );
 
 $result = $collection->explain($aggregate);
-echo json_encode($result) , PHP_EOL;
+echo json_encode($result), PHP_EOL;
 // end-explain
 

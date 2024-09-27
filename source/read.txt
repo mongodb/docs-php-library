@@ -35,7 +35,7 @@ Overview
 --------
 
 On this page, you can see copyable code examples that show common
-{+driver-short+} methods for retrieving documents.
+{+library-short+} methods for retrieving documents.
 
 .. tip::
 

@@ -262,7 +262,7 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- `MongoDB\\Client::watch() <{+api+}/method/MongoDBClient-watch/>`__
-- `MongoDB\\Database::watch() <{+api+}/method/MongoDBDatabase-watch/>`__
-- `MongoDB\\Collection::watch() <{+api+}/method/MongoDBCollection-watch/>`__
-- `MongoDB\\Collection::updateOne() <{+api+}/method/MongoDBCollection-updateOne/>`__
+- :phpmethod:`MongoDB\Client::watch()`
+- :phpmethod:`MongoDB\Database::watch()`
+- :phpmethod:`MongoDB\Collection::watch()`
+- :phpmethod:`MongoDB\Collection::updateOne()`

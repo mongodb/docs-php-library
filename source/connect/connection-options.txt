@@ -89,7 +89,7 @@ entry in the {+mdb-server+} manual.
    To learn more, see the following resources:
 
    - `RFC 3986 <http://www.faqs.org/rfcs/rfc3986.html>`__
-   - `rawurlencode <{+php-manual+}/rawurlencode>`__ in the PHP manual
+   - :php:`rawurlencode <rawurlencode>` in the PHP manual
 
 Replica Set Options
 ~~~~~~~~~~~~~~~~~~~

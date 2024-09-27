@@ -127,6 +127,8 @@ in an array:
    :start-after: start-cursor-array
    :end-before: end-cursor-array
 
+.. _php-tailable-cursor:
+
 Tailable Cursors
 ----------------
 
@@ -174,15 +176,15 @@ Additional Information
 
 To learn more about read operations, see the :ref:`php-retrieve` guide.
 
-To learn more about cursors, see the following pages in the PHP manual:
+To learn more about cursors, see the following pages in the extension API documentation:
 
-- `MongoDB\\Driver\\Cursor <{+php-manual+}/class.mongodb-driver-cursor.php>`__
-- `MongoDB\\Driver\\Cursor::current() <{+php-manual+}/mongodb-driver-cursor.current.php>`__
-- `MongoDB\\Driver\\Cursor::toArray() <{+php-manual+}/mongodb-driver-cursor.toarray.php>`__
-- `iterator_to_array() <{+php-manual+}/function.iterator-to-array.php>`__
+- :php:`MongoDB\Driver\Cursor <class.mongodb-driver-cursor>`
+- :php:`MongoDB\Driver\Cursor::current() <mongodb-driver-cursor.current>`
+- :php:`MongoDB\Driver\Cursor::toArray() <mongodb-driver-cursor.toarray>`
+- :php:`iterator_to_array() <function.iterator-to-array>`
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
 
 To learn more about the ``find()`` method, see the API documentation for
-`MongoDB\\Collection::find() <{+api+}/method/MongoDBCollection-find/>`__.
+:phpmethod:`MongoDB\Collection::find()`.

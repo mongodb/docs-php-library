@@ -42,7 +42,7 @@ $document = $collection->findOne(
     ['title' => ['$regex' => 'Sunrise'],
     'year' => ['$gte' => 1990]]
 );
-echo json_encode($document) , PHP_EOL;
+echo json_encode($document), PHP_EOL;
 // end-compound-query
 
 // start-multikey

@@ -1,7 +1,7 @@
 <?php
 
 // Replace the placeholder with your Atlas connection string
-$uri = "<connection string>";
+$uri = '<connection string>';
 
 // Create a MongoDB client with server API options
 $client = new MongoDB\Client($uri, [], [
@@ -13,7 +13,6 @@ $admin = $client->admin;
 $command = new MongoDB\Driver\Command(['ping' => 1]);
 $result = $admin->command($command)->toArray();
 
-echo json_encode($result), "\n";
-echo "Pinged your deployment. You successfully connected to MongoDB!\n";
+echo json_encode($result), PHP_EOL;
+echo 'Pinged your deployment. You successfully connected to MongoDB!\n';
 
-?>

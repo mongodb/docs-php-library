@@ -135,7 +135,7 @@ the ``X.509`` authentication mechanism:
          :start-after: start-mongodb-X509-uri
          :end-before: end-mongodb-X509-uri
 
-To learn more about X.509 authentication, see :ref:`php-x509` in
+To learn more about X.509 authentication, see :ref:`php-mongodb-x509` in
 the Authentication guide.
 
 MONGODB-AWS
@@ -155,7 +155,7 @@ attempts to retrieve your AWS credentials from the following sources, in the ord
 Each section shows how to authenticate with ``MONGODB-AWS`` when retrieving your
 AWS credentials from options passed to your client or the alternative external sources.
 
-To learn more about authenticating with AWS, see :ref:`php-mongo-aws` in the
+To learn more about authenticating with AWS, see :ref:`php-mongodb-aws` in the
 Authentication guide.
 
 MongoDB\\Client Credentials
@@ -183,6 +183,10 @@ to authenticate with ``MONGODB-AWS``:
          :dedent:
          :start-after: start-mongodb-aws-uri
          :end-before: end-mongodb-aws-uri
+
+To learn more about authenticating with AWS by retrieving ``MongoDB\Client``
+credentials, see :ref:`php-mongodb-aws-credentials` in the Authentication
+guide.
 
 External Credentials
 ~~~~~~~~~~~~~~~~~~~~
@@ -214,7 +218,7 @@ request, ECS metadata, or EC2 instance metadata:
 To learn more about authenticating with AWS by obtaining external
 credentials, see the following sections in the Authentication guide:
 
-- :ref:`php-mongo-aws-environment`
-- :ref:`php-mongo-aws-assume-role`
-- :ref:`php-mongo-aws-ecs`
-- :ref:`php-mongo-aws-ec2`
+- :ref:`php-mongodb-aws-env-vars`
+- :ref:`php-mongodb-aws-oidc`
+- :ref:`php-mongodb-aws-ecs`
+- :ref:`php-mongodb-aws-ec2`

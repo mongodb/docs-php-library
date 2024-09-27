@@ -58,7 +58,7 @@ chunks, each represented by a separate document in the ``chunks`` collection.
 It also creates a document in the ``files`` collection that contains
 a file ID, file name, and other file metadata. You can upload the file by passing
 a stream to the {+php-library+} to consume or creating a new stream and writing to it
-directly. To learn more about streams, see `Streams <{+php-manual+}/book.stream.php>`__
+directly. To learn more about streams, see :php:`Streams <book.stream>`
 in the PHP manual.
 
 View the following diagram to see how GridFS splits the files when uploaded to

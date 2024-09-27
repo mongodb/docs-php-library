@@ -108,7 +108,7 @@ The following code example shows how you can use these parameters when construct
 API Documentation
 -----------------
 
-For more information about the ``MongoDB\Client`` class, see the following {+driver-short+}
+For more information about the ``MongoDB\Client`` class, see the following {+library-short+}
 API documentation:
 
 - :phpclass:`MongoDB\Client`
