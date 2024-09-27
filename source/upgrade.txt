@@ -1,8 +1,8 @@
 .. _php-upgrade:
 
-=======================
-Upgrade Driver Versions
-=======================
+========================
+Upgrade Library Versions
+========================
 
 .. contents:: On this page
    :local:
@@ -20,28 +20,28 @@ Upgrade Driver Versions
 Overview
 --------
 
-On this page, you can learn how to upgrade your driver to a new version. This
-page also includes the changes you must make to your application when you 
-upgrade to a new version of the {+php-library+}.
+On this page, you can learn about the changes you must make to your application
+when you upgrade to a new version of the {+php-library+}. This page also includes
+how to upgrade your PHP extension to a new version.
 
 How to Upgrade
 --------------
 
 Before you upgrade, perform the following actions:
 
-- Ensure the new {+driver-short+} version is compatible with the {+mdb-server+} versions
+- Ensure the new {+library-short+} version is compatible with the {+mdb-server+} versions
   your application connects to and the PHP version your
   application compiles with. For version compatibility information, see the
   :ref:`{+php-library+} Compatibility <php-compatibility>`
   page.
-- Address any breaking changes between the driver version
+- Address any breaking changes between the library version
   your application is using and your planned upgrade version in the
   :ref:`Breaking Changes <php-breaking-changes>` section.
 
 .. tip::
 
    To ensure compatibility across {+mdb-server+} versions when
-   upgrading driver versions, use the :ref:`{+stable-api+} <php-stable-api>`.
+   upgrading library versions, use the :ref:`{+stable-api+} <php-stable-api>`.
 
 Major and minor versions of the PHP extension and library are in sync. This
 means you can run an upgrade command for the extension to also upgrade the PHP 
@@ -75,11 +75,11 @@ Breaking Changes
 ----------------
 
 A breaking change is a change of a convention or a behavior starting in a specific
-version of the driver. This type of change may prevent your application from working
-properly if not addressed before upgrading the driver.
+version of the library. This type of change may prevent your application from working
+properly if not addressed before upgrading the library.
 
-The breaking changes in this section are categorized by the driver version that introduced
-them. When upgrading driver versions, address all the breaking changes between the current
+The breaking changes in this section are categorized by the library version that introduced
+them. When upgrading library versions, address all the breaking changes between the current
 and upgrade versions.
 
 For more information on release changes, see the release notes and associated 
@@ -88,12 +88,12 @@ JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-l
 Version 1.20 Breaking Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This driver version introduces the following breaking changes:
+This library version introduces the following breaking changes:
 
 - Drops support for {+mdb-server+} 3.6.
 
 Version 1.19 and Earlier
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-For driver versions 1.19 and earlier, see the release notes and associated 
+For library versions 1.19 and earlier, see the release notes and associated 
 JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.  

@@ -20,7 +20,7 @@ Authentication Mechanisms
 Overview
 --------
 
-This guide describes the mechanisms you can use in the {+driver-short+} to authenticate
+This guide describes the mechanisms you can use in the {+library-short+} to authenticate
 users.
 
 .. important:: Percent-Encoding
