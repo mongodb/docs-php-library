@@ -13,6 +13,6 @@ $admin = $client->admin;
 $command = new MongoDB\Driver\Command(['ping' => 1]);
 $result = $admin->command($command)->toArray();
 
-echo json_encode($result), "\n";
+echo json_encode($result), PHP_EOL;
 echo 'Pinged your deployment. You successfully connected to MongoDB!\n';
 

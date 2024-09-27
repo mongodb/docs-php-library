@@ -66,8 +66,8 @@ the ``test_database`` database:
 
    To learn more about ``__get()`` and PHP magic methods, see the following resources:
 
-   - :phpmethod:`MongoDB\Client::__get()` in the API documentation
-   - `Magic Methods <{+php-manual+}/language.oop5.magic.php>`__ in the PHP manual
+   - :phpmethod:`MongoDB\Client::__get()` in the library API documentation
+   - :php:`Magic Methods <language.oop5.magic>` in the PHP manual
 
 .. _php-db-coll-access-collection:
 

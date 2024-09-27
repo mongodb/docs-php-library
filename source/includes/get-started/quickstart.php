@@ -16,5 +16,5 @@ $result = $collection->findOne($filter);
 if ($result) {
     echo json_encode($result, JSON_PRETTY_PRINT);
 } else {
-    echo "Document not found';
+    echo 'Document not found';
 }
