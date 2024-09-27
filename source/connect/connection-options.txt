@@ -131,13 +131,13 @@ Timeout Options
 
    * - :manual:`connectTimeoutMS </reference/connection-string-options/#mongodb-urioption-urioption.connecttimeoutms>`
      - | **Data Type**: {+int-data-type+}
-       | **MongoDB\\Client Example**: ``$uriOptions = ['connectTimeoutMS' => 20000];``
-       | **Connection URI Example**: ``connectTimeoutMS=20000``
+       | **MongoDB\\Client Example**: ``$uriOptions = ['connectTimeoutMS' => 2000];``
+       | **Connection URI Example**: ``connectTimeoutMS=2000``
 
    * - :manual:`socketTimeoutMS </reference/connection-string-options/#mongodb-urioption-urioption.sockettimeoutms>`
      - | **Data Type**: {+int-data-type+}
-       | **MongoDB\\Client Example**: ``$uriOptions = ['socketTimeoutMS' => 400000];``
-       | **Connection URI Example**: ``socketTimeoutMS=400000``
+       | **MongoDB\\Client Example**: ``$uriOptions = ['socketTimeoutMS' => 20000];``
+       | **Connection URI Example**: ``socketTimeoutMS=20000``
 
 .. _php-compression-options:
 
@@ -262,7 +262,7 @@ Server Selection and Discovery Options
    * - :manual:`serverSelectionTimeoutMS </reference/connection-string-options/#mongodb-urioption-urioption.serverselectiontimeoutms>`
      - | **Data Type**: {+int-data-type+}
        | **MongoDB\\Client Example**: ``$uriOptions = ['serverSelectionTimeoutMS' => 5000];``
-       | **Connection URI Example**: ``serverSelectionTimeoutMS=40000``
+       | **Connection URI Example**: ``serverSelectionTimeoutMS=5000``
 
    * - :manual:`serverSelectionTryOnce </reference/connection-string-options/#mongodb-urioption-urioption.serverselectiontryonce>`
      - | **Data Type**: {+bool-data-type+}
@@ -271,8 +271,8 @@ Server Selection and Discovery Options
 
    * - :manual:`heartbeatFrequencyMS </reference/connection-string-options/#mongodb-urioption-urioption.heartbeatfrequencyms>`
      - | **Data Type**: {+int-data-type+}
-       | **MongoDB\\Client Example**: ``$uriOptions = ['heartbeatFrequencyMS' => 50000];``
-       | **Connection URI Example**: ``heartbeatFrequencyMS=50000``
+       | **MongoDB\\Client Example**: ``$uriOptions = ['heartbeatFrequencyMS' => 30000];``
+       | **Connection URI Example**: ``heartbeatFrequencyMS=30000``
 
    * - :manual:`socketCheckIntervalMS </reference/connection-string-options/#mongodb-urioption-urioption.socketcheckintervalms>`
      - | **Data Type**: {+int-data-type+}
