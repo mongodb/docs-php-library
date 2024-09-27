@@ -58,6 +58,8 @@ pass a query filter to the ``countDocuments()`` method.
 
 To learn more about specifying a query, see the :ref:`php-specify-query` guide.
 
+.. _php-count-all:
+
 Count All Documents
 ~~~~~~~~~~~~~~~~~~~
 
@@ -77,6 +79,8 @@ the ``countDocuments()`` method, as shown in the following example:
       :visible: false
 
       Number of documents: 9500
+
+.. _php-count-specific:
 
 Count Specific Documents
 ~~~~~~~~~~~~~~~~~~~~~~~~

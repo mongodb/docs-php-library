@@ -16,6 +16,7 @@ MongoDB PHP Library
    /read
    /write
    /read-write-pref
+   /run-command
    /aggregation
    /indexes
    /monitoring
@@ -23,6 +24,7 @@ MongoDB PHP Library
    /data-formats
    /compatibility
    /whats-new
+   /upgrade
    FAQ </faq>
    /reference
 
@@ -73,6 +75,11 @@ Specify How CRUD Operations Run on Replica Sets
 
 Learn how to configure settings for read and write operations on replica
 sets in the :ref:`php-read-write-pref` section.
+
+Run a Database Command
+----------------------
+
+Learn how to run a database command in the :ref:`php-run-command` section.
 
 Transform Your Data with Aggregation
 ------------------------------------

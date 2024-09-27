@@ -23,11 +23,13 @@ toc_landing_pages = [
     "/reference/class/MongoDBModelIndexInfo",
     "/get-started",
     "/connect",
+    "/read",
     "/databases-collections",
     "/write",
     "/indexes",
     "/security",
-    "/data-formats"
+    "/data-formats",
+    "/upgrade"
 ]
 
 sharedinclude_root =  "https://raw.githubusercontent.com/10gen/docs-shared/main/"

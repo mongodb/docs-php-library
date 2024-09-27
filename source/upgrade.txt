@@ -1,0 +1,99 @@
+.. _php-upgrade:
+
+=======================
+Upgrade Driver Versions
+=======================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. facet::
+   :name: genre
+   :values: reference
+ 
+.. meta::
+   :keywords: compatibility, backwards compatibility
+
+Overview
+--------
+
+On this page, you can learn how to upgrade your driver to a new version. This
+page also includes the changes you must make to your application when you 
+upgrade to a new version of the {+php-library+}.
+
+How to Upgrade
+--------------
+
+Before you upgrade, perform the following actions:
+
+- Ensure the new {+driver-short+} version is compatible with the {+mdb-server+} versions
+  your application connects to and the PHP version your
+  application compiles with. For version compatibility information, see the
+  :ref:`{+php-library+} Compatibility <php-compatibility>`
+  page.
+- Address any breaking changes between the driver version
+  your application is using and your planned upgrade version in the
+  :ref:`Breaking Changes <php-breaking-changes>` section.
+
+.. tip::
+
+   To ensure compatibility across {+mdb-server+} versions when
+   upgrading driver versions, use the :ref:`{+stable-api+} <php-stable-api>`.
+
+Major and minor versions of the PHP extension and library are in sync. This
+means you can run an upgrade command for the extension to also upgrade the PHP 
+library. 
+
+Patch versions (x.x.x) for the library and extension are not in sync. Run the 
+respective commands to update to the patch versions for the library or extension. 
+
+To upgrade the PHP extension, replace ``<version-number>`` with the version number 
+you want to upgrade to and run the following command in your application's 
+directory:
+
+.. code-block:: bash
+
+   pecl upgrade mongodb-<version-number>
+
+To upgrade the PHP library version, replace ``<version-number>`` with the 
+version number you want to upgrade to and run the following command in your 
+application's directory:
+
+.. code-block:: bash
+
+   composer require mongodb/mongodb:<version-number>
+
+Detailed installation instructions may be found in the 
+:php:`PHP.net documentation <manual/en/mongodb.installation.php>`.
+
+.. _php-breaking-changes:
+
+Breaking Changes
+----------------
+
+A breaking change is a change of a convention or a behavior starting in a specific
+version of the driver. This type of change may prevent your application from working
+properly if not addressed before upgrading the driver.
+
+The breaking changes in this section are categorized by the driver version that introduced
+them. When upgrading driver versions, address all the breaking changes between the current
+and upgrade versions.
+
+For more information on release changes, see the release notes and associated 
+JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.
+
+Version 1.20 Breaking Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This driver version introduces the following breaking changes:
+
+- Drops support for {+mdb-server+} 3.6.
+
+Version 1.19 and Earlier
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+For driver versions 1.19 and earlier, see the release notes and associated 
+JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.  
