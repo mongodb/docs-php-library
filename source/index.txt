@@ -24,6 +24,7 @@ MongoDB PHP Library
    /data-formats
    /compatibility
    /whats-new
+   /upgrade
    FAQ </faq>
    /reference
 
