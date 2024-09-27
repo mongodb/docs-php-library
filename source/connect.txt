@@ -24,6 +24,7 @@ Connect to MongoDB
 
    /connect/client
    /connect/connection-targets
+   /connect/connection-options
    /connect/tls
 
 .. TODO:
