@@ -124,11 +124,11 @@ Learn about new features and changes in each version in the :ref:`<php-lib-whats
 section.
 
 
-Upgrade {+library-short+} Versions
-----------------------------------
+Upgrade Driver Versions
+-----------------------
  
-Learn what changes you must make to your application to upgrade driver versions
-in the :ref:`php-upgrade` section.
+Learn what changes you must make to your application to upgrade driver and
+library versions in the :ref:`php-upgrade` section.
 
 FAQ
 ---
