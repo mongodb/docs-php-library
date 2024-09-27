@@ -24,12 +24,10 @@ Connect to MongoDB
 
    /connect/client
    /connect/connection-targets
+   /connect/connection-options
    /connect/tls
    /connect/stable-api
 
-.. TODO:
-   /connect/connection-options
-   
 Overview
 --------
 
