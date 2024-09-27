@@ -11,6 +11,7 @@ $client = new MongoDB\Client($uri);
 $uri = "mongodb://<hostname>:<port>/";
 
 // Set the connection options
+// Replace the placeholder with the actual path to the certificate key file
 $uriOptions = [
     'tls' => true,
     'tlsCertificateKeyFile' => '/path/to/file.pem'
