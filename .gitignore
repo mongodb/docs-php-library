@@ -4,3 +4,6 @@ build
 *~
 *giza.log
 backups/*
+vendor/
+composer.lock
+.phpcs-cache
