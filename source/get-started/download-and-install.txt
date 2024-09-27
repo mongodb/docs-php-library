@@ -19,7 +19,7 @@ Download and Install
       Before you begin developing, ensure that you have the following
       dependencies installed on your local machine:
       
-      - `PHP <https://www.php.net/manual/en/install.php>`__ version 7.4 or later
+      - :php:`PHP <install>` version 7.4 or later
       - `Composer <https://getcomposer.org/download/>`__ version 2.0 or later
     
    .. step:: Install the MongoDB PHP extension

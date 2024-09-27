@@ -213,7 +213,7 @@ Read Preference Options
      - Description
    
    * - :manual:`readPreference </reference/connection-string-options/#mongodb-urioption-urioption.readpreference>`
-     - | **Data Type**: `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+     - | **Data Type**: :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference>`
        | **MongoDB\\Client Example**: ``$uriOptions = ['readPreference' => 'secondaryPreferred'];``
        | **Connection URI Example**: ``readPreference=secondaryPreferred``
    
@@ -325,4 +325,4 @@ API documentation:
 For more information about the ``MongoDB\Driver\ReadPreference`` class, see the following
 {+extension-short+} API documentation:
 
-- `MongoDB\\Driver\\ReadPreference <https://www.php.net/manual/en/class.mongodb-driver-readpreference.php>`__
+- :php:`MongoDB\Driver\ReadPreference <mongodb-driver-readpreference>`

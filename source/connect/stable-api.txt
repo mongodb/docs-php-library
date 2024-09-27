@@ -116,4 +116,4 @@ API documentation:
 For more information about the ``MongoDB\Driver\ServerApi`` class, see the following
 {+extension-short+} API documentation:
 
-- `MongoDB\\Driver\\ServerApi <https://www.php.net/manual/en/class.mongodb-driver-serverapi.php>`__
+- :php:`MongoDB\Driver\ServerApi <mongodb-driver-serverapi>`

@@ -96,8 +96,8 @@ The output might resemble the following:
    <mongodb-driver-manager.executecommand>` method in the extension detects
    such a response, it will construct an iterable command cursor and return it
    instead of the raw result document. If necessary, raw result documents can
-   still be observed using `command monitoring
-   <https://www.php.net/manual/en/mongodb.tutorial.apm.php>`_.
+   still be observed using :php:`command monitoring
+   <mongodb.tutorial.apm.>`.
 
 Specifying a Custom Read Preference
 -----------------------------------

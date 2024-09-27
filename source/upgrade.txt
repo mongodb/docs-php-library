@@ -67,7 +67,7 @@ application's directory:
    composer require mongodb/mongodb:<version-number>
 
 Detailed installation instructions may be found in the 
-:php:`PHP.net documentation <manual/en/mongodb.installation.php>`.
+:php:`PHP.net documentation <mongodb.installation>`.
 
 .. _php-breaking-changes:
 
