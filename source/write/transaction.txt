@@ -104,8 +104,7 @@ following table describes these methods:
    * - ``commitTransaction()``
      - | Commits the active transaction for this session. This method returns an
          error if there is no active transaction for the session, the
-         transaction was previously ended, or if there is a write
-         conflict.
+         transaction was previously ended, or if there is a write conflict.
 
    * - ``abortTransaction()``
      - | Ends the active transaction for this session. This method returns an
