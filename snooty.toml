@@ -1,6 +1,8 @@
 name = "php-library"
 title = "PHP Library Manual"
 
+eol = true
+
 intersphinx = ["https://www.mongodb.com/docs/manual/objects.inv"]
 
 toc_landing_pages = [
@@ -14,3 +16,14 @@ toc_landing_pages = [
 
 [substitutions]
 php-library = "MongoDB PHP Library"
+
+[constants]
+php-library = "PHP Library"
+current-url-base = "https://www.mongodb.com/docs/php-library/current"
+
+[[banners]]
+targets = ["*"]
+variant = "info"
+value = """\
+    This version of the documentation is archived and no longer supported. View the `current documentation <{+current-url-base+}/>`__ to learn how to `upgrade your version of the {+php-library+} <{+current-url-base+}/upgrade/#how-to-upgrade>`__.\
+    """
