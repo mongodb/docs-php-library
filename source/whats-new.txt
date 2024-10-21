@@ -54,6 +54,8 @@ improvements, and fixes:
     information, you must store it in metadata. To learn mor about
     GridFS, see the :ref:`php-gridfs` guide.
 
+- Removal of the deprecated ``IndexInfo::isGeoHaystack()`` method.
+
 .. _php-lib-version-1.20:
 
 What's New in 1.20
