@@ -13,4 +13,4 @@ API Documentation
    MongoDB\GridFS\Bucket </reference/class/MongoDBGridFSBucket>
    Result Classes </reference/result-classes>
    Functions </reference/functions>
-   Exception </reference/exception-classes>
+   Exception Classes </reference/exception-classes>
