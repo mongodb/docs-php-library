@@ -11,14 +11,14 @@ MongoDB PHP Library
    :titlesonly:
 
    Get Started </get-started>
-   /connect
-   /databases-collections
-   /read
-   /write
-   /read-write-pref
-   /run-command
-   /aggregation
-   /indexes
+   Connect to MongoDB /connect
+   Databases and Collections /databases-collections
+   Read Data /read
+   Write Data /write
+   Specify CRUD OPerations on Replica Sets /read-write-pref
+   Run a Database Command /run-command
+   Transform Your Data with Aggregation /aggregation
+   Optimize Queries /indexes
    /monitoring
    /security
    /data-formats
