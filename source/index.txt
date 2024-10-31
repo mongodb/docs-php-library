@@ -15,18 +15,18 @@ MongoDB PHP Library
    Databases and Collections /databases-collections
    Read Data /read
    Write Data /write
-   Specify CRUD OPerations on Replica Sets /read-write-pref
+   CRUD Operations & Replica Sets /read-write-pref
    Run a Database Command /run-command
-   Transform Your Data with Aggregation /aggregation
-   Optimize Queries /indexes
-   /monitoring
-   /security
-   /data-formats
-   /compatibility
-   /whats-new
-   /upgrade
+   Data Aggregation /aggregation
+   Queries & Indexes /indexes
+   Monitor Your Application /monitoring
+   Secure Your Data /security
+   Specialized Data Formats /data-formats
+   Compatibility /compatibility
+   What's New /whats-new
+   Upgrade Library Versions /upgrade
    FAQ </faq>
-   /reference
+   API Documentation /reference
 
 Overview
 --------
