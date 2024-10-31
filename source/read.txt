@@ -22,14 +22,14 @@ Read Data from MongoDB
    :titlesonly:
    :maxdepth: 1
 
-   Retrieve Data /read/retrieve
-   Specify Fields to Return /read/project
-   Access Data from a Cursor /read/cursor
-   Count Documents /read/count
-   Specify Documents to Return /read/specify-documents-to-return
-   Specify a Query /read/specify-a-query
-   Retrieve Distinct Field Values /read/distinct
-   Monitor Data Changes /read/change-streams
+   Retrieve Data </read/retrieve>
+   Specify Fields to Return </read/project>
+   Access Data from a Cursor </read/cursor>
+   Count Documents </read/count>
+   Specify Documents to Return </read/specify-documents-to-return>
+   Specify a Query </read/specify-a-query>
+   Retrieve Distinct Field Values </read/distinct>
+   Monitor Data Changes </read/change-streams>
 
 Overview
 --------

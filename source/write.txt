@@ -22,13 +22,13 @@ Write Data to MongoDB
    :titlesonly:
    :maxdepth: 1
    
-   Update /write/update
-   Insert /write/insert
-   Delete /write/delete
-   Replace /write/replace
-   Bulk Write Operations /write/bulk-write
-   Perform a Transaction /write/transaction
-   Store Large Files /write/gridfs
+   Update </write/update>
+   Insert </write/insert>
+   Delete </write/delete>
+   Replace </write/replace>
+   Bulk Write Operations </write/bulk-write>
+   Perform a Transaction </write/transaction>
+   Store Large Files </write/gridfs>
 
 Overview
 --------
