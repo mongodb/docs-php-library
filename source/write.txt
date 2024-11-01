@@ -27,7 +27,7 @@ Write Data to MongoDB
    Delete </write/delete>
    Replace </write/replace>
    Bulk Write Operations </write/bulk-write>
-   Perform a Transaction </write/transaction>
+   Transactions </write/transaction>
    Store Large Files </write/gridfs>
 
 Overview

@@ -24,7 +24,7 @@ Specialized Data Formats
    Custom Data Types </data-formats/custom-types>
    Codecs </data-formats/codecs>
    Decimal128 </data-formats/decimal128>
-   BSON Data </data-formats/modeling-bson-data>
+   BSON </data-formats/modeling-bson-data>
 
 Overview
 --------
