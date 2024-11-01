@@ -18,7 +18,7 @@ MongoDB PHP Library
    CRUD Operations & Replica Sets </read-write-pref>
    Run a Database Command </run-command>
    Data Aggregation </aggregation>
-   Queries & Indexes </indexes>
+   Indexes </indexes>
    Monitor Your Application </monitoring>
    Secure Your Data </security>
    Specialized Data Formats </data-formats>

@@ -28,8 +28,8 @@ Read Data from MongoDB
    Count Documents </read/count>
    Specify Documents to Return </read/specify-documents-to-return>
    Specify a Query </read/specify-a-query>
-   Retrieve Distinct Field Values </read/distinct>
-   Monitor Data Changes </read/change-streams>
+   Distinct Field Values </read/distinct>
+   Monitor Changes </read/change-streams>
 
 Overview
 --------
