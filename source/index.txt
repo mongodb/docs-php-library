@@ -12,7 +12,7 @@ MongoDB PHP Library
 
    Get Started </get-started>
    Connect to MongoDB </connect>
-   Databases and Collections </databases-collections>
+   Databases & Collections </databases-collections>
    Read Data </read>
    Write Data </write>
    CRUD Operations & Replica Sets </read-write-pref>
@@ -20,11 +20,11 @@ MongoDB PHP Library
    Data Aggregation </aggregation>
    Indexes </indexes>
    Monitor Your Application </monitoring>
-   Secure Your Data </security>
+   Security </security>
    Specialized Data Formats </data-formats>
    Compatibility </compatibility>
    What's New </whats-new>
-   Upgrade Library Versions </upgrade>
+   Upgrade </upgrade>
    FAQ </faq>
    API Documentation </reference>
 
