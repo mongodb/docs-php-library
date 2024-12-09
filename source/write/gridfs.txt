@@ -378,11 +378,11 @@ Use the ``MongoDB\GridFS\Bucket::rename()`` method to update the name of
 a GridFS file in your bucket. Pass the following parameters to the ``rename()``
 method:
 
--  ``_id`` value of the document you want to rename
+-  ``_id`` value of the file you want to rename
 - New file name
 
 The following example shows how to update the ``filename`` field to
-``'new_file_name'`` by referencing a document's ``_id`` field:
+``'new_file_name'`` by referencing a file's ``_id`` value:
 
 .. literalinclude:: /includes/write/gridfs.php
    :language: php
@@ -426,7 +426,7 @@ The following example shows you how to delete a file by referencing its ``_id`` 
 
 Alternatively, you can use the ``MongoDB\GridFS\Bucket::deleteByName()`` method
 to delete a file and all its file revisions. Pass the ``filename`` value of the
-files you want to delete as a parameter to the ``deleteByName()`` method, as shown
+file you want to delete as a parameter to the ``deleteByName()`` method, as shown
 in the following code:
 
 .. literalinclude:: /includes/write/gridfs.php
