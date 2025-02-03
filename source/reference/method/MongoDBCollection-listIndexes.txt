@@ -2,6 +2,8 @@
 MongoDB\\Collection::listIndexes()
 ==================================
 
+.. default-domain:: mongodb
+
 .. contents:: On this page
    :local:
    :backlinks: none
@@ -17,7 +19,7 @@ Definition
 
    .. code-block:: php
 
-      function listIndexes(array $options = []): Iterator
+      function listIndexes(array $options = []): MongoDB\Model\IndexInfoIterator
 
 Parameters
 ----------
@@ -54,9 +56,8 @@ Parameters
 Return Values
 -------------
 
-An :php:`Iterator <manual/en/class.iterator.php>`
-instance, which provides a :phpclass:`MongoDB\Model\IndexInfo` object
-for each index for the collection.
+A traversable :phpclass:`MongoDB\Model\IndexInfoIterator`, which contains a
+:phpclass:`MongoDB\Model\IndexInfo` object for each index for the collection.
 
 Errors/Exceptions
 -----------------
@@ -131,6 +132,6 @@ See Also
 - :manual:`listIndexes </reference/command/listIndexes>` command reference in
   the MongoDB manual
 - :manual:`Index documentation </core/indexes>` in the MongoDB manual
-- `Index Management
-  <https://github.com/mongodb/specifications/blob/master/source/index-management/index-management.md>`_
+- `Enumerating Collections
+  <https://github.com/mongodb/specifications/blob/master/source/enumerate-collections/enumerate-collections.md>`_
   specification
