@@ -132,6 +132,5 @@ See Also
 - :manual:`listIndexes </reference/command/listIndexes>` command reference in
   the MongoDB manual
 - :manual:`Index documentation </core/indexes>` in the MongoDB manual
-- `Enumerating Collections
-  <https://github.com/mongodb/specifications/blob/master/source/enumerate-indexes.rst>`_
+- :spec:`Enumerating Collections </enumerate-collections/enumerate-collections.md>`
   specification
