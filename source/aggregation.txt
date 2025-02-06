@@ -18,12 +18,12 @@ Transform Your Data with Aggregation
    :depth: 2
    :class: singlecol
 
-.. TODO:
- .. toctree::
-    :titlesonly:
-    :maxdepth: 1
-
-    /aggregation/aggregation-tutorials
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   
+   Atlas Search </aggregation/atlas-search>
+   Atlas Vector Search </aggregation/vector-search>
 
 Overview
 --------
@@ -78,9 +78,9 @@ Consider the following limitations when performing aggregation operations:
 
   .. important:: $graphLookup Exception
 
-     The :manual:`$graphLookup
-     </reference/operator/aggregation/graphLookup/>` stage has a strict
-     memory limit of 100 megabytes and ignores the ``allowDiskUse`` option.
+	 The :manual:`$graphLookup
+	 </reference/operator/aggregation/graphLookup/>` stage has a strict
+	 memory limit of 100 megabytes and ignores the ``allowDiskUse`` option.
 
 .. _php-aggregation-example:
 
@@ -110,21 +110,21 @@ of New York. To do so, it uses an aggregation pipeline that contains the followi
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/aggregation.php
-      :start-after: start-match-group
-      :end-before: end-match-group
-      :language: php
-      :dedent:
+   .. input:: /includes/aggregation/aggregation.php
+	  :start-after: start-match-group
+	  :end-before: end-match-group
+	  :language: php
+	  :dedent:
 
    .. output:: 
-      :visible: false
+	  :visible: false
 
-      {"_id":"Brooklyn","count":173}
-      {"_id":"Queens","count":204}
-      {"_id":"Bronx","count":71}
-      {"_id":"Staten Island","count":20}
-      {"_id":"Missing","count":2}
-      {"_id":"Manhattan","count":221}
+	  {"_id":"Brooklyn","count":173}
+	  {"_id":"Queens","count":204}
+	  {"_id":"Bronx","count":71}
+	  {"_id":"Staten Island","count":20}
+	  {"_id":"Missing","count":2}
+	  {"_id":"Manhattan","count":221}
 
 Explain an Aggregation
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -146,20 +146,20 @@ from the preceding :ref:`php-aggregation-example`:
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/aggregation.php
-      :start-after: start-explain
-      :end-before: end-explain
-      :language: php
-      :dedent:
+   .. input:: /includes/aggregation/aggregation.php
+	  :start-after: start-explain
+	  :end-before: end-explain
+	  :language: php
+	  :dedent:
 
    .. output:: 
-      :visible: false
+	  :visible: false
 
-      {"explainVersion":"2","queryPlanner":{"namespace":"sample_restaurants.restaurants",
-      "indexFilterSet":false,"parsedQuery":{"cuisine":{"$eq":"Bakery"}},"queryHash":"865F14C3",
-      "planCacheKey":"D56D6F10","optimizedPipeline":true,"maxIndexedOrSolutionsReached":false,
-      "maxIndexedAndSolutionsReached":false,"maxScansToExplodeReached":false,"winningPlan":{
-      ... }
+	  {"explainVersion":"2","queryPlanner":{"namespace":"sample_restaurants.restaurants",
+	  "indexFilterSet":false,"parsedQuery":{"cuisine":{"$eq":"Bakery"}},"queryHash":"865F14C3",
+	  "planCacheKey":"D56D6F10","optimizedPipeline":true,"maxIndexedOrSolutionsReached":false,
+	  "maxIndexedAndSolutionsReached":false,"maxScansToExplodeReached":false,"winningPlan":{
+	  ... }
 
 Additional Information
 ----------------------
@@ -187,6 +187,15 @@ pages in the {+mdb-server+} manual:
 - To learn more about explaining MongoDB operations, see
   :manual:`Explain Output </reference/explain-results/>` and
   :manual:`Query Plans </core/query-plans/>`.
+
+Atlas Search and Vector Search
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can perform full-text searches by using the Atlas Search feature. To
+learn more, see the :ref:`php-atlas-search` guide.
+
+You can perform similarity searches on vector embeddings by using the
+Atlas Vector Search feature. To learn more, see the :ref:`php-vector-search` guide.
 
 .. TODO:
  Aggregation Tutorials
