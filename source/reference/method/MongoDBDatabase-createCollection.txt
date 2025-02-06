@@ -136,10 +136,11 @@ Parameters
          :manual:`db.createCollection()
          </reference/method/db.createCollection>` for more information.
 
-         *Deprecated as of v1.21*: This option is deprecated, as MMAPv1 storage 
-         engine users must :manual:`upgrade to WiredTiger </tutorial/change-standalone-wiredtiger/>`
-         as of {+mdb-server+} v4.2. The option will be removed in 
-         {+php-library+} v2.0.
+         *Deprecated as of v1.21*: This option is deprecated, as the MMAPv1 storage 
+         engine is deprecated as of {+mdb-server+} v4.2. The option will be removed in 
+         {+php-library+} v2.0. For more information on upgrading from the MMAPv1 storage 
+         engine to Wired Tiger, see the 
+         :manual:`</tutorial/change-standalone-wiredtiger/>` guide.
 
      * - indexOptionDefaults
        - array|object
