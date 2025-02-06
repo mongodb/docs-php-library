@@ -49,6 +49,11 @@ improvements, and fixes:
   replaced by these new methods in a future driver release, so consider
   changing the usages in your application.
 
+- Adds named arguments for the ``SearchStage`` builder. This change
+  allows you to write Atlas Search and Atlas Vector Search queries in a
+  more type-safe and organized way. To learn more, see the
+  :ref:`php-atlas-search` and :ref:`php-vector-search` guides.
+
 .. _php-lib-version-1.20:
 
 What's New in 1.20
