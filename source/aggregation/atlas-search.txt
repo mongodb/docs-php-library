@@ -23,8 +23,7 @@ Overview
 In this guide, you can learn how to perform searches on your documents
 by using the Atlas Search feature. The {+library-short+} allows you to
 perform Atlas Search queries by using the :ref:`Aggregation Builder API
-<TODO DOCSP-43919>`. This guide provides examples of how to use the
-{+library-short+} to perform searches.
+<TODO DOCSP-43919>`.
 
 .. note:: Deployment Compatibility
 
@@ -42,10 +41,9 @@ the Atlas documentation.
 
 .. note::
 
-   You might not be able to use the methods described in
-   this guide for every type of Atlas Search query. For more complex use
-   cases, you can follow the standard way to create aggregation
-   pipelines in the {+library-short+}. To learn more, see the
+   You might not be able to use the methods described in this guide for
+   every type of Atlas Search query. For more complex use cases, you can
+   create standard aggregation pipelines. To learn more, see the
    :ref:`php-aggregation` guide.
 
    To perform searches on vector embeddings in MongoDB, you can use the
@@ -71,8 +69,8 @@ Search queries by using the Aggregation Builder:
    use MongoDB\Builder\Search;
    use MongoDB\Builder\Stage;
 
-To create a ``$search`` stage in your aggregation pipeline, you must
-perform the following actions:
+To create a ``$search`` stage in your aggregation pipeline, perform the
+following actions:
 
 1. Create a ``Pipeline`` class instance to create the pipeline
 
