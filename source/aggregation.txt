@@ -70,17 +70,17 @@ Limitations
 Consider the following limitations when performing aggregation operations:
 
 - Returned documents cannot violate the
-    :manual:`BSON document size limit </reference/limits/#mongodb-limit-BSON-Document-Size>`
-    of 16 megabytes.
+  :manual:`BSON document size limit </reference/limits/#mongodb-limit-BSON-Document-Size>`
+  of 16 megabytes.
 - Pipeline stages have a memory limit of 100 megabytes by default. You can exceed this
-    limit by creating an options array that sets the ``allowDiskUse`` option to ``true``
-    and passing the array to the ``MongoDB\Collection::aggregate()`` method.
+  limit by creating an options array that sets the ``allowDiskUse`` option to ``true``
+  and passing the array to the ``MongoDB\Collection::aggregate()`` method.
 
-    .. important:: $graphLookup Exception
-
-       The :manual:`$graphLookup
-       </reference/operator/aggregation/graphLookup/>` stage has a strict
-       memory limit of 100 megabytes and ignores the ``allowDiskUse`` option.
+  .. important:: $graphLookup Exception
+  
+	 The :manual:`$graphLookup
+	 </reference/operator/aggregation/graphLookup/>` stage has a strict
+	 memory limit of 100 megabytes and ignores the ``allowDiskUse`` option.
 
 .. _php-aggregation-example:
 
@@ -88,7 +88,7 @@ Aggregation Example
 -------------------
 
 .. note::
-    
+
    The examples in this guide use the ``restaurants`` collection in the ``sample_restaurants``
    database from the :atlas:`Atlas sample datasets </sample-data>`. To learn how to create a
    free MongoDB Atlas cluster and load the sample datasets, see the :atlas:`Get Started with Atlas
@@ -101,30 +101,30 @@ The following code example produces a count of the number of bakeries in each bo
 of New York. To do so, it uses an aggregation pipeline that contains the following stages:
 
 - :manual:`$match </reference/operator/aggregation/match/>` stage to filter for documents
-    in which the ``cuisine`` field contains the value ``'Bakery'``
+  in which the ``cuisine`` field contains the value ``'Bakery'``
 
 - :manual:`$group </reference/operator/aggregation/group/>` stage to group the matching
-    documents by the ``borough`` field, accumulating a count of documents for each distinct
-    value
+  documents by the ``borough`` field, accumulating a count of documents for each distinct
+  value
 
 .. io-code-block::
    :copyable:
 
    .. input:: /includes/aggregation/aggregation.php
-      :start-after: start-match-group
-      :end-before: end-match-group
-      :language: php
-      :dedent:
+	  :start-after: start-match-group
+	  :end-before: end-match-group
+	  :language: php
+	  :dedent:
 
    .. output:: 
-      :visible: false
+	  :visible: false
 
-      {"_id":"Brooklyn","count":173}
-      {"_id":"Queens","count":204}
-      {"_id":"Bronx","count":71}
-      {"_id":"Staten Island","count":20}
-      {"_id":"Missing","count":2}
-      {"_id":"Manhattan","count":221}
+	  {"_id":"Brooklyn","count":173}
+	  {"_id":"Queens","count":204}
+	  {"_id":"Bronx","count":71}
+	  {"_id":"Staten Island","count":20}
+	  {"_id":"Missing","count":2}
+	  {"_id":"Manhattan","count":221}
 
 Explain an Aggregation
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -147,19 +147,19 @@ from the preceding :ref:`php-aggregation-example`:
    :copyable:
 
    .. input:: /includes/aggregation/aggregation.php
-      :start-after: start-explain
-      :end-before: end-explain
-      :language: php
-      :dedent:
+	  :start-after: start-explain
+	  :end-before: end-explain
+	  :language: php
+	  :dedent:
 
    .. output:: 
-      :visible: false
+	  :visible: false
 
-      {"explainVersion":"2","queryPlanner":{"namespace":"sample_restaurants.restaurants",
-      "indexFilterSet":false,"parsedQuery":{"cuisine":{"$eq":"Bakery"}},"queryHash":"865F14C3",
-      "planCacheKey":"D56D6F10","optimizedPipeline":true,"maxIndexedOrSolutionsReached":false,
-      "maxIndexedAndSolutionsReached":false,"maxScansToExplodeReached":false,"winningPlan":{
-      ... }
+	  {"explainVersion":"2","queryPlanner":{"namespace":"sample_restaurants.restaurants",
+	  "indexFilterSet":false,"parsedQuery":{"cuisine":{"$eq":"Bakery"}},"queryHash":"865F14C3",
+	  "planCacheKey":"D56D6F10","optimizedPipeline":true,"maxIndexedOrSolutionsReached":false,
+	  "maxIndexedAndSolutionsReached":false,"maxScansToExplodeReached":false,"winningPlan":{
+	  ... }
 
 Additional Information
 ----------------------
