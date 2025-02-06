@@ -88,10 +88,9 @@ queries:
 
    $pipeline = new Pipeline(
        Stage::vectorSearch(
-           # Atlas Vector Search query specifications
-           # index: '<index name>',
-           # path: '<path to embeddings>',
-           # ...
+           /* Atlas Vector Search query specifications
+           index: '<index name>',
+           path: '<path to embeddings>', ...*/
        ),
    );
 

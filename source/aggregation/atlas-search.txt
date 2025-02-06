@@ -87,8 +87,8 @@ queries:
         
    $pipeline = new Pipeline(
        Stage::search(
-           # Atlas Search query specifications
-           # Search::compound(...)
+           /* Atlas Search query specifications
+           Search::compound(...) */
        ),
    );
 
