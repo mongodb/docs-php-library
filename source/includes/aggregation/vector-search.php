@@ -21,29 +21,29 @@ $pipeline = new Pipeline(
 $cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
-	echo json_encode($doc), PHP_EOL;
+    echo json_encode($doc), PHP_EOL;
 }
 // end-basic-query
 
 // start-score-query
 $pipeline = new Pipeline(
-	Stage::vectorSearch(
-		index: 'vector_index',
-		path: 'plot_embedding',
-		queryVector: [-0.0016261312, -0.028070757, -0.011342932],
-		numCandidates: 150,
-		limit: 10,
-	),
-	Stage::project(
-		_id: 0,
-		title: 1,
-		score: ['$meta' => 'vectorSearchScore'],
-	),
+    Stage::vectorSearch(
+        index: 'vector_index',
+        path: 'plot_embedding',
+        queryVector: [-0.0016261312, -0.028070757, -0.011342932],
+        numCandidates: 150,
+        limit: 10,
+    ),
+    Stage::project(
+        _id: 0,
+        title: 1,
+        score: ['$meta' => 'vectorSearchScore'],
+    ),
 );
 
 $cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
-	echo json_encode($doc), PHP_EOL;
+    echo json_encode($doc), PHP_EOL;
 }
 // end-score-query

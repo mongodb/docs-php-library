@@ -66,7 +66,7 @@ Import the following classes into your application to perform Atlas
 Search queries by using the Aggregation Builder:
 
 .. code-block:: php
-	
+    
    use MongoDB\Builder\Pipeline;
    use MongoDB\Builder\Search;
    use MongoDB\Builder\Stage;
@@ -86,12 +86,12 @@ The following code demonstrates the template for constructing basic Atlas Search
 queries:
 
 .. code-block:: php
-		
+        
    $pipeline = new Pipeline(
-	   Stage::search(
-		   // Atlas Search query specifications
-		   // Search::compound(...)
-	   ),
+       Stage::search(
+           // Atlas Search query specifications
+           // Search::compound(...)
+       ),
    );
 
 Atlas Search Query Examples
@@ -125,18 +125,18 @@ specifications:
    :copyable: true
 
    .. input:: /includes/aggregation/atlas-search.php
-	  :language: php
-	  :dedent:
-	  :start-after: start-compound-search-query
-	  :end-before: end-compound-search-query
+      :language: php
+      :dedent:
+      :start-after: start-compound-search-query
+      :end-before: end-compound-search-query
 
    .. output::
-	  :language: json
-	  :visible: false
+      :language: json
+      :visible: false
 
-	  {"_id": ...,"borough":"Queens","cuisine":"American","name":"Suite Kitchen",...}
-	  {"_id": ...,"borough":"Queens","cuisine":"American","name":"Silver Kitchen",...}
-	  // Results truncated
+      {"_id": ...,"borough":"Queens","cuisine":"American","name":"Suite Kitchen",...}
+      {"_id": ...,"borough":"Queens","cuisine":"American","name":"Silver Kitchen",...}
+      // Results truncated
 
 Autocomplete Query 
 ~~~~~~~~~~~~~~~~~~

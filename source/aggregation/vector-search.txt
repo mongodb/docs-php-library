@@ -5,17 +5,17 @@ Atlas Vector Search
 ===================
 
 .. facet::
-	 :name: genre
-	 :values: reference
+   :name: genre
+   :values: reference
 
 .. meta::
-	 :keywords: code example, semantic, text, embeddings
+   :keywords: code example, semantic, text, embeddings
 
 .. contents:: On this page
-	 :local:
-	 :backlinks: none
-	 :depth: 2
-	 :class: singlecol
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
 
 Overview
 --------
@@ -28,9 +28,9 @@ perform Atlas Vector Search queries by using the :ref:`Aggregation Builder API
 
 .. note:: Deployment Compatibility
 
-	 You can use the Atlas Search feature only when
-	 you connect to MongoDB Atlas clusters. This feature is not
-	 available for self-managed deployments.
+     You can use the Atlas Search feature only when
+     you connect to MongoDB Atlas clusters. This feature is not
+     available for self-managed deployments.
 
 To learn more about Atlas Vector Search, see the :atlas:`Overview
 </atlas-vector-search/vector-search-overview/>` in the
@@ -43,15 +43,15 @@ Atlas documentation.
 
 .. note::
 
-	 You might not be able to use the methods described in
-	 this guide for every type of Atlas Search query. For more complex use
-	 cases, you can follow the standard way to create aggregation
-	 pipelines in the {+library-short+}. To learn more, see the
-	 :ref:`php-aggregation` guide.
+   You might not be able to use the methods described in
+   this guide for every type of Atlas Search query. For more complex use
+   cases, you can follow the standard way to create aggregation
+   pipelines in the {+library-short+}. To learn more, see the
+   :ref:`php-aggregation` guide.
 
-	 To perform advanced full-text search on your documents, you can use the
-	 Atlas Search API. To learn about this feature, see the
-	 :ref:`php-atlas-search` guide.
+   To perform advanced full-text search on your documents, you can use the
+   Atlas Search API. To learn about this feature, see the
+   :ref:`php-atlas-search` guide.
 
 Atlas Vector Search Index
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -68,9 +68,9 @@ Search queries by using the Aggregation Builder:
 
 .. code-block:: php
 
-	 use MongoDB\Builder\Pipeline;
-	 use MongoDB\Builder\Query;
-	 use MongoDB\Builder\Stage;
+   use MongoDB\Builder\Pipeline;
+   use MongoDB\Builder\Query;
+   use MongoDB\Builder\Stage;
 
 To create a ``$search`` stage in your aggregation pipeline, you must
 perform the following actions:
@@ -78,49 +78,49 @@ perform the following actions:
 1. Create a ``Pipeline`` class instance to create the pipeline
 
 #. Within the ``Pipeline`` instance, call the ``Stage::vectorSearch()`` method
-	 to create the Atlas Vector Search stage
+   to create the Atlas Vector Search stage
 
 #. Within the body of the ``vectorSearch()`` method, specify the
-	 criteria for your vector query
+   criteria for your vector query
 
 The following code demonstrates the template for constructing basic Atlas Search
 queries:
 
 .. code-block:: php
 
-	 $pipeline = new Pipeline(
-			 Stage::vectorSearch(
-					 // Atlas Vector Search query specifications
-					 // index: '<index name>',
-					 // path: '<path to embeddings>',
-					 // ...
-			 ),
-	 );
+   $pipeline = new Pipeline(
+       Stage::vectorSearch(
+           // Atlas Vector Search query specifications
+           // index: '<index name>',
+           // path: '<path to embeddings>',
+           // ...
+       ),
+   );
 
 You must pass the following parameters to the ``vectorSearch()`` method:
 
 .. list-table::
-	 :header-rows: 1
+   :header-rows: 1
 
-	 * - Parameter
-		 - Type
-		 - Description
+   * - Parameter
+     - Type
+     - Description
 
-	 * - ``index``
-		 - ``string``
-		 - Name of the vector search index
+   * - ``index``
+     - ``string``
+     - Name of the vector search index
 
-	 * - ``path``
-		 - ``array`` or ``string``
-		 - Field that stores vector embeddings
+   * - ``path``
+     - ``array`` or ``string``
+     - Field that stores vector embeddings
 
-	 * - ``queryVector``
-		 - ``array``
-		 - Vector representation of your query
+   * - ``queryVector``
+     - ``array``
+     - Vector representation of your query
 
-	 * - ``limit``
-		 - ``int``
-		 - Number of results to return
+   * - ``limit``
+     - ``int``
+     - Number of results to return
 
 Atlas Search Query Examples
 ---------------------------
@@ -137,22 +137,22 @@ The following code performs an Atlas Vector Search query on the
 ``plot_embedding`` vector field:
 
 .. io-code-block::
-	 :copyable: true
+   :copyable: true
 
-	 .. input:: /includes/aggregation/vector-search.php
-			:language: php
-			:dedent:
-			:start-after: start-basic-query
-			:end-before: end-basic-query
+   .. input:: /includes/aggregation/vector-search.php
+      :language: php
+      :dedent:
+      :start-after: start-basic-query
+      :end-before: end-basic-query
 
-	 .. output::
-			:language: json
-			:visible: false
+   .. output::
+      :language: json
+      :visible: false
 
-			{"_id": ...,"title":"About Time",...}
-			{"_id": ...,"title":"Tomorrowland",...}
-			{"_id": ...,"title":"Timecop",...}
-			// Results truncated
+      {"_id": ...,"title":"About Time",...}
+      {"_id": ...,"title":"Tomorrowland",...}
+      {"_id": ...,"title":"Timecop",...}
+      // Results truncated
 
 Vector Search Score
 ~~~~~~~~~~~~~~~~~~~
@@ -162,22 +162,22 @@ but outputs only the ``title`` field and ``vectorSearchScore`` meta
 field, which describes how well the document matches the query vector:
 
 .. io-code-block::
-	 :copyable: true
+   :copyable: true
 
-	 .. input:: /includes/aggregation/vector-search.php
-			:language: php
-			:dedent:
-			:start-after: start-score-query
-			:end-before: end-score-query
+   .. input:: /includes/aggregation/vector-search.php
+      :language: php
+      :dedent:
+      :start-after: start-score-query
+      :end-before: end-score-query
 
-	 .. output::
-			:language: json
-			:visible: false
+   .. output::
+      :language: json
+      :visible: false
 
-			{"title":"About Time","score":0.7843604683876038}
-			{"title":"Timecop","score":0.7771612405776978}
-			{"title":"Tomorrowland","score":0.7669923901557922}
-			// Results truncated
+      {"title":"About Time","score":0.7843604683876038}
+      {"title":"Timecop","score":0.7771612405776978}
+      {"title":"Tomorrowland","score":0.7669923901557922}
+      // Results truncated
 
 Vector Search Options
 ~~~~~~~~~~~~~~~~~~~~~
@@ -187,29 +187,29 @@ Vector Search queries. Depending on your desired query, you can pass the
 following optional parameters to ``vectorSearch()``:
 
 .. list-table::
-	 :header-rows: 1
+   :header-rows: 1
 
-	 * - Optional Parameter
-		 - Type
-		 - Description
-		 - Default Value
+   * - Optional Parameter
+     - Type
+     - Description
+     - Default Value
 
-	 * - ``exact``
-		 - ``bool``
-		 - Specifies whether to run an Exact Nearest Neighbor (``true``) or
-			 Approximate Nearest Neighbor (``false``) search
-		 - ``false``
+   * - ``exact``
+     - ``bool``
+     - Specifies whether to run an Exact Nearest Neighbor (``true``) or
+       Approximate Nearest Neighbor (``false``) search
+     - ``false``
 
-	 * - ``filter``
-		 - ``QueryInterface`` or ``array``
-		 - Specifies a pre-filter for documents to search on
-		 - no filtering
+   * - ``filter``
+     - ``QueryInterface`` or ``array``
+     - Specifies a pre-filter for documents to search on
+     - no filtering
 
-	 * - ``numCandidates``
-		 - ``int`` or ``null``
-		 - Specifies the number of nearest neighbors to use during the
-			 search
-		 - ``null``
+   * - ``numCandidates``
+     - ``int`` or ``null``
+     - Specifies the number of nearest neighbors to use during the
+       search
+     - ``null``
 
 To learn more about these parameters, see the :atlas:`Fields
 </atlas-vector-search/vector-search-stage/#fields>` section of the
