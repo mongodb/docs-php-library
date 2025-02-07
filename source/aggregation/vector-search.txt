@@ -31,12 +31,11 @@ perform Atlas Vector Search queries by using the :ref:`Aggregation Builder API
      you connect to MongoDB Atlas clusters. This feature is not
      available for self-managed deployments.
 
-To learn more about Atlas Vector Search, see the :atlas:`Overview
-</atlas-vector-search/vector-search-overview/>` in the
-Atlas documentation. The Atlas Vector Search implementation for the
-{+library-short+} internally uses the ``$vectorSearch`` aggregation operator
-to perform queries. To learn more about this operator, see the
-:atlas:`$vectorSearch
+To learn more about Atlas Vector Search, see the :atlas:`Atlas Vector
+Search Overview </atlas-vector-search/vector-search-overview/>`. The
+Atlas Vector Search implementation for the {+library-short+} internally
+uses the ``$vectorSearch`` aggregation operator to perform queries. To
+learn more about this operator, see the :atlas:`$vectorSearch
 </atlas-vector-search/vector-search-stage/#syntax>` reference in the
 Atlas documentation.
 

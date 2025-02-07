@@ -31,10 +31,9 @@ perform Atlas Search queries by using the :ref:`Aggregation Builder API
    you connect to MongoDB Atlas clusters. This feature is not
    available for self-managed deployments.
 
-To learn more about Atlas Search, see the :atlas:`Overview
-</atlas-search/atlas-search-overview/>` in the 
-Atlas documentation. The Atlas Search implementation for the
-{+library-short+} internally uses the ``$search`` aggregation operator
+To learn more about Atlas Search, see the :atlas:`Atlas Search Overview
+</atlas-search/atlas-search-overview/>`. The Atlas Search implementation
+for the {+library-short+} internally uses the ``$search`` aggregation operator
 to perform queries. To learn more about this operator, see the
 :atlas:`$search </atlas-search/aggregation-stages/search/>` reference in
 the Atlas documentation.
