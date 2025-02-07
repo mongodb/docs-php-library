@@ -27,9 +27,9 @@ perform Atlas Vector Search queries by using the :ref:`Aggregation Builder API
 
 .. note:: Deployment Compatibility
 
-	 You can use the Atlas Search feature only when
-	 you connect to MongoDB Atlas clusters. This feature is not
-	 available for self-managed deployments.
+     You can use the Atlas Search feature only when
+     you connect to MongoDB Atlas clusters. This feature is not
+     available for self-managed deployments.
 
 To learn more about Atlas Vector Search, see the :atlas:`Overview
 </atlas-vector-search/vector-search-overview/>` in the
@@ -82,11 +82,11 @@ queries:
 .. code-block:: php
 
    $pipeline = new Pipeline(
-	   Stage::vectorSearch(
-		   /* Atlas Vector Search query specifications
-		   index: '<index name>',
-		   path: '<path to embeddings>', ...*/
-	   ),
+       Stage::vectorSearch(
+           /* Atlas Vector Search query specifications
+           index: '<index name>',
+           path: '<path to embeddings>', ...*/
+       ),
    );
 
 You must pass the following parameters to the ``vectorSearch()`` method:
@@ -95,24 +95,24 @@ You must pass the following parameters to the ``vectorSearch()`` method:
    :header-rows: 1
 
    * - Parameter
-	 - Type
-	 - Description
+     - Type
+     - Description
 
    * - ``index``
-	 - ``string``
-	 - Name of the vector search index
+     - ``string``
+     - Name of the vector search index
 
    * - ``path``
-	 - ``array`` or ``string``
-	 - Field that stores vector embeddings
+     - ``array`` or ``string``
+     - Field that stores vector embeddings
 
    * - ``queryVector``
-	 - ``array``
-	 - Vector representation of your query
+     - ``array``
+     - Vector representation of your query
 
    * - ``limit``
-	 - ``int``
-	 - Number of results to return
+     - ``int``
+     - Number of results to return
 
 Atlas Search Query Examples
 ---------------------------
@@ -123,7 +123,7 @@ section use sample data from the ``sample_mflix.embedded_movies``
 collection.
 
 .. note:: Query Vector Length
-	
+    
    For demonstrative purposes, the examples in this section use
    sample query vectors that contain very few elements, compared to 
    the query vector you might use in a runnable application. To view an
@@ -142,19 +142,19 @@ The following code performs an Atlas Vector Search query on the
    :copyable: true
 
    .. input:: /includes/aggregation/vector-search.php
-	  :language: php
-	  :dedent:
-	  :start-after: start-basic-query
-	  :end-before: end-basic-query
+      :language: php
+      :dedent:
+      :start-after: start-basic-query
+      :end-before: end-basic-query
 
    .. output::
-	  :language: json
-	  :visible: false
+      :language: json
+      :visible: false
 
-	  {"title":"Thrill Seekers"}
-	  {"title":"About Time"}
-	  {"title":"Timecop"}
-	  // Results truncated
+      {"title":"Thrill Seekers"}
+      {"title":"About Time"}
+      {"title":"Timecop"}
+      // Results truncated
 
 Vector Search Score
 ~~~~~~~~~~~~~~~~~~~
@@ -167,19 +167,19 @@ field, which describes how well the document matches the query vector:
    :copyable: true
 
    .. input:: /includes/aggregation/vector-search.php
-	  :language: php
-	  :dedent:
-	  :start-after: start-score-query
-	  :end-before: end-score-query
+      :language: php
+      :dedent:
+      :start-after: start-score-query
+      :end-before: end-score-query
 
    .. output::
-	  :language: json
-	  :visible: false
+      :language: json
+      :visible: false
 
-	  {"title":"Thrill Seekers","score":0.927734375}
-	  {"title":"About Time","score":0.925750732421875}
-	  {"title":"Timecop","score":0.9241180419921875}
-	  // Results truncated
+      {"title":"Thrill Seekers","score":0.927734375}
+      {"title":"About Time","score":0.925750732421875}
+      {"title":"Timecop","score":0.9241180419921875}
+      // Results truncated
 
 Vector Search Options
 ~~~~~~~~~~~~~~~~~~~~~
@@ -192,26 +192,26 @@ following optional parameters to ``vectorSearch()``:
    :header-rows: 1
 
    * - Optional Parameter
-	 - Type
-	 - Description
-	 - Default Value
+     - Type
+     - Description
+     - Default Value
 
    * - ``exact``
-	 - ``bool``
-	 - Specifies whether to run an Exact Nearest Neighbor (``true``) or
-	   Approximate Nearest Neighbor (``false``) search
-	 - ``false``
+     - ``bool``
+     - Specifies whether to run an Exact Nearest Neighbor (``true``) or
+       Approximate Nearest Neighbor (``false``) search
+     - ``false``
 
    * - ``filter``
-	 - ``QueryInterface`` or ``array``
-	 - Specifies a pre-filter for documents to search on
-	 - no filtering
+     - ``QueryInterface`` or ``array``
+     - Specifies a pre-filter for documents to search on
+     - no filtering
 
    * - ``numCandidates``
-	 - ``int`` or ``null``
-	 - Specifies the number of nearest neighbors to use during the
-	   search
-	 - ``null``
+     - ``int`` or ``null``
+     - Specifies the number of nearest neighbors to use during the
+       search
+     - ``null``
 
 To learn more about these parameters, see the :atlas:`Fields
 </atlas-vector-search/vector-search-stage/#fields>` section of the
