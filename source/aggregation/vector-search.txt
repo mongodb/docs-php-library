@@ -128,7 +128,7 @@ collection.
    sample query vectors that contain very few elements, compared to 
    the query vector you might use in a runnable application. To view an
    example that contains the full-length query vector, see the
-   :ref:`Atlas Vector Search Quick Start </atlas-vector-search/tutorials/vector-search-quick-start/>`
+   :atlas:`Atlas Vector Search Quick Start </atlas-vector-search/tutorials/vector-search-quick-start/>`
    and select :guilabel:`PHP` from the :guilabel:`Select your language` dropdown in the upper-right
    corner of the page.
 
