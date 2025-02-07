@@ -182,7 +182,7 @@ field, which describes how well the document matches the query vector:
       // Results truncated
 
 Vector Search Options
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 You can use the ``vectorSearch()`` method to perform many types of Atlas
 Vector Search queries. Depending on your desired query, you can pass the

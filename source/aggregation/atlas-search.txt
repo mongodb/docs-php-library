@@ -193,7 +193,7 @@ To learn more about these parameters, see the :atlas:`Options
 ``autocomplete`` operator reference in the Atlas documentation.
 
 Search Options
-~~~~~~~~~~~~~~
+--------------
 
 You can use the ``search()`` method to perform many types of Atlas
 Search queries. Depending on your desired query, you can pass the
