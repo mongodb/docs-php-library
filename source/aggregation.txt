@@ -77,7 +77,7 @@ Consider the following limitations when performing aggregation operations:
   and passing the array to the ``MongoDB\Collection::aggregate()`` method.
 
   .. important:: $graphLookup Exception
-  
+
      The :manual:`$graphLookup
      </reference/operator/aggregation/graphLookup/>` stage has a strict
      memory limit of 100 megabytes and ignores the ``allowDiskUse`` option.

@@ -39,12 +39,7 @@ to perform queries. To learn more about this operator, see the
 :atlas:`$search </atlas-search/aggregation-stages/search/>` reference in
 the Atlas documentation.
 
-.. note::
-
-   You might not be able to use the methods described in this guide for
-   every type of Atlas Search query. For more complex use cases, you can
-   create standard aggregation pipelines. To learn more, see the
-   :ref:`php-aggregation` guide.
+.. note:: Atlas Vector Search
 
    To perform searches on vector embeddings in MongoDB, you can use the
    Atlas Vector Search API. To learn about this feature, see
@@ -63,11 +58,11 @@ Search Aggregation Stage
 Import the following classes into your application to perform Atlas
 Search queries by using the Aggregation Builder:
 
-.. code-block:: php
-    
-   use MongoDB\Builder\Pipeline;
-   use MongoDB\Builder\Search;
-   use MongoDB\Builder\Stage;
+.. literalinclude:: /includes/aggregation/atlas-search.php
+   :language: php
+   :dedent:
+   :start-after: start-imports
+   :end-before: end-imports
 
 To create a ``$search`` stage in your aggregation pipeline, perform the
 following actions:
@@ -84,7 +79,7 @@ The following code demonstrates the template for constructing basic Atlas Search
 queries:
 
 .. code-block:: php
-        
+
    $pipeline = new Pipeline(
        Stage::search(
            /* Atlas Search query specifications
@@ -132,8 +127,9 @@ specifications:
       :language: json
       :visible: false
 
-      {"_id": ...,"borough":"Queens","cuisine":"American","name":"Suite Kitchen",...}
-      {"_id": ...,"borough":"Queens","cuisine":"American","name":"Silver Kitchen",...}
+      {"_id":...,"borough":"Queens","cuisine":"American","name":"Kitchen Door"}
+      {"_id":...,"borough":"Queens","cuisine":"American","name":"Cc Kitchen"}
+      {"_id":...,"borough":"Queens","cuisine":"American","name":"Suite Kitchen"}
       // Results truncated
 
 Autocomplete Query 
@@ -169,9 +165,9 @@ string ``"Lucy"`` on the ``name`` field:
       :language: json
       :visible: false
       
-      {"name":"Lucy'S Asian Kitchen"}
-      {"name":"Lucy'S Cantina Royale"}
+      {"name":"Juicy Lucy"}
       {"name":"Lucy'S Vietnamese Kitchen"}
+      {"name":"Lucy'S Cantina Royale"}
       // Results Truncated
 
 You can also pass the following optional parameters to the ``autocomplete()``
