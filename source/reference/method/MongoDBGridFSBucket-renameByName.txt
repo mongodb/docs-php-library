@@ -14,8 +14,8 @@ Definition
 
 .. phpmethod:: MongoDB\GridFS\Bucket::renameByName()
 
-   Selects a GridFS file and any of its revisions by their ``filename``
-   and sets a new ``filename`` value.
+   Sets a new ``filename`` value for a GridFS file and any of its
+   revisions.
 
    .. code-block:: php
 
