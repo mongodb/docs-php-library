@@ -125,7 +125,7 @@ Parameters
             ]
 
      * - builderEncoder
-       - MongoDB\\Builder\\Encoder
+       - MongoDB\\Codec\\Encoder
        - Encoder to use for query and aggregation builders. If not set, this option
          defaults to a new instance of the ``MongoDB\Builder\BuilderEncoder`` class.
 
