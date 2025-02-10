@@ -49,6 +49,9 @@ improvements, and fixes:
   replaced by these new methods in a future driver release, so consider
   changing the usages in your application.
 
+- The ``flags`` field, used for the deprecated MMAPv1 storage engine, is now 
+  deprecated and will be removed in {+library-short+} v2.0.
+
 .. _php-lib-version-1.20:
 
 What's New in 1.20
