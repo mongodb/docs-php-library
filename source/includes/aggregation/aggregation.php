@@ -3,7 +3,6 @@
 use MongoDB\BSON\UTCDateTime;
 use MongoDB\Builder\Accumulator;
 use MongoDB\Builder\Expression;
-use MongoDB\Builder\Pipeline;
 use MongoDB\Builder\Query;
 use MongoDB\Builder\Stage;
 use MongoDB\Builder\Type\Sort;
@@ -48,7 +47,7 @@ echo json_encode($result), PHP_EOL;
 // end-array-explain
 
 // start-builder-match-group
-$pipeline = new Pipeline(
+$pipeline = [
     Stage::match(
         date: [
             Query::gte(new UTCDateTime(new DateTimeImmutable('2014-01-01'))),
@@ -71,9 +70,9 @@ $pipeline = new Pipeline(
     Stage::sort(
         totalSaleAmount: Sort::Desc,
     ),
-);
+];
 
-$cursor = $collection->aggregate(iterator_to_array($pipeline));
+$cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
     echo json_encode($doc), PHP_EOL;
@@ -81,7 +80,7 @@ foreach ($cursor as $doc) {
 // end-builder-match-group
 
 // start-builder-unwind
-$pipeline = new Pipeline(
+$pipeline = [
     Stage::unwind(Expression::arrayFieldPath('items')),
     Stage::unwind(Expression::arrayFieldPath('items.tags')),
     Stage::group(
@@ -93,9 +92,9 @@ $pipeline = new Pipeline(
             ),
         ),
     ),
-);
+];
 
-$cursor = $collection->aggregate(iterator_to_array($pipeline));
+$cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
     echo json_encode($doc), PHP_EOL;
@@ -103,17 +102,17 @@ foreach ($cursor as $doc) {
 // end-builder-unwind
 
 // start-builder-lookup
-$pipeline = new Pipeline(
+$pipeline = [
     Stage::lookup(
         from: 'inventory',
         localField: 'item',
         foreignField: 'sku',
         as: 'inventory_docs',
     ),
-);
+];
 
 /* Perform the aggregation on the orders collection */
-$cursor = $collection->aggregate(iterator_to_array($pipeline));
+$cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
     echo json_encode($doc), PHP_EOL;

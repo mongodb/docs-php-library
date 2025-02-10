@@ -195,9 +195,9 @@ Aggregation Builder
 To create an aggregation pipeline by using the Aggregation Builder,
 perform the following actions:
 
-#. Create a ``Pipeline`` class instance to initialize the pipeline
+#. Create an array to store the pipeline stages
 
-#. Within the ``Pipeline`` instance, call an operator method from the ``Stage``
+#. For each stage, call an operator method from the ``Stage``
    builder class to create that type of aggregation stage
 
 #. Within the body of the ``Stage`` method, use methods from other
@@ -209,7 +209,7 @@ aggregation pipelines:
 
 .. code-block:: php
 
-   $pipeline = new Pipeline(
+   $pipeline = [
        Stage::<operator method>(
            <stage specification>
        ),
@@ -217,15 +217,9 @@ aggregation pipelines:
            <stage specification>
        ),
        ...
-   );
+   ];
    
-   $cursor = $collection->aggregate(iterator_to_array($pipeline));
-
-.. note::
-    
-   The preceding code uses the ``iterator_to_array()`` method to
-   convert the ``Pipeline`` instance into an array. You must call this method
-   on your ``Pipeline`` before passing it to the ``aggregate()`` method.
+   $cursor = $collection->aggregate($pipeline);
 
 The examples in this section are adapted from the {+mdb-server+} manual.
 Each example provides a link to the sample data that you can insert into
