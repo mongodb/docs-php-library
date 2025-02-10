@@ -57,48 +57,36 @@ echo json_encode($document), PHP_EOL;
 // end-index-array-query
 
 // start-create-search-index
-$searchIndexName = $collection->createSearchIndex(
+$indexName = $collection->createSearchIndex(
     ['mappings' => ['dynamic' => true]],
     ['name' => 'mySearchIdx']
 );
 // end-create-search-index
 
-// start-create-vector-index
-$vectorSearchIndexName = $collection->createSearchIndex(
-    [
-        'fields' => [[
-            'type' => 'vector',
-            'path' => 'plot_embedding',
-            'numDimensions' => 1536,
-            'similarity' => 'dotProduct'
-        ]]
-    ],
-    ['name' => 'myVSidx', 'type' => 'vectorSearch']
-);
-// end-create-vector-index
-
-// start-create-multiple-indexes
+// start-create-search-indexes
 $indexNames = $collection->createSearchIndexes(
     [
         [
-            'name' => 'SearchIdx',
+            'name' => 'SearchIdx_dynamic',
             'definition' => ['mappings' => ['dynamic' => true]],
         ],
         [
-            'name' => 'VSidx',
-            'type' => 'vectorSearch',
+            'name' => 'SearchIdx_simple',
             'definition' => [
-                'fields' => [[
-                    'type' => 'vector',
-                    'path' => 'plot_embedding',
-                    'numDimensions' => 1536,
-                    'similarity' => 'dotProduct'
-                ]]
+                'mappings' => [
+                    'dynamic' => false,
+                    'fields' => [
+                        'title' => [
+                            'type' => 'string',
+                            'analyzer' => 'lucene.simple'
+                        ]
+                    ]
+                ]
             ],
         ],
     ]
 );
-// end-create-multiple-indexes
+// end-create-search-indexes
 
 // start-list-search-indexes
 foreach ($collection->listSearchIndexes() as $indexInfo) {
