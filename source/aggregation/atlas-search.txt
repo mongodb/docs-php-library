@@ -66,10 +66,9 @@ Search queries by using the Aggregation Builder:
 To create a ``$search`` stage in your aggregation pipeline, perform the
 following actions:
 
-1. Create a ``Pipeline`` class instance to create the pipeline
+1. Create an array to store the pipeline stages
 
-#. Within the ``Pipeline`` instance, call the ``Stage::search()`` method
-   to create the Atlas Search stage
+#. Call the ``Stage::search()`` method to create the Atlas Search stage
 
 #. Within the body of the ``search()`` method, use methods from the
    ``Search`` builder class to construct your Search query criteria
@@ -79,12 +78,12 @@ queries:
 
 .. code-block:: php
 
-   $pipeline = new Pipeline(
+   $pipeline = [
        Stage::search(
            /* Atlas Search query specifications
            Search::compound(...) */
        ),
-   );
+   ];
 
 Atlas Search Query Examples
 ---------------------------

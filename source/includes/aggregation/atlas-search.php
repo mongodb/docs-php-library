@@ -1,7 +1,6 @@
 <?php
 
 // start-imports
-use MongoDB\Builder\Pipeline;
 use MongoDB\Builder\Search;
 use MongoDB\Builder\Stage;
 // end-imports
@@ -35,7 +34,7 @@ wait(function () use ($collection) {
 echo "\n";
 
 // start-compound-search-query
-$pipeline = new Pipeline(
+$pipeline = [
     Stage::search(
         Search::compound(
             must: [
@@ -64,9 +63,9 @@ $pipeline = new Pipeline(
         name: 1
     ),
     Stage::limit(3)
-);
+];
 
-$cursor = $collection->aggregate(iterator_to_array($pipeline));
+$cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
     echo json_encode($doc), PHP_EOL;
@@ -110,7 +109,7 @@ wait(function () use ($collection) {
 echo "\n";
 
 // start-autocomplete-search-query
-$pipeline = new Pipeline(
+$pipeline = [
     Stage::search(
         Search::autocomplete(
             query: 'Lucy',
@@ -119,9 +118,9 @@ $pipeline = new Pipeline(
     ),
     Stage::limit(3),
     Stage::project(_id: 0, name: 1),
-);
+];
 
-$cursor = $collection->aggregate(iterator_to_array($pipeline));
+$cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {
     echo json_encode($doc), PHP_EOL;

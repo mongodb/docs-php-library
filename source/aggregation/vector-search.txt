@@ -67,10 +67,10 @@ Search queries by using the Aggregation Builder:
 To create a ``$vectorSearch`` stage in your aggregation pipeline, perform the
 following actions:
 
-1. Create a ``Pipeline`` class instance to create the pipeline
+1. Create an array to store the pipeline stages
 
-#. Within the ``Pipeline`` instance, call the ``Stage::vectorSearch()`` method
-   to create the Atlas Vector Search stage
+#. Call the ``Stage::vectorSearch()`` method to create the Atlas Vector
+   Search stage
 
 #. Within the body of the ``vectorSearch()`` method, specify the
    criteria for your vector query
@@ -80,13 +80,13 @@ queries:
 
 .. code-block:: php
 
-   $pipeline = new Pipeline(
+   $pipeline = [
        Stage::vectorSearch(
            /* Atlas Vector Search query specifications
            index: '<index name>',
            path: '<path to embeddings>', ...*/
        ),
-   );
+   ];
 
 You must pass the following parameters to the ``vectorSearch()`` method:
 
