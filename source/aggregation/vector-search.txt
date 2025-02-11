@@ -22,8 +22,7 @@ Overview
 
 In this guide, you can learn how to perform searches on your documents
 by using the Atlas Vector Search feature. The {+library-short+} allows you to
-perform Atlas Vector Search queries by using the :ref:`Aggregation Builder API
-<TODO DOCSP-43919>`.
+perform Atlas Vector Search queries by using the :ref:`php-aggregation-builder-api`.
 
 .. note:: Deployment Compatibility
 

@@ -137,7 +137,7 @@ of New York. To do so, it uses an aggregation pipeline that contains the followi
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/aggregation.php
+   .. input:: /includes/aggregation/aggregation.php
       :start-after: start-array-match-group
       :end-before: end-array-match-group
       :language: php
@@ -173,7 +173,7 @@ from the preceding section:
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/aggregation.php
+   .. input:: /includes/aggregation/aggregation.php
       :start-after: start-array-explain
       :end-before: end-array-explain
       :language: php
@@ -254,7 +254,7 @@ it uses an aggregation pipeline that contains the following stages:
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/aggregation.php
+   .. input:: /includes/aggregation/aggregation.php
       :start-after: start-builder-match-group
       :end-before: end-builder-match-group
       :language: php
@@ -291,7 +291,7 @@ it uses an aggregation pipeline that contains the following stages:
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/aggregation.php
+   .. input:: /includes/aggregation/aggregation.php
       :start-after: start-builder-unwind
       :end-before: end-builder-unwind
       :language: php
@@ -327,7 +327,7 @@ foreign field names.
 .. io-code-block::
    :copyable:
 
-   .. input:: /includes/aggregation.php
+   .. input:: /includes/aggregation/aggregation.php
       :start-after: start-builder-lookup
       :end-before: end-builder-lookup
       :language: php
