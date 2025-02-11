@@ -111,7 +111,7 @@ $pipeline = [
     ),
 ];
 
-/* Perform the aggregation on the orders collection */
+/* Performs the aggregation on the orders collection */
 $cursor = $collection->aggregate($pipeline);
 
 foreach ($cursor as $doc) {

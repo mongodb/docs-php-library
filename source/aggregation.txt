@@ -72,6 +72,7 @@ Consider the following limitations when performing aggregation operations:
 - Returned documents cannot violate the
   :manual:`BSON document size limit </reference/limits/#mongodb-limit-BSON-Document-Size>`
   of 16 megabytes.
+
 - Pipeline stages have a memory limit of 100 megabytes by default. You can exceed this
   limit by creating an options array that sets the ``allowDiskUse`` option to ``true``
   and passing the array to the ``MongoDB\Collection::aggregate()`` method.
@@ -89,9 +90,9 @@ The {+library-short+} provides the following APIs to create aggregation
 pipelines:
 
 - :ref:`php-aggregation-array-api`: Create aggregation pipelines by
-  passing arrays that specify the aggregation operators and parameters 
+  passing arrays that specify the aggregation operators and parameters.
 - :ref:`php-aggregation-builder-api`: Create aggregation pipelines by using native
-  classes and methods to make your application more type-safe and debuggable
+  classes and methods to make your application more type-safe and debuggable.
 
 The following sections describe each API and provide examples for
 creating aggregation pipelines.
@@ -126,12 +127,12 @@ Filter and Group Example
 The following code example produces a count of the number of bakeries in each borough
 of New York. To do so, it uses an aggregation pipeline that contains the following stages:
 
-- :manual:`$match </reference/operator/aggregation/match/>` stage to filter for documents
-  in which the ``cuisine`` field contains the value ``'Bakery'``
+1. :manual:`$match </reference/operator/aggregation/match/>` stage to filter for documents
+   in which the ``cuisine`` field contains the value ``'Bakery'``
 
-- :manual:`$group </reference/operator/aggregation/group/>` stage to group the matching
-  documents by the ``borough`` field, accumulating a count of documents for each distinct
-  value
+#. :manual:`$group </reference/operator/aggregation/group/>` stage to group the matching
+   documents by the ``borough`` field, accumulating a count of documents for each distinct
+   value
 
 .. io-code-block::
    :copyable:
@@ -195,14 +196,16 @@ Aggregation Builder
 To create an aggregation pipeline by using the Aggregation Builder,
 perform the following actions:
 
-#. Create an array to store the pipeline stages
+1. Create an array to store the pipeline stages.
 
-#. For each stage, call an operator method from the ``Stage``
-   builder class to create that type of aggregation stage
+#. For each stage, call the an operator method from the
+   ``Stage`` that shares the same name as your desired aggregation
+   stage. For example, to create an ``$unwind`` stage, call the
+   ``Stage::unwind()`` method.
 
 #. Within the body of the ``Stage`` method, use methods from other
    builder classes such as ``Query``, ``Expression``, or ``Accumulator``
-   to express your aggregation specifications
+   to express your aggregation specifications.
 
 The following code demonstrates the template for constructing
 aggregation pipelines:
@@ -236,17 +239,17 @@ The following code example calculates the total sales amount, average
 sales quantity, and sale count for each day in the year 2014. To do so,
 it uses an aggregation pipeline that contains the following stages:
 
-- :manual:`$match </reference/operator/aggregation/match/>` stage to
-  filter for documents that contain a ``date`` field in which the year is
-  2014
+1. :manual:`$match </reference/operator/aggregation/match/>` stage to
+   filter for documents that contain a ``date`` field in which the year is
+   2014
 
-- :manual:`$group </reference/operator/aggregation/group/>` stage to
-  group the documents by date and calculate the total sale amount,
-  average quantity, and total count for each group
+#. :manual:`$group </reference/operator/aggregation/group/>` stage to
+   group the documents by date and calculate the total sale amount,
+   average quantity, and total count for each group
   
-- :manual:`$sort </reference/operator/aggregation/sort/>` stage to
-  sort the results by the total sale amount for each group in descending
-  order
+#. :manual:`$sort </reference/operator/aggregation/sort/>` stage to
+   sort the results by the total sale amount for each group in descending
+   order
   
 .. io-code-block::
    :copyable:
@@ -275,15 +278,15 @@ The following code example groups sold items by their tags and
 calculates the total sales amount for each tag. To do so,
 it uses an aggregation pipeline that contains the following stages:
 
-- :manual:`$unwind </reference/operator/aggregation/unwind/>` stage to
-  output a separate document for each element in the ``items`` array
+1. :manual:`$unwind </reference/operator/aggregation/unwind/>` stage to
+   output a separate document for each element in the ``items`` array
 
-- :manual:`$unwind </reference/operator/aggregation/unwind/>` stage to
-  output a separate document for each element in the ``items.tags`` arrays
+#. :manual:`$unwind </reference/operator/aggregation/unwind/>` stage to
+   output a separate document for each element in the ``items.tags`` arrays
   
-- :manual:`$group </reference/operator/aggregation/group/>` stage to
-  group the documents by the tag value and calculates the total sales
-  amount of items that have each tag
+#. :manual:`$group </reference/operator/aggregation/group/>` stage to
+   group the documents by the tag value and calculates the total sales
+   amount of items that have each tag
   
 .. io-code-block::
    :copyable:
