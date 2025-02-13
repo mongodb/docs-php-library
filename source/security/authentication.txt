@@ -385,6 +385,5 @@ To learn more about the ``MongoDB\Client`` class, see :phpclass:`MongoDB\Client`
 in the library API documentation.
 
 To view a full list of URI options that you can pass to a ``MongoDB\Client``, see
-`MongoDB\\Driver\\Manager::__construct() Parameters
-<{+php-manual+}/mongodb-driver-manager.construct.php#refsect1-mongodb-driver-manager.construct-parameters>`__
+:php:`MongoDB\Driver\Manager::__construct Parameters </manual/en/mongodb-driver-manager.construct.php#refsect1-mongodb-driver-manager.construct-parameters>`
 in the extension API documentation.
