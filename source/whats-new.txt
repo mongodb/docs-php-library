@@ -39,7 +39,7 @@ The {+library-short+} v1.21 release includes the following features,
 improvements, and fixes:
 
 - Introduces the Aggregation Builder, an API to build aggregation
-  pipelines in a more type-safe and PHP-native way. To learn more and
+  pipelines in a more type-safe way. To learn more and
   view examples, see the :ref:`php-aggregation-builder-api` section of
   the Aggregation guide.
 

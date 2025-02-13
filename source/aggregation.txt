@@ -90,9 +90,9 @@ The {+library-short+} provides the following APIs to create aggregation
 pipelines:
 
 - :ref:`php-aggregation-array-api`: Create aggregation pipelines by
-  passing arrays that specify the aggregation operators and parameters.
-- :ref:`php-aggregation-builder-api`: Create aggregation pipelines by using native
-  classes and methods to make your application more type-safe and debuggable.
+  passing arrays that specify the aggregation stages.
+- :ref:`php-aggregation-builder-api`: Create aggregation pipelines by
+  using factory methods to make your application more type-safe and debuggable.
 
 The following sections describe each API and provide examples for
 creating aggregation pipelines.
@@ -109,8 +109,8 @@ shown in the following code:
 .. code-block:: php
     
    $pipeline = [
-       ['<operator>' => <parameters>],
-       ['<operator>' => <parameters>],
+       ['<stage>' => <parameters>],
+       ['<stage>' => <parameters>],
        ...
    ];
    
@@ -198,7 +198,7 @@ perform the following actions:
 
 1. Create an array to store the pipeline stages.
 
-#. For each stage, call the an operator method from the
+#. For each stage, call the a factory method from the
    ``Stage`` that shares the same name as your desired aggregation
    stage. For example, to create an ``$unwind`` stage, call the
    ``Stage::unwind()`` method.
@@ -213,10 +213,10 @@ aggregation pipelines:
 .. code-block:: php
 
    $pipeline = [
-       Stage::<operator method>(
+       Stage::<factory method>(
            <stage specification>
        ),
-       Stage::<operator method>(
+       Stage::<factory method>(
            <stage specification>
        ),
        ...

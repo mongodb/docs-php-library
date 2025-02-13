@@ -1,12 +1,5 @@
 <?php
 
-use MongoDB\BSON\UTCDateTime;
-use MongoDB\Builder\Accumulator;
-use MongoDB\Builder\Expression;
-use MongoDB\Builder\Query;
-use MongoDB\Builder\Stage;
-use MongoDB\Builder\Type\Sort;
-
 require 'vendor/autoload.php';
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
@@ -48,27 +41,27 @@ echo json_encode($result), PHP_EOL;
 
 // start-builder-match-group
 $pipeline = [
-    Stage::match(
+    MongoDB\Builder\Stage::match(
         date: [
-            Query::gte(new UTCDateTime(new DateTimeImmutable('2014-01-01'))),
-            Query::lt(new UTCDateTime(new DateTimeImmutable('2015-01-01'))),
+            MongoDB\Builder\Query::gte(new MongoDB\BSON\UTCDateTime(new DateTimeImmutable('2014-01-01'))),
+            MongoDB\Builder\Query::lt(new MongoDB\BSON\UTCDateTime(new DateTimeImmutable('2015-01-01'))),
         ],
     ),
-    Stage::group(
-        _id: Expression::dateToString(Expression::dateFieldPath('date'), '%Y-%m-%d'),
-        totalSaleAmount: Accumulator::sum(
-            Expression::multiply(
-                Expression::numberFieldPath('price'),
-                Expression::numberFieldPath('quantity'),
+    MongoDB\Builder\Stage::group(
+        _id: MongoDB\Builder\Expression::dateToString(MongoDB\Builder\Expression::dateFieldPath('date'), '%Y-%m-%d'),
+        totalSaleAmount: MongoDB\Builder\Accumulator::sum(
+            MongoDB\Builder\Expression::multiply(
+                MongoDB\Builder\Expression::numberFieldPath('price'),
+                MongoDB\Builder\Expression::numberFieldPath('quantity'),
             ),
         ),
-        averageQuantity: Accumulator::avg(
-            Expression::numberFieldPath('quantity'),
+        averageQuantity: MongoDB\Builder\Accumulator::avg(
+            MongoDB\Builder\Expression::numberFieldPath('quantity'),
         ),
-        count: Accumulator::sum(1),
+        count: MongoDB\Builder\Accumulator::sum(1),
     ),
-    Stage::sort(
-        totalSaleAmount: Sort::Desc,
+    MongoDB\Builder\Stage::sort(
+        totalSaleAmount: MongoDB\Builder\Type\Sort::Desc,
     ),
 ];
 
@@ -81,14 +74,14 @@ foreach ($cursor as $doc) {
 
 // start-builder-unwind
 $pipeline = [
-    Stage::unwind(Expression::arrayFieldPath('items')),
-    Stage::unwind(Expression::arrayFieldPath('items.tags')),
-    Stage::group(
-        _id: Expression::fieldPath('items.tags'),
-        totalSalesAmount: Accumulator::sum(
-            Expression::multiply(
-                Expression::numberFieldPath('items.price'),
-                Expression::numberFieldPath('items.quantity'),
+    MongoDB\Builder\Stage::unwind(MongoDB\Builder\Expression::arrayFieldPath('items')),
+    MongoDB\Builder\Stage::unwind(MongoDB\Builder\Expression::arrayFieldPath('items.tags')),
+    MongoDB\Builder\Stage::group(
+        _id: MongoDB\Builder\Expression::fieldPath('items.tags'),
+        totalSalesAmount: MongoDB\Builder\Accumulator::sum(
+            MongoDB\Builder\Expression::multiply(
+                MongoDB\Builder\Expression::numberFieldPath('items.price'),
+                MongoDB\Builder\Expression::numberFieldPath('items.quantity'),
             ),
         ),
     ),
@@ -101,9 +94,11 @@ foreach ($cursor as $doc) {
 }
 // end-builder-unwind
 
+$collection = $client->db->orders;
+
 // start-builder-lookup
 $pipeline = [
-    Stage::lookup(
+    MongoDB\Builder\Stage::lookup(
         from: 'inventory',
         localField: 'item',
         foreignField: 'sku',
