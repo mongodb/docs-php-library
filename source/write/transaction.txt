@@ -92,24 +92,24 @@ following table describes these methods:
    :header-rows: 1
 
    * - Method
-	 - Description
+     - Description
 
    * - ``startTransaction()``
-	 - | Starts a new transaction on this session. The session
-		 must be passed into each operation within the transaction, or
-		 the operation will run outside of the transaction.
-	   |
-	   | You can set transaction options by passing an options parameter.
+     - | Starts a new transaction on this session. The session
+         must be passed into each operation within the transaction, or
+         the operation will run outside of the transaction.
+       |
+       | You can set transaction options by passing an options parameter.
 
    * - ``commitTransaction()``
-	 - | Commits the active transaction for this session. This method returns an
-		 error if there is no active transaction for the session, the
-		 transaction was previously ended, or if there is a write conflict.
+     - | Commits the active transaction for this session. This method returns an
+         error if there is no active transaction for the session, the
+         transaction was previously ended, or if there is a write conflict.
 
    * - ``abortTransaction()``
-	 - | Ends the active transaction for this session. This method returns an
-		 error if there is no active transaction for the session or if the
-		 transaction was committed or ended.
+     - | Ends the active transaction for this session. This method returns an
+         error if there is no active transaction for the session or if the
+         transaction was committed or ended.
 
 .. _php-txn-example:
 
@@ -148,24 +148,20 @@ completes the following actions:
    :copyable:
 
    .. input:: /includes/write/transaction.php
-	  :language: php
-	  :dedent:
-	  :start-after: begin-txn
-	  :end-before: end-txn
-	  :emphasize-lines: 1, 4
+      :language: php
+      :dedent:
+      :start-after: begin-txn
+      :end-before: end-txn
+      :emphasize-lines: 1, 4
 
    .. output:: 
-	  :language: console
-	  :visible: false
+      :language: console
+      :visible: false
 
-	  Successfully performed transaction!
-	  Summary: SAVINGS +1000 CHECKING -1000
+      Successfully performed transaction!
+      Summary: SAVINGS +1000 CHECKING -1000
 
 .. sharedinclude:: dbx/transactions-parallelism.rst
-
-   .. replacement:: driver-specific-content
-	  
-	   
 
 Additional Information
 ----------------------
