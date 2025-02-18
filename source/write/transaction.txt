@@ -163,6 +163,8 @@ completes the following actions:
 
 .. sharedinclude:: dbx/transactions-parallelism.rst
 
+   .. replacement:: driver-specific-content
+
 Additional Information
 ----------------------
 
