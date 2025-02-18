@@ -260,12 +260,12 @@ The following code shows the template to modify change stream output by
 using builders:
 
 .. code-block:: php
-    
-   $pipeline = new Pipeline(
+
+   $pipeline = [
        Stage::<factory method>(...),
        Stage::<factory method>(...),
        ...
-   );
+   ];
 
 You can pass this pipeline to the following methods:
 
