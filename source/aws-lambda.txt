@@ -94,15 +94,15 @@ file, as shown in the following code:
 .. code-block:: yaml
 
    plugins:
-	   - ./vendor/bref/bref
-	   - ./vendor/bref/extra-php-extensions # Adds the extra Serverless plugin
+       - ./vendor/bref/bref
+       - ./vendor/bref/extra-php-extensions # Adds the extra Serverless plugin
 
    functions:
-	   api:
-		   handler: index.php
-		   runtime: php-83-fpm
-		   layers:
-			   - ${bref-extra:mongodb-php-81} # Adds the MongoDB layer
+       api:
+           handler: index.php
+           runtime: php-83-fpm
+           layers:
+               - ${bref-extra:mongodb-php-81} # Adds the MongoDB layer
 
 Customize the Sample Application
 --------------------------------
@@ -168,8 +168,12 @@ environment variable ``MONGODB_URI`` to your connection string:
 .. code-block:: yaml
 
    provider:
-	   environment:
-		   MONGODB_URI: "<connection string without credentials>"
+       environment:
+           MONGODB_URI: "<connection string without credentials>"
+
+To learn more about using the ``MONGODB-AWS`` authentication mechanism,
+see the :ref:`MONGODB-AWS <php-mongodb-aws>` section of the
+Authentication Mechanisms guide. 
 
 Deploy Your Application
 -----------------------
