@@ -20,8 +20,8 @@ Deploy to AWS Lambda
 Overview
 --------
 
-In this guide, you can learn how to use the tool `Bref
-<https://bref.sh>`__ to deploy serverless PHP applications on AWS
+In this guide, you can learn how to use `Bref
+<https://bref.sh>`__ to deploy serverless PHP applications to AWS
 Lambda. This guide demonstrates how to deploy a PHP application built by
 using the {+library-short+} and connect to an Atlas cluster by using AWS
 IAM authentication.
@@ -43,9 +43,9 @@ Install Dependencies
 
 Bref uses `Lambda layers
 <https://docs.aws.amazon.com/lambda/latest/dg/chapter-layers.html>`__ to
-provide the PHP runtime. The ``bref`` layer is compiled with PHP and a
-few extensions. You can install extensions, such as ``mongodb``,
-in other layers.
+provide the PHP runtime. The ``bref`` layer integrates Bref into your
+application and is compiled with PHP and a few other extensions. You can
+install the other necessary extensions, such as ``mongodb``, in other layers.
 
 The following commands create a new project directory and install the
 MongoDB and Bref dependencies:
@@ -69,23 +69,13 @@ After the commands complete, your project contains the following files:
 - ``index.php``: Defines a sample webpage
 - ``serverless.yml``: Configures the deployment
 
-To validate your setup, try to deploy the default application. The
-following command deploys the application and returns a URL that renders
-a webpage that shows the Bref logo:
-
-.. code-block:: bash
-
-   serverless deploy
-
 Add the MongoDB Extension to Your Configuration
 -----------------------------------------------
 
 After you initialize the project, you can add the ``mongodb`` extension.
 Locate the ``Serverless config`` name in the list of extensions provided
 by the :github:`bref/extra-php-extension <brefphp/extra-php-extensions>`
-package.
-
-Add it to the ``layers`` of the function in the ``serverless.yaml``
+package. Add it to the ``layers`` of the function in the ``serverless.yaml``
 file, as shown in the following code:
 
 .. code-block:: yaml
@@ -133,7 +123,8 @@ The following steps demonstrate how to set the role in your Atlas
 cluster:
 
 1. Open the Lambda function in the AWS console.
-#. Enter :guilabel:`Configuration > Permission`, then copy the :guilabel:`Role name`.
+#. Navigate to :guilabel:`Configuration > Permission`, then copy the
+   :guilabel:`Role name`.
 #. Add this role to your Atlas cluster in the :guilabel:`Database
    Access` section. Select the :guilabel:`AWS IAM` authentication method
    and set the built-in role ``Read and write any database``.
@@ -152,15 +143,17 @@ the Atlas documentation.
 
 .. note::
 
-   Using VPC Peering is recommended to isolate your Atlas
-   cluster from the internet. This requires the Lambda function to be
-   deployed in this AWS VPC.
+   Using Virtual Private Cloud (VPC) Peering is recommended to isolate
+   your Atlas cluster from the internet. This requires the Lambda
+   function to be deployed in the AWS VPC. To learn more, see
+   :atlas:`Set Up a Network Peering Connection </security-vpc-peering>`
+   in the Atlas documentation.
 
 Next, copy your connection string and remove the ``<AWS access key>:<AWS
 secret key>`` section, as your credentials are read from environment variables.
 
-Update the ``serverless.yml`` file in your project to set the
-environment variable ``MONGODB_URI`` to your connection string:
+In your project's ``serverless.yml`` file, set the
+``MONGODB_URI`` environment variable to your connection string:
 
 .. code-block:: yaml
 
