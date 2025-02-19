@@ -94,23 +94,12 @@ file, as shown in the following code:
 Customize the Sample Application
 --------------------------------
 
-This step explains how to create a web page that list planets from the
-Atlas :atlas:`sample data </sample-data>`. Replace the contents of
-``index.php`` with the following code:
+Create a web page that list planets from the Atlas :atlas:`sample data
+</sample-data>` by replacing the contents of ``index.php`` with the
+following code:
 
 .. literalinclude:: /examples/aws-lambda/index.php
    :language: php
-
-Redeploy the application with the new ``index.php`` by running the
-following command:
-
-.. code-block:: bash
-
-   serverless deploy
-
-The application page displays an error message because the ``MONGODB_URI``
-environment variable is not set. The following section explains how to
-set your connection string in an environment variable.
 
 Set AWS Credentials
 -------------------
