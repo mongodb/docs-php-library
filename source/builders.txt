@@ -23,19 +23,21 @@ Overview
 In this guide, you can learn about the **builder classes**
 that the {+library-short+} provides to create types used in your
 operations. You can use the builder classes and factory methods from the
-:ref:`php-aggregation-builder-api` feature to create filters for other
-operations such as find, update, and delete operations.
+Aggregation Builder feature to create filters for other operations such
+as find, update, and delete operations. To learn more about the Aggregation
+Builder, see the :ref:`php-aggregation-builder-api` section of the
+Aggregation guide. 
 
 Using builders to create queries helps you identify errors at compile
 time and avoid them at runtime. This guide provides information on
-builder classes that you can use for the following tasks:
+builder classes that you can use to perform the following tasks:
 
-- :ref:`Creating a filter definition <php-builders-filter>`
-- :ref:`Defining an update operation <php-builders-update>`
-- :ref:`Filtering a change stream <php-builders-changestream>`
+- :ref:`php-builders-filter`
+- :ref:`php-builders-update`
+- :ref:`php-builders-changestream`
 
-.. note:: Options
-    
+.. note:: Setting Operation Options
+
    You cannot specify options by using factory methods for the equivalent
    aggregation stages. For example, you cannot use the ``Stage::limit()`` method
    to set a returned documents limit on your find operation. You must specify
@@ -97,7 +99,7 @@ builders:
 1. Instantiate the ``QueryInterface`` by calling the ``Query::query()``
    method.
    
-#. Pass the field name to compare and a factory method from the
+#. Pass the field name to filter on and a factory method from the
    ``Query`` class. You can pass one or more pairs of field names and
    criteria to the ``QueryInterface``.
 
@@ -187,8 +189,8 @@ You can use factory methods from the ``Stage`` builder class to update
 or create field values in your update operations. To learn more about
 updating documents, see the :ref:`php-write-update` guide.
 
-.. important::
-    
+.. important:: Only $set Operator Supported
+
    The only update operation that you can express by using builders uses
    the ``$set`` operator. This operator allows you to replace the value of
    a field with a specified value or create a new field that has a specified
@@ -218,8 +220,7 @@ This example performs the following actions:
 
 - Uses the ``Query::eq()`` factory method to match documents in which
   the ``watlev`` field value is ``'partly submerged at high water'``
-- Uses builders to specify an update that sets
-  sets the ``year`` field to ``1870``
+- Uses the ``Stage::set()`` method to update the ``year`` field to ``1870``
 - Calls the :phpmethod:`MongoDB\Collection::updateOne()`
   method to perform the update
 - Prints the number of updated documents
@@ -280,8 +281,8 @@ This example performs the following actions:
 - Uses the ``Stage::project()`` method to output only the specified change
   event fields
 - Calls the :phpmethod:`MongoDB\Collection::watch()`
-  method to open the change stream with the option to output the full
-  document after update
+  method to open the change stream and sets the ``fullDocument`` option
+  to output the full document after update
 - Prints change events as they occur
 
 .. io-code-block::

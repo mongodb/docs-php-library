@@ -16,6 +16,8 @@ $collection = $client->sample_geospatial->shipwrecks;
 // end-db-coll
 
 // start-find
+/* Creates a query filter by using builders and
+   retrieves matching documents */
 $docs = $collection->find(Query::query(
     feature_type: Query::eq('Wrecks - Visible'),
     coordinates: Query::near(
@@ -27,12 +29,15 @@ $docs = $collection->find(Query::query(
     )
 ));
 
+/* Prints matching documents */
 foreach ($docs as $doc) {
     echo json_encode($doc), PHP_EOL;
 }
 // end-find
 
 // start-deleteone
+/* Creates a query filter by using builders
+   and deletes the first matching document */
 $result = $collection->deleteOne(Query::query(
     feature_type: Query::regex('nondangerous$', '')
 ));
@@ -41,6 +46,8 @@ echo 'Deleted documents: ', $result->getDeletedCount(), PHP_EOL;
 // end-deleteone
 
 // start-updateone
+/* Creates a query filter and an update document by
+   using builders and updates the first matching document */
 $result = $collection->updateOne(
     Query::query(watlev: Query::eq('partly submerged at high water')),
     new Pipeline(
@@ -52,16 +59,20 @@ echo 'Updated documents: ', $result->getModifiedCount(), PHP_EOL;
 // end-updateone
 
 // start-cs
+/* Creates a pipeline to filter for update operations and returns
+   only specific fields */
 $pipeline = [
     Stage::match(operationType: Query::eq('update')),
     Stage::project(operationType: 1, ns: 1, fullDocument: 1),
 ];
 
+/* Opens the change stream */
 $changeStream = $collection->watch(
     $pipeline,
     ['fullDocument' => MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP]
 );
 
+/* Prints change events based on the pipeline specifications */
 for ($changeStream->rewind(); true; $changeStream->next()) {
     if (! $changeStream->valid()) {
         continue;
