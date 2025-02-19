@@ -155,7 +155,7 @@ the Atlas documentation.
 
 .. note::
 
-   Using VPC Peering is recommended in order to isolate your Atlas
+   Using VPC Peering is recommended to isolate your Atlas
    cluster from the internet. This requires the Lambda function to be
    deployed in this AWS VPC.
 
