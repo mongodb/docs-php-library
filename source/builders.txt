@@ -307,4 +307,4 @@ This example performs the following actions:
       }
 
 To learn more about the information provided by change events, see
-:manual:`Change Events <reference/change-events/>` in the {+mdb-server+} manual.
+:manual:`Change Events </reference/change-events>` in the {+mdb-server+} manual.
