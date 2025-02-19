@@ -69,9 +69,6 @@ After the commands complete, your project contains the following files:
 - ``index.php``: Defines a sample webpage
 - ``serverless.yml``: Configures the deployment
 
-Deploy the Sample Application
------------------------------
-
 To validate your setup, try to deploy the default application. The
 following command deploys the application and returns a URL that renders
 a webpage that shows the Bref logo:
@@ -85,8 +82,8 @@ Add the MongoDB Extension to Your Configuration
 
 After you initialize the project, you can add the ``mongodb`` extension.
 Locate the ``Serverless config`` name in the list of extensions provided
-by the `bref/extra-php-extension
-<https://github.com/brefphp/extra-php-extensions>`__ package.
+by the :github:`bref/extra-php-extension <brefphp/extra-php-extensions>`
+package.
 
 Add it to the ``layers`` of the function in the ``serverless.yaml``
 file, as shown in the following code:
@@ -122,8 +119,8 @@ following command:
    serverless deploy
 
 The application page displays an error message because the ``MONGODB_URI``
-environment variable is not set.The following section explains how to
-set your connection string as an environment variable.
+environment variable is not set. The following section explains how to
+set your connection string in an environment variable.
 
 Set AWS Credentials
 -------------------
@@ -185,4 +182,4 @@ Finally, deploy with the new configuration:
    serverless deploy
 
 After deployment completes, you can access the URL and see the
-list of planets from your collection. 
+list of planets from your collection.
