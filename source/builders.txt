@@ -185,13 +185,14 @@ guide.
 Define an Update Document
 -------------------------
 
-You can use factory methods from the ``Stage`` builder class to update
-or create field values in your update operations. To learn more about
-updating documents, see the :ref:`php-write-update` guide.
+You can use the ``Stage::set()`` factory method when creating update
+documents. Update documents describe the updates to make to target
+documents. To learn more about updating documents, see the
+:ref:`php-write-update` guide.
 
-.. important:: Only $set Operator Supported
+.. important:: Only $set Operator Supported in Update Documents
 
-   The only update operation that you can express by using builders uses
+   The only update operation that you can express with builders uses
    the ``$set`` operator. This operator allows you to replace the value of
    a field with a specified value or create a new field that has a specified
    value. To learn more, see the :manual:`$set </reference/operator/update/set/>`
@@ -220,7 +221,7 @@ This example performs the following actions:
 
 - Uses the ``Query::eq()`` factory method to match documents in which
   the ``watlev`` field value is ``'partly submerged at high water'``
-- Uses the ``Stage::set()`` method to update the ``year`` field to ``1870``
+- Uses the ``Stage::set()`` method to set the ``year`` field to ``1870``
 - Calls the :phpmethod:`MongoDB\Collection::updateOne()`
   method to perform the update
 - Prints the number of updated documents
@@ -276,10 +277,10 @@ You can pass this pipeline to the following methods:
 
 This example performs the following actions:
 
-- Uses the ``Stage::match()`` method to filter for only update change
-  events
-- Uses the ``Stage::project()`` method to output only the specified change
-  event fields
+- Uses the ``Stage::match()`` method to filter for only change
+  events for update operations
+- Uses the ``Stage::project()`` method to output only the
+  ``operationType``, ``ns`` (namespace), and ``fullDocument`` fields
 - Calls the :phpmethod:`MongoDB\Collection::watch()`
   method to open the change stream and sets the ``fullDocument`` option
   to output the full document after update
@@ -304,3 +305,6 @@ This example performs the following actions:
         "fullDocument":{"_id":...,"feature_type":"Wrecks - Visible",...},
         "ns":{"db":"sample_geospatial","coll":"shipwrecks"}
       }
+
+To learn more about the information provided by change events, see
+:manual:`Change Events <reference/change-events/>` in the {+mdb-server+} manual.
