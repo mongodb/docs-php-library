@@ -1,8 +1,8 @@
 .. _php-aws-lambda:
 
-====================
-Deploy to AWS Lambda
-====================
+==================================
+Deploy to AWS Lambda by Using Bref
+==================================
 
 .. facet::
    :name: genre
@@ -98,8 +98,14 @@ Create a web page that list planets from the Atlas :atlas:`sample data
 </sample-data>` by replacing the contents of ``index.php`` with the
 following code:
 
-.. literalinclude:: /examples/aws-lambda/index.php
+.. literalinclude:: /includes/aws-lambda/index.php
    :language: php
+
+.. tip:: Find Operations
+    
+   The preceding code uses the :phpmethod:`MongoDB\Collection::find()`
+   method to retrieve documents. To learn more about this method, see the
+   :ref:`php-retrieve` guide.
 
 Set AWS Credentials
 -------------------
@@ -157,7 +163,7 @@ Authentication Mechanisms guide.
 Deploy Your Application
 -----------------------
 
-Finally, deploy with the new configuration:
+Finally, deploy the application:
 
 .. code-block:: bash
 
