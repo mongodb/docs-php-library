@@ -90,18 +90,19 @@ Create a Filter
 ---------------
 
 You can use factory methods from the ``Query`` builder class to create
-filter definitions to use in find, update, and delete operations. To
-learn more about creating filters, see the :ref:`php-specify-query` guide.
+filter definitions to use in find, update, and delete operations. When
+using the ``Query::query()`` factory method to create queries, you can
+use named argument syntax and implement type safety. To learn more about
+creating filters, see the :ref:`php-specify-query` guide.
 
 The following steps describe how to create a filter definition by using
 builders:
 
-1. Instantiate the ``QueryInterface`` by calling the ``Query::query()``
-   method.
+1. Call the ``Query::query()`` method to create a query.
    
 #. Pass the field name to filter on and a factory method from the
    ``Query`` class. You can pass one or more pairs of field names and
-   criteria to the ``QueryInterface``.
+   criteria in the filter to apply multiple clauses.
 
 The following code shows the template to create a filter definition by
 using builders:
@@ -113,6 +114,21 @@ using builders:
        <field name>: Query::<factory method>(<parameters>),
        ...
    );
+
+To combine query criteria by using logical query operators
+(``$and``, ``$or``, ``$not``, ``$nor``), you can use the following
+query template:
+
+.. code-block:: php
+    
+   $filter = Query::<logical operator>(
+       Query::query(<field name>: Query::<factory method>(<parameters>)),
+       Query::query(<field name>: Query::<factory method>(<parameters>)),
+       ...
+   );
+
+To learn more, see :manual:`Logical Query Operators
+</reference/operator/query-logical/>` in the {+mdb-server+} manual.
 
 The following sections provide examples that use builders to create
 filter definitions for different operations.
@@ -156,10 +172,18 @@ Delete Example
 
 This example performs the following actions:
 
-- Uses the ``Query::regex()`` factory method to match documents in which
-  the ``feature_type`` field value contains the string ``'nondangerous'``
+- Uses the ``Query::or()`` factory method to match documents that
+  satisfy the either of the following query clauses:
+  
+  - Clause that uses the ``Query::regex()`` factory method to check if
+    the ``feature_type`` field value contains the string ``'nondangerous'``
+  
+  - Clause that uses the ``Query::gt()`` factory method to check if the
+    ``depth`` field value is greater than ``10.0``
+
 - Calls the :phpmethod:`MongoDB\Collection::deleteOne()`
   method to delete the first matching document
+
 - Prints the number of deleted documents
 
 .. io-code-block::
