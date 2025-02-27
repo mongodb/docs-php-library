@@ -18,16 +18,18 @@ $collection = $client->sample_geospatial->shipwrecks;
 // start-find
 // Creates a query filter by using builders and
 // retrieves matching documents
-$docs = $collection->find(Query::query(
-    feature_type: Query::eq('Wrecks - Visible'),
-    coordinates: Query::near(
-        Query::geometry(
-            type: 'Point',
-            coordinates: [-79.9, 9.3],
-        ),
-        maxDistance: 10000,
+$docs = $collection->find(
+    Query::query(
+        feature_type: Query::eq('Wrecks - Visible'),
+        coordinates: Query::near(
+            Query::geometry(
+                type: 'Point',
+                coordinates: [-79.9, 9.3],
+            ),
+            maxDistance: 10000,
+        )
     )
-));
+);
 
 // Prints matching documents
 foreach ($docs as $doc) {
@@ -38,9 +40,12 @@ foreach ($docs as $doc) {
 // start-deleteone
 // Creates a query filter by using builders
 // and deletes the first matching document
-$result = $collection->deleteOne(Query::query(
-    feature_type: Query::regex('nondangerous$', '')
-));
+$result = $collection->deleteOne(
+    Query::or(
+        Query::query(feature_type: Query::regex('nondangerous$', '')),
+        Query::query(depth: Query::gt(10.0)),
+    )
+);
 
 // Prints number of deleted documents
 echo 'Deleted documents: ', $result->getDeletedCount(), PHP_EOL;
