@@ -63,6 +63,11 @@ improvements, and fixes:
 - Deprecates the ``flags`` option, used for the deprecated MMAPv1 storage engine. 
   This option will be removed in {+library-short+} v2.0.
 
+- Adds a sort option to the :phpmethod:`MongoDB\Collection::updateOne()`
+  and :phpmethod:`MongoDB\Collection::replaceOne()` methods. This
+  change also allows you to set a sort order as an option when performing
+  update and replace operations in a bulk operation.
+
 .. _php-lib-version-1.20:
 
 What's New in 1.20
