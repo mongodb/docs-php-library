@@ -209,26 +209,18 @@ guide.
 Define an Update Document
 -------------------------
 
-You can use the ``Stage::set()`` factory method when creating update
-documents. Update documents describe the updates to make to target
+You can use factory methods from the ``Stage`` builder class to create
+update documents. Update documents describe the updates to make to target
 documents. To learn more about updating documents, see the
 :ref:`php-write-update` guide.
-
-.. important:: Only $set Operator Supported in Update Documents
-
-   The only update operation that you can express with builders uses
-   the ``$set`` operator. This operator allows you to replace the value of
-   a field with a specified value or create a new field that has a specified
-   value. To learn more, see the :manual:`$set </reference/operator/update/set/>`
-   reference in the {+mdb-server+} manual.
 
 The following steps describe how to create an update document by using
 builders:
 
 1. Create a ``Pipeline`` instance.
    
-#. Pass one or more ``$set`` stages by calling the ``Stage::set()``
-   method and passing a field name and a value.
+#. Pass one or more stages by calling methods from the ``Stage`` class
+   such as ``Stage::set()`` and passing field names and values.
 
 The following code shows the template to define an update by using
 builders:
