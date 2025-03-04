@@ -20,5 +20,5 @@ php-library = "MongoDB PHP Library"
 targets = ["*"]
 variant = "info"
 value = """\
-    This version of the documentation is archived and no longer supported. View the `current documentation <https://www.mongodb.com/docs/php-library/current/>`__ to learn how to `upgrade your version of the {+php-library+} <https://www.mongodb.com/docs/php-library/current/upgrade/>`__.\
+    This version of the documentation is archived and no longer supported. View the `current documentation <https://www.mongodb.com/docs/php-library/current/>`__ to learn how to `upgrade your version of the MongoDB PHP Library <https://www.mongodb.com/docs/php-library/current/upgrade/>`__.\
     """
