@@ -1,5 +1,6 @@
 name = "php-library"
 title = "PHP Library Manual"
+eol = true
 
 intersphinx = ["https://www.mongodb.com/docs/manual/objects.inv"]
 
@@ -14,3 +15,10 @@ toc_landing_pages = [
 
 [substitutions]
 php-library = "MongoDB PHP Library"
+
+[[banners]]
+targets = ["*"]
+variant = "info"
+value = """\
+    This version of the documentation is archived and no longer supported. View the `current documentation <https://www.mongodb.com/docs/php-library/current/>`__ to learn how to `upgrade your version of the MongoDB PHP Library <https://www.mongodb.com/docs/php-library/current/upgrade/>`__.\
+    """
