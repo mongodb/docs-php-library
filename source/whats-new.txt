@@ -165,7 +165,7 @@ improvements, and fixes:
   - :phpmethod:`Database constructor <MongoDB\Database::__construct()>`
   - :phpmethod:`MongoDB\Database::withOptions()`
   - :phpmethod:`Collection constructor <MongoDB\Collection::__construct()>`  
-  - :phpmethod:`MongoDB\Collection::withOptions()` methods
+  - :phpmethod:`MongoDB\Collection::withOptions()`
 
 For more information about the changes in this version, see the
 :github:`v1.21 release notes
