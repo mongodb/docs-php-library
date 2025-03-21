@@ -40,7 +40,7 @@ Parameters
          query and aggregation options. If omitted, the ``Database``
          instance uses the default encoder.
 
-         .. versionadded:: 1.21.1
+         .. versionadded:: 1.21
 
      * - readConcern
        - :php:`MongoDB\Driver\ReadConcern <class.mongodb-driver-readconcern>`
