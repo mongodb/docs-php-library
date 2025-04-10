@@ -3,6 +3,9 @@
 Tutorials
 =========
 
+.. meta::
+   :description: Explore various tutorials for using the PHP library with MongoDB.
+
 
 .. toctree::
 

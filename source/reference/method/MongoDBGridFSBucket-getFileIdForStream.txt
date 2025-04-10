@@ -2,6 +2,9 @@
 MongoDB\\GridFS\\Bucket::getFileIdForStream()
 =============================================
 
+.. meta::
+   :description: Retrieve the file document's ID for a GridFS file associated with a stream using `getFileIdForStream()` in PHP.
+
 
 .. contents:: On this page
    :local:

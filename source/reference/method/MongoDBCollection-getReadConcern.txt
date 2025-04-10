@@ -2,6 +2,9 @@
 MongoDB\\Collection::getReadConcern()
 =====================================
 
+.. meta::
+   :description: Retrieve the read concern for a MongoDB collection using the `getReadConcern()` method.
+
 .. versionadded:: 1.2
 
 

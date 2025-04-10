@@ -2,6 +2,9 @@
 MongoDB\\Collection::watch()
 ============================
 
+.. meta::
+   :description: Execute a change stream operation on a collection using `MongoDB\Collection::watch()` to monitor collection-level changes.
+
 .. versionadded:: 1.3
 
 

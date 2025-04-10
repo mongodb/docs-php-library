@@ -2,6 +2,9 @@
 MongoDB\\Collection::explain()
 ==============================
 
+.. meta::
+   :description: Explore how to use `MongoDB\Collection::explain()` to analyze command execution details, including parameters and return values.
+
 .. versionadded:: 1.4
 
 

@@ -2,6 +2,9 @@
 MongoDB\\Client::selectCollection()
 ===================================
 
+.. meta::
+   :description: Select a collection on the server using `MongoDB\Client::selectCollection()` with customizable options for read and write concerns.
+
 .. contents:: On this page
    :local:
    :backlinks: none

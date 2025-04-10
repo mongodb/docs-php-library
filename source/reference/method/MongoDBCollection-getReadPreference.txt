@@ -2,6 +2,9 @@
 MongoDB\\Collection::getReadPreference()
 ========================================
 
+.. meta::
+   :description: Retrieve the read preference for a MongoDB collection using the `getReadPreference()` method.
+
 .. versionadded:: 1.2
 
 

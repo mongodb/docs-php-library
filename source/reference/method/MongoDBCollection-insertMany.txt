@@ -2,6 +2,9 @@
 MongoDB\\Collection::insertMany()
 =================================
 
+.. meta::
+   :description: Insert multiple documents into a MongoDB collection using `insertMany()`, with options for validation, write concern, and session management.
+
 
 .. contents:: On this page
    :local:

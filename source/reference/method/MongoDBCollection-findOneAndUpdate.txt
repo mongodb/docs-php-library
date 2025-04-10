@@ -2,6 +2,9 @@
 MongoDB\\Collection::findOneAndUpdate()
 =======================================
 
+.. meta::
+   :description: Discover how to use `findOneAndUpdate()` in PHP to find and update a single document in a MongoDB collection, with options for projection, sorting, and more.
+
 
 .. contents:: On this page
    :local:

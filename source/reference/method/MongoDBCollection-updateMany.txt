@@ -2,6 +2,9 @@
 MongoDB\\Collection::updateMany()
 =================================
 
+.. meta::
+   :description: Update multiple documents in a collection using `MongoDB\Collection::updateMany()` with various options like filters, collation, and upsert.
+
 
 .. contents:: On this page
    :local:

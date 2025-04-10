@@ -2,6 +2,9 @@
 MongoDB\\Collection::count()
 ============================
 
+.. meta::
+   :description: Count documents matching filter criteria using `MongoDB\Collection::count()`, with options for collation, hint, limit, and more.
+
 .. deprecated:: 1.4
 
 

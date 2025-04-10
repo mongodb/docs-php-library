@@ -2,6 +2,9 @@
 MongoDB\\Collection::countDocuments()
 =====================================
 
+.. meta::
+   :description: Count documents in a collection matching filter criteria using `MongoDB\Collection::countDocuments()` with various options for customization.
+
 .. versionadded:: 1.4
 
 

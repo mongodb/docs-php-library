@@ -2,6 +2,9 @@
 MongoDB\\Client::getReadPreference()
 ====================================
 
+.. meta::
+   :description: Retrieve the read preference setting for a MongoDB client using the `getReadPreference()` method.
+
 .. versionadded:: 1.2
 
 

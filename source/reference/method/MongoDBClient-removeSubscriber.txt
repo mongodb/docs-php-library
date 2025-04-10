@@ -2,6 +2,9 @@
 MongoDB\\Client::removeSubscriber()
 ===================================
 
+.. meta::
+   :description: Unregister a monitoring event subscriber from a MongoDB client using the `removeSubscriber()` method.
+
 .. versionadded:: 1.18
 
 

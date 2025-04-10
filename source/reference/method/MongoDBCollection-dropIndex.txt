@@ -2,6 +2,9 @@
 MongoDB\\Collection::dropIndex()
 ================================
 
+.. meta::
+   :description: Drop an index from a collection using `MongoDB\Collection::dropIndex()` with options for session, write concern, and more.
+
 .. contents:: On this page
    :local:
    :backlinks: none

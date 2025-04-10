@@ -2,6 +2,9 @@
 MongoDB\\Collection::rename()
 =============================
 
+.. meta::
+   :description: Rename a MongoDB collection using the PHP library, with options for database name, drop target, and write concern.
+
 .. versionadded:: 1.10
 
 .. contents:: On this page

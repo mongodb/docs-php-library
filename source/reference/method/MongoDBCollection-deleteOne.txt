@@ -2,6 +2,9 @@
 MongoDB\\Collection::deleteOne()
 ================================
 
+.. meta::
+   :description: Delete a single document matching filter criteria using `MongoDB\Collection::deleteOne()` with options for collation, hint, and write concern.
+
 
 .. contents:: On this page
    :local:

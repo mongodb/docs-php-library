@@ -2,6 +2,9 @@
 MongoDB\\Collection::listIndexes()
 ==================================
 
+.. meta::
+   :description: Retrieve information on all indexes for a collection using the `listIndexes()` method in PHP.
+
 .. contents:: On this page
    :local:
    :backlinks: none
