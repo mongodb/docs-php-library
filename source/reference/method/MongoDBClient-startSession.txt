@@ -2,6 +2,9 @@
 MongoDB\\Client::startSession()
 ===============================
 
+.. meta::
+   :description: Start a new client session in PHP using `MongoDB\Client::startSession()` and handle potential exceptions.
+
 .. versionadded:: 1.3
 
 

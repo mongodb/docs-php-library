@@ -2,6 +2,9 @@
 MongoDB\\Client::getTypeMap()
 =============================
 
+.. meta::
+   :description: Retrieve the type map for a MongoDB client using the `getTypeMap()` method in PHP.
+
 .. versionadded:: 1.2
 
 

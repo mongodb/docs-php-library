@@ -2,6 +2,9 @@
 MongoDB\\GridFS\\Bucket::find()
 ===============================
 
+.. meta::
+   :description: Discover how to use `MongoDB\GridFS\Bucket::find()` to query documents in a GridFS bucket's files collection with various filter and option parameters.
+
 .. contents:: On this page
    :local:
    :backlinks: none

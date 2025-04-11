@@ -2,6 +2,9 @@
 MongoDB\\Collection::dropSearchIndex()
 ======================================
 
+.. meta::
+   :description: Drop an Atlas Search index from a collection using the `dropSearchIndex` method, available for Atlas deployments with a minimum M10 cluster tier.
+
 .. versionadded:: 1.17
 
 .. contents:: On this page

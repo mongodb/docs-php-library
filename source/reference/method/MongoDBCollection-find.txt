@@ -2,6 +2,9 @@
 MongoDB\\Collection::find()
 ===========================
 
+.. meta::
+   :description: Discover how to use `MongoDB\Collection::find()` to query documents with various options like filters, projections, and sorting in PHP.
+
 .. contents:: On this page
    :local:
    :backlinks: none

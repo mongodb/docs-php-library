@@ -2,6 +2,9 @@
 MongoDB\\Collection::distinct()
 ===============================
 
+.. meta::
+   :description: Find distinct values for a specified field in a MongoDB collection using the `distinct()` method, with options for filtering and additional parameters.
+
 .. contents:: On this page
    :local:
    :backlinks: none

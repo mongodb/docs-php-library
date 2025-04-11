@@ -2,6 +2,9 @@
 MongoDB\\Collection::getNamespace()
 ===================================
 
+.. meta::
+   :description: Retrieve the namespace of a MongoDB collection using the `getNamespace()` method in PHP.
+
 
 .. contents:: On this page
    :local:

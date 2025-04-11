@@ -2,6 +2,9 @@
 MongoDB\\Collection Class
 =========================
 
+.. meta::
+   :description: Explore methods for performing CRUD operations and index management with the MongoDB\\Collection class in PHP.
+
 
 .. contents:: On this page
    :local:

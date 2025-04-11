@@ -2,6 +2,9 @@
 MongoDB\\Client::watch()
 ========================
 
+.. meta::
+   :description: Execute a change stream operation on the client to monitor cluster-level changes using `MongoDB\Client::watch()`.
+
 .. versionadded:: 1.4
 
 

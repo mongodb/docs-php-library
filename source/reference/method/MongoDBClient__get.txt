@@ -2,6 +2,9 @@
 MongoDB\\Client::__get()
 ========================
 
+.. meta::
+   :description: Access a database on the server using the `MongoDB\Client::__get()` method, which acts as an alias for `selectDatabase()`.
+
 
 .. contents:: On this page
    :local:

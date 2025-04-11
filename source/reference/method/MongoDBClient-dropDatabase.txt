@@ -2,6 +2,9 @@
 MongoDB\\Client::dropDatabase()
 ===============================
 
+.. meta::
+   :description: Drop a database on the server using `MongoDB\Client::dropDatabase()` with options for comments, sessions, type maps, and write concerns.
+
 .. contents:: On this page
    :local:
    :backlinks: none

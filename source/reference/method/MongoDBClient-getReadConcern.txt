@@ -2,6 +2,9 @@
 MongoDB\\Client::getReadConcern()
 =================================
 
+.. meta::
+   :description: Retrieve the read concern level set for a MongoDB client using the `getReadConcern()` method.
+
 .. versionadded:: 1.2
 
 

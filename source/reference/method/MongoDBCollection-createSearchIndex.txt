@@ -2,6 +2,9 @@
 MongoDB\\Collection::createSearchIndex()
 ========================================
 
+.. meta::
+   :description: Create an Atlas Search or Vector Search index for a collection using `MongoDB\Collection::createSearchIndex()` in PHP, specifying index type and options.
+
 .. versionadded:: 1.17
 
 .. contents:: On this page

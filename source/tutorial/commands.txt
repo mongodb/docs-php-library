@@ -4,6 +4,9 @@
 Execute Database Commands
 =========================
 
+.. meta::
+   :description: Learn to execute database commands in PHP using the MongoDB PHP Library, including handling single and multiple result documents and setting custom read preferences.
+
 
 .. contents:: On this page
    :local:

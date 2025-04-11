@@ -4,6 +4,9 @@
 Collation
 =========
 
+.. meta::
+   :description: Learn how to use collations in MongoDB to apply language-specific rules for string comparison in collections, indexes, and various operations.
+
 
 .. contents:: On this page
    :local:

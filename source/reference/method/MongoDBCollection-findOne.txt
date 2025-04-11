@@ -2,6 +2,9 @@
 MongoDB\\Collection::findOne()
 ==============================
 
+.. meta::
+   :description: Discover how to use `MongoDB\Collection::findOne()` to find a single document in a collection with various query and option parameters.
+
 .. contents:: On this page
    :local:
    :backlinks: none

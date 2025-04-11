@@ -2,6 +2,9 @@
 MongoDB\\Collection::getWriteConcern()
 ======================================
 
+.. meta::
+   :description: Retrieve the write concern for a MongoDB collection using the `getWriteConcern()` method.
+
 .. versionadded:: 1.2
 
 

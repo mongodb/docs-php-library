@@ -2,6 +2,9 @@
 MongoDB\\Collection::__construct()
 ==================================
 
+.. meta::
+   :description: Construct a new Collection instance in PHP with options for read and write concerns, type mapping, and more.
+
 
 .. contents:: On this page
    :local:

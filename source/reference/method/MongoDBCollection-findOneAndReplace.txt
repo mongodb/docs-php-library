@@ -2,6 +2,9 @@
 MongoDB\\Collection::findOneAndReplace()
 ========================================
 
+.. meta::
+   :description: Discover how to use `findOneAndReplace()` in PHP to find and replace a document in a MongoDB collection with various options and return the modified document.
+
 
 .. contents:: On this page
    :local:
