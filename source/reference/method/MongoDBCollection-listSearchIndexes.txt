@@ -3,7 +3,7 @@ MongoDB\\Collection::listSearchIndexes()
 ========================================
 
 .. meta::
-   :description: Retrieve index information for search indexes in a collection using `listSearchIndexes()` with various customizable options.
+   :description: Retrieve index information for all search indexes in a collection with the MongoDB PHP Library, with various customizable options.
 
 .. versionadded:: 1.17
 

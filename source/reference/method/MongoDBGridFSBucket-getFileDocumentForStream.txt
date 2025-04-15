@@ -3,7 +3,7 @@ MongoDB\\GridFS\\Bucket::getFileDocumentForStream()
 ===================================================
 
 .. meta::
-   :description: Retrieve the file document of a GridFS file associated with a stream using `getFileDocumentForStream()` in PHP.
+   :description: Retrieve the file document of a GridFS file associated with a stream with the MongoDB PHP Library.
 
 
 .. contents:: On this page

@@ -3,7 +3,7 @@ MongoDB\\GridFS\\Bucket::find()
 ===============================
 
 .. meta::
-   :description: Discover how to use `MongoDB\GridFS\Bucket::find()` to query documents in a GridFS bucket's files collection with various filter and option parameters.
+   :description: Query documents in a GridFS bucket's files collection with the MongoDB PHP Library, with various filter and option parameters.
 
 .. contents:: On this page
    :local:

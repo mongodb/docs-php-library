@@ -3,7 +3,7 @@ MongoDB\\Collection::getDatabaseName()
 ======================================
 
 .. meta::
-   :description: Retrieve the name of the database containing a specific collection using `MongoDB\Collection::getDatabaseName()`.
+   :description: Retrieve the name of the database containing a specific collection with the MongoDB PHP Library.
 
 
 .. contents:: On this page

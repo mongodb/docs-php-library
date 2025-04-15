@@ -5,7 +5,7 @@ In-Use Encryption
 =================
 
 .. meta::
-   :description: Learn how to implement in-use encryption in PHP projects using MongoDB, including managing encryption keys and configuring client-side field level encryption.
+   :description: Learn how to implement in-use encryption in PHP projects with the MongoDB PHP Library, including managing encryption keys and configuring client-side field level encryption.
 
 
 .. contents:: On this page

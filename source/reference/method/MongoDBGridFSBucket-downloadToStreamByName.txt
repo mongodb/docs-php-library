@@ -3,7 +3,7 @@ MongoDB\\GridFS\\Bucket::downloadToStreamByName()
 =================================================
 
 .. meta::
-   :description: Use `downloadToStreamByName()` to select a GridFS file by filename and copy its contents to a writable stream, with options for file revision.
+   :description: Select a GridFS file by filename and copy its contents to a writable stream with the MongoDB PHP Library, with options for file revision.
 
 
 .. contents:: On this page

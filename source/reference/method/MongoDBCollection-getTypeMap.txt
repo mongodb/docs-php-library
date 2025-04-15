@@ -3,7 +3,7 @@ MongoDB\\Collection::getTypeMap()
 =================================
 
 .. meta::
-   :description: Discover how to retrieve the type map for a MongoDB collection using the `getTypeMap()` method in PHP.
+   :description: Retrieve the type map for a collection with the MongoDB PHP Library.
 
 .. versionadded:: 1.2
 

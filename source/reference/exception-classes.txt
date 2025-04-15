@@ -3,7 +3,7 @@ Exception Classes
 =================
 
 .. meta::
-   :description: Explore various exception classes in the PHP library for MongoDB, detailing their usage and inheritance.
+   :description: Explore MongoDB\Exception classes in the MongoDB PHP Library, detailing their usage and inheritance.
 
 
 .. contents:: On this page

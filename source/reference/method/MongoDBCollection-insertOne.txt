@@ -3,7 +3,7 @@ MongoDB\\Collection::insertOne()
 ================================
 
 .. meta::
-   :description: Insert a single document into a MongoDB collection using PHP, with options for validation, codec, session, and write concern.
+   :description: Insert a single document into a collection with the MongoDB PHP Library, with options for validation, codec, session, and write concern.
 
 
 .. contents:: On this page

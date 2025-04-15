@@ -3,7 +3,7 @@ MongoDB\\Collection::bulkWrite()
 ================================
 
 .. meta::
-   :description: Execute multiple write operations in MongoDB using `bulkWrite()` with options for write concern, session, and more.
+   :description: Execute multiple write operations with the MongoDB PHP Library, with options for write concern, session, and more.
 
 
 .. contents:: On this page

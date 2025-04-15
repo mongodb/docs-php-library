@@ -3,7 +3,7 @@ MongoDB\\Collection::findOneAndDelete()
 =======================================
 
 .. meta::
-   :description: Use `findOneAndDelete()` to find and delete a single document matching a query in a MongoDB collection, with options for collation, projection, and more.
+   :description: Find and delete a single document in a collection with the MongoDB PHP Library, with options for collation, projection, and more.
 
 
 .. contents:: On this page

@@ -3,7 +3,7 @@ MongoDB\\Client::getWriteConcern()
 ==================================
 
 .. meta::
-   :description: Retrieve the write concern for a MongoDB client using the `getWriteConcern()` method in PHP.
+   :description: Retrieve the write concern for a Client with the MongoDB PHP Library.
 
 .. versionadded:: 1.2
 

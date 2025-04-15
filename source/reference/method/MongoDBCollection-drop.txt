@@ -3,7 +3,7 @@ MongoDB\\Collection::drop()
 ===========================
 
 .. meta::
-   :description: Explore how to use the `MongoDB\Collection::drop()` method to remove a collection, including options for write concern and session management.
+   :description: Remove a collection with the MongoDB PHP Library, including options for write concern and session management.
 
 
 .. contents:: On this page

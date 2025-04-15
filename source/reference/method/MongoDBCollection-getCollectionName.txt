@@ -3,7 +3,7 @@ MongoDB\\Collection::getCollectionName()
 ========================================
 
 .. meta::
-   :description: Retrieve the name of a MongoDB collection using the `getCollectionName()` method in PHP.
+   :description: Retrieve the name of a collection with the MongoDB PHP Library.
 
 
 .. contents:: On this page

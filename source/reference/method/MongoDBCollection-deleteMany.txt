@@ -3,7 +3,7 @@ MongoDB\\Collection::deleteMany()
 =================================
 
 .. meta::
-   :description: Delete multiple documents in a collection using `deleteMany()` with options for collation, hint, and write concern.
+   :description: Delete multiple documents in a collection with the MongoDB PHP Library, with options for collation, hint, and write concern.
 
 
 .. contents:: On this page

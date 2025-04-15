@@ -3,7 +3,7 @@ MongoDB\\Client::__get()
 ========================
 
 .. meta::
-   :description: Access a database on the server using the `MongoDB\Client::__get()` method, which acts as an alias for `selectDatabase()`.
+   :description: Access a database on the server with the MongoDB PHP Library, which acts as an alias for the selectDatabase() method.
 
 
 .. contents:: On this page
