@@ -90,7 +90,7 @@ associated JIRA tickets for each release on `GitHub
 
 .. _php-v2-breaking-changes:
 
-Version 2.0 Breaking Changes
+Version 2.x Breaking Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This library version introduces the following breaking changes:
@@ -113,15 +113,15 @@ This library version introduces the following breaking changes:
   methods, you can register a :php:`CommandSubscriber
   <mongodb-driver-monitoring-commandsubscriber>` in your application.
 
-Version 1.20 Breaking Changes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Version 1.x Breaking Changes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This library version introduces the following breaking changes:
 
-- Drops support for {+mdb-server+} 3.6.
+- Drops support for {+mdb-server+} 3.6 in {+php-library+} v1.20
 
-Version 1.19 and Earlier
-~~~~~~~~~~~~~~~~~~~~~~~~
+.. tip:: Earlier Library Versions
 
-For library versions 1.19 and earlier, see the release notes and associated 
-JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.  
+   To view breaking changes for {+php-library+} versions 1.19 and earlier, see the
+   release notes and associated JIRA tickets for each release on `GitHub
+   <https://github.com/mongodb/mongo-php-library/releases>`__.   
