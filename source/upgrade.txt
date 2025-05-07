@@ -85,15 +85,15 @@ and upgrade versions.
 For more information on release changes, see the release notes and associated 
 JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.
 
-Version 1.20 Breaking Changes
+Version 1.x Breaking Changes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This library version introduces the following breaking changes:
 
-- Drops support for {+mdb-server+} 3.6.
+- Drops support for {+mdb-server+} 3.6 in {+php-library+} v1.20
 
-Version 1.19 and Earlier
-~~~~~~~~~~~~~~~~~~~~~~~~
+.. tip:: Earlier Library Versions
 
-For library versions 1.19 and earlier, see the release notes and associated 
-JIRA tickets for each release on `GitHub <https://github.com/mongodb/mongo-php-library/releases>`__.  
+   To view breaking changes for {+php-library+} versions 1.19 and earlier, see the
+   release notes and associated JIRA tickets for each release on `GitHub
+   <https://github.com/mongodb/mongo-php-library/releases>`__.  
