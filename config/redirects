@@ -11,9 +11,9 @@ symlink: current -> v2.x
 [v2.0]: ${prefix}/${version}/ -> ${base}/v2.x/
 
 # general redirects
-[v1.17-v1.19]: ${prefix}/${version}/tutorial/client-side-encryption/ -> ${base}/${version}/tutorial/encryption/
-[v1.16]: ${prefix}/${version}/tutorial/encryption/ -> ${base}/${version}/
-[v1.20-*]: ${prefix}/${version}/get-started/connect-to-mongodb -> ${base}/${version}/get-started/run-sample-query/
+[v1.17-v1.19]: ${prefix}/${version}/tutorial/client-side-encryption/ -> ${base}/${version}/security/in-use-encryption/
+[v1.16]: ${prefix}/${version}/tutorial/encryption/ -> ${base}/${version}/security/in-use-encryption/
+[v1.20-*]: ${prefix}/${version}/get-started/connect-to-mongodb -> ${base}/${version}/get-started/#run-a-sample-query/
 [*-v1.20]: ${prefix}/${version}/aggregation/atlas-search -> ${base}/${version}/aggregation/
 [*-v1.20]: ${prefix}/${version}/aggregation/vector-search -> ${base}/${version}/aggregation/
 [*-v1.20]: ${prefix}/${version}/builders -> ${base}/${version}/
@@ -21,7 +21,7 @@ symlink: current -> v2.x
 # standardization redirects
 
 # redirects in standardized docs
-[v1.20-*]: ${prefix}/${version}/tutorial/install-php-library/ -> ${base}/${version}/get-started/download-and-install/
+[v1.20-*]: ${prefix}/${version}/tutorial/install-php-library/ -> ${base}/${version}/get-started/
 [v1.20-*]: ${prefix}/${version}/tutorial/connecting/ -> ${base}/${version}/connect/
 [v1.20-*]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/${version}/monitoring/cluster-monitoring/
 [v1.20-*]: ${prefix}/${version}/tutorial/crud/ -> ${base}/${version}/read/
