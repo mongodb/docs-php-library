@@ -82,8 +82,8 @@ application from working properly if not addressed before upgrading the
 library.
 
 The breaking changes in this section are categorized by the library
-version that introduced them. Only major driver versions introduce
-breaking changes. When upgrading library versions, address all
+version that introduced them. Only major library versions introduce
+breaking changes. When upgrading versions, address all
 the breaking changes between the current and upgrade versions.
 
 For more information on release changes, see the release notes and
