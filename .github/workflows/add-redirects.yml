@@ -22,12 +22,16 @@ jobs:
           include_all_old_new_renamed_files: 'true'
           write_output_files: 'true'
       - name: Debug renamed files output
+        id: output-renamed
+        env:
+          RENAMED_FILES: ${{ steps.changed_files.outputs.all_old_new_renamed_files }}
         run: |
           echo "Renamed files output:"
-          echo "${{ steps.changed_files.outputs.all_old_new_renamed_files }}"
+          echo "$RENAMED_FILES" 
       - name: Write renamed files to output
+        id: write-renamed
         run: |
-          printf "%s\n" "${{ steps.changed_files.outputs.all_old_new_renamed_files }}" > .github/outputs/renamed_files.txt
+          printf "%s\n" "$RENAMED_FILES" > .github/outputs/renamed_files.txt
       - name: Verify the contents of renamed_files.txt
         run: |
           cat .github/outputs/renamed_files.txt
