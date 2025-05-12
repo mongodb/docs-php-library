@@ -1,0 +1,31 @@
+name: Add Redirects for Deleted or Renamed Files
+on:
+  workflow_call:
+  pull_request_target:
+jobs:
+  get-pr-changes:
+    name: Get Renamed Files
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get renamed files
+        id: changed-files
+        # pin to a specific commit to ensure stability
+        uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
+        with:
+          files: |
+            source/**
+            *.txt
+          include_all_old_new_renamed_files: 'true'
+          write_output_files: 'true'
+      - name: List renamed files
+        id: output-renamed
+        env:
+          RENAMED_FILES: ${{ steps.changed_files.outputs.all_old_new_renamed_files }}
+        run: |
+          cat .github/outputs/renamed_files.txt
