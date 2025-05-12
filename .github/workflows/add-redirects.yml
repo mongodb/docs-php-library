@@ -37,10 +37,12 @@ jobs:
             new="${new%.txt}/"
             renamed_redirects+="<li>[*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}$new</li>"
           done
-          echo "${renamed_redirects}"
+          if [ "$renamed_redirects" == "" ]; then
+            renamed_redirects="No redirects to add"
+          fi
           echo "redirects=${renamed_redirects}" >> "$GITHUB_OUTPUT"
       - name: Update the PR Description
         uses: MongoCaleb/pr-description-action@master
         with:
-            content: "<!-- start redirects -->\n${{ steps.renamed-files.outputs.redirects }}\n<!-- end redirects -->"
-            token: ${{ secrets.GITHUB_TOKEN }}
+          content: "<!-- start redirects -->\n${{ steps.renamed-files.outputs.redirects }}\n<!-- end redirects -->"
+          token: ${{ secrets.GITHUB_TOKEN }}
