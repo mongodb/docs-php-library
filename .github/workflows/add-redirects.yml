@@ -38,17 +38,9 @@ jobs:
             renamed_redirects+="<li>[*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}$new</li>"
           done
           echo "${renamed_redirects}"
-      - name: Parse deleted files
-        id: deleted-files
-        if: steps.changed-files.outputs.deleted_files_count > 0
-        env:
-          DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
-        run: |
-          deleted_redirects="${renamed_redirects}"
-          for file in $DELETED_FILES; do
-            old=$(echo "$file" | cut -d',' -f1)
-            old="${old#source}"
-            old="${old%.txt}/"
-            deleted_redirects+="<li>[*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}</li>"
-          done
-          echo "${deleted_redirects}"
+          echo "redirects=${renamed_redirects}" >> "$GITHUB_OUTPUT"
+      - name: Update the PR Description
+        uses: MongoCaleb/pr-description-action@master
+        with:
+            content: "<!-- start redirects -->\n${{ steps.renamed-files.outputs.redirects }}\n<!-- end redirects -->"
+            token: ${{ secrets.GITHUB_TOKEN }}
