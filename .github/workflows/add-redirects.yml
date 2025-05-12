@@ -24,7 +24,7 @@ jobs:
       - name: Debug renamed files output
         id: output-renamed
         env:
-          RENAMED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          RENAMED_FILES: ${{ steps.changed-files.outputs.all_old_new_renamed_files }}
         run: |
           echo "Changed files: "
-          echo "${{ steps.changed-files.outputs.all_old_new_renamed_files_count }}"
+          echo "${{ steps.changed-files.outputs.all_old_new_renamed_files }}"
