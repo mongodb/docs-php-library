@@ -38,3 +38,17 @@ jobs:
             new_redirects+="<li>[*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}$new</li>"
           done
           echo "${new_redirects}"
+      - name: Parse deleted files
+        id: deleted-files
+        if: steps.changed-files.outputs.deleted_files_count > 0
+        env:
+          DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
+        run: |
+          new_redirects=""
+          for file in $DELETED_FILES; do
+            old=$(echo "$file" | cut -d',' -f1)
+            old="${old#source}"
+            old="${old%.txt}/"
+            new_redirects+="<li>[*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}</li>"
+          done
+          echo "${new_redirects}"
