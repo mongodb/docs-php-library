@@ -21,15 +21,14 @@ jobs:
         with:
           files: |
             *.txt
-          include_all_old_new_renamed_files: 'true'
-          write_output_files: 'true'
+          include_all_old_new_renamed_files: true
+          write_output_files: true
       - name: Debug renamed files output
         id: output-renamed
         env:
           RENAMED_FILES: ${{ steps.changed_files.outputs.all_old_new_renamed_files_count }}
         run: |
-          echo "Renamed files count:"
-          echo "$RENAMED_FILES" 
+          echo "Renamed files count: $RENAMED_FILES" 
       - name: Write renamed files to output
         id: write-renamed
         run: |
