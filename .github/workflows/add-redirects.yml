@@ -19,8 +19,6 @@ jobs:
         # pin to a specific commit to ensure stability
         uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
         with:
-          files: |
-            *.txt
           include_all_old_new_renamed_files: true
           write_output_files: true
       - name: Debug renamed files output
@@ -28,11 +26,5 @@ jobs:
         env:
           RENAMED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          echo "Changed files: ${{ steps.changed-files.outputs.all_changed_files }}" 
-      - name: Write renamed files to output
-        id: write-renamed
-        run: |
-          printf "%s\n" "$RENAMED_FILES" > .github/outputs/renamed_files.txt
-      - name: Verify the contents of renamed_files.txt
-        run: |
-          cat .github/outputs/renamed_files.txt
+          echo "Changed files: "
+          echo "${{ steps.changed-files.outputs.all_changed_files }}"
