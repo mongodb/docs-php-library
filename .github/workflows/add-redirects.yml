@@ -1,5 +1,6 @@
 name: add-redirects
 on:
+  workflow_call:
   pull_request_target:
 jobs:
   get-redirects-renamed:
