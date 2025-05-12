@@ -27,4 +27,4 @@ jobs:
           RENAMED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
           echo "Changed files: "
-          echo "${{ steps.changed-files.outputs.all_changed_files }}"
+          echo "${{ steps.changed-files.outputs.all_old_new_renamed_files_count }}"
