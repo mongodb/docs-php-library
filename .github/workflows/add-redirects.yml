@@ -1,7 +1,8 @@
 name: add-redirects
 on:
-  workflow_call:
-  pull_request_target:
+  pull_request:
+    paths:
+      - "source/**"
 jobs:
   get-redirects-renamed:
     name: Get Renamed Files
@@ -18,9 +19,6 @@ jobs:
         # pin to a specific commit to ensure stability
         uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
         with:
-          files: |
-            source/**
-            *.txt
           include_all_old_new_renamed_files: 'true'
           write_output_files: 'true'
       - name: Write renamed files to output
