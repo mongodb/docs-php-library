@@ -23,7 +23,7 @@ jobs:
           write_output_files: 'true'
       - name: Write renamed files to output
         run: |
-          echo "${{ steps.changed_files.outputs.all_old_new_renamed_files }}" > .github/outputs/renamed_files.txt
+          printf "%s\n" "${{ steps.changed_files.outputs.all_old_new_renamed_files }}" > .github/outputs/renamed_files.txt
       - name: Verify the contents of renamed_files.txt
         run: |
           cat .github/outputs/renamed_files.txt
