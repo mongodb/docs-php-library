@@ -37,4 +37,4 @@ jobs:
             new="${new%.txt}/"
             new_redirects+="<li>[*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}$new</li>"
           done
-          echo "new_redirects"
+          echo "${new_redirects}"
