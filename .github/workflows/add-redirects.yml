@@ -1,8 +1,6 @@
 name: add-redirects
 on:
   pull_request_target:
-    paths:
-      - "source/**/*.txt"
 jobs:
   get-redirects-renamed:
     name: Get Renamed Files
@@ -19,6 +17,7 @@ jobs:
         # pin to a specific commit to ensure stability
         uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
         with:
+          files: source/**
           include_all_old_new_renamed_files: true
       - name: Parse renamed files
         id: renamed-files
@@ -28,6 +27,9 @@ jobs:
         run: |
           renamed_redirects=""
           for file in $RENAMED_FILES; do
+            if (! grep -s "includes/"  <<< "$file") && 
+               (! grep -s "images/"  <<< "$file") && 
+               (! grep -s "examples/"  <<< "$file"); then
             old=$(echo "$file" | cut -d',' -f1)
             old="${old#source}"
             old="${old%.txt}"
