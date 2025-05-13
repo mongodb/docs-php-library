@@ -23,7 +23,7 @@ MongoDB PHP Library
    Run a Database Command </run-command>
    Data Aggregation </aggregation>
    Indexes </indexes>
-   Monitor Your Application </logging-monitoring>
+   Monitor Your Application </monitoring>
    Security </security>
    Specialized Data Formats </data-formats>
    Deploy to AWS Lambda </aws-lambda>
