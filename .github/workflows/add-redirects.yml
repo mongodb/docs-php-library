@@ -54,6 +54,7 @@ jobs:
           done
           echo "redirects=${deleted_redirects}" >> "$GITHUB_OUTPUT"
       - name: Update the PR Description
+        if: steps.changed-files.outputs.renamed_files_count > 0 || steps.changed-files.outputs.deleted_files_count > 0
         uses: MongoCaleb/pr-description-action@master
         with:
           regex: "- \\[ \\] Did you add redirects\\?.*"
