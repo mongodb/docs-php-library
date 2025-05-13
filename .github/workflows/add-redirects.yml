@@ -27,9 +27,8 @@ jobs:
         run: |
           renamed_redirects=""
           for file in $RENAMED_FILES; do
-            if (! grep -s "includes/"  <<< "$file") && 
-                (! grep -s "images/"  <<< "$file") && 
-                (! grep -s "examples/"  <<< "$file"); then
+            if (grep -s "source/"  <<< "$file") && 
+                (grep -s "\.txt$" <<< "$file"); then
               old=$(echo "$file" | cut -d',' -f1)
               old="${old#source}"
               old="${old%.txt}"
