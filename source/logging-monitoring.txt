@@ -7,7 +7,7 @@ Monitor Your Application
 .. toctree::
    :caption: Monitoring categories
 
-   Cluster Monitoring </monitoring/cluster-monitoring>
+   Cluster Monitoring </logging-monitoring/cluster-monitoring>
 
 .. /monitoring/command-monitoring
 .. /monitoring/connection-monitoring
