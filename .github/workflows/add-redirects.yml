@@ -30,14 +30,14 @@ jobs:
             if (! grep -s "includes/"  <<< "$file") && 
                (! grep -s "images/"  <<< "$file") && 
                (! grep -s "examples/"  <<< "$file"); then
-            old=$(echo "$file" | cut -d',' -f1)
-            old="${old#source}"
-            old="${old%.txt}"
-            new=$(echo "$file" | cut -d',' -f2)
-            new="${new#source}"
-            new="${new%.txt}"
-            #single quotes = ${var} rendered literally; double quotes = $var interpreted
-            renamed_redirects+='<li>[&lt;v&gt;-*]: ${prefix}/${version}'"$old"'/ -> ${base}/${version}'"$new"'/</li>'
+              old=$(echo "$file" | cut -d',' -f1)
+              old="${old#source}"
+              old="${old%.txt}"
+              new=$(echo "$file" | cut -d',' -f2)
+              new="${new#source}"
+              new="${new%.txt}"
+              #single quotes = ${var} rendered literally; double quotes = $var interpreted
+              renamed_redirects+='<li>[&lt;v&gt;-*]: ${prefix}/${version}'"$old"'/ -> ${base}/${version}'"$new"'/</li>'
           done
           echo "redirects=${renamed_redirects}" >> "$GITHUB_OUTPUT"
       - name: Parse deleted files
