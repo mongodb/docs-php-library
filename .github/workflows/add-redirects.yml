@@ -38,9 +38,6 @@ jobs:
             #single quotes = ${var} rendered literally; double quotes = $var interpreted
             renamed_redirects+='<li>[\\<v>-*]: ${prefix}/${version}'"$old"'/ -> ${base}/${version}'"$new"'/</li>'
           done
-          if [ "$renamed_redirects" == "" ]; then
-            renamed_redirects="No redirects to add"
-          fi
           echo "redirects=${renamed_redirects}" >> "$GITHUB_OUTPUT"
       - name: Parse deleted files
         id: deleted-files
@@ -55,12 +52,9 @@ jobs:
             old="${old%.txt}"
             deleted_redirects+='<li>[\\<v>-*]: ${prefix}/${version}'"$old"'/ -> ${base}/${version}/</li>'
           done
-          if [ "$deleted_redirects" == "" ]; then
-            deleted_redirects="No redirects to add"
-          fi
           echo "redirects=${deleted_redirects}" >> "$GITHUB_OUTPUT"
       - name: Update the PR Description
         uses: MongoCaleb/pr-description-action@master
         with:
-          content: "\n- [ ] Did you add redirects?\n *Replace \<v> with earliest backport target version*\n${{ steps.renamed-files.outputs.redirects }}${{ steps.deleted-files.outputs.redirects }}\n"
+          content: "\n- [ ] Did you add redirects?\n *Replace '<v>' with earliest backport target version*\n${{ steps.renamed-files.outputs.redirects }}${{ steps.deleted-files.outputs.redirects }}\n"
           token: ${{ secrets.GITHUB_TOKEN }}
