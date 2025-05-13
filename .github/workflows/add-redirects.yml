@@ -1,6 +1,6 @@
 name: add-redirects
 on:
-  pull_request:
+  pull_request_target:
 jobs:
   get-redirects-renamed:
     name: Get Renamed Files
@@ -17,10 +17,10 @@ jobs:
         # pin to a specific commit to ensure stability
         uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
         with:
+          include_all_old_new_renamed_files: true
           files: |
             source/**
             **.txt
-          include_all_old_new_renamed_files: true
       - name: Parse renamed files
         id: renamed-files
         if: steps.changed-files.outputs.renamed_files_count > 0
@@ -31,18 +31,32 @@ jobs:
           for file in $RENAMED_FILES; do
             old=$(echo "$file" | cut -d',' -f1)
             old="${old#source}"
-            old="${old%.txt}/"
+            old="${old%.txt}"
             new=$(echo "$file" | cut -d',' -f2)
             new="${new#source}"
-            new="${new%.txt}/"
-            renamed_redirects+="<li>[*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}$new</li>"
+            new="${new%.txt}"
+            renamed_redirects+="- [\\*-master]: \$\{prefix\}/\$\{version\}$old/ -> \$\{base\}/\$\{version\}$new/<br/>"
           done
           if [ "$renamed_redirects" == "" ]; then
             renamed_redirects="No redirects to add"
           fi
           echo "redirects=${renamed_redirects}" >> "$GITHUB_OUTPUT"
+      - name: Parse deleted files
+        id: deleted-files
+        if: steps.changed-files.outputs.deleted_files_count > 0
+        env:
+          DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
+        run: |
+          deleted_redirects=""
+          for file in $DELETED_FILES; do
+            old=$(echo "$file" | cut -d',' -f1)
+            old="${old#source}"
+            old="${old%.txt}/"
+            deleted_redirects+="[\*-master]: \$\{prefix\}/\$\{version\}$old -> \$\{base\}/\$\{version\}\\n"
+          done
+          echo "${deleted_redirects}"
       - name: Update the PR Description
         uses: MongoCaleb/pr-description-action@master
         with:
-          content: "<!-- start redirects -->\n${{ steps.renamed-files.outputs.redirects }}\n<!-- end redirects -->"
+          content: "\n- [ ] Did you add redirects for renamed files?\n${{ steps.renamed-files.outputs.redirects }}\n- [ ] Did you add redirects for deleted files?"
           token: ${{ secrets.GITHUB_TOKEN }}
