@@ -56,7 +56,7 @@ jobs:
       - name: Update the PR Description
         uses: MongoCaleb/pr-description-action@master
         with:
-          regex: "- \\[ \\] Did you add redirects\\?"
+          regex: "- \\[ \\] Did you add redirects\\?.*"
           appendContentOnMatchOnly: true
           regexFlags: is
           content: "- [ ] Did you add redirects?\n *Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):*\n${{ steps.renamed-files.outputs.redirects }}${{ steps.deleted-files.outputs.redirects }}\n<!-- end redirects -->"
