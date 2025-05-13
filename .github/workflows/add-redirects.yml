@@ -2,8 +2,8 @@ name: add-redirects
 on:
   pull_request_target:
 jobs:
-  get-redirects-renamed:
-    name: Get Renamed Files
+  get-redirects:
+    name: Get Redirects for Modified Files
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -12,7 +12,7 @@ jobs:
       repository-projects: write
     steps:
       - uses: actions/checkout@v4
-      - name: Get renamed files
+      - name: Get modified files
         id: changed-files
         # pin to a specific commit to ensure stability
         uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
@@ -28,8 +28,8 @@ jobs:
           renamed_redirects=""
           for file in $RENAMED_FILES; do
             if (! grep -s "includes/"  <<< "$file") && 
-               (! grep -s "images/"  <<< "$file") && 
-               (! grep -s "examples/"  <<< "$file"); then
+                (! grep -s "images/"  <<< "$file") && 
+                (! grep -s "examples/"  <<< "$file"); then
               old=$(echo "$file" | cut -d',' -f1)
               old="${old#source}"
               old="${old%.txt}"
