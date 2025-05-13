@@ -35,7 +35,7 @@ jobs:
             new=$(echo "$file" | cut -d',' -f2)
             new="${new#source}"
             new="${new%.txt}"
-            renamed_redirects+="- [\\*-master]: \$\{prefix\}/\$\{version\}$old/ -> \$\{base\}/\$\{version\}$new/<br/>"
+            renamed_redirects+="- [\\*-master]: \\$\{prefix\}/\\$\{version\}$old/ -> \\$\{base\}/\\$\{version\}$new/<br/>"
           done
           if [ "$renamed_redirects" == "" ]; then
             renamed_redirects="No redirects to add"
