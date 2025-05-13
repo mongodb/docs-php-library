@@ -1,0 +1,28 @@
+name: test-action
+on:
+  pull_request_target:
+jobs:
+  test-changed-files:
+    name: Get Modified Files
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get Changed Files
+        id: changed-files
+        # pin to a specific commit to ensure stability
+        uses: tj-actions/changed-files@c65cd883420fd2eb864698a825fc4162dd94482c
+        with:
+          files: source/**
+      - name: Print modified
+        id: print-files
+        env:
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          for file in $CHANGED_FILES; do
+            echo "modified ${file}"
+          done
