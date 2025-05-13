@@ -38,6 +38,7 @@ jobs:
               new="${new%.txt}"
               #single quotes = ${var} rendered literally; double quotes = $var interpreted
               renamed_redirects+='<li>[&lt;v&gt;-*]: ${prefix}/${version}'"$old"'/ -> ${base}/${version}'"$new"'/</li>'
+            fi
           done
           echo "redirects=${renamed_redirects}" >> "$GITHUB_OUTPUT"
       - name: Parse deleted files
