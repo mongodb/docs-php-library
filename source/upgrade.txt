@@ -110,6 +110,6 @@ This library version introduces the following compatibility changes:
 
 .. tip:: Earlier Library Versions
 
-   To view breaking changes for {+php-library+} versions 1.19 and earlier, see the
+   To view compatibility changes for {+php-library+} versions 1.19 and earlier, see the
    release notes and associated JIRA tickets for each release on `GitHub
    <https://github.com/mongodb/mongo-php-library/releases>`__.  
