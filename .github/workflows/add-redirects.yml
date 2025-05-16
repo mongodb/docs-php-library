@@ -36,6 +36,7 @@ jobs:
           RENAMED_FILES: ${{ steps.changed-files.outputs.all_old_new_renamed_files }}
         run: |
           renamed_redirects=""
+
           for file in $RENAMED_FILES; do
 
             # only run for .txt files
@@ -56,10 +57,12 @@ jobs:
 
             # if redirect not already in file, add to string to add to PR description
             if ! grep -qx "$redirect" $REDIRECTS_FILE; then
-              renamed_redirects+="<li>[&lt;v&gt;-*]: $redirect</li>"
-              echo "${renamed_redirects}"
+              renamed_redirects+="$redirect,"
             fi
           done
+
+          # cut trailing comma
+          renamed_redirects="${renamed_redirects%,}"
 
           echo "redirects=${renamed_redirects}" >> "$GITHUB_OUTPUT"  
 
@@ -70,6 +73,7 @@ jobs:
           DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
         run: |
           deleted_redirects=""
+
           for file in $DELETED_FILES; do
 
             # only run for .txt files
@@ -87,10 +91,12 @@ jobs:
                        
             # if redirect not already in file, add to string to add to PR description
             if ! grep -qx "$redirect" $REDIRECTS_FILE; then 
-              deleted_redirects+="<li>[&lt;v&gt;-*]: $redirect</li>"
-              echo "${deleted_redirects}"
+              deleted_redirects+="$redirect,"
             fi
           done
+          
+          # cut trailing comma
+          deleted_redirects="${deleted_redirects%,}"
 
           echo "redirects=${deleted_redirects}" >> "$GITHUB_OUTPUT"  
 
@@ -100,9 +106,22 @@ jobs:
           RENAMED_REDIRECTS: ${{ steps.renamed-files.outputs.redirects }}
           DELETED_REDIRECTS: ${{ steps.deleted-files.outputs.redirects }}
         run: |
-          combined_redirect_html="${RENAMED_REDIRECTS}${DELETED_REDIRECTS}"
+          # empty string that stays empty if there are no redirects to suggest
+          redirect_html=""
           
-          echo "redirect_html=${combined_redirect_html}" >> "$GITHUB_OUTPUT"
+          combined_redirect_string="${RENAMED_REDIRECTS},${DELETED_REDIRECTS}"
+
+          IFS=','
+          for redirect in $combined_redirect_string; do
+            if [[ ! -z "$redirect" ]]; then
+              if [[ -z "$redirect_html" ]]; then
+                redirect_html="<i>Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):</i>"
+              fi
+              redirect_html+="<li>[&lt;v&gt;-\*]: $redirect</li>"  
+            fi  
+          done
+
+          echo "redirect_html=${redirect_html}" >> "$GITHUB_OUTPUT"
 
       - name: Update PR Description
         uses: MongoCaleb/pr-description-action@4bdfe35b98f64532b419ad20b350a92546cd3aa1
@@ -110,7 +129,7 @@ jobs:
           regex: "- \\[ \\] Did you add redirects\\?.*"
           appendContentOnMatchOnly: false
           regexFlags: is
-          content: "- [ ] Did you add redirects?\n ${{ steps.renamed-files.outputs.redirects }}${{ steps.deleted-files.outputs.redirects }}"
+          content: "- [ ] Did you add redirects?\n ${{ steps.build-redirect-html.outputs.redirect_html }}"
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check for duplicates in redirects file
@@ -123,5 +142,5 @@ jobs:
               exit 1 # error
             fi
           else  
-            echo "Redirects file doesn't exist. Skipping duplicate check."  
+             "Redirects file doesn't exist. Skipping duplicate check."  
           fi
