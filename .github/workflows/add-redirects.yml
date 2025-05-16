@@ -87,12 +87,9 @@ jobs:
                        
             # if redirect not already in file, add to string to add to PR description
             if ! grep -q "$redirect" $REDIRECTS_FILE; then 
-              deleted_redirects+="$redirect,"
+              deleted_redirects+='<li>[&lt;v&gt;-*]: ${prefix}/${version}'"$old"'/ -> ${base}/${version}/</li>'
             fi
           done
-          
-          # cut trailing comma
-          deleted_redirects="${deleted_redirects%,}"
 
           echo "redirects=${deleted_redirects}" >> "$GITHUB_OUTPUT"  
 
@@ -102,21 +99,9 @@ jobs:
           RENAMED_REDIRECTS: ${{ steps.renamed-files.outputs.redirects }}
           DELETED_REDIRECTS: ${{ steps.deleted-files.outputs.redirects }}
         run: |
-          # empty string that stays empty if there are no redirects to suggest
-          redirect_html=""
+          combined_redirect_html="${RENAMED_REDIRECTS}${DELETED_REDIRECTS}"
           
-          combined_redirect_string="${RENAMED_REDIRECTS},${DELETED_REDIRECTS}"
-
-          for redirect in $combined_redirect_string; do
-            if [[ ! -z "$redirect" ]]; then
-              if [[ redirect_html="" ]]; then
-                redirect_html="*Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):*"
-              fi
-              redirect_html+="<li>[&lt;v&gt;-*]: $redirect</li>"  
-            fi  
-          done
-          
-          echo "redirect_html=${redirect_html}" >> "$GITHUB_OUTPUT"
+          echo "redirect_html=${combined_redirect_html}" >> "$GITHUB_OUTPUT"
 
       - name: Update PR Description
         uses: MongoCaleb/pr-description-action@4bdfe35b98f64532b419ad20b350a92546cd3aa1
