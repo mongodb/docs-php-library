@@ -23,6 +23,7 @@ symlink: current -> v2.0
 [v1.20-*]: ${prefix}/${version}/tutorial/crud/ -> ${base}/${version}/read/
 [v1.20-*]: ${prefix}/${version}/tutorial/codecs/ -> ${base}/${version}/data-formats/codecs/
 [v1.20-*]: ${prefix}/${version}/tutorial/collation/ -> ${base}/${version}/
+[v1.20-*]: ${prefix}/${version}/tutorial/crud/ -> ${base}/${version}/read/
 [v1.20-*]: ${prefix}/${version}/tutorial/commands/ -> ${base}/${version}/run-command/
 [v1.20-*]: ${prefix}/${version}/tutorial/custom-types/ -> ${base}/${version}/data-formats/custom-types/
 [v1.20-*]: ${prefix}/${version}/tutorial/decimal128/ -> ${base}/${version}/data-formats/decimal128/
