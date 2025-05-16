@@ -103,6 +103,7 @@ jobs:
 
           if [ -n "$combined_redirects" ]; then
             redirect_html="<p><i>Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):</i></p>$combined_redirects"
+          fi
 
           echo "redirect_html=${redirect_html}" >> "$GITHUB_OUTPUT"
 
