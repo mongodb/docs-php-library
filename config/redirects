@@ -14,7 +14,6 @@ symlink: current -> v2.0
 [*-v1.20]: ${prefix}/${version}/aggregation/vector-search -> ${base}/${version}/aggregation/
 [*-v1.20]: ${prefix}/${version}/builders -> ${base}/${version}/
 
-[v1.20-*]: ${prefix}/${version}/security/ -> ${base}/${version}/security-temp/
 [v1.20-*]: ${prefix}/${version}/encryption/ -> ${base}/${version}/
 
 # redirects in standardized docs
