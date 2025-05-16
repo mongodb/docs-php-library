@@ -55,7 +55,7 @@ jobs:
             redirect='${prefix}/${version}'"$old"'/ -> ${base}/${version}'"$new"'/'
 
             # if redirect not already in file, add to string to add to PR description
-            if ! grep -q "$redirect" $REDIRECTS_FILE; then
+            if ! grep -qx "$redirect" $REDIRECTS_FILE; then
               renamed_redirects+="<li>[&lt;v&gt;-*]: $redirect</li>"
               echo "${renamed_redirects}"
             fi
@@ -86,7 +86,7 @@ jobs:
             redirect='${prefix}/${version}'"$old"'/ -> ${base}/${version}/'
                        
             # if redirect not already in file, add to string to add to PR description
-            if ! grep -q "$redirect" $REDIRECTS_FILE; then 
+            if ! grep -qx "$redirect" $REDIRECTS_FILE; then 
               deleted_redirects+="<li>[&lt;v&gt;-*]: $redirect</li>"
               echo "${deleted_redirects}"
             fi
