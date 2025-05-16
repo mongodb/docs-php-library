@@ -99,7 +99,7 @@ jobs:
           DELETED_REDIRECTS: ${{ steps.deleted-files.outputs.redirects }}
         run: |
         
-          intro="*Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):*"
+          intro="<i>Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):</i><br/><br/>"
           combined_redirects="${RENAMED_REDIRECTS}${DELETED_REDIRECTS}"
 
           echo "redirect_html=${intro}${combined_redirects}" >> "$GITHUB_OUTPUT"
