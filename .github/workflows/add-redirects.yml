@@ -56,7 +56,7 @@ jobs:
 
             # if redirect not already in file, add to string to add to PR description
             if ! grep -q "$redirect" $REDIRECTS_FILE; then
-              renamed_redirects+='<li>[&lt;v&gt;-*]: $redirect</li>'
+              renamed_redirects+="<li>[&lt;v&gt;-*]: $redirect</li>"
               echo "${renamed_redirects}"
             fi
           done
@@ -87,7 +87,7 @@ jobs:
                        
             # if redirect not already in file, add to string to add to PR description
             if ! grep -q "$redirect" $REDIRECTS_FILE; then 
-              deleted_redirects+='<li>[&lt;v&gt;-*]: $redirect</li>'
+              deleted_redirects+="<li>[&lt;v&gt;-*]: $redirect</li>"
               echo "${deleted_redirects}"
             fi
           done
