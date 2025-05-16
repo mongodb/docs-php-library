@@ -108,7 +108,6 @@ jobs:
           echo -e "redirect_html=${redirect_html}" >> "$GITHUB_OUTPUT"
 
       - name: Update PR Description
-        if: steps.renamed-files.outputs.redirects != '' || steps.deleted-files.outputs.redirects != ''
         uses: MongoCaleb/pr-description-action@4bdfe35b98f64532b419ad20b350a92546cd3aa1
         with:
           regex: "- \\[ \\] Did you add redirects\\?.*"
