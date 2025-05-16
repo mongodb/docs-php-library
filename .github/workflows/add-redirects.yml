@@ -92,18 +92,6 @@ jobs:
           
           echo "redirects=${deleted_redirects}" >> "$GITHUB_OUTPUT"  
 
-      - name: Build Redirect HTML
-        id: build-redirect-html
-        env:
-          RENAMED_REDIRECTS: ${{ steps.renamed-files.outputs.redirects }}
-          DELETED_REDIRECTS: ${{ steps.deleted-files.outputs.redirects }}
-        run: |
-        
-          intro="<i>Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):</i><br/><br/>"
-          combined_redirects="${RENAMED_REDIRECTS}${DELETED_REDIRECTS}"
-
-          echo "redirect_html=${intro}${combined_redirects}" >> "$GITHUB_OUTPUT"
-
       - name: Update PR Description
         if: steps.renamed-files.outputs.redirects != '' || steps.deleted-files.outputs.redirects != ''
         uses: MongoCaleb/pr-description-action@4bdfe35b98f64532b419ad20b350a92546cd3aa1
@@ -111,7 +99,7 @@ jobs:
           regex: "- \\[ \\] Did you add redirects\\?.*"
           appendContentOnMatchOnly: false
           regexFlags: is
-          content: "- [ ] Did you add redirects?\n ${{ steps.build-redirect-html.outputs.redirect_html }}"
+          content: "- [ ] Did you add redirects?\n *Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):*\n${{ steps.renamed-files.outputs.redirects }}${{ steps.deleted-files.outputs.redirects }}\n"
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check for duplicates in redirects file
