@@ -100,9 +100,8 @@ jobs:
         run: |
         
           combined_redirects="${RENAMED_REDIRECTS}${DELETED_REDIRECTS}"
-          intro="<i>Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):</i>"
 
-          echo "redirect_html=${intro}${combined_redirects}" >> "$GITHUB_OUTPUT"
+          echo "redirect_html=${combined_redirects}" >> "$GITHUB_OUTPUT"
 
       - name: Update PR Description
         if: steps.renamed-files.outputs.redirects != '' || steps.deleted-files.outputs.redirects != ''
