@@ -102,10 +102,10 @@ jobs:
           combined_redirects="${RENAMED_REDIRECTS}${DELETED_REDIRECTS}"
 
           if [ -n "$combined_redirects" ]; then
-            redirect_html+="*Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):*\n$combined_redirects"
+            redirect_html+="<i>Suggested redirects for moved/deleted files (replace &lt;v&gt; with earliest backport target version):</i><br/>$combined_redirects"
           fi
 
-          echo -e "redirect_html=${redirect_html}" >> "$GITHUB_OUTPUT"
+          echo "redirect_html=${redirect_html}" >> "$GITHUB_OUTPUT"
 
       - name: Update PR Description
         uses: MongoCaleb/pr-description-action@4bdfe35b98f64532b419ad20b350a92546cd3aa1
