@@ -22,7 +22,7 @@ MongoDB PHP Library
    Indexes </indexes>
    Run a Database Command </run-command>
    Atlas Search </atlas-search>
-   Atlas Vector Search </atlas-vector-search>
+   Atlas Vector Search </vector-search>
    Monitoring and Logging </monitoring-logging>
    Security </security>
    Reference </references>
