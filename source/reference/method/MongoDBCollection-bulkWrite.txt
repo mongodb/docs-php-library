@@ -147,7 +147,7 @@ Behavior
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-coll-bulk-write` section of the Bulk Write Operations guide
 - :ref:`php-write`
 - :phpmethod:`MongoDB\Collection::deleteMany()`
 - :phpmethod:`MongoDB\Collection::deleteOne()`

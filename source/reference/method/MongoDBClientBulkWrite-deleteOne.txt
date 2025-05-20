@@ -15,7 +15,7 @@ Definition
 
 .. phpmethod:: MongoDB\ClientBulkWrite::deleteOne()
 
-   Specifies a delete operation in the bulk write command for the first
+   Specify a delete operation in the bulk write command for the first
    matching document. This method returns the
    :phpclass:`MongoDB\ClientBulkWrite` instance on which its called.
 
@@ -70,4 +70,4 @@ Behavior
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-client-bulk-write` section of the Bulk Write Operations guide

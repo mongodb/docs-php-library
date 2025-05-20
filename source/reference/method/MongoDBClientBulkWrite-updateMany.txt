@@ -15,7 +15,7 @@ Definition
 
 .. phpmethod:: MongoDB\ClientBulkWrite::updateMany()
 
-   Specifies an update operation in the bulk write command for all
+   Specify an update operation in the bulk write command for all
    matching documents. This method returns the
    :phpclass:`MongoDB\ClientBulkWrite` instance on which its called.
 
@@ -93,4 +93,4 @@ Behavior
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-client-bulk-write` section of the Bulk Write Operations guide

@@ -15,10 +15,10 @@ Definition
 
 .. phpmethod:: MongoDB\ClientBulkWrite::withCollection()
 
-   Creates an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
+   Return an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
    :phpclass:`MongoDB\Collection` instance. This method allows you to
    add subsequent write operations on a different collection than that
-   which the ``MongoDB\ClientBulkWrite`` was created with.
+   with which the ``MongoDB\ClientBulkWrite`` was created with.
 
    .. code-block:: php
 
@@ -28,14 +28,16 @@ Definition
 
 
    You cannot mix ``Collection`` instances associated with different
-   ``Manager`` objects.   
+   ``Manager`` objects because the library sends the client bulk
+   write operation as a command to a single server.
 
 Parameters
 ----------
 
 ``$collection`` : :phpclass:`MongoDB\Collection`
-  The ``Collection`` instance to set as the target for bulk write
-  operations.
+  The ``Collection`` instance to set as the target for write operations
+  added to the ``ClientBulkWrite`` instance after calling
+  ``withCollection()``.
 
 Errors/Exceptions
 -----------------
@@ -47,4 +49,4 @@ Errors/Exceptions
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-client-bulk-write` section of the Bulk Write Operations guide

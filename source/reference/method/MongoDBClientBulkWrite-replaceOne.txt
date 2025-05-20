@@ -15,7 +15,7 @@ Definition
 
 .. phpmethod:: MongoDB\ClientBulkWrite::replaceOne()
 
-   Specifies a replace operation in the bulk write command for the first
+   Specify a replace operation in the bulk write command for the first
    matching document. This method returns the
    :phpclass:`MongoDB\ClientBulkWrite` instance on which its called.
 
@@ -86,4 +86,4 @@ Behavior
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-client-bulk-write` section of the Bulk Write Operations guide

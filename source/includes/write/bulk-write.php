@@ -61,7 +61,7 @@ $movieCollection = $client->sample_mflix->movies;
 $bulkWrite = MongoDB\ClientBulkWrite::createWithCollection($restaurantCollection);
 $bulkWrite->insertOne(['name' => 'Mongo Deli', 'cuisine' => 'Sandwiches']);
 
-$bulkWrite = MongoDB\ClientBulkWrite::withCollection($movieCollection);
+$bulkWrite = $bulkWrite->withCollection($movieCollection);
 $bulkWrite->insertOne(['title' => 'The Green Ray', 'year' => 1986]);
 // end-bulk-client-insert-one
 
@@ -126,7 +126,7 @@ $bulkWrite->updateOne(
     ['upsert' => true],
 );
 
-$bulkWrite = MongoDB\ClientBulkWrite::withCollection($movieCollection);
+$bulkWrite = $bulkWrite->withCollection($movieCollection);
 $bulkWrite->insertOne(['title' => 'The Green Ray', 'year' => 1986]);
 $bulkWrite->deleteMany(
     ['title' => ['$regex' => 'd{2,}']],

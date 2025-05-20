@@ -18,7 +18,7 @@ Definition
 
 .. phpmethod:: MongoDB\Client::bulkWrite()
 
-   Executes multiple write operations across multiple namespaces.
+   Perform multiple write operations across multiple namespaces.
 
    .. code-block:: php
 
@@ -30,21 +30,20 @@ Definition
 Parameters
 ----------
 
-``$bulk`` : :phpclass:`MongoDB\ClientBulkWrite` or ``BulkWriteCommand``
-  (reserve for use with the {+extension-short+} only)
+``$bulk`` : :phpclass:`MongoDB\ClientBulkWrite` or
+  :php:`BulkWriteCommand <mongodb-driver-bulkwritecommand>`
+
+  .. tip:: Prefer ClientBulkWrite API
+
+     We recommend using the ``ClientBulkWrite`` builder class and
+     methods to specify write operations in a bulk write command instead
+     of using the ``BulkWriteCommand`` class.
 
   Represents the assembled bulk write command or builder.
   :phpmethod:`MongoDB\Client::bulkWrite()` supports
-  :phpmethod:`MongoDB\Collection::deleteMany()`,
-  :phpmethod:`MongoDB\Collection::deleteOne()`,
-  :phpmethod:`MongoDB\Collection::insertOne()`,
-  :phpmethod:`MongoDB\Collection::replaceOne()`,
-  :phpmethod:`MongoDB\Collection::updateMany()`, and
-  :phpmethod:`MongoDB\Collection::updateOne()` operations.
-
-  The ``writeConcern`` option is specified as a top-level option to
-  :phpmethod:`MongoDB\Client::bulkWrite()` instead of each individual
-  operation.
+  ``deleteMany``, ``deleteOne()``, ``insertOne()``,
+  ``replaceOne()``, ``updateMany()``, and ``updateOne()``
+  operations.
 
 ``$options`` : array
   An array specifying the desired options.
@@ -89,7 +88,7 @@ Behavior
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-client-bulk-write` section of the Bulk Write Operations guide
 - :ref:`php-write`
 - :phpmethod:`MongoDB\Collection::deleteMany()`
 - :phpmethod:`MongoDB\Collection::deleteOne()`

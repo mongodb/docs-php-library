@@ -15,7 +15,7 @@ Definition
 
 .. phpmethod:: MongoDB\ClientBulkWrite::createWithCollection()
 
-   Creates an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
+   Create an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
    :phpclass:`MongoDB\Collection` instance.
 
    .. code-block:: php
@@ -82,4 +82,4 @@ Errors/Exceptions
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-client-bulk-write` section of the Bulk Write Operations guide

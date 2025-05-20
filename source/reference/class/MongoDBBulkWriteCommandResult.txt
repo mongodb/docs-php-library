@@ -21,20 +21,24 @@ Methods
      - Description
          
    * - ``getInsertedCount()``
-     - | Returns the number of documents inserted, if any.
+     - | Returns the total number of documents inserted by all
+         insert operations in the bulk write command.
 
    * - ``getMatchedCount()``
-     - | Returns the number of documents matched during update and replace
-         operations, if applicable.
+     - | Returns the total number of documents matched by all
+         update and replace operations in the bulk write command.
 
    * - ``getModifiedCount()``
-     - | Returns the number of documents modified, if any.
+     - | Returns the total number of documents modified by all update
+         and replace operations in the bulk write command.
 
    * - ``getUpsertedCount()``
-     - | Returns the number of documents upserted, if any.
+     - | Returns the total number of documents upserted by all update
+         and replace operations in the bulk write command.
 
    * - ``getDeletedCount()``
-     - | Returns the number of documents deleted, if any.
+     - | Return the total number of documents deleted by all delete
+         operations in the bulk write command.
 
    * - ``getInsertResults()``
      - | Returns a map of results of each successful insert operation. Each
@@ -53,9 +57,10 @@ Methods
          a document with information corresponding to the operation.
 
    * - ``isAcknowledged()``
-     - | Returns a boolean indicating whether the bulk operation was acknowledged.
+     - | Returns a boolean indicating whether the bulk operation was
+         acknowledged by the server.
 
 See Also
 --------
 
-- :ref:`php-bulk-write`
+- :ref:`php-client-bulk-write` section of the Bulk Write Operations guide
