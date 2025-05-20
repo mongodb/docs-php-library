@@ -158,9 +158,6 @@ insert operation bypasses document-level validation:
 Additional Information
 ----------------------
 
-To view runnable code examples of inserting documents with the {+php-library+}, see
-:ref:`php-write`.
-
 API Documentation
 ~~~~~~~~~~~~~~~~~
 

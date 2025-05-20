@@ -148,7 +148,6 @@ See Also
 --------
 
 - :ref:`php-bulk-write`
-- :ref:`php-write`
 - :phpmethod:`MongoDB\Collection::deleteMany()`
 - :phpmethod:`MongoDB\Collection::deleteOne()`
 - :phpmethod:`MongoDB\Collection::insertMany()`

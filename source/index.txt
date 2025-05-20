@@ -28,6 +28,7 @@ MongoDB PHP Library
    Reference </references>
    FAQ </faq>
    API Documentation </reference>
+   Issues & Help </issues-and-help>
 
 Overview
 --------
@@ -118,3 +119,9 @@ FAQ
 
 See answers to commonly asked questions about the {+library-short+} in the
 the :ref:`php-faq` section.
+
+Issues & Help
+-------------
+
+Learn how to report bugs, contribute to the library, and find help in the
+:ref:`Issues & Help <php-issues-and-help>` section.

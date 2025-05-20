@@ -68,7 +68,7 @@ specify the write operations:
 .. tip::
 
     For more information about delete, insert, replace, and update
-    operations, see the :ref:`Write operation guides <php-write>`.
+    operations, see the :ref:`CRUD <php-crud-operations>` section.
 
 When you call the ``bulkWrite()`` method, the library automatically runs the
 write operations in the order they're specified in the array. To learn how to
