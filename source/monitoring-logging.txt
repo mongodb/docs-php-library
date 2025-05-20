@@ -1,0 +1,18 @@
+.. _php-monitoring:
+.. _php-monitoring-logging:
+
+======================
+Monitoring and Logging
+======================
+
+.. toctree::
+   :caption: Monitoring categories
+
+   Cluster Monitoring </monitoring-logging/cluster-monitoring>
+   Change Streams </monitoring-logging/change-streams>
+
+.. /monitoring/command-monitoring
+.. /monitoring/connection-monitoring
+
+- :ref:`Cluster Monitoring <php-cluster-monitoring>`: Monitor changes
+  in your cluster configuration

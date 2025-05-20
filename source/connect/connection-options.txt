@@ -17,6 +17,16 @@ Specify Connection Options
 .. meta::
    :keywords: connection string, URI, server, Atlas, settings, configure
 
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Stable API </connect/connection-options/stable-api>
+
+.. TODO:
+   Compress Network Traffic </connect/connection-options/network-compression>
+   Connection Pools </connect/connection-options/connection-pools>
+
 Overview
 --------
 
