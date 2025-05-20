@@ -1,0 +1,50 @@
+==========================================
+MongoDB\\ClientBulkWrite::withCollection()
+==========================================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. versionadded:: 2.1
+
+Definition
+----------
+
+.. phpmethod:: MongoDB\ClientBulkWrite::withCollection()
+
+   Creates an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
+   :phpclass:`MongoDB\Collection` instance. This method allows you to
+   add subsequent write operations on a different collection than that
+   which the ``MongoDB\ClientBulkWrite`` was created with.
+
+   .. code-block:: php
+
+      function withCollection(
+          Collection $collection,
+      ): self
+
+
+   You cannot mix ``Collection`` instances associated with different
+   ``Manager`` objects.   
+
+Parameters
+----------
+
+``$collection`` : :phpclass:`MongoDB\Collection`
+  The ``Collection`` instance to set as the target for bulk write
+  operations.
+
+Errors/Exceptions
+-----------------
+
+.. include:: /includes/extracts/error-unsupportedexception.rst
+.. include:: /includes/extracts/error-invalidargumentexception.rst
+.. include:: /includes/extracts/error-driver-runtimeexception.rst
+
+See Also
+--------
+
+- :ref:`php-bulk-write`

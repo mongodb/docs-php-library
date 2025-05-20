@@ -15,40 +15,47 @@ Bulk Write Operations
    :values: reference
 
 .. meta::
-   :keywords: insert, update, replace, code example
+   :keywords: insert, update, replace, code example, multiple changes
 
 Overview
 --------
 
-In this guide, you can learn how to perform multiple write operations
-in a single database call by using **bulk write operations**.
+In this guide, you can learn how to perform multiple write operations in
+a single database call by using **bulk write operations**.
 
-Consider a scenario in which you want to insert a document into a collection,
+Consider a scenario in which you want to insert a document,
 update multiple other documents, then delete a document. If you use
-individual methods, each operation requires its own database call. Instead,
-you can use a bulk operation to reduce the number of calls to the database.
+individual methods, each operation requires its own database call.
+
+By using a bulk write operation, you can perform multiple write operations in
+fewer database calls. You can perform bulk write operations at the following levels:
+
+- :ref:`Collection <php-coll-bulk-write>`: You can use the 
+  ``MongoDB\Collection::bulkWrite()`` method to perform bulk write
+  operations on a single collection. This method makes a database call
+  for each type of write operation. For example, the method can perform
+  multiple update operations in one call, but makes two separate calls to
+  the database for an insert operation and a replace operation.
+
+- :ref:`Client <php-client-bulk-write>`: If your application connects to
+  {+mdb-server+} version 8.0 or later, you can use the
+  ``MongoDB\Client::bulkWrite()`` method to perform bulk write
+  operations on multiple collections and databases in the same cluster.
+  This method performs all write operations in one database call.
 
 Sample Data
 ~~~~~~~~~~~
 
-The examples in this guide use the ``restaurants`` collection in the ``sample_restaurants``
-database from the :atlas:`Atlas sample datasets </sample-data>`. To access this collection
-from your PHP application, instantiate a ``MongoDB\Client`` that connects to an Atlas cluster
-and assign the following value to your ``$collection`` variable:
+The examples in this guide use the ``sample_restaurants.restaurants``
+and ``sample_mflix.movies`` collections from the :atlas:`Atlas sample
+datasets </sample-data>`. To learn how to create a free MongoDB Atlas
+cluster and load the sample datasets, see the :atlas:`Get Started with
+Atlas </getting-started>` guide.
 
-.. literalinclude:: /includes/write/bulk-write.php
-    :language: php
-    :dedent:
-    :start-after: start-db-coll
-    :end-before: end-db-coll
+.. _php-coll-bulk-write:
 
-To learn how to create a free MongoDB Atlas cluster and load the sample datasets, see the
-:atlas:`Get Started with Atlas </getting-started>` guide.
-
-.. _php-bulk-operations:
-
-Bulk Operations
----------------
+Collection Bulk Write
+---------------------
 
 To run a bulk write operation, pass an array of write operations to the
 ``MongoDB\Collection::bulkWrite()`` method. Use the following syntax to 
@@ -67,13 +74,13 @@ specify the write operations:
 
 .. tip::
 
-    For more information about delete, insert, replace, and update
-    operations, see the :ref:`Write operation guides <php-write>`.
+   To learn more about delete, insert, replace, and update
+   operations, see the guides in the :ref:`php-write` section.
 
 When you call the ``bulkWrite()`` method, the library automatically runs the
-write operations in the order they're specified in the array. To learn how to
+write operations in the order you specify in the array. To learn how to
 instruct ``bulkWrite()`` to run the write operations in an arbitrary order,
-see the :ref:`php-bulk-modify` section.
+see the :ref:`php-bulk-collection-modify` section.
 
 Example
 ~~~~~~~
@@ -96,10 +103,16 @@ collection:
    :language: php
    :dedent:
 
-.. _php-bulk-modify:
+.. note::
 
-Modify Bulk Write Behavior
---------------------------
+   When the library runs a bulk operation, it uses the write concern of the
+   target collection. The driver reports all write concern errors after
+   attempting all operations, regardless of execution order.
+
+.. _php-bulk-collection-modify:
+
+Customize Bulk Write Operation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can modify the behavior of the ``MongoDB\Collection::bulkWrite()`` method by
 passing an array that specifies option values as a parameter. The following table 
@@ -170,19 +183,19 @@ If it runs the delete operation first, no documents are deleted.
    Unordered bulk operations do not guarantee order of execution. The order can
    differ from the way you list them to optimize the runtime.
 
-.. _php-bulk-return-value:
+.. _php-bulk-collection-return-value:
 
 Return Value
-------------
+~~~~~~~~~~~~
 
 The ``MongoDB\Collection::bulkWrite()`` method returns a ``MongoDB\BulkWriteResult``
-object. This class contains the following member functions:
+object. This class contains the following methods:
 
 .. list-table::
    :widths: 30 70
    :header-rows: 1
 
-   * - Function
+   * - Method
      - Description
          
    * - ``getDeletedCount()``
@@ -210,6 +223,295 @@ object. This class contains the following member functions:
    * - ``isAcknowledged()``
      - | Returns a boolean indicating whether the bulk operation was acknowledged.
 
+.. _php-client-bulk-write:
+
+Client Bulk Write
+-----------------
+
+When using {+library-short+} v2.1 and connecting to a deployment
+running {+mdb-server+} 8.0 or later, you can use the
+``MongoDB\Client::bulkWrite()`` method to write to multiple databases
+and collections in the same cluster. This method performs all write
+operations in a single call. To learn more about this feature, see the
+:manual:`Mongo.bulkWrite() <reference/method/Mongo.bulkWrite/>`
+reference in the {+mdb-server+} manual.
+
+First, instantiate a ``MongoDB\ClientBulkWrite`` instance that
+specifies the write operations to perform. The following code
+demonstrates how to create a ``ClientBulkWrite`` instance from a
+``MongoDB\Collection`` instance by using the ``createWithCollection()``
+method:
+
+.. code-block:: php
+   :emphasize-lines: 2
+
+   $restaurantCollection = $client->sample_restaurants->restaurants;
+   $bulkWrite = MongoDB\ClientBulkWrite::createWithCollection($restaurantCollection);
+
+Then, call one or more of the following write methods on the
+``ClientBulkWrite`` instance to construct the bulk write operation:
+
+- ``deleteOne()``
+- ``deleteMany()``
+- ``insertOne()``
+- ``replaceOne()``
+- ``updateOne()``
+- ``updateMany()``
+
+To select a different namespace for subsequent write operations, call
+the ``withCollection()`` method on the ``ClientBulkWrite`` instance:
+
+.. code-block:: php
+   :emphasize-lines: 2
+
+   $movieCollection = $client->sample_mflix->movies;
+   $bulkWrite = MongoDB\ClientBulkWrite::withCollection($movieCollection);
+
+The following sections show how to create and use the
+``ClientBulkWrite`` class to specify write operations
+in a bulk write. The :ref:`php-client-bulkwrite-method` section  
+demonstrates how to pass the ``ClientBulkWrite`` object to the
+``bulkWrite()`` method to perform the bulk operation.
+
+Insert Operations
+~~~~~~~~~~~~~~~~~
+
+To specify an insert operation, create an instance of the
+``ClientBulkWrite`` class, then call the ``insertOne()`` method.
+
+The following example specifies insertion of documents into the
+``sample_restaurants.restaurants`` and ``sample_mflix.movies``
+collections:
+
+.. literalinclude:: /includes/write/bulk-write.php
+   :start-after: start-bulk-client-insert-one
+   :end-before: end-bulk-client-insert-one
+   :language: php
+   :copyable:
+   :dedent:
+
+Update Operations
+~~~~~~~~~~~~~~~~~
+
+To specify an update operation on the first matching document, create an
+instance of the ``ClientBulkWrite`` class, then call the ``updateOne()``
+method.
+
+The following example specifies an update to a document in the 
+``sample_restaurants.restaurants`` collection:
+
+.. literalinclude:: /includes/write/bulk-write.php
+   :start-after: start-bulk-client-update-one
+   :end-before: end-bulk-client-update-one
+   :language: php
+   :copyable:
+   :dedent:
+
+To update multiple documents, call the ``updateMany()`` method. The specified
+operation updates *all documents* that match the query filter.
+
+The following example specifies an update to all matching documents in the 
+``sample_restaurants.restaurants`` collection:
+
+.. literalinclude:: /includes/write/bulk-write.php
+   :start-after: start-bulk-client-update-many
+   :end-before: end-bulk-client-update-many
+   :language: php
+   :copyable:
+   :dedent:
+
+Replace Operations
+~~~~~~~~~~~~~~~~~~
+
+To specify an replace operation on the first matching document, create an
+instance of the ``ClientBulkWrite`` class, then call the ``replaceOne()``
+method.
+
+The following example specifies a replace operation on a document in the
+``sample_restaurants.restaurants`` collection:
+
+.. literalinclude:: /includes/write/bulk-write.php
+   :start-after: start-bulk-client-replace-one
+   :end-before: end-bulk-client-replace-one
+   :language: php
+   :copyable:
+   :dedent:
+
+Delete Operations
+~~~~~~~~~~~~~~~~~
+
+To specify an delete operation on the first matching document, create an
+instance of the ``ClientBulkWrite`` class, then call the ``deleteOne()``
+method.
+
+The following example specifies deletion of a document in the 
+``sample_restaurants.restaurants`` collection:
+
+.. literalinclude:: /includes/write/bulk-write.php
+   :start-after: start-bulk-client-delete-one
+   :end-before: end-bulk-client-delete-one
+   :language: php
+   :copyable:
+   :dedent:
+
+To delete multiple documents, call the ``deleteMany()`` method. The specified
+operation deletes *all documents* that match the query filter.
+
+The following example specifies deletion of all matching documents in the 
+``sample_restaurants.restaurants`` collection:
+
+.. literalinclude:: /includes/write/bulk-write.php
+   :start-after: start-bulk-client-delete-many
+   :end-before: end-bulk-client-delete-many
+   :language: php
+   :copyable:
+   :dedent:
+
+.. _php-client-bulkwrite-method:
+
+Perform the Bulk Operation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+After you construct the ``ClientBulkWrite`` instance to specify your
+write operations, pass it to the ``MongoDB\Client::bulkWrite()`` method.
+By default, these methods run the operations in the order you defined
+when constructing ``ClientBulkWrite``.
+
+The following code demonstrates how to use the ``bulkWrite()`` method
+to perform a bulk write operation on multiple namespaces:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/write/bulk-write.php
+      :start-after: start-bulk-client
+      :end-before: end-bulk-client
+      :language: php
+      :dedent:
+
+   .. output::
+      :visible: false
+
+      Inserted documents: 2
+      Modified documents: 2
+      Deleted documents: 200
+
+.. _php-client-bulk-write-options:
+
+Customize Bulk Write
+~~~~~~~~~~~~~~~~~~~~
+
+You can modify the behavior of the client bulk write operation by
+passing an array to the ``ClientBulkWrite`` constructor that specifies
+option values as a parameter. The following table describes the options
+you can set in the array:
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Option
+     - Description
+
+   * - ``bypassDocumentValidation``
+     - | Specifies whether the operation bypasses document validation. This lets you 
+         modify documents that don't meet the schema validation requirements, if any 
+         exist. For more information about schema validation, see :manual:`Schema
+         Validation </core/schema-validation/#schema-validation>` in the {+mdb-server+}
+         manual.
+       | Defaults to ``false``.
+
+   * - ``comment``
+     - | Attaches a comment to the operation. For more information, see the :manual:`insert command
+         fields </reference/command/insert/#command-fields>` guide in the
+         {+mdb-server+} manual.
+
+   * - ``let``
+     - | Specifies a document with a list of values to improve operation readability.
+         Values must be constant or closed expressions that don't reference document
+         fields. For more information, see the :manual:`let statement
+         </reference/command/update/#std-label-update-let-syntax>` in the
+         {+mdb-server+} manual.
+
+   * - ``ordered``
+     - | If set to ``true``: when a single write fails, the operation stops without
+         performing the remaining writes and throws an exception.
+       | If set to ``false``: when a single write fails, the operation continues to
+         attempt the remaining write operations, if any, then throws an exception.
+       | Defaults to ``true``.
+
+   * - ``verboseResults``
+     - | Specifies whether to return verbose results. 
+       | Defaults to ``false``.
+
+The following example creates a ``ClientBulkWrite`` instance and sets
+the ``ordered`` option to ``false``:
+
+.. literalinclude:: /includes/write/bulk-write.php
+   :start-after: start-bulk-client-options
+   :end-before: end-bulk-client-options
+   :language: php
+   :dedent:
+
+If the library runs the insert operation first, one document is deleted.
+If it runs the delete operation first, no documents are deleted. 
+
+.. note::
+
+   Unordered bulk operations do not guarantee order of execution. The order can
+   differ from the way you list them to optimize the runtime.
+
+You can also pass options when calling the ``bulkWrite()`` method to specify
+the client session or the write concern to use for the operation.
+
+Return Value
+~~~~~~~~~~~~
+
+The ``MongoDB\Client::bulkWrite()`` method returns a ``MongoDB\BulkWriteCommandResult``
+object. This class contains the following methods:
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Method
+     - Description
+         
+   * - ``getInsertedCount()``
+     - | Returns the number of documents inserted, if any.
+
+   * - ``getMatchedCount()``
+     - | Returns the number of documents matched during update and replace
+         operations, if applicable.
+
+   * - ``getModifiedCount()``
+     - | Returns the number of documents modified, if any.
+
+   * - ``getUpsertedCount()``
+     - | Returns the number of documents upserted, if any.
+
+   * - ``getDeletedCount()``
+     - | Returns the number of documents deleted, if any.
+
+   * - ``getInsertResults()``
+     - | Returns a map of results of each successful insert operation. Each
+         operation is represented by an integer key, which contains a
+         document with information corresponding to the operation such
+         as the inserted ``_id`` value.
+
+   * - ``getUpdateResults()``
+     - | Returns a map of results of each successful update operation. Each
+         operation is represented by an integer key, which contains a
+         document with information corresponding to the operation.
+
+   * - ``getDeleteResults()``
+     - | Returns a map of results of each successful delete operation.
+         Each operation is represented by an integer key, which contains
+         a document with information corresponding to the operation.
+
+   * - ``isAcknowledged()``
+     - | Returns a boolean indicating whether the bulk operation was acknowledged.
+
 Additional Information
 ----------------------
 
@@ -226,5 +528,13 @@ API Documentation
 To learn more about any of the methods or types discussed in this
 guide, see the following API documentation:
 
-- :phpmethod:`MongoDB\Collection::bulkWrite()`
-- :phpclass:`MongoDB\BulkWriteResult`
+- Collection Bulk Write
+
+  - :phpmethod:`MongoDB\Collection::bulkWrite()`
+  - :phpclass:`MongoDB\BulkWriteResult`
+
+- Client Bulk Write
+
+  - :phpclass:`MongoDB\ClientBulkWrite`
+  - :phpmethod:`MongoDB\Client::bulkWrite()`
+  - :phpclass:`MongoDB\BulkWriteCommandResult`

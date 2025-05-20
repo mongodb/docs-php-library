@@ -1,0 +1,85 @@
+================================================
+MongoDB\\ClientBulkWrite::createWithCollection()
+================================================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+.. versionadded:: 2.1
+
+Definition
+----------
+
+.. phpmethod:: MongoDB\ClientBulkWrite::createWithCollection()
+
+   Creates an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
+   :phpclass:`MongoDB\Collection` instance.
+
+   .. code-block:: php
+
+      function createWithCollection(
+          Collection $collection,
+          array $options = []
+      ): self
+
+Parameters
+----------
+
+``$collection`` : :phpclass:`MongoDB\Collection`
+  The ``Collection`` instance to set as the target for bulk write
+  operations.
+
+``$options`` : array
+  An array specifying the desired options.
+
+  .. list-table::
+     :header-rows: 1
+     :widths: 20 20 80
+
+     * - Name
+       - Type
+       - Description
+
+     * - bypassDocumentValidation
+       - boolean
+       - If ``true``, allows the write operation to circumvent document level
+         validation. Defaults to ``false``.
+
+     * - comment
+       - mixed
+       - .. include:: /includes/extracts/common-option-comment.rst
+
+         .. include:: /includes/extracts/option-requires-4.4.rst
+
+     * - let
+       - array|object
+       - .. include:: /includes/extracts/common-option-let.rst
+
+     * - ordered
+       - boolean
+       - If ``true``: when a single write fails, the operation stops without
+         performing the remaining writes and throws an exception.
+
+         If ``false``: when a single write fails, the operation continues
+         with the remaining writes, if any, and throws an exception.
+
+         The default is ``true``.
+
+     * - verboseResults
+       - boolean
+       - Specifies whether to return verbose results. The default is ``false``.
+
+Errors/Exceptions
+-----------------
+
+.. include:: /includes/extracts/error-unsupportedexception.rst
+.. include:: /includes/extracts/error-invalidargumentexception.rst
+.. include:: /includes/extracts/error-driver-runtimeexception.rst
+
+See Also
+--------
+
+- :ref:`php-bulk-write`

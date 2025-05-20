@@ -1,0 +1,61 @@
+=====================================
+MongoDB\\BulkWriteCommandResult Class
+=====================================
+
+Definition
+----------
+
+.. phpclass:: MongoDB\BulkWriteCommandResult
+
+   This class contains information about an executed client bulk write operation. It
+   is returned from :phpmethod:`MongoDB\Client::bulkWrite()`.
+
+Methods
+-------
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Method
+     - Description
+         
+   * - ``getInsertedCount()``
+     - | Returns the number of documents inserted, if any.
+
+   * - ``getMatchedCount()``
+     - | Returns the number of documents matched during update and replace
+         operations, if applicable.
+
+   * - ``getModifiedCount()``
+     - | Returns the number of documents modified, if any.
+
+   * - ``getUpsertedCount()``
+     - | Returns the number of documents upserted, if any.
+
+   * - ``getDeletedCount()``
+     - | Returns the number of documents deleted, if any.
+
+   * - ``getInsertResults()``
+     - | Returns a map of results of each successful insert operation. Each
+         operation is represented by an integer key, which contains a
+         document with information corresponding to the operation such
+         as the inserted ``_id`` value.
+
+   * - ``getUpdateResults()``
+     - | Returns a map of results of each successful update operation. Each
+         operation is represented by an integer key, which contains a
+         document with information corresponding to the operation.
+
+   * - ``getDeleteResults()``
+     - | Returns a map of results of each successful delete operation.
+         Each operation is represented by an integer key, which contains
+         a document with information corresponding to the operation.
+
+   * - ``isAcknowledged()``
+     - | Returns a boolean indicating whether the bulk operation was acknowledged.
+
+See Also
+--------
+
+- :ref:`php-bulk-write`
