@@ -67,22 +67,32 @@ Read and Write Data
 
 Learn how to find, update, and delete data in the :ref:`<php-crud-operations>` section.
 
-Operations with Builders
-------------------------
+Transform Your Data with Aggregation
+------------------------------------
 
-Learn how to use builder classes and factory methods to create queries
-in the :ref:`php-builders` section.
+Learn how to use the {+library-short+} to perform aggregation operations in the
+:ref:`php-aggregation` section.
+
+Data Formats
+------------
+
+Learn how to work with specialized data formats and custom types in the
+:ref:`php-data-formats` section.
 
 Run a Database Command
 ----------------------
 
 Learn how to run a database command in the :ref:`php-run-command` section.
 
-Transform Your Data with Aggregation
-------------------------------------
+Atlas Search
+------------
 
-Learn how to use the {+library-short+} to perform aggregation operations in the
-:ref:`php-aggregation` section.
+Learn how to run Atlas Search queries in the :ref:`<php-atlas-search>` section.
+
+Atlas Vector Search
+-------------------
+
+Learn how to run Atlas Vector Search queries in the :ref:`<php-vector-search>` section.
 
 Optimize Queries with Indexes
 -----------------------------
@@ -101,12 +111,6 @@ Secure Your Data
 
 Learn about ways you can authenticate your application and encrypt your data in
 the :ref:`php-security` section.
-
-Data Formats
-------------
-
-Learn how to work with specialized data formats and custom types in the
-:ref:`php-data-formats` section.
 
 Reference
 ---------
