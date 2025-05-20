@@ -58,7 +58,7 @@ Collection Bulk Write
 ---------------------
 
 To run a bulk write operation, pass an array of write operations to the
-``MongoDB\Collection::bulkWrite()`` method. Use the following syntax to 
+:phpmethod:`MongoDB\Collection::bulkWrite()` method. Use the following syntax to 
 specify the write operations:
 
 .. code-block:: php
@@ -230,10 +230,10 @@ Client Bulk Write
 
 When using {+library-short+} v2.1 and connecting to a deployment
 running {+mdb-server+} 8.0 or later, you can use the
-``MongoDB\Client::bulkWrite()`` method to write to multiple databases
+:phpmethod:`MongoDB\Client::bulkWrite()` method to write to multiple databases
 and collections in the same cluster. This method performs all write
 operations in a single call. To learn more about this feature, see the
-:manual:`Mongo.bulkWrite() <reference/method/Mongo.bulkWrite/>`
+:manual:`Mongo.bulkWrite() </reference/method/Mongo.bulkWrite/>`
 reference in the {+mdb-server+} manual.
 
 First, instantiate a ``MongoDB\ClientBulkWrite`` instance that

@@ -15,7 +15,7 @@ ref: bulkwriteexception-client-result
 content: |
   If a :php:`MongoDB\Driver\Exception\BulkWriteCommandException
   <mongodb-driver-exception-bulkwritecommandexception>` is thrown, users should call
-  :php:`getWriteErrors() <mongodb-driver-exception-bulkwritecommandexception.getwriteerrors>` and
+  :php:`getWriteErrors() <mongodb-driver-bulkwritecommandexception.getwriteerrors>` and
   inspect the information in the returned array to determine the nature of the error.
 
   For example, a write operation may have been successfully applied to the

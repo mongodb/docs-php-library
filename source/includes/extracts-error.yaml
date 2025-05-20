@@ -11,7 +11,7 @@ content: |
   :php:`MongoDB\Driver\Exception\BulkWriteCommandException
   <mongodb-driver-exception-bulkwritecommandexception>` for errors related to the write
   operation. Users should inspect the value returned by :php:`getWriteErrors()
-  <mongodb-driver-exception-bulkwritecommandexception.getwriteerrors>` to determine the nature of the
+  <mongodb-driver-bulkwritecommandexception.getwriteerrors>` to determine the nature of the
   error.
 ---
 ref: error-driver-invalidargumentexception
