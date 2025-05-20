@@ -60,6 +60,11 @@ Methods
      - | Returns a boolean indicating whether the bulk operation was
          acknowledged by the server.
 
+To learn more about the information returned from the server when you
+perform a client bulk write operation, see the :manual:`Output
+</reference/method/Mongo.bulkWrite/#output>` section of the
+``Mongo.bulkWrite`` shell method reference.
+
 See Also
 --------
 
