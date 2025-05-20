@@ -21,12 +21,12 @@ toc_landing_pages = [
     "/reference/class/MongoDBModelDatabaseInfo",
     "/reference/class/MongoDBModelIndexInfo",
     "/connect",
-    "/databases-collections",
+    "/aggregation",
+    "/data-formats",
+    "/data-formats/custom-types",
     "/indexes",
     "/security",
-    "/data-formats",
     "/upgrade",
-    "/aggregation",
 ]
 
 sharedinclude_root = "https://raw.githubusercontent.com/10gen/docs-shared/main/"

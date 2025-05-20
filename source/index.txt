@@ -14,19 +14,18 @@ MongoDB PHP Library
    :titlesonly:
 
    Get Started </get-started>
-   Connect to MongoDB </connect>
+   Connect </connect>
    Databases & Collections </databases-collections>
    CRUD Operations </crud>
-   Operations with Builders </builders>
-   Run a Database Command </run-command>
-   Data Aggregation </aggregation>
+   Aggregation </aggregation>
+   Data Formats </data-formats>
    Indexes </indexes>
+   Run a Database Command </run-command>
+   Atlas Search </atlas-search>
+   Atlas Vector Search </atlas-vector-search>
    Monitoring and Logging </monitoring-logging>
    Security </security>
-   Specialized Data Formats </data-formats>
-   Compatibility </compatibility>
-   What's New </whats-new>
-   Upgrade </upgrade>
+   Reference </references>
    FAQ </faq>
    API Documentation </reference>
 
@@ -102,29 +101,17 @@ Secure Your Data
 Learn about ways you can authenticate your application and encrypt your data in
 the :ref:`php-security` section.
 
-Specialized Data Formats
-------------------------
+Data Formats
+------------
 
 Learn how to work with specialized data formats and custom types in the
 :ref:`php-data-formats` section.
 
-Compatibility
--------------
+Reference
+---------
 
-See compatibility tables showing the recommended {+library-short+} version to use for
-specific PHP and {+mdb-server+} versions in the :ref:`php-compatibility` section.
-
-What's New
-----------
-
-Learn about new features and changes in each version in the :ref:`<php-lib-whats-new>`
-section.
-
-Upgrade Library Versions
-------------------------
- 
-Learn what changes you must make to your application to upgrade library and
-extension versions in the :ref:`php-upgrade` section.
+Learn more about {+library-short+} versions, compatibility, and upgrade considerations in the
+:ref:`Reference <php-reference>` section.
 
 FAQ
 ---

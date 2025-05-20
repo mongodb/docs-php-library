@@ -22,9 +22,9 @@ Specialized Data Formats
    :maxdepth: 1
 
    Custom Data Types </data-formats/custom-types>
-   Codecs </data-formats/codecs>
    Decimal128 </data-formats/decimal128>
    BSON </data-formats/modeling-bson-data>
+   Time Series </data-formats/time-series>
 
 Overview
 --------
@@ -34,6 +34,5 @@ application. To learn how to work with these data formats, see the following
 guides:
 
 - :ref:`php-custom-types`
-- :ref:`php-codecs`
 - :ref:`php-decimal128`
 - :ref:`php-bson`

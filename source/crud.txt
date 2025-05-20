@@ -25,20 +25,24 @@ CRUD Operations
    Insert Documents </crud/insert>
    Query Documents </crud/query>
    Update Documents </crud/update>
+   Delete Documents </crud/replace>
    Delete Documents </crud/delete>
    Bulk Write Operations </crud/bulk-write>
    Transactions </crud/transaction>
    Configure CRUD Operations </crud/read-write-pref>
    Store Large Files </crud/gridfs>
+   Operations with Builders </crud/builders>
 
 CRUD (Create, Read, Update, Delete) operations enable you to work with
 data stored in MongoDB.
 
-- :ref:`php-insert`
+- :ref:`php-write-insert`
 - :ref:`php-query`
-- :ref:`php-update`
-- :ref:`php-delete`
+- :ref:`php-write-update`
+- :ref:`php-write-replace`
+- :ref:`php-write-delete`
 - :ref:`php-bulk-write`
 - :ref:`php-transactions`
 - :ref:`php-read-write-pref`
 - :ref:`php-gridfs`
+- :ref:`php-builders`

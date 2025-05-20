@@ -18,8 +18,6 @@ Specify Connection Options
    :keywords: connection string, URI, server, Atlas, settings, configure
 
 .. toctree::
-   :titlesonly:
-   :maxdepth: 1
 
    Stable API </connect/connection-options/stable-api>
 
