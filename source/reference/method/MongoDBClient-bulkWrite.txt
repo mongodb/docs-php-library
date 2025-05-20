@@ -37,7 +37,9 @@ Parameters
 
      We recommend using the ``ClientBulkWrite`` builder class and
      methods to specify write operations in a bulk write command instead
-     of using the ``BulkWriteCommand`` class.
+     of using the ``BulkWriteCommand`` class. ``ClientBulkWrite``
+     provides a fluent API with methods similar to CRUD methods from the
+     :phpclass:`MongoDB\Collection` class.
 
   Represents the assembled bulk write command or builder.
   :phpmethod:`MongoDB\Client::bulkWrite()` supports

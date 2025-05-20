@@ -9,11 +9,11 @@ Definition
 
 .. phpclass:: MongoDB\ClientBulkWrite
 
-   This class enables you to assemble a bulk write command to pass to
-   :phpmethod:`MongoDB\Client::bulkWrite()` to perform write operations
-   across multiple namespaces.
+   This class enables you to assemble a bulk write command that you
+   pass to :phpmethod:`MongoDB\Client::bulkWrite()` to perform write
+   operations across multiple namespaces.
 
-   This class is a builder to instantiate a :php:`BulkWriteCommand
+   ``ClientBulkWrite`` is a builder class to create a :php:`BulkWriteCommand
    <mongodb-driver-bulkwritecommand>` instance that the library sends to the
    server.
 

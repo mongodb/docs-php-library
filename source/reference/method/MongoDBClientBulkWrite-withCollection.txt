@@ -26,10 +26,10 @@ Definition
           Collection $collection,
       ): self
 
-
    You cannot mix ``Collection`` instances associated with different
-   ``Manager`` objects because the library sends the client bulk
-   write operation as a command to a single server.
+   ``Manager`` objects when calling this method on a ``ClientBulkWrite``
+   instance. This is because the library sends the completed
+   ``BulkWriteCommand`` to a single server.
 
 Parameters
 ----------
