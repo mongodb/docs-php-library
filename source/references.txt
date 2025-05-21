@@ -12,6 +12,9 @@ Reference
    Compatibility </references/compatibility>
    Upgrade Guides </references/upgrade>
 
+To learn about the differences between versions of
+the {+library-short+}, view the following guides:
+
 - :ref:`php-release-notes`
 - :ref:`php-compatibility`
 - :ref:`php-upgrade`

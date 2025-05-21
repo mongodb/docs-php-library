@@ -21,6 +21,7 @@ toc_landing_pages = [
     "/reference/class/MongoDBModelDatabaseInfo",
     "/reference/class/MongoDBModelIndexInfo",
     "/connect",
+    "/connect/connection-options/",
     "/aggregation",
     "/data-formats",
     "/data-formats/custom-types",

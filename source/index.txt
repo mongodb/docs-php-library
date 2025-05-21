@@ -79,6 +79,12 @@ Data Formats
 Learn how to work with specialized data formats and custom types in the
 :ref:`php-data-formats` section.
 
+Optimize Queries with Indexes
+-----------------------------
+
+Learn how to work with common types of indexes in the :ref:`php-indexes`
+section.
+
 Run a Database Command
 ----------------------
 
@@ -93,12 +99,6 @@ Atlas Vector Search
 -------------------
 
 Learn how to run Atlas Vector Search queries in the :ref:`<php-vector-search>` section.
-
-Optimize Queries with Indexes
------------------------------
-
-Learn how to work with common types of indexes in the :ref:`php-indexes`
-section.
 
 Monitoring and Logging
 ----------------------
