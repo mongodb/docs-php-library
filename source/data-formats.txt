@@ -36,3 +36,4 @@ guides:
 - :ref:`php-custom-types`
 - :ref:`php-decimal128`
 - :ref:`php-bson`
+- :ref:`php-time-series`

@@ -344,5 +344,5 @@ and retrieves a document that matches a query.
 
 Learn more about the {+php-library+} from the following resources:
 
-- Learn how to configure your MongoDB connection in the :ref:`<php-connect>` section.
-- Learn how to perform read and write operations in the :ref:`<php-crud-operations>` section.
+- Learn how to configure your MongoDB connection in the :ref:`php-connect` section.
+- Learn how to perform read and write operations in the :ref:`php-crud-operations` section.

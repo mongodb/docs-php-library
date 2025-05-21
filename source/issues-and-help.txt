@@ -10,7 +10,7 @@ Issues & Help
 
 .. meta::
    :keywords: php, troubleshooting, feedback
-   :description: Find support for the {+library-short+, report bugs or feature requests, and learn how to contribute.
+   :description: Find support for the PHP library, report bugs or feature requests, and learn how to contribute.
 
 .. contents:: On this page
    :local:
@@ -45,7 +45,7 @@ a Jira issue:
 
 .. note::
 
-   Bug reports in the PHP Jira project are publicly viewable.
+   Bug reports in the PHPLIB Jira project are publicly viewable.
 
 If you've identified a security vulnerability in any official MongoDB
 product, please report it according to the instructions found in the

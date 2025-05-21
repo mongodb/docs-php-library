@@ -34,7 +34,8 @@ CRUD Operations
    Operations with Builders </crud/builders>
 
 CRUD (Create, Read, Update, Delete) operations enable you to work with
-data stored in MongoDB.
+data stored in MongoDB. To learn more about running CRUD operations on
+your data, visit the following guides:
 
 - :ref:`php-write-insert`
 - :ref:`php-query`
