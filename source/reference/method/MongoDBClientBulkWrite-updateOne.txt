@@ -36,9 +36,9 @@ Parameters
 ``$update`` : array|object
   Specifies the field and value combinations to update and any relevant update
   operators. ``$update`` uses MongoDB's :manual:`update operators
-  </reference/operator/update>`. Starting with MongoDB 4.2, an `aggregation
-  pipeline <https://mongodb.com/docs/master/reference/command/update/#update-with-an-aggregation-pipeline>`_
-  can be passed as this parameter.
+  </reference/operator/update>`. You can pass an :manual:`aggregation pipeline
+  </reference/command/update/#update-with-an-aggregation-pipeline>` as
+  this parameter.
 
 ``$options`` : array
   An array specifying the desired options.
@@ -63,8 +63,6 @@ Parameters
      * - hint
        - string|array|object
        - .. include:: /includes/extracts/common-option-hint.rst
-
-         .. include:: /includes/extracts/option-requires-4.2.rst
 
      * - sort
        - array|object

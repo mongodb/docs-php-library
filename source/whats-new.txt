@@ -36,7 +36,7 @@ What's New in 2.1
 The {+library-short+} v2.1 release includes the following features,
 improvements, and fixes:
 
-- Implements a *client* bulk write API that allows you to perform write
+- Adds a *client* bulk write API to perform write
   operations on multiple databases and collections in the same call. To learn
   more about this feature, see the :ref:`php-client-bulk-write`
   section of the Bulk Write Operations guide.

@@ -15,10 +15,15 @@ Definition
 
 .. phpmethod:: MongoDB\ClientBulkWrite::withCollection()
 
-   Return an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
-   :phpclass:`MongoDB\Collection` instance. This method allows you to
-   add subsequent write operations on a different collection than that
-   with which the ``MongoDB\ClientBulkWrite`` was created with.
+   Return an updated instance of :phpclass:`MongoDB\ClientBulkWrite`
+   from the provided :phpclass:`MongoDB\Collection` instance. This
+   method allows you to add subsequent write operations on a different
+   collection than that with which the ``ClientBulkWrite`` was created
+   with.
+
+   This method does not build a new :php:`BulkWriteCommand
+   <mongodb-driver-bulkwritecommand>` and does not edit the
+   ``ClientBulkWrite`` instance in place.
 
    .. code-block:: php
 

@@ -51,8 +51,6 @@ Parameters
        - string|array|object
        - .. include:: /includes/extracts/common-option-hint.rst
 
-         .. include:: /includes/extracts/option-requires-4.4.rst
-
 Errors/Exceptions
 -----------------
 

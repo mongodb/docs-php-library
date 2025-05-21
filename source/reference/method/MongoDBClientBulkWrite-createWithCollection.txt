@@ -15,8 +15,11 @@ Definition
 
 .. phpmethod:: MongoDB\ClientBulkWrite::createWithCollection()
 
-   Create an instance of :phpclass:`MongoDB\ClientBulkWrite` from the provided
-   :phpclass:`MongoDB\Collection` instance.
+   Create an instance of the :phpclass:`MongoDB\ClientBulkWrite` builder
+   from the provided :phpclass:`MongoDB\Collection` instance. You can
+   add write operations to the ``ClientBulkWrite`` to create a new
+   :php:`BulkWriteCommand <mongodb-driver-bulkwritecommand>` that the
+   library sends to the server.
 
    .. code-block:: php
 
@@ -51,8 +54,6 @@ Parameters
      * - comment
        - mixed
        - .. include:: /includes/extracts/common-option-comment.rst
-
-         .. include:: /includes/extracts/option-requires-4.4.rst
 
      * - let
        - array|object
