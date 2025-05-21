@@ -47,7 +47,7 @@ Parameters
 Return Values
 -------------
 
-A new ``ClientBulkWrite`` object with the same ``BulkWriteCommand``
+A new ``ClientBulkWrite`` instance with the same ``BulkWriteCommand``
 specification but an updated target namespace.
 
 Errors/Exceptions

@@ -76,7 +76,7 @@ Parameters
 Return Values
 -------------
 
-A new ``ClientBulkWrite`` object with an empty ``BulkWriteCommand``
+A new ``ClientBulkWrite`` instance with an empty ``BulkWriteCommand``
 specification.
 
 Errors/Exceptions
