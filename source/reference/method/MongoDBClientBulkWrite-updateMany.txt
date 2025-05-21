@@ -17,7 +17,7 @@ Definition
 
    Specify an update operation in the bulk write command for all
    matching documents. This method returns the
-   :phpclass:`MongoDB\ClientBulkWrite` instance on which its called.
+   :phpclass:`MongoDB\ClientBulkWrite` instance on which it's called.
 
    .. code-block:: php
 
@@ -34,7 +34,7 @@ Parameters
   The filter criteria that specifies the documents to update.
 
 ``$update`` : array|object
-  Specifies the field and value combinations to update and any relevant update
+  The field and value combinations to update and any relevant update
   operators. ``$update`` uses MongoDB's :manual:`update operators </reference/operator/update>`.
   You can pass an :manual:`aggregation pipeline
   </reference/command/update/#update-with-an-aggregation-pipeline>` as this parameter. 

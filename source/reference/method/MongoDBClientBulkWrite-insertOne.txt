@@ -16,7 +16,7 @@ Definition
 .. phpmethod:: MongoDB\ClientBulkWrite::insertOne()
  
    Specify an insert operation in the bulk write command. This method
-   returns the :phpclass:`MongoDB\ClientBulkWrite` instance on which its called.
+   returns the :phpclass:`MongoDB\ClientBulkWrite` instance on which it's called.
 
    .. code-block:: php
 

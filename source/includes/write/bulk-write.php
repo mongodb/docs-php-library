@@ -117,31 +117,48 @@ $bulkWrite->deleteMany(
 // start-bulk-client
 $restaurantCollection = $client->sample_restaurants->restaurants;
 $movieCollection = $client->sample_mflix->movies;
-
+// Creates the bulk write command and sets the target namespace.
 $bulkWrite = MongoDB\ClientBulkWrite::createWithCollection($restaurantCollection);
+// Specifies insertion of one document.
 $bulkWrite->insertOne(['name' => 'Mongo Deli', 'cuisine' => 'Sandwiches']);
+// Specifies a `$set` update to one document with the upsert option
+// enabled.
 $bulkWrite->updateOne(
     ['name' => 'Dandelion Bakery'],
     ['$set' => ['grade' => 'B+']],
     ['upsert' => true],
 );
-
+// Changes the target namespace.
 $bulkWrite = $bulkWrite->withCollection($movieCollection);
+// Specifies insertion of one document.
 $bulkWrite->insertOne(['title' => 'The Green Ray', 'year' => 1986]);
+// Specifies deletion of documents in which `title` has two consective
+// 'd' characters.
 $bulkWrite->deleteMany(
     ['title' => ['$regex' => 'd{2,}']],
 );
+// Specifies replacement of one document.
 $bulkWrite->replaceOne(
     ['runtime' => ['$gte' => 200]],
     ['title' => 'Seven Samurai', 'runtime' => 203],
 );
 
+// Performs the bulk write operation.
 $result = $client->bulkWrite($bulkWrite);
+// Prints a summary of results.
 echo 'Inserted documents: ', $result->getInsertedCount(), PHP_EOL;
 echo 'Modified documents: ', $result->getModifiedCount(), PHP_EOL;
 echo 'Deleted documents: ', $result->getDeletedCount(), PHP_EOL;
 // end-bulk-client
 
 // start-bulk-client-options
-$bulkWrite = MongoDB\ClientBulkWrite::createWithCollection($collection, ['ordered' => false]);
+$bulkWrite = MongoDB\ClientBulkWrite::createWithCollection(
+    $restaurantCollection,
+    ['ordered' => false]
+);
 // end-bulk-client-options
+
+// start-bulk-client-unordered-behavior
+$bulkWrite->insertOne(['_id' => 4045, 'title' => 'The Green Ray']);
+$bulkWrite->deleteOne(['_id' => 4045]);
+// end-bulk-client-unordered-behavior

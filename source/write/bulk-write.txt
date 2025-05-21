@@ -90,7 +90,8 @@ Then, call one or more of the following write methods on the
 - ``updateMany()``
 
 To select a different namespace for subsequent write operations, call
-the ``withCollection()`` method on the ``ClientBulkWrite`` instance:
+the ``withCollection()`` method on the ``ClientBulkWrite`` instance, as
+shown in the following code:
 
 .. code-block:: php
    :emphasize-lines: 2
@@ -107,10 +108,10 @@ demonstrates how to pass the ``ClientBulkWrite`` object to the
 Insert Operations
 ~~~~~~~~~~~~~~~~~
 
-To specify an insert operation, create an instance of the
-``ClientBulkWrite`` class, then call the ``insertOne()`` method.
+To specify an insert operation, call the ``insertOne()`` method on your
+``ClientBulkWrite`` instance.
 
-The following example specifies insertion of documents into the
+The following example specifies the insertion of documents into the
 ``sample_restaurants.restaurants`` and ``sample_mflix.movies``
 collections:
 
@@ -124,12 +125,12 @@ collections:
 Update Operations
 ~~~~~~~~~~~~~~~~~
 
-To specify an update operation on the first matching document, create an
-instance of the ``ClientBulkWrite`` class, then call the ``updateOne()``
-method.
+To specify an update operation on the first matching document, call the
+``updateOne()`` method on your ``ClientBulkWrite`` instance.
 
-The following example specifies an update to a document in the 
-``sample_restaurants.restaurants`` collection:
+The following example specifies a ``$set`` update to the first document
+in the ``sample_restaurants.restaurants`` collection that has a ``name``
+value of ``'Dandelion Bakery'``:
 
 .. literalinclude:: /includes/write/bulk-write.php
    :start-after: start-bulk-client-update-one
@@ -141,8 +142,9 @@ The following example specifies an update to a document in the
 To update multiple documents, call the ``updateMany()`` method. The specified
 operation updates *all documents* that match the query filter.
 
-The following example specifies an update to all matching documents in the 
-``sample_restaurants.restaurants`` collection:
+The following example specifies a ``$set`` update to all matching documents
+in the ``sample_restaurants.restaurants`` collection that have a ``name``
+value of ``'Starbucks'``:
 
 .. literalinclude:: /includes/write/bulk-write.php
    :start-after: start-bulk-client-update-many
@@ -154,12 +156,12 @@ The following example specifies an update to all matching documents in the
 Replace Operations
 ~~~~~~~~~~~~~~~~~~
 
-To specify an replace operation on the first matching document, create an
-instance of the ``ClientBulkWrite`` class, then call the ``replaceOne()``
-method.
+To specify an replace operation on the first matching document, call the
+``replaceOne()`` method on your ``ClientBulkWrite`` instance.
 
-The following example specifies a replace operation on a document in the
-``sample_restaurants.restaurants`` collection:
+The following example specifies a replace operation on the first document
+in the ``sample_restaurants.restaurants`` collection that has a ``name``
+value of ``'Dandelion Bakery'``:
 
 .. literalinclude:: /includes/write/bulk-write.php
    :start-after: start-bulk-client-replace-one
@@ -171,12 +173,12 @@ The following example specifies a replace operation on a document in the
 Delete Operations
 ~~~~~~~~~~~~~~~~~
 
-To specify an delete operation on the first matching document, create an
-instance of the ``ClientBulkWrite`` class, then call the ``deleteOne()``
-method.
+To specify an delete operation on the first matching document, call the
+``deleteOne()`` method on your ``ClientBulkWrite`` instance.
 
-The following example specifies deletion of a document in the 
-``sample_restaurants.restaurants`` collection:
+The following example specifies the deletion of the first document
+in the ``sample_restaurants.restaurants`` collection that has a ``borough``
+value of ``'Queens'``:
 
 .. literalinclude:: /includes/write/bulk-write.php
    :start-after: start-bulk-client-delete-one
@@ -188,8 +190,9 @@ The following example specifies deletion of a document in the
 To delete multiple documents, call the ``deleteMany()`` method. The specified
 operation deletes *all documents* that match the query filter.
 
-The following example specifies deletion of all matching documents in the 
-``sample_restaurants.restaurants`` collection:
+The following example specifies the deletion of all documents
+in the ``sample_restaurants.restaurants`` collection that have a ``name``
+value that contains two consecutive ``'p'`` characters:
 
 .. literalinclude:: /includes/write/bulk-write.php
    :start-after: start-bulk-client-delete-many
@@ -218,6 +221,7 @@ to perform a bulk write operation on multiple namespaces:
       :start-after: start-bulk-client
       :end-before: end-bulk-client
       :language: php
+      :emphasize-lines: 30
       :dedent:
 
    .. output::
@@ -250,7 +254,7 @@ you can set in the array:
          exist. For more information about schema validation, see :manual:`Schema
          Validation </core/schema-validation/#schema-validation>` in the {+mdb-server+}
          manual.
-       | Defaults to ``false``.
+       | The default is ``false``.
 
    * - ``comment``
      - | Attaches a comment to the operation. For more information, see the :manual:`insert command
@@ -265,15 +269,15 @@ you can set in the array:
          {+mdb-server+} manual.
 
    * - ``ordered``
-     - | If set to ``true``: when a single write fails, the operation stops without
-         performing the remaining writes and throws an exception.
-       | If set to ``false``: when a single write fails, the operation continues to
-         attempt the remaining write operations, if any, then throws an exception.
-       | Defaults to ``true``.
+     - | If set to ``true``: When a single write fails, the operation stops without
+         performing the remaining writes and returns an exception.
+       | If set to ``false``: When a single write fails, the operation continues to
+         attempt the remaining write operations, if any, then returns an exception.
+       | The default is ``true``.
 
    * - ``verboseResults``
      - | Specifies whether to return verbose results. 
-       | Defaults to ``false``.
+       | The default is ``false``.
 
 The following example creates a ``ClientBulkWrite`` instance and sets
 the ``ordered`` option to ``false``:
@@ -284,13 +288,20 @@ the ``ordered`` option to ``false``:
    :language: php
    :dedent:
 
-If the library runs the insert operation first, one document is deleted.
-If it runs the delete operation first, no documents are deleted. 
-
-.. note::
+.. note:: Unordered Behavior
 
    Unordered bulk operations do not guarantee order of execution. The order can
-   differ from the way you list them to optimize the runtime.
+   differ from the way you list them to optimize the runtime. Suppose
+   you specify the following write operations in an unordered bulk write:
+
+   .. literalinclude:: /includes/write/bulk-write.php
+      :start-after: start-bulk-client-unordered-behavior
+      :end-before: end-bulk-client-unordered-behavior
+      :language: php
+      :dedent:
+   
+   Because the library might run either operation first, the result
+   can show one deleted document or no deleted documents.
 
 You can also pass options when calling the ``bulkWrite()`` method to specify
 the client session or the write concern to use for the operation.
@@ -345,8 +356,8 @@ object. This class contains the following methods:
          a document with information corresponding to the operation.
 
    * - ``isAcknowledged()``
-     - | Returns a boolean indicating whether the bulk operation was
-         acknowledged by the server.
+     - | Returns a boolean indicating whether the server acknowledged
+         the bulk operation.
 
 .. _php-coll-bulk-write:
 
@@ -427,7 +438,7 @@ describes the options you can set in the array:
          exist. For more information about schema validation, see :manual:`Schema
          Validation </core/schema-validation/#schema-validation>` in the {+mdb-server+}
          manual.
-       | Defaults to ``false``.
+       | The default is ``false``.
 
    * - ``codec``
      - | Sets the codec to use for encoding or decoding documents. Bulk writes 
@@ -447,11 +458,11 @@ describes the options you can set in the array:
          {+mdb-server+} manual.
 
    * - ``ordered``
-     - | If set to ``true``: when a single write fails, the operation stops without
-         performing the remaining writes and throws an exception.
-       | If set to ``false``: when a single write fails, the operation continues to
-         attempt the remaining write operations, if any, then throws an exception.
-       | Defaults to ``true``.
+     - | If set to ``true``: When a single write fails, the operation stops without
+         performing the remaining writes and returns an exception.
+       | If set to ``false``: When a single write fails, the operation continues to
+         attempt the remaining write operations, if any, then returns an exception.
+       | The default is ``true``.
 
    * - ``comment``
      - | Attaches a comment to the operation. For more information, see the :manual:`insert command
@@ -474,7 +485,7 @@ insert and delete operation and sets the ``ordered`` option to
 If the library runs the insert operation first, one document is deleted.
 If it runs the delete operation first, no documents are deleted. 
 
-.. note::
+.. note:: Unordered Behavior
 
    Unordered bulk operations do not guarantee order of execution. The order can
    differ from the way you list them to optimize the runtime.
@@ -524,8 +535,8 @@ object. This class contains the following methods:
          operations in the bulk write command.
 
    * - ``isAcknowledged()``
-     - | Returns a boolean indicating whether the bulk operation was
-         acknowledged by the server.
+     - | Returns a boolean indicating whether the server acknowledged
+         the bulk operation.
 
 Additional Information
 ----------------------

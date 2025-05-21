@@ -48,8 +48,10 @@ Parameters
 
      * - bypassDocumentValidation
        - boolean
-       - If ``true``, allows the write operation to circumvent document level
-         validation. Defaults to ``false``.
+       - If ``true``: the write operation ignores document level
+         validation.
+         
+         The default is ``false``.
 
      * - comment
        - mixed
@@ -61,17 +63,19 @@ Parameters
 
      * - ordered
        - boolean
-       - If ``true``: when a single write fails, the operation stops without
-         performing the remaining writes and throws an exception.
+       - If ``true``: When a single write fails, the operation stops without
+         performing the remaining writes and returns an exception.
 
-         If ``false``: when a single write fails, the operation continues
-         with the remaining writes, if any, and throws an exception.
+         If ``false``: When a single write fails, the operation continues
+         with the remaining writes, if any, and returns an exception.
 
          The default is ``true``.
 
      * - verboseResults
        - boolean
-       - Specifies whether to return verbose results. The default is ``false``.
+       - Specifies whether to return verbose results.
+         
+         The default is ``false``.
 
 Return Values
 -------------

@@ -7,7 +7,7 @@ Definition
 
 .. phpclass:: MongoDB\BulkWriteCommandResult
 
-   This class contains information about an executed client bulk write operation. It
+   This class contains information about a completed client bulk write operation. It
    is returned from :phpmethod:`MongoDB\Client::bulkWrite()`.
 
 Methods
@@ -57,8 +57,8 @@ Methods
          a document with information corresponding to the operation.
 
    * - ``isAcknowledged()``
-     - | Returns a boolean indicating whether the bulk operation was
-         acknowledged by the server.
+     - | Returns a boolean indicating whether the server acknowledged
+         the bulk operation.
 
 To learn more about the information returned from the server when you
 perform a client bulk write operation, see the :manual:`Output

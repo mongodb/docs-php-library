@@ -18,8 +18,7 @@ Definition
    Return an updated instance of :phpclass:`MongoDB\ClientBulkWrite`
    from the provided :phpclass:`MongoDB\Collection` instance. This
    method allows you to add subsequent write operations on a different
-   collection than that with which the ``ClientBulkWrite`` was created
-   with.
+   collection than that with which the ``ClientBulkWrite`` was created.
 
    This method does not build a new :php:`BulkWriteCommand
    <mongodb-driver-bulkwritecommand>` and does not edit the

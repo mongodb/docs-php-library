@@ -1,7 +1,7 @@
 ref: bulkwriteexception-result
 content: |
   If a :php:`MongoDB\Driver\Exception\BulkWriteException
-  <mongodb-driver-exception-bulkwriteexception>` is thrown, users should call
+  <mongodb-driver-exception-bulkwriteexception>` is thrown, you can call
   :php:`getWriteResult() <mongodb-driver-bulkwriteexception.getwriteresult>` and
   inspect the returned :php:`MongoDB\Driver\WriteResult
   <mongodb-driver-writeresult>` object to determine the nature of the error.
@@ -14,7 +14,7 @@ content: |
 ref: bulkwriteexception-client-result
 content: |
   If a :php:`MongoDB\Driver\Exception\BulkWriteCommandException
-  <mongodb-driver-exception-bulkwritecommandexception>` is thrown, users should call
+  <mongodb-driver-exception-bulkwritecommandexception>` is thrown, you can call
   :php:`getWriteErrors() <mongodb-driver-bulkwritecommandexception.getwriteerrors>` and
   inspect the information in the returned array to determine the nature of the error.
 
@@ -25,7 +25,7 @@ content: |
 ---
 ref: bulkwriteexception-ordered
 content: |
-  In the case of a bulk write, the result may indicate multiple successful write
+  In the case of a bulk write, the result might indicate multiple successful write
   operations and/or errors. If the ``ordered`` option is ``true``, some
   operations may have succeeded before the first error was encountered and the
   exception thrown. If the ``ordered`` option is ``false``, multiple errors may

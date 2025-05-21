@@ -43,7 +43,7 @@ Parameters
 
   Represents the assembled bulk write command or builder.
   :phpmethod:`MongoDB\Client::bulkWrite()` supports
-  ``deleteMany``, ``deleteOne()``, ``insertOne()``,
+  ``deleteMany()``, ``deleteOne()``, ``insertOne()``,
   ``replaceOne()``, ``updateMany()``, and ``updateOne()``
   operations.
 

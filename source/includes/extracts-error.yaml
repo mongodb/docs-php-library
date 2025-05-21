@@ -2,7 +2,7 @@ ref: error-driver-bulkwriteexception
 content: |
   :php:`MongoDB\Driver\Exception\BulkWriteException
   <mongodb-driver-exception-bulkwriteexception>` for errors related to the write
-  operation. Users should inspect the value returned by :php:`getWriteResult()
+  operation. You can inspect the value returned by :php:`getWriteResult()
   <mongodb-driver-bulkwriteexception.getwriteresult>` to determine the nature of the
   error.
 ---
@@ -10,7 +10,7 @@ ref: error-driver-client-bulkwriteexception
 content: |
   :php:`MongoDB\Driver\Exception\BulkWriteCommandException
   <mongodb-driver-exception-bulkwritecommandexception>` for errors related to the write
-  operation. Users should inspect the value returned by :php:`getWriteErrors()
+  operation. You can inspect the value returned by :php:`getWriteErrors()
   <mongodb-driver-bulkwritecommandexception.getwriteerrors>` to determine the nature of the
   error.
 ---

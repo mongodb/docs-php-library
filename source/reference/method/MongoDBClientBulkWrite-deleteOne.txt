@@ -17,7 +17,7 @@ Definition
 
    Specify a delete operation in the bulk write command for the first
    matching document. This method returns the
-   :phpclass:`MongoDB\ClientBulkWrite` instance on which its called.
+   :phpclass:`MongoDB\ClientBulkWrite` instance on which it's called.
 
    .. code-block:: php
 
