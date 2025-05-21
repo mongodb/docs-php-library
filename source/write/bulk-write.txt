@@ -270,9 +270,9 @@ you can set in the array:
 
    * - ``ordered``
      - | If set to ``true``: When a single write fails, the operation stops without
-         performing the remaining writes and returns an exception.
+         performing the remaining writes and throws an exception.
        | If set to ``false``: When a single write fails, the operation continues to
-         attempt the remaining write operations, if any, then returns an exception.
+         attempt the remaining write operations, if any, then throws an exception.
        | The default is ``true``.
 
    * - ``verboseResults``
@@ -459,9 +459,9 @@ describes the options you can set in the array:
 
    * - ``ordered``
      - | If set to ``true``: When a single write fails, the operation stops without
-         performing the remaining writes and returns an exception.
+         performing the remaining writes and throws an exception.
        | If set to ``false``: When a single write fails, the operation continues to
-         attempt the remaining write operations, if any, then returns an exception.
+         attempt the remaining write operations, if any, then throws an exception.
        | The default is ``true``.
 
    * - ``comment``

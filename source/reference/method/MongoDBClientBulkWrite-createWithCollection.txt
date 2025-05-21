@@ -64,10 +64,10 @@ Parameters
      * - ordered
        - boolean
        - If ``true``: When a single write fails, the operation stops without
-         performing the remaining writes and returns an exception.
+         performing the remaining writes and throws an exception.
 
          If ``false``: When a single write fails, the operation continues
-         with the remaining writes, if any, and returns an exception.
+         with the remaining writes, if any, and throws an exception.
 
          The default is ``true``.
 
