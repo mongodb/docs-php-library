@@ -44,6 +44,12 @@ Parameters
   added to the ``ClientBulkWrite`` instance after calling
   ``withCollection()``.
 
+Return Values
+-------------
+
+A new ``ClientBulkWrite`` object with the same ``BulkWriteCommand``
+specification but an updated target namespace.
+
 Errors/Exceptions
 -----------------
 

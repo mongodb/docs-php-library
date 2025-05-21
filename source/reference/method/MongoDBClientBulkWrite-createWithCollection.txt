@@ -73,6 +73,12 @@ Parameters
        - boolean
        - Specifies whether to return verbose results. The default is ``false``.
 
+Return Values
+-------------
+
+A new ``ClientBulkWrite`` object with an empty ``BulkWriteCommand``
+specification.
+
 Errors/Exceptions
 -----------------
 
