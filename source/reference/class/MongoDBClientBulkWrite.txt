@@ -17,10 +17,6 @@ Definition
    <mongodb-driver-bulkwritecommand>` instance that the library sends to the
    server.
 
-   Specify the ``writeConcern`` option as a top-level option to
-   :phpmethod:`MongoDB\Client::bulkWrite()` instead of in each
-   individual operation on this class.
-
 Methods
 -------
 
