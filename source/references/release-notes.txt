@@ -1,8 +1,9 @@
 .. _php-lib-whats-new:
+.. _php-release-notes:
 
-==========
-What's New
-==========
+=============
+Release Notes
+=============
 
 .. facet::
    :name: genre

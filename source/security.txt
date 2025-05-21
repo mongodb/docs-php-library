@@ -24,6 +24,7 @@ Secure Your Data
 
    Authentication </security/authentication>
    Encryption </security/in-use-encryption>
+   TLS </security/tls>
 
 Overview
 --------

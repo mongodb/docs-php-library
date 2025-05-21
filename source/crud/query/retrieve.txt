@@ -240,9 +240,6 @@ Additional Information
 
 To learn more about query filters, see the :ref:`php-specify-query` guide.
 
-To view code examples of retrieving documents with the {+php-library+},
-see :ref:`php-read`.
-
 API Documentation
 ~~~~~~~~~~~~~~~~~
 

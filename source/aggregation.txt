@@ -18,13 +18,6 @@ Transform Your Data with Aggregation
    :depth: 2
    :class: singlecol
 
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Atlas Search </aggregation/atlas-search>
-   Atlas Vector Search </aggregation/vector-search>
-
 Overview
 --------
 
