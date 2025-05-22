@@ -27,7 +27,7 @@ Network compression is a feature that allows you to compress and
 decompress messages sent between your application and MongoDB, reducing
 the total amount of data passed over the network.
 
-The driver supports the following compressors:
+The {+library-short+} supports the following compressors:
 
 1. `Snappy <https://google.github.io/snappy/>`__
 #. `Zlib <https://zlib.net/>`__
@@ -52,7 +52,7 @@ You can do this in two ways:
 - Specify the algorithms in your connection string.
 
 The following example shows how to specify Snappy, Zlib, and
-Zstandard as the compressors for a connection. Select the :guilabel:`MongoDB\Client`
+Zstandard as the compressors for a connection. Select the :guilabel:`MongoDB\\Client`
 or :guilabel:`Connection URI` tab to see the corresponding code:
 
 .. tabs::
@@ -88,7 +88,7 @@ an integer value between ``-1`` and ``9``:
 - **9:** Best compression but slowest speed.
 
 The following example specifies the ``zlib`` compression algorithm and a
-``zlibCompressionLevel`` value of ``1``. Select the :guilabel:`MongoDB\Client`
+``zlibCompressionLevel`` value of ``1``. Select the :guilabel:`MongoDB\\Client`
 or :guilabel:`Connection URI` tab to see the corresponding code:
 
 .. tabs::
