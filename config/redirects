@@ -54,3 +54,6 @@ symlink: current -> v2.0
 [*-v1.19]: ${prefix}/${version}/whats-new/ -> ${base}/${version}/
 [*-v1.19]: ${prefix}/${version}/aws-lambda/ -> ${base}/${version}/tutorial/aws-lambda/
 
+[v1.20-*]: ${prefix}/${version}/indexes/ -> ${base}/${version}/indexes-temp/
+[v1.20-*]: ${prefix}/${version}/read/change-streams/ -> ${base}/${version}/monitoring/change-streams/
+[v1.20-*]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/${version}/
