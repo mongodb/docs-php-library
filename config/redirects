@@ -56,4 +56,4 @@ symlink: current -> v2.0
 
 [v1.20-*]: ${prefix}/${version}/indexes/ -> ${base}/${version}/indexes-temp/
 [v1.20-*]: ${prefix}/${version}/read/change-streams/ -> ${base}/${version}/monitoring/change-streams/
-[v1.20-*]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/${version}/
+[v1.20-*]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/${version}/connect/
