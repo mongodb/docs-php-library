@@ -37,14 +37,14 @@ The {+library-short+} supports the following compressors:
 
    If you specify multiple compressors to use on your connection, the
    driver selects the first one that is supported by the MongoDB
-   instance that the {+library-short+} is connected to.
+   deployment that the {+library-short+} is connected to.
 
 .. _php-enable-compression:
 
 Enable Network Compression
 --------------------------
 
-To enable compression for the connection to your MongoDB instance, use the
+To enable compression for the connection to your MongoDB deployment, use the
 ``compressors`` connection option and specify the compression algorithms you want to use.
 You can do this in two ways:
 
