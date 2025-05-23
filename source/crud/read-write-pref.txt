@@ -278,14 +278,14 @@ the member with the lower ``operationCount`` value to receive the request.
 Local Threshold
 ```````````````
 
-If multiple replica-set members match the read preference and tag sets you specify,
-the {+php-library+} reads from the nearest replica-set members, chosen according to
-their ping time.
+The {+library-short+} uses the local threshold value to calculate the
+latency window for server selection. This value determines the servers
+that are eligible to receive read and write requests.
 
-By default, the library uses only members whose ping times are within 15 milliseconds
-of the nearest member for queries. To distribute reads between members with
-higher latencies, pass an options array to the ``MongoDB\Client`` constructor that
-sets the ``localThresholdMS`` option.
+By default, the driver uses only mongos instances or replica set members whose
+ping times are within 15 milliseconds of the nearest server. To
+distribute reads among servers with higher latencies, pass an options array to
+the ``MongoDB\Client`` constructor that sets the ``localThresholdMS`` option.
 
 The following example specifies a local threshold of 35 milliseconds:
 
