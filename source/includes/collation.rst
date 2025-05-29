@@ -18,6 +18,8 @@ the collation:
          list of supported locales, see :manual:`Collation Locales and Default Parameters
          </reference/collation-locales-defaults/#supported-languages-and-locales>`
          in the {+mdb-server+} Manual.
+       |
+       | **Data Type**: {+string-data-type+}
 
    * - ``caseLevel``
      - | *(Optional)* Specifies whether to include case comparison.
