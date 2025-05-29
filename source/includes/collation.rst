@@ -27,14 +27,14 @@ the collation:
        | When set to ``true``, the comparison behavior depends on the value of
          the ``strength`` field:
        |
-         - If ``strength`` is ``1``, the {+library-short+} compares base
-           characters and case.
+       | - If ``strength`` is ``1``, the {+library-short+} compares base
+       |   characters and case.
        |
-         - If ``strength`` is ``2``, the {+library-short+} compares base
-           characters, diacritics, other secondary differences, and case.
+       | - If ``strength`` is ``2``, the {+library-short+} compares base
+       |   characters, diacritics, other secondary differences, and case.
        |
-         - If ``strength`` is any other value, this field is ignored.
-       
+       | - If ``strength`` is any other value, this field is ignored.
+       |
        | When set to ``false``, the {+library-short+} doesn't include case comparison at
          strength level ``1`` or ``2``.
        |
@@ -93,5 +93,5 @@ the collation:
        | **Data Type**: {+bool-data-type+} 
        | **Default**: ``false``
 
-To learn more about collation, see the :manual:`Collation </reference/collation>`
+To learn more about collation and the possible values for each field, see the :manual:`Collation </reference/collation>`
 entry in the {+mdb-server+} manual.
