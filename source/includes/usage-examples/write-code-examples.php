@@ -68,7 +68,7 @@ $result = $collection->deleteMany(['<field name>' => '<value>']);
 // start-bulk-write
 $bulkWrite = MongoDB\ClientBulkWrite::createWithCollection($collection);
 
-$bulkWrite->insertOne(['<field name>' => '<value>', '<field name>' => '<value>']);
+$bulkWrite->insertOne(['<field name 1>' => '<value 1>', '<field name 2>' => '<value 2>']);
 
 $bulkWrite->updateOne(
     ['<field to match>' => '<value to match>'],
@@ -83,7 +83,7 @@ $bulkWrite->deleteMany(
 
 $bulkWrite->replaceOne(
     ['<field to match>' => '<value to match>'],
-    ['<replacement field>' => '<replacement value>', '<replacement field>' => '<replacement value>'],
+    ['<replacement field 1>' => '<replacement value 1>', '<replacement field 2>' => '<replacement value 2>'],
 );
 
 $result = $client->bulkWrite($bulkWrite);
