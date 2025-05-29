@@ -101,8 +101,8 @@ options you can set in the array:
 
    * - ``collation``
      - | Specifies the kind of language collation to use when comparing
-         strings. For more information, see :manual:`Collation </reference/collation/#std-label-collation>`
-         in the {+mdb-server+} manual.
+         strings. To learn more, see the :ref:`php-delete-collation` section
+         of this page.
 
    * - ``writeConcern``
      - | Sets the write concern for the operation. This option defaults to
@@ -132,6 +132,13 @@ options you can set in the array:
          fields </reference/command/delete/#command-fields>` guide in the
          {+mdb-server+} manual.
 
+.. _php-delete-collation:
+
+Collation
+~~~~~~~~~
+
+.. include:: /includes/collation.rst
+   
 Example
 ~~~~~~~
 

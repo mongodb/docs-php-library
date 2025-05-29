@@ -125,8 +125,8 @@ describes some options you can set in the array:
 
    * - ``collation``
      - | Specifies the kind of language collation to use when sorting
-         results. For more information, see :manual:`Collation </reference/collation/#std-label-collation>`
-         in the {+mdb-server+} manual.
+         results. To learn more, see the :ref:`php-update-collation` section
+         of this page.
 
    * - ``arrayFilters``
      - | Specifies which array elements an update applies to if the operation modifies
@@ -165,6 +165,13 @@ match any existing documents.
    :end-before: end-update-options
    :language: php
    :dedent:
+
+.. _php-update-collation:
+
+Collation
+`````````
+
+.. include:: /includes/collation.rst
 
 Return Value
 ~~~~~~~~~~~~
