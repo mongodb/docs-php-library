@@ -174,7 +174,8 @@ can set in the array:
        | This option is mutually exclusive with ``startAfter`` and ``resumeAfter``.
 
    * - ``collation``
-     - | Sets the collation to use for the change stream cursor.
+     - | Sets the collation to use for the change stream cursor. To learn more,
+         see the :ref:`php-change-stream-collation` section of this page.
 
 For a full list of ``watch()`` options, see `MongoDB\\Collection::watch()
 <{+api+}/method/MongoDBCollection-watch/>`__ in the API
@@ -254,6 +255,13 @@ output:
    To learn more about pre-images and post-images, see 
    :manual:`Change Streams with Document Pre- and Post-Images </changeStreams#change-streams-with-document-pre--and-post-images>` 
    in the {+mdb-server+} manual.
+
+.. _php-change-stream-collation:
+
+Collation
+~~~~~~~~~
+
+.. include:: /includes/collation.rst
 
 Additional Information
 ----------------------

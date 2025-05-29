@@ -190,7 +190,8 @@ you can set in the array:
 
    * - ``collation`` 
      - | The collation to use for the operation. The default value is the collation
-         specified for the collection.
+         specified for the collection. To learn more, see the :ref:`php-retrieve-collation`
+         section of this page.
        | **Type**: ``array|object``
 
    * - ``comment`` 
@@ -232,6 +233,13 @@ the ``number_of_employees`` field has the value ``1000``. The example uses the
 For a full list of options, see the API documentation for the
 `findOne() <{+api+}/method/MongoDBCollection-findOne/#parameters>`__ and 
 `find() <{+api+}/method/MongoDBCollection-find/#parameters>`__ parameters.
+
+.. _php-retrieve-collation:
+
+Collation
+`````````
+
+.. include:: /includes/collation.rst
 
 .. _php-retrieve-additional-information:
 

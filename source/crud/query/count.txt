@@ -120,7 +120,8 @@ describes some options you can set to customize the count operation:
      - Description
 
    * - ``collation``
-     - | The collation to use for the operation.
+     - | The collation to use for the operation. To learn more,
+         see the :ref:`php-count-collation` section of this page.
        | **Type**: ``array|object``
 
    * - ``hint``
@@ -165,6 +166,13 @@ operation to count a maximum of ``100`` results:
       :visible: false
 
       Number of companies with 50 employees: 100
+
+.. _php-count-collation:
+
+Collation
+`````````
+
+.. include:: /includes/collation.rst
 
 .. _php-estimated-count:
 

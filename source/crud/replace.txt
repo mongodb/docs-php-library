@@ -159,8 +159,8 @@ table describes some options you can set in the array:
 
    * - ``collation``
      - | Specifies the kind of language collation to use when sorting
-         results. For more information, see :manual:`Collation </reference/collation/#std-label-collation>`
-         in the {+mdb-server+} manual.
+         results. To learn more, see the :ref:`php-replace-collation`
+         section of this page.
 
    * - ``hint``
      - | Gets or sets the index to scan for documents. 
@@ -196,6 +196,13 @@ filter doesn't match any existing documents:
    :end-before: end-replace-options
    :language: php
    :copyable:
+
+.. _php-replace-collation:
+
+Collation
+~~~~~~~~~
+
+.. include:: /includes/collation.rst
 
 Additional Information 
 ----------------------

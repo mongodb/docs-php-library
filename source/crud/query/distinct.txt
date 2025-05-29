@@ -123,7 +123,8 @@ options you can set to customize the operation:
      - Description
 
    * - ``collation`` 
-     - | The collation to use for the operation.
+     - | The collation to use for the operation. To learn more, see the
+         :ref:`php-distinct-collation` section of this page.
        | **Type**: ``array|object``
 
    * - ``maxTimeMS``
@@ -168,6 +169,13 @@ in an options array to add a comment to the operation:
       "Amici Pizza And Pasta"
       "Angie'S Cafe Pizza"
       ...
+
+.. _php-distinct-collation:
+
+Collation
+`````````
+
+.. include:: /includes/collation.rst
 
 API Documentation
 -----------------
