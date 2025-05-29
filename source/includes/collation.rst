@@ -17,7 +17,7 @@ the collation:
      - | *(Required)* Specifies the International Components for Unicode (ICU) locale. For a
          list of supported locales, see :manual:`Collation Locales and Default Parameters
          </reference/collation-locales-defaults/#supported-languages-and-locales>`
-         in the {+mdb-server+} Manual.
+         in the {+mdb-server+} manual.
        |
        | **Data Type**: {+string-data-type+}
 
@@ -27,11 +27,11 @@ the collation:
        | When set to ``true``, the comparison behavior depends on the value of
          the ``strength`` field:
        |
-       | - If ``strength`` is ``1``, the {+library-short+} compares base
+         - If ``strength`` is ``1``, the {+library-short+} compares base
            characters and case.
-       | - If ``strength`` is ``2``, the {+library-short+} compares base
+         - If ``strength`` is ``2``, the {+library-short+} compares base
            characters, diacritics, other secondary differences, and case.
-       | - If ``strength`` is any other value, this field is ignored.
+         - If ``strength`` is any other value, this field is ignored.
        |
        | When set to ``false``, the {+library-short+} doesn't include case comparison at
          strength level ``1`` or ``2``.

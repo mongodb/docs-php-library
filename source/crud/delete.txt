@@ -132,6 +132,13 @@ options you can set in the array:
          fields </reference/command/delete/#command-fields>` guide in the
          {+mdb-server+} manual.
 
+.. _php-delete-collation:
+
+Collation
+~~~~~~~~~
+
+.. include:: /includes/collation.rst
+   
 Example
 ~~~~~~~
 
@@ -151,13 +158,6 @@ operation:
    If you replace the ``deleteMany()`` method with ``deleteOne()`` in
    the preceding example, the library deletes only the first document that has
    a ``name`` value containing ``'Mongo'``.
-
-.. _php-delete-collation:
-
-Collation
-~~~~~~~~~
-
-.. include:: /includes/collation.rst
 
 Return Value
 ------------
