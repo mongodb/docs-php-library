@@ -248,6 +248,8 @@ Authentication Options
 To learn about the authentication options available in the {+driver-short+}, see
 :ref:`Authentication Mechanisms. <php-auth>`
 
+.. _php-selection-discovery-options:
+
 Server Selection and Discovery Options
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

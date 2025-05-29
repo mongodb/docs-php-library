@@ -208,7 +208,7 @@ This section shows how to further customize your read operation
 settings in the following ways:
 
 - :ref:`Apply a tag set <php-tag-sets>`
-- :ref:`Specify a local threshold <php-local-threshold>`
+- :ref:`Configure load balancing behavior <php-load-balancing>`
 
 .. _php-tag-sets:
 
@@ -241,19 +241,51 @@ to prefer reads from secondary replica set members in the following order:
    :start-after: start-tag-set
    :end-before: end-tag-set
 
+.. _php-load-balancing:
+
+Load Balancing
+~~~~~~~~~~~~~~
+
+When connecting to a sharded cluster or a replica set, the {+library-short+} uses
+**load balancing** to handle read and write requests. Load balancing allows the library to
+distribute these requests across multiple servers to avoid overwhelming
+any one server and ensure optimal performance.
+
+When connecting to a sharded cluster, the {+library-short+} determines the closest ``mongos``
+instance by calculating which one has the lowest network round-trip time. Then, the library
+determines the latency window by adding this ``mongos``'s average round-trip time to the
+:ref:`localThresholdMS value <php-local-threshold>`. The library load balances requests
+across up to two random ``mongos`` instances that fall within the latency window. For each request,
+the library chooses the server with the lower operation load by determining its ``operationCount``
+value.
+
+When connecting to a replica set, the {+library-short+} first selects replica set members
+according to your read preference. Then, the library follows the same process as 
+described in the preceding paragraph. After calculating the latency window, the library
+selects up to two random replica set members that fall within the window and chooses
+the member with the lower ``operationCount`` value to receive the request.
+
+.. tip::
+
+   To learn more about load balancing, see :manual:`Sharded Cluster Balancer
+   </core/sharding-balancer-administration/>` in the {+mdb-server+} manual.
+
+   To learn how to customize the library's server selection behavior, see
+   :ref:`php-selection-discovery-options` in the Specify Connection Options guide.
+
 .. _php-local-threshold:
 
 Local Threshold
-~~~~~~~~~~~~~~~
+```````````````
 
-If multiple replica-set members match the read preference and tag sets you specify,
-the {+php-library+} reads from the nearest replica-set members, chosen according to
-their ping time.
+The {+library-short+} uses the local threshold value to calculate the
+latency window for server selection. This value determines the servers
+that are eligible to receive read and write requests.
 
-By default, the library uses only members whose ping times are within 15 milliseconds
-of the nearest member for queries. To distribute reads between members with
-higher latencies, pass an options array to the ``MongoDB\Client`` constructor that
-sets the ``localThresholdMS`` option.
+By default, the library uses only ``mongos`` instances or replica set members whose
+ping times are within 15 milliseconds of the nearest server. To
+distribute reads among servers with higher latencies, pass an options array to
+the ``MongoDB\Client`` constructor that sets the ``localThresholdMS`` option.
 
 The following example specifies a local threshold of 35 milliseconds:
 
