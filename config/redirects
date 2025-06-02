@@ -84,7 +84,7 @@ raw: ${prefix}/stable -> ${base}/current/
 [*-master]: ${prefix}/${version}/data-formats/codecs/ -> ${base}/${version}/data-formats/custom-types/codecs/
 [*-master]: ${prefix}/${version}/databases-collections/time-series/ -> ${base}/${version}/data-formats/time-series/
 [*-master]: ${prefix}/${version}/read/change-streams/ -> ${base}/${version}/monitoring-logging/change-streams/
-[*-master]: ${prefix}/${version}/monitoring-logging/monitoring/ -> ${base}/${version}/monitoring-logging/cluster-monitoring/
+[*-master]: ${prefix}/${version}/monitoring/cluster-monitoring/ -> ${base}/${version}/monitoring-logging/monitoring/
 [*-master]: ${prefix}/${version}/compatibility/ -> ${base}/${version}/references/compatibility/
 [*-master]: ${prefix}/${version}/whats-new/ -> ${base}/${version}/references/release-notes/
 [*-master]: ${prefix}/${version}/upgrade/ -> ${base}/${version}/references/upgrade/

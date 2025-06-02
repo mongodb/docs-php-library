@@ -159,7 +159,7 @@ about servers added to the topology:
 .. _php-register:
 
 Register an Event Subscriber
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After creating a class that implements your subscriber interface,
 you must register this class with a ``MongoDB\Client`` to receive
@@ -168,7 +168,7 @@ event notifications for your client. To register a subscriber, call the
 of your subscriber class as a parameter.
 
 Example
-~~~~~~~
+```````
 
 The following code registers the command and SDAM event subscribers
 created in the :ref:`php-subscribe` section of this page with a
