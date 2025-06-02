@@ -46,6 +46,37 @@ When using the {+php-library+}, you can create a new session from a
    ``Client`` that created it. Using a ``Session`` with a
    different ``Client`` results in operation errors.
 
+.. _php-causal-consistency:
+
+Causal Consistency
+~~~~~~~~~~~~~~~~~~
+
+.. sharedinclude:: dbx/causal-consistency.rst
+
+   .. replacement:: insert-one-method
+
+      ``insertOne()``
+
+   .. replacement:: update-one-method
+
+      ``updateOne()``
+
+   .. replacement:: find-one-method
+
+      ``findOne()``
+
+   .. replacement:: delete-one-method
+
+      ``deleteOne()``
+
+   .. replacement:: majority-rc
+
+      ``majority``
+
+   .. replacement:: majority-wc
+
+      ``majority``
+
 Transaction APIs
 ----------------
 
