@@ -101,7 +101,7 @@ for:
 
 .. list-table::
    :header-rows: 1
-   :widths: 20 20 60
+   :widths: 30 20 50
 
    * - Method
      - Command Event
@@ -144,7 +144,7 @@ notifications for:
 
 .. list-table::
    :header-rows: 1
-   :widths: 20 20 60
+   :widths: 30 20 50
 
    * - Method
      - SDAM Event
