@@ -181,8 +181,8 @@ created in the :ref:`php-subscribe` section of this page with a
    :copyable:
    :dedent:
 
-When you start the application and run an insert command, your subscriber
-records the events and outputs messages such as the following:
+When you start the application and run an insert command, your subscribers
+record the events and output messages such as the following:
 
 .. code-block:: none
    :copyable: false
