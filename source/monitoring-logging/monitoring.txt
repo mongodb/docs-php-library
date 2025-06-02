@@ -95,14 +95,29 @@ Command Event Subscriber Example
 
 To subscribe to an SDAM event, create a class that implements the
 ``MongoDB\Driver\Monitoring\CommandSubscriber`` interface. In your
-class, define each of the following ``CommandSubscriber`` methods:
+class, define each of the ``CommandSubscriber`` methods. The following
+table describes these methods and the command events they receive notifications
+for:
 
-- :php:`commandFailed() <mongodb-driver-monitoring-commandsubscriber.commandfailed>`: Called 
-  when a command does not succeed
-- :php:`commandStarted() <mongodb-driver-monitoring-commandsubscriber.commandstarted>`: Called 
-  when a command is sent to the server
-- :php:`commandSucceeded() <mongodb-driver-monitoring-commandsubscriber.commandsucceeded>`: Called 
-  when a command succeeds
+.. list-table::
+   :header-rows: 1
+   :widths: 20 20 60
+
+   * - Method
+     - Command Event
+     - Description
+
+   * - :php:`commandFailed() <mongodb-driver-monitoring-commandsubscriber.commandfailed>`
+     - :php:`CommandFailedEvent <class.mongodb-driver-monitoring-commandfailedevent>`
+     - Called when a command does not succeed
+
+   * - :php:`commandStarted() <mongodb-driver-monitoring-commandsubscriber.commandstarted>`
+     - :php:`CommandStartedEvent <class.mongodb-driver-monitoring-commandstartedevent>`
+     - Called when a command is sent to the server
+
+   * - :php:`commandSucceeded() <mongodb-driver-monitoring-commandsubscriber.commandsucceeded>`
+     - :php:`CommandSucceededEvent <class.mongodb-driver-monitoring-commandsucceededevent>`
+     - Called when a command succeeds
 
 The following code creates the ``MyCommandSubscriber`` class, which implements
 the ``CommandSubscriber`` interface. The class defines each ``CommandSubscriber`` method
@@ -123,26 +138,53 @@ SDAM Event Subscriber Example
 
 To subscribe to an SDAM event, create a class that implements the
 ``MongoDB\Driver\Monitoring\SDAMSubscriber`` interface. In your
-class, define each of the following ``SDAMSubscriber`` methods:
+class, define each ``SDAMSubscriber`` method. The following
+table describes these methods and the command events they receive
+notifications for:
 
-- :php:`serverChanged() <mongodb-driver-monitoring-sdamsubscriber.serverchanged>`: Called 
-  when a server's description changes
-- :php:`serverClosed() <mongodb-driver-monitoring-sdamsubscriber.serverclosed>`: Called 
-  when a server is removed from the topology
-- :php:`serverHeartbeatFailed() <mongodb-driver-monitoring-sdamsubscriber.serverheartbeatfailed>`: Called 
-  when a server heartbeat is unsuccessful
-- :php:`serverHeartbeatStarted() <mongodb-driver-monitoring-sdamsubscriber.serverheartbeatstarted>`: Called 
-  when the server receives a heartbeat
-- :php:`serverHeartbeatSucceeded() <mongodb-driver-monitoring-sdamsubscriber.serverheartbeatsucceeded>`: Called 
-  when a server heartbeat succeeds
-- :php:`serverOpening() <mongodb-driver-monitoring-sdamsubscriber.serveropening>`: Called 
-  when a new server is added to the topology
-- :php:`topologyChanged() <mongodb-driver-monitoring-sdamsubscriber.topologychanged>`: Called 
-  when a new server is added to the topology
-- :php:`topologyClosed() <mongodb-driver-monitoring-sdamsubscriber.topologyclosed>`: Called 
-  when the topology is closed
-- :php:`topologyOpening() <mongodb-driver-monitoring-sdamsubscriber.topologyopening>`: Called 
-  when the topology is opened
+.. list-table::
+   :header-rows: 1
+   :widths: 20 20 60
+
+   * - Method
+     - SDAM Event
+     - Description
+
+   * - :php:`serverChanged() <mongodb-driver-monitoring-sdamsubscriber.serverchanged>`
+     - :php:`ServerChangedEvent <class.mongodb-driver-monitoring-serverchangedevent>`
+     - Called when a server's description changes
+
+   * - :php:`serverClosed() <mongodb-driver-monitoring-sdamsubscriber.serverclosed>`
+     - :php:`ServerClosedEvent <class.mongodb-driver-monitoring-serverclosedevent>`
+     - Called when a server is removed from the topology
+
+   * - :php:`serverHeartbeatFailed() <mongodb-driver-monitoring-sdamsubscriber.serverheartbeatfailed>`
+     - :php:`ServerHeartbeatFailedEvent <class.mongodb-driver-monitoring-serverheartbeatfailedevent>`
+     - Called when a server heartbeat is unsuccessful
+
+   * - :php:`serverHeartbeatStarted() <mongodb-driver-monitoring-sdamsubscriber.serverheartbeatstarted>`
+     - :php:`ServerHeartbeatStartedEvent <class.mongodb-driver-monitoring-serverheartbeatstartedevent>`
+     - Called when the server receives a heartbeat
+
+   * - :php:`serverHeartbeatSucceeded() <mongodb-driver-monitoring-sdamsubscriber.serverheartbeatsucceeded>`
+     - :php:`ServerHeartbeatSucceededEvent <class.mongodb-driver-monitoring-serverheartbeatsucceededevent>`
+     - Called when a server heartbeat succeeds
+
+   * - :php:`serverOpening() <mongodb-driver-monitoring-sdamsubscriber.serveropening>`
+     - :php:`ServerOpeningEvent <class.mongodb-driver-monitoring-serveropeningevent>`
+     - Called when a new server is added to the topology
+
+   * - :php:`topologyChanged() <mongodb-driver-monitoring-sdamsubscriber.topologychanged>`
+     - :php:`TopologyChangedEvent <class.mongodb-driver-monitoring-topologychangedevent>`
+     - Called when the topology description changes
+
+   * - :php:`topologyClosed() <mongodb-driver-monitoring-sdamsubscriber.topologyclosed>`
+     - :php:`TopologyClosedEvent <class.mongodb-driver-monitoring-topologyclosedevent>`
+     - Called when the topology is closed
+
+   * - :php:`topologyOpening() <mongodb-driver-monitoring-sdamsubscriber.topologyopening>`
+     - :php:`TopologyOpeningEvent <class.mongodb-driver-monitoring-topologyopeningevent>`
+     - Called when the topology is opened
 
 The following code creates the ``MySDAMSubscriber`` class, which implements
 the ``SDAMSubscriber`` interface. The class defines each ``SDAMSubscriber`` method
@@ -195,8 +237,7 @@ record the events and output messages such as the following:
 Remove a Subscriber
 -------------------
 
-Later in your application, you might not want to subscribe to
-SDAM events. To unregister a subscriber from your client, use the
+To unregister a subscriber from your client, use the
 ``MongoDB\Client::removeSubscriber()`` method.
 
 The following code shows how to remove the subscriber created in
