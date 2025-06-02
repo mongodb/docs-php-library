@@ -25,7 +25,7 @@ raw: ${prefix}/stable -> ${base}/current/
 # redirects in standardized docs
 [v1.20-*]: ${prefix}/${version}/tutorial/install-php-library/ -> ${base}/${version}/get-started/
 [v1.20-*]: ${prefix}/${version}/tutorial/connecting/ -> ${base}/${version}/connect/
-[v1.20-*]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/${version}/monitoring/cluster-monitoring/
+[v1.20-*]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/${version}/monitoring-logging/monitoring/
 [v1.20-*]: ${prefix}/${version}/tutorial/crud/ -> ${base}/${version}/read/
 [v1.20-*]: ${prefix}/${version}/tutorial/codecs/ -> ${base}/${version}/data-formats/codecs/
 [v1.20-*]: ${prefix}/${version}/tutorial/collation/ -> ${base}/${version}/
@@ -45,7 +45,7 @@ raw: ${prefix}/stable -> ${base}/current/
 # note: this mapping does not account for all of the new pages
 [*-v1.19]: ${prefix}/${version}/tutorial/install-php-library/ -> ${base}/v1.x/get-started/
 [*-v1.19]: ${prefix}/${version}/tutorial/connecting/ -> ${base}/v1.x/connect/
-[*-v1.19]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/v1.x/monitoring/cluster-monitoring/
+[*-v1.19]: ${prefix}/${version}/tutorial/server-selection/ -> ${base}/v1.x/monitoring-logging/monitoring/
 [*-v1.19]: ${prefix}/${version}/tutorial/crud/ -> ${base}/v1.x/read/
 [*-v1.19]: ${prefix}/${version}/tutorial/codecs/ -> ${base}/v1.x/data-formats/codecs/
 [*-v1.19]: ${prefix}/${version}/tutorial/collation/ -> ${base}/v1.x/
@@ -84,7 +84,7 @@ raw: ${prefix}/stable -> ${base}/current/
 [*-master]: ${prefix}/${version}/data-formats/codecs/ -> ${base}/${version}/data-formats/custom-types/codecs/
 [*-master]: ${prefix}/${version}/databases-collections/time-series/ -> ${base}/${version}/data-formats/time-series/
 [*-master]: ${prefix}/${version}/read/change-streams/ -> ${base}/${version}/monitoring-logging/change-streams/
-[*-master]: ${prefix}/${version}/monitoring/cluster-monitoring/ -> ${base}/${version}/monitoring-logging/cluster-monitoring/
+[*-master]: ${prefix}/${version}/monitoring-logging/monitoring/ -> ${base}/${version}/monitoring-logging/cluster-monitoring/
 [*-master]: ${prefix}/${version}/compatibility/ -> ${base}/${version}/references/compatibility/
 [*-master]: ${prefix}/${version}/whats-new/ -> ${base}/${version}/references/release-notes/
 [*-master]: ${prefix}/${version}/upgrade/ -> ${base}/${version}/references/upgrade/
