@@ -2,8 +2,34 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-// start-mysubscriber
-class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
+// start-command-subscriber
+class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
+{
+    private $stream;
+
+    public function __construct($stream)
+    {
+        $this->stream = $stream;
+    }
+
+    public function commandStarted(MongoDB\Driver\Monitoring\CommandStartedEvent $event): void
+    {
+        fwrite($this->stream, sprintf(
+            'Started command #%d "%s": %s%s',
+            $event->getRequestId(),
+            $event->getCommandName(),
+            MongoDB\BSON\Document::fromPHP($event->getCommand())->toCanonicalExtendedJSON(),
+            PHP_EOL,
+        ));
+    }
+
+    public function commandSucceeded(MongoDB\Driver\Monitoring\CommandSucceededEvent $event): void {}
+    public function commandFailed(MongoDB\Driver\Monitoring\CommandFailedEvent $event): void {}
+}
+// end-command-subscriber
+
+// start-sdam-subscriber
+class MySDAMSubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
 {
     private $stream;
 
@@ -18,6 +44,7 @@ class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
             'Server opening on %s:%s\n',
             $event->getHost(),
             $event->getPort(),
+            PHP_EOL,
         );
     }
 
@@ -30,20 +57,23 @@ class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
     public function topologyClosed(MongoDB\Driver\Monitoring\TopologyClosedEvent $event): void {}
     public function topologyOpening(MongoDB\Driver\Monitoring\TopologyOpeningEvent $event): void {}
 }
-// end-mysubscriber
+// end-sdam-subscriber
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your connection URI');
 $client = new MongoDB\Client($uri);
 
 $collection = $client->db->my_coll;
 
-// start-add-sub
-$subscriber = new MySubscriber(STDERR);
-$client->addSubscriber($subscriber);
-// end-add-sub
+// start-add-subs
+$commandSub = new MyCommandSubscriber(STDERR);
+$sdamSub = new MySDAMSubscriber(STDERR);
+
+$client->addSubscriber($commandSub);
+$client->addSubscriber($sdamSub);
+// end-add-subs
 
 $collection->insertOne(['x' => 100]);
 
 // start-remove-sub
-$client->removeSubscriber($subscriber);
+$client->removeSubscriber($commandSub);
 // end-remove-sub
