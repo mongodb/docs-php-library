@@ -55,19 +55,19 @@ Causal Consistency
 
    .. replacement:: insert-one-method
 
-      ``insertOne()``
+      ``MongoDB\Collection::insertOne()``
 
    .. replacement:: update-one-method
 
-      ``updateOne()``
+      ``MongoDB\Collection::updateOne()``
 
    .. replacement:: find-one-method
 
-      ``findOne()``
+      ``MongoDB\Collection::findOne()``
 
    .. replacement:: delete-one-method
 
-      ``deleteOne()``
+      ``MongoDB\Collection::deleteOne()``
 
    .. replacement:: majority-rc
 
