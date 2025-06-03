@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);
+$db = $client->test;
 
 // start-create-doc
 $document = [
@@ -19,7 +20,6 @@ $document = [
 
 // start-modify-doc
 $document['restaurant_id'] = 12345;
-unset($document['cuisine']);
 $document['name'] = 'Mongo\'s Pizza Place';
 // end-modify-doc
 

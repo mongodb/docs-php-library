@@ -52,7 +52,7 @@ Create a BSON Document
 
 You can create a BSON document by using the same notation you use to create an
 associative array in {+language+}. The {+library-short+} automatically converts
-{+language+} arrays into BSON documents when inserting them into a collection.
+these values into BSON documents when inserting them into a collection.
 
 The following example creates a BSON document that represents the preceding
 :ref:`sample BSON document <php-bson-sample>`:
@@ -71,7 +71,6 @@ modify an associative array in {+language+}. This example makes the following ch
 to the :ref:`sample BSON document <php-bson-sample>`:
 
 - Adds a new ``restaurant_id`` field that has a value of ``12345``
-- Removes the ``cuisine`` field
 - Sets the value of the ``name`` field to ``"Mongo's Pizza Place"``
 
 .. literalinclude:: /includes/bson.php
@@ -127,8 +126,8 @@ This type map performs the following conversions:
 - Top-level and embedded BSON documents to ``MongoDB\Model\BSONDocument`` objects
 
 A type map can specify any class that implements
-:php:`MongoDB\BSON\Unserializable <mongodb-bson-unserializable>`, as well as
-the ``array``, ``stdClass``, and ``object`` types.
+:php:`MongoDB\BSON\Unserializable <mongodb-bson-unserializable>`. It can
+also specify the ``array``, ``stdClass``, and ``object`` types.
 
 Custom Type Map Example
 ```````````````````````
@@ -259,7 +258,7 @@ methods:
 API Documentation
 -----------------
 
-To learn more about any of the methods or types discussed in this
+To learn more about any of the {+library-short+} methods or types discussed in this
 guide, see the following library API documentation:
 
 - :phpmethod:`MongoDB\Database::createCollection()`
