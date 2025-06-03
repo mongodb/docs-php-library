@@ -5,6 +5,7 @@ on:
     paths:
       - "source/**/*.php"
       - ".github/workflows/*.yml"
+      - ".github/actions/**"
   workflow_call:
     inputs:
       ref:
