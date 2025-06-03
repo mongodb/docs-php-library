@@ -46,6 +46,37 @@ When using the {+php-library+}, you can create a new session from a
    ``Client`` that created it. Using a ``Session`` with a
    different ``Client`` results in operation errors.
 
+.. _php-causal-consistency:
+
+Causal Consistency
+~~~~~~~~~~~~~~~~~~
+
+.. sharedinclude:: dbx/causal-consistency.rst
+
+   .. replacement:: insert-one-method
+
+      ``MongoDB\Collection::insertOne()``
+
+   .. replacement:: update-one-method
+
+      ``MongoDB\Collection::updateOne()``
+
+   .. replacement:: find-one-method
+
+      ``MongoDB\Collection::findOne()``
+
+   .. replacement:: delete-one-method
+
+      ``MongoDB\Collection::deleteOne()``
+
+   .. replacement:: majority-rc
+
+      ``majority``
+
+   .. replacement:: majority-wc
+
+      ``majority``
+
 Transaction APIs
 ----------------
 
