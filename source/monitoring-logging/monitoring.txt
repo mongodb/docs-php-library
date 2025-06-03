@@ -1,9 +1,9 @@
 .. _php-cluster-monitoring:
 .. _php-monitoring:
 
-==========
-Monitoring
-==========
+==========================
+Monitor Application Events
+==========================
 
 .. facet::
    :name: genre
@@ -224,7 +224,7 @@ created in the :ref:`php-subscribe` section of this page with a
    :dedent:
 
 When you start the application and run an insert command, your subscribers
-record the events and output messages such as the following:
+record the events and output messages that resemble the following:
 
 .. code-block:: none
    :copyable: false

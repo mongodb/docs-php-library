@@ -14,5 +14,5 @@ Monitoring and Logging
 .. /monitoring/command-monitoring
 .. /monitoring/connection-monitoring
 
-- :ref:`Monitoring <php-monitoring>`: Monitor changes
+- :ref:`Monitor Application Events <php-monitoring>`: Monitor changes
   in your application
