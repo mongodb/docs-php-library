@@ -51,6 +51,7 @@ foreach ($results as $value) {
 
 // Data Changes
 // start-change-stream
+$changeStream = $collection->watch();
 $changeStream->rewind();
 
 do {
