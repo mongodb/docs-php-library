@@ -51,17 +51,14 @@ foreach ($results as $value) {
 
 // Data Changes
 // start-change-stream
-$changeStream = $collection->watch();
+$changeStream->rewind();
 
-for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
-        continue;
-    }
-    $event = $changeStream->current();
-    echo toJSON($event), PHP_EOL;
+do {
+    $changeStream->next();
 
-    if ($event['operationType'] === 'invalidate') {
-        break;
+    if ($changeStream->valid()) {
+        $event = $changeStream->current();
+        echo toJSON($event) . PHP_EOL;
     }
-}
+} while ($event['operationType'] !== 'invalidate');
 // end-change-stream
