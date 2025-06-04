@@ -18,18 +18,16 @@ $collection = $client->sample_restaurants->restaurants;
 // Monitors and prints changes to the "restaurants" collection
 // start-open-change-stream
 $changeStream = $collection->watch();
+$changeStream->rewind();
 
-for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
-        continue;
-    }
-    $event = $changeStream->current();
-    echo toJSON($event), PHP_EOL;
+do {
+    $changeStream->next();
 
-    if ($event['operationType'] === 'invalidate') {
-        break;
+    if ($changeStream->valid()) {
+        $event = $changeStream->current();
+        echo toJSON($event), PHP_EOL;
     }
-}
+} while {$event['operationType'] !== 'invalidate'};
 // end-open-change-stream
 
 // Updates a document that has a "name" value of "Blarney Castle"
@@ -44,35 +42,32 @@ $result = $collection->updateOne(
 // start-change-stream-pipeline
 $pipeline = [['$match' => ['operationType' => 'update']]];
 $changeStream = $collection->watch($pipeline);
+$changeStream->rewind();
 
-for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
-        continue;
-    }
-    $event = $changeStream->current();
-    echo toJSON($event), PHP_EOL;
+do {
+    $changeStream->next();
 
-    if ($event['operationType'] === 'invalidate') {
-        break;
+    if ($changeStream->valid()) {
+        $event = $changeStream->current();
+        echo toJSON($event), PHP_EOL;
     }
-}
+
+} while ($event['operationType'] !== 'invalidate');
 // end-change-stream-pipeline
 
 // Passes an options argument to watch() to include the post-image of updated documents
 // start-change-stream-post-image
 $options = ['fullDocument' => MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP];
 $changeStream = $collection->watch([], $options);
+$changeStream->rewind();
 
-for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
-        continue;
-    }
-    $event = $changeStream->current();
-    echo toJSON($event), PHP_EOL;
+do {
+    $changeStream->next();
 
-    if ($event['operationType'] === 'invalidate') {
-        break;
+    if ($changeStream->valid()) {
+        $event = $changeStream->current();
+        echo toJSON($event), PHP_EOL;
     }
-}
+} while ($event['operationType'] !== 'invalidate');
 // end-change-stream-post-image
 
