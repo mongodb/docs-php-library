@@ -2,7 +2,7 @@
 
 // start-connection-uri
 // Replace the placeholders with your actual hostname, port, and path to the certificate key file
-$uri = "mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=/path/to/file.pem";
+$uri = 'mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=/path/to/file.pem';
 
 // Create a MongoDB client
 $client = new MongoDB\Client($uri);
@@ -10,7 +10,7 @@ $client = new MongoDB\Client($uri);
 
 // start-client-options
 // Replace the placeholders with your actual hostname and port
-$uri = "mongodb://<hostname>:<port>/";
+$uri = 'mongodb://<hostname>:<port>/';
 
 // Set the connection options
 // Replace the placeholder with the actual path to the certificate key file

@@ -77,17 +77,17 @@ echo "\nUpdating the Atlas Search index for autocomplete.\n";
 $collection->updateSearchIndex(
     'default',
     ['mappings' => [
-        "dynamic" => false,
-        "fields" => [
-            "name" => [
-                ["type" => "stringFacet"],
-                ["type" => "string"],
+        'dynamic' => false,
+        'fields' => [
+            'name' => [
+                ['type' => 'stringFacet'],
+                ['type' => 'string'],
                 [
-                    "foldDiacritics" => false,
-                    "maxGrams" => 7,
-                    "minGrams" => 3,
-                    "tokenization" => "edgeGram",
-                    "type" => "autocomplete",
+                    'foldDiacritics' => false,
+                    'maxGrams' => 7,
+                    'minGrams' => 3,
+                    'tokenization' => 'edgeGram',
+                    'type' => 'autocomplete',
                 ],
             ],
         ],
