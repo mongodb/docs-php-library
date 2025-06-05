@@ -107,3 +107,11 @@ class User implements MongoDB\BSON\Persistable
     }
 }
 // end-backed-enum
+
+// start-enum-serialize
+$collection = $client->test->users;
+$result = $collection->insertOne(new User('alice', Role::USER));
+$person = $collection->findOne(['_id' => $result->getInsertedId()]);
+
+var_dump($person);
+// end-enum-serialize

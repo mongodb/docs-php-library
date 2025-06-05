@@ -245,9 +245,9 @@ and ``bsonUnserialize()`` methods in your class definition.
 Example
 ```````
 
-The following example specifies logic for serializing and deserializing the
-``Role`` enum by defining the ``bsonSerialize()`` and ``bsonUnserialize()``
-methods:
+Consider the following ``User`` class definition, which specifies
+logic for serializing and deserializing its fields into BSON values.
+The class includes a ``role`` field, which has a backed enum value:
 
 .. literalinclude:: /includes/bson.php
     :language: php
@@ -255,6 +255,33 @@ methods:
     :dedent:
     :start-after: start-backed-enum
     :end-before: end-backed-enum
+
+The following example constructs a ``User`` object with a ``role`` field,
+inserts it into the database, and reads it back as an object of the same type:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/bson.php
+      :start-after: start-enum-serialize
+      :end-before: end-enum-serialize
+      :language: php
+      :dedent:
+
+   .. output::
+      :visible: false
+
+      object(User)#40 (3) {
+         ["username":"User":private]=>
+         string(5) "alice"
+         ["role":"User":private]=>
+         enum(Role::USER)
+         ["_id":"User":private]=>
+         object(MongoDB\BSON\ObjectId)#38 (1) {
+            ["oid"]=>
+            string(24) "..."
+         }
+      }
 
 .. note::
 
