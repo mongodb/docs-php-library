@@ -67,7 +67,7 @@ $indexName = $collection->createIndex(['<field name>' => 'text']);
 
 // start-geo
 $indexName = $collection->createIndex(
-    [ '<GeoJSON object field>' => '2dsphere'],
+    ['<GeoJSON object field>' => '2dsphere'],
 );
 // end-geo
 
