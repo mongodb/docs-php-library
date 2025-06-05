@@ -1,8 +1,8 @@
 <?php
 require 'vendor/autoload.php';
 
-use MongoDB\Client;
 use MongoDB\BSON\ObjectId;
+use MongoDB\Client;
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new Client($uri);
