@@ -21,7 +21,7 @@ $bucket = $client->db->selectGridFSBucket();
 
 // Creates or references a GridFS bucket with a custom name
 // start-create-custom-bucket
-$custom_bucket = $client->db->selectGridFSBucket(
+$customBucket = $client->db->selectGridFSBucket(
     ['bucketName' => 'myCustomBucket'],
 );
 // end-create-custom-bucket
@@ -44,8 +44,8 @@ $bucket->uploadFromStream('new_file', $file);
 // Prints information about each file in the bucket
 // start-retrieve-file-info
 $files = $bucket->find();
-foreach ($files as $file_doc) {
-    echo toJSON($file_doc), PHP_EOL;
+foreach ($files as $fileDocument) {
+    echo toJSON($fileDocument), PHP_EOL;
 }
 // end-retrieve-file-info
 

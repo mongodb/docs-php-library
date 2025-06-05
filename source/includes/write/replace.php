@@ -9,7 +9,7 @@ $collection = $client->sample_restaurants->restaurants;
 // end-db-coll
 
 // start-replace-one
-$replace_document = [
+$replaceDocument = [
     'name' => 'Mongo\'s Pizza',
     'cuisine' => 'Pizza',
     'address' => [
@@ -19,12 +19,12 @@ $replace_document = [
     'borough' => 'Manhattan',
 ];
 
-$result = $collection->replaceOne(['name' => 'Pizza Town'], $replace_document);
+$result = $collection->replaceOne(['name' => 'Pizza Town'], $replaceDocument);
 echo 'Modified documents: ', $result->getModifiedCount();
 // end-replace-one
 
 // start-replace-options
-$replace_document = [
+$replaceDocument = [
     'name' => 'Food World',
     'cuisine' => 'Mixed',
     'address' => [
@@ -36,7 +36,7 @@ $replace_document = [
 
 $result = $collection->replaceOne(
     ['name' => 'Food Town'],
-    $replace_document,
+    $replaceDocument,
     ['upsert' => true],
 );
 // end-replace-options
