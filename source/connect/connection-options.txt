@@ -67,7 +67,7 @@ The following example shows how to use the ``$uriOptions`` parameter of the
    :copyable: true
    :start-after: // start-client-options 
    :end-before: // end-client-options
-   :emphasize-lines: 5-8, 11
+   :emphasize-lines: 6-9, 12
 
 .. note::
    
