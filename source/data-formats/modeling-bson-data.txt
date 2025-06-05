@@ -89,8 +89,8 @@ to the :ref:`sample BSON document <php-bson-sample>`:
 Customize BSON Serialization
 ----------------------------
 
-The following sections describe how to configure your application's 
-serialization of BSON data:
+The following sections describe how to configure the way your application
+serializes BSON data:
 
 - :ref:`php-type-map`: Use the ``typeMap`` option to specify the default conversion
   between {+language+} types and BSON types.
