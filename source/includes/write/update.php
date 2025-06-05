@@ -42,4 +42,3 @@ $result = $collection->updateMany(
 );
 echo 'Modified documents: ', $result->getModifiedCount();
 // end-update-result
-

@@ -14,15 +14,15 @@ $result = $collection->bulkWrite(
     [
         [
             'insertOne' => [
-                ['name' => 'Mongo\'s Deli'], 
-                ['cuisine' => 'Sandwiches'], 
-                ['borough' => 'Manhattan'], 
-                ['restaurant_id' => '1234'], 
+                ['name' => 'Mongo\'s Deli'],
+                ['cuisine' => 'Sandwiches'],
+                ['borough' => 'Manhattan'],
+                ['restaurant_id' => '1234'],
             ],
         ],
         [
             'updateOne' => [
-                ['name' => 'Mongo\'s Deli'], 
+                ['name' => 'Mongo\'s Deli'],
                 ['$set' => ['cuisine' => 'Sandwiches and Salads']],
             ],
         ],
@@ -40,10 +40,10 @@ $result = $collection->bulkWrite(
     [
         [
             'insertOne' => [
-                ['name' => 'Mongo\'s Pizza'], 
-                ['cuisine' => 'Italian'], 
-                ['borough' => 'Queens'], 
-                ['restaurant_id' => '5678'], 
+                ['name' => 'Mongo\'s Pizza'],
+                ['cuisine' => 'Italian'],
+                ['borough' => 'Queens'],
+                ['restaurant_id' => '5678'],
             ],
         ],
         [

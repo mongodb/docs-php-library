@@ -24,7 +24,7 @@ foreach ($cursor as $doc) {
 // Retrieves documents with a "cuisine" value of "Italian" and sorts in ascending "name" order
 // start-sort
 $cursor = $collection->find(
-    ['cuisine' => 'Italian'], 
+    ['cuisine' => 'Italian'],
     ['sort' => ['name' => 1]],
 );
 
@@ -64,7 +64,7 @@ foreach ($cursor as $doc) {
 // start-return-type
 $options = [
     'typeMap' => [
-        'root' => 'array', 
+        'root' => 'array',
         'document' => 'array',
     ],
 ];

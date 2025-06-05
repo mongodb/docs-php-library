@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; 
+require 'vendor/autoload.php';
 
 $uri = getenv('MONGODB_URI') ?: 'mongodb://localhost:27017';
 $client = new MongoDB\Client($uri);

@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; 
+require 'vendor/autoload.php';
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your connection URI');
 $client = new MongoDB\Client($uri);

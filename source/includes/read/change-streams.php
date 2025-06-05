@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; 
+require 'vendor/autoload.php';
 
 // start-to-json
 function toJSON(object $document): string
@@ -75,4 +75,3 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
     }
 }
 // end-change-stream-post-image
-

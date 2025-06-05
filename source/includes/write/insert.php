@@ -34,4 +34,3 @@ $docs = [
 
 $result = $collection->insertMany($docs, ['bypassDocumentValidation' => true]);
 // end-modify
-

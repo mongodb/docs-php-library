@@ -37,4 +37,3 @@ foreach ($results as $value) {
     echo json_encode($value), PHP_EOL;
 }
 // end-distinct-with-comment
-

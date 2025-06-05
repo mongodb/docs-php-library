@@ -15,7 +15,7 @@ $cursor = $database->command(['hello' => 1]);
 // start-readpref
 $readPref = new MongoDB\Driver\ReadPreference('primaryPreferred');
 $cursor = $database->command(
-    ['hello' => 1], 
+    ['hello' => 1],
     ['readPreference' => $readPref],
 );
 // end-readpref

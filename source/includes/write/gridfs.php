@@ -75,8 +75,8 @@ fclose($stream);
 // start-download-to-stream
 $file = fopen('/path/to/output_file', 'wb');
 $bucket->downloadToStream(
-	new ObjectId('66e0a5487c880f844c0a32b1'),
-	$file,
+    new ObjectId('66e0a5487c880f844c0a32b1'),
+    $file,
 );
 // end-download-to-stream
 

@@ -33,7 +33,7 @@ $array_results = $cursor->toArray();
 // start-capped-coll
 $db = $client->db;
 $db->createCollection(
-    'vegetables', 
+    'vegetables',
     ['capped' => true, 'size' => 1024 * 1024],
 );
 

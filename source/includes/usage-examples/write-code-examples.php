@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; 
+require 'vendor/autoload.php';
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);
@@ -69,7 +69,7 @@ $result = $collection->bulkWrite(
     [
         [
             'insertOne' => [
-                ['<field name>' => '<value>'], 
+                ['<field name>' => '<value>'],
             ],
         ],
         [
