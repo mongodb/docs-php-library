@@ -29,6 +29,8 @@
         <exclude name="Squiz.Classes.ClassFileName.NoMatch" />
         <!-- Results in false positives with comments used to denote include blocks before functions -->
         <exclude name="Squiz.Commenting.FunctionComment.WrongStyle" />
+        <!-- Results in false positives with comments used to denote include blocks after functions -->
+        <exclude name="Squiz.WhiteSpace.FunctionSpacing.After" />
 
         <!-- *********************************** -->
         <!-- Exclude sniffs that cause BC breaks -->
@@ -104,6 +106,10 @@
     </rule>
     <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint">
         <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingTraversableTypeHintSpecification" />
+    </rule>
+
+    <rule ref="Generic.Files.InlineHTML.Found">
+        <exclude-pattern>source/includes/aws-lambda/index.php</exclude-pattern>
     </rule>
 
 </ruleset>
