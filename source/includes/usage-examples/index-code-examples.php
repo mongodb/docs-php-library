@@ -54,7 +54,7 @@ $collection->updateSearchIndex(
             ],
         ],
     ]],
- );
+);
 // end-search-update
 
 // start-search-delete
