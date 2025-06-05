@@ -3,7 +3,7 @@
 $uri = 'mongodb://<hostname>:<port>';
 
 $uriOptions = [
-   'tls' => true,
+    'tls' => true,
 ];
 
 $driverOptions = [
