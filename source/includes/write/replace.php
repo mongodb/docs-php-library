@@ -16,7 +16,7 @@ $replace_document = [
         'street' => '123 Pizza St',
         'zipCode' => '10003',
     ],
-    'borough' => 'Manhattan'
+    'borough' => 'Manhattan',
 ];
 
 $result = $collection->replaceOne(['name' => 'Pizza Town'], $replace_document);
@@ -31,12 +31,12 @@ $replace_document = [
         'street' => '123 Food St',
         'zipCode' => '10003',
     ],
-    'borough' => 'Manhattan'
+    'borough' => 'Manhattan',
 ];
 
 $result = $collection->replaceOne(
     ['name' => 'Food Town'],
     $replace_document,
-    ['upsert' => true]
+    ['upsert' => true],
 );
 // end-replace-options

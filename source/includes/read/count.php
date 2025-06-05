@@ -26,7 +26,7 @@ echo 'Number of companies founded in 2010: ', $result;
 // start-modify-accurate
 $result = $collection->countDocuments(
     ['number_of_employees' => 50],
-    ['limit' => 100]
+    ['limit' => 100],
 );
 echo 'Number of companies with 50 employees: ', $result;
 // end-modify-accurate

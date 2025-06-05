@@ -7,7 +7,7 @@ $uriOptions = [
 ];
 
 $driverOptions = [
-    'crl_file' => '/path/to/file.pem'
+    'crl_file' => '/path/to/file.pem',
 ];
 
 $client = new MongoDB\Client($uri, $uriOptions, $driverOptions);

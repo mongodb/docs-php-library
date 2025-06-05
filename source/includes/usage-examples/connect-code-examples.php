@@ -109,7 +109,7 @@ $client = new MongoDB\Client(
     [
         'tls' => true,
         'tlsCertificateKeyFile' => '/path/to/client.pem',
-        'tlsCertificateKeyFilePassword' => '<password>'
+        'tlsCertificateKeyFilePassword' => '<password>',
     ],
 );
 // end-key-file-client

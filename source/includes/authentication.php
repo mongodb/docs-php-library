@@ -79,7 +79,7 @@ $client = new MongoDB\Client($uri);
 // start-mongodb-aws-env-client
 $client = new MongoDB\Client(
     'mongodb://<hostname>:<port>',
-    ['authMechanism' => 'MONGODB-AWS']
+    ['authMechanism' => 'MONGODB-AWS'],
 );
 // end-mongodb-aws-env-client
 

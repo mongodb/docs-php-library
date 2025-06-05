@@ -7,7 +7,7 @@ $uriOptions = [
 ];
 
 $driverOptions = [
-    'ca_dir' => '/path/to/search/'
+    'ca_dir' => '/path/to/search/',
 ];
 
 $client = new MongoDB\Client($uri, $uriOptions, $driverOptions);

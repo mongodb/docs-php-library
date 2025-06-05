@@ -22,14 +22,14 @@ $bucket = $client->db->selectGridFSBucket();
 // Creates or references a GridFS bucket with a custom name
 // start-create-custom-bucket
 $custom_bucket = $client->db->selectGridFSBucket(
-    ['bucketName' => 'myCustomBucket']
+    ['bucketName' => 'myCustomBucket'],
 );
 // end-create-custom-bucket
 
 // Uploads a file called "my_file" to the GridFS bucket and writes data to it
 // start-open-upload-stream
 $stream = $bucket->openUploadStream('my_file', [
-    'metadata' => ['contentType' => 'text/plain']
+    'metadata' => ['contentType' => 'text/plain'],
 ]);
 fwrite($stream, 'Data to store');
 fclose($stream);

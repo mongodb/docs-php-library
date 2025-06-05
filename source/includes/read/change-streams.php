@@ -36,7 +36,7 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
 // start-update-for-change-stream
 $result = $collection->updateOne(
     ['name' => 'Blarney Castle'],
-    ['$set' => ['cuisine' => 'Irish']]
+    ['$set' => ['cuisine' => 'Irish']],
 );
 // end-update-for-change-stream
 

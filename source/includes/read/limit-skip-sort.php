@@ -13,7 +13,7 @@ $collection = $client->sample_restaurants->restaurants;
 // start-limit
 $cursor = $collection->find(
     ['cuisine' => 'Italian'],
-    ['limit' => 5]
+    ['limit' => 5],
 );
 
 foreach ($cursor as $doc) {
@@ -25,7 +25,7 @@ foreach ($cursor as $doc) {
 // start-sort
 $cursor = $collection->find(
     ['cuisine' => 'Italian'], 
-    ['sort' => ['name' => 1]]
+    ['sort' => ['name' => 1]],
 );
 
 foreach ($cursor as $doc) {
@@ -37,7 +37,7 @@ foreach ($cursor as $doc) {
 // start-skip
 $cursor = $collection->find(
     ['borough' => 'Manhattan'],
-    ['skip' => 10]
+    ['skip' => 10],
 );
 
 foreach ($cursor as $doc) {
@@ -65,8 +65,8 @@ foreach ($cursor as $doc) {
 $options = [
     'typeMap' => [
         'root' => 'array', 
-        'document' => 'array'
-    ]
+        'document' => 'array',
+    ],
 ];
 
 $cursor = $collection->find(['cuisine' => 'Hawaiian'], $options);

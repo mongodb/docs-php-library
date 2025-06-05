@@ -103,7 +103,7 @@ $result = $collection->bulkWrite(
                 ['<field name>' => '<value>'],
             ],
         ],
-    ]
+    ],
 );
 // end-bulk-write
 

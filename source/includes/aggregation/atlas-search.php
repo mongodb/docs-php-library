@@ -61,9 +61,9 @@ $pipeline = new Pipeline(
     Stage::project(
         borough: 1,
         cuisine: 1,
-        name: 1
+        name: 1,
     ),
-    Stage::limit(3)
+    Stage::limit(3),
 );
 
 $cursor = $collection->aggregate($pipeline);
@@ -87,11 +87,11 @@ $collection->updateSearchIndex(
                     "maxGrams" => 7,
                     "minGrams" => 3,
                     "tokenization" => "edgeGram",
-                    "type" => "autocomplete"
+                    "type" => "autocomplete",
                 ],
-            ]
-        ]
-    ]]
+            ],
+        ],
+    ]],
 );
 
 // Waits for the index to be updated.

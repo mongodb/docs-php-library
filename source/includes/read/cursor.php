@@ -34,12 +34,12 @@ $array_results = $cursor->toArray();
 $db = $client->db;
 $db->createCollection(
     'vegetables', 
-    ['capped' => true, 'size' => 1024 * 1024]
+    ['capped' => true, 'size' => 1024 * 1024],
 );
 
 $vegetables = [
     ['name' => 'cauliflower'],
-    ['name' => 'zucchini']
+    ['name' => 'zucchini'],
 ];
 
 $collection = $db->vegetables;

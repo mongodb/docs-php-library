@@ -17,18 +17,18 @@ $callback = function (MongoDB\Driver\Session $session) use (
     $saving,
     $receipts,
     $accountId,
-    $transferAmount
+    $transferAmount,
 ): void {
     $checking->updateOne(
         ["account_id" => $accountId],
         ['$inc' => ["balance" => -$transferAmount]],
-        ["session" => $session]
+        ["session" => $session],
     );
 
     $saving->updateOne(
         ["account_id" => $accountId],
         ['$inc' => ["balance" => $transferAmount]],
-        ["session" => $session]
+        ["session" => $session],
     );
 
     $summary = sprintf('SAVINGS +%1$u CHECKING -%1$u', $transferAmount);
@@ -39,7 +39,7 @@ $callback = function (MongoDB\Driver\Session $session) use (
             "summary" => $summary,
             "timestamp" => new MongoDB\BSON\UTCDateTime(),
         ],
-        ["session" => $session]
+        ["session" => $session],
     );
 
     echo "Successfully performed transaction!", PHP_EOL;
