@@ -53,7 +53,7 @@ foreach ($results as $value) {
 $changeStream = $collection->watch();
 
 for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
+    if (! $changeStream->valid()) {
         continue;
     }
     $event = $changeStream->current();

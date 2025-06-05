@@ -20,7 +20,7 @@ $collection = $client->sample_restaurants->restaurants;
 $changeStream = $collection->watch();
 
 for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
+    if (! $changeStream->valid()) {
         continue;
     }
     $event = $changeStream->current();
@@ -46,7 +46,7 @@ $pipeline = [['$match' => ['operationType' => 'update']]];
 $changeStream = $collection->watch($pipeline);
 
 for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
+    if (! $changeStream->valid()) {
         continue;
     }
     $event = $changeStream->current();
@@ -64,7 +64,7 @@ $options = ['fullDocument' => MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOK
 $changeStream = $collection->watch([], $options);
 
 for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
+    if (! $changeStream->valid()) {
         continue;
     }
     $event = $changeStream->current();
