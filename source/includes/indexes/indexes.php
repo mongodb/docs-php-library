@@ -38,10 +38,10 @@ $indexName = $collection->createIndex(
 // end-index-compound
 
 // start-compound-query
-$document = $collection->findOne(
-    ['title' => ['$regex' => 'Sunrise'],
-    'year' => ['$gte' => 1990]]
-);
+$document = $collection->findOne([
+    'title' => ['$regex' => 'Sunrise'],
+    'year' => ['$gte' => 1990]
+]);
 echo json_encode($document), PHP_EOL;
 // end-compound-query
 

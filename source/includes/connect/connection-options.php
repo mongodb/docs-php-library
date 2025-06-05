@@ -1,3 +1,5 @@
+<?php
+
 // start-connection-uri
 // Replace the placeholders with your actual hostname, port, and path to the certificate key file
 $uri = "mongodb://<hostname>:<port>/?tls=true&tlsCertificateKeyFile=/path/to/file.pem";

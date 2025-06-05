@@ -5,8 +5,10 @@ require __DIR__ . '/vendor/autoload.php';
 // start-mysubscriber
 class MySubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
 {
+    /** @var resource */
     private $stream;
 
+    /** @param resource $stream */
     public function __construct($stream)
     {
         $this->stream = $stream;

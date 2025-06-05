@@ -1,3 +1,5 @@
+<?php
+
 $uri = 'mongodb://<hostname>:<port>';
 
 $uriOptions = [
