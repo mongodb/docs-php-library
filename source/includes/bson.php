@@ -14,13 +14,13 @@ $document = [
     ],
     'coord' => [-73.982419, 41.579505],
     'cuisine' => 'Pizza',
-    'name' => 'Mongo\'s Pizza'
+    'name' => 'Planet Pizza'
 ];
 // end-create-doc
 
 // start-modify-doc
 $document['restaurant_id'] = 12345;
-$document['name'] = 'Mongo\'s Pizza Place';
+$document['name'] = 'Galaxy Pizza';
 // end-modify-doc
 
 // start-type-map
