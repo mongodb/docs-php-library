@@ -27,6 +27,8 @@
         <!-- Results in false positives with comments used to denote include blocks -->
         <exclude name="SlevomatCodingStandard.ControlStructures.BlockControlStructureSpacing.IncorrectLinesCountAfterControlStructure" />
         <exclude name="Squiz.Classes.ClassFileName.NoMatch" />
+        <!-- Results in false positives with comments used to denote include blocks before functions -->
+        <exclude name="Squiz.Commenting.FunctionComment.WrongStyle" />
 
         <!-- *********************************** -->
         <!-- Exclude sniffs that cause BC breaks -->
