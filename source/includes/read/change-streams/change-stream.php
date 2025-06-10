@@ -29,3 +29,11 @@ do {
     }
 } while (! $changeStream->valid() || $changeStream->current()['operationType'] !== 'invalidate');
 // end-open-change-stream
+
+// Updates a document that has a "name" value of "Blarney Castle"
+// start-update-for-change-stream
+$result = $collection->updateOne(
+    ['name' => 'Blarney Castle'],
+    ['$set' => ['cuisine' => 'Irish']]
+);
+// end-update-for-change-stream
