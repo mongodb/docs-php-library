@@ -21,13 +21,17 @@ Overview
 --------
 
 In this guide, you can learn how to use the {+library-short+} to
-set up and configure **logging**.
+set up and configure **logging**. Logging allows you to receive
+information about database operations, server connections, errors,
+and other events that occur while your application runs.
 
 The {+library-short+} supports `Psr\\Log\\LoggerInterface
 <https://www.php-fig.org/psr/psr-3/#3-psrlogloggerinterface>`__, a PSR-3
-logger interface that allows your application to receive log messages.
+logger interface that configures your application to receive log messages.
 You can register one or more ``Psr\Log\LoggerInterface`` objects to
-send ``libmongoc`` and {+extension-short+} messages to the logger.
+send messages to the logger. The {+library-short+} is built on top of
+``libmongoc`` and {+extension-short+}, so the logger receives event notifications
+from both components.
   
 Register a Logger
 -----------------
@@ -37,17 +41,17 @@ create a logger class that implements the ``Psr\Log\LoggerInterface``
 interface. Then, use the ``MongoDB\add_logger()`` function to register
 your logger.
 
-To implement ``Psr\Log\LoggerInterface``, you can create a class that
-extends the ``Psr\Log\AbstractLogger`` class. ``AbstractLogger`` implements
-``LoggerInterface`` and a generic ``log()`` method, which receives each type
-of log message.
-
-Each message includes the following information:
+Each log message includes the following information:
 
 - Log level: Indicates the severity of the message. To view a list of 
   possible levels, see `PSR\\Log\\LogLevel <https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel>`__.
 - Message: Describes the logged event.
 - Domain string: Specifies the driver component that emitted the log message.
+
+To implement ``Psr\Log\LoggerInterface``, you can create a class that
+extends the ``Psr\Log\AbstractLogger`` class. ``AbstractLogger`` implements
+``LoggerInterface`` and a generic ``log()`` method, which receives log
+messages at each severity level.
 
 Example
 ~~~~~~~
@@ -55,7 +59,7 @@ Example
 This example performs the following actions:
 
 - Creates a logger called ``MyLogger`` that extends the ``AbstractLogger`` class
-  and prints the severity level, description, and domain of each event
+  and records the log level, description, and domain of each event
 - Registers the logger
 - Creates a client that connects to a CosmosDB cluster
 - Prints each log message
@@ -114,7 +118,7 @@ This example performs the following actions:
 
 The preceding output includes log messages with a ``debug`` severity level, which
 describe normal driver activities. It also includes a message about the CosmosDB
-connection with an ``info`` severity level that describes a noteworthy but non-urgent
+connection with an ``info`` level that describes a noteworthy but non-urgent
 event.
 
 Write Custom Log Messages
@@ -122,7 +126,7 @@ Write Custom Log Messages
 
 You can generate custom log messages by using the ``PsrLogAdapter::writeLog()``
 function. This function allows you to write directly to the logger and 
-can assist with application debugging. Pass the severity level, domain, and
+can help with application monitoring and debugging. Pass the severity level, domain, and
 description as parameters to ``writeLog()``.
 
 The following example writes log messages that have ``warning`` and 
@@ -132,8 +136,8 @@ The following example writes log messages that have ``warning`` and
    :copyable:
 
    .. input:: /includes/monitoring-logging/logging.php
-      :start-after: start-register-logger
-      :end-before: end-register-logger
+      :start-after: start-write-messages
+      :end-before: end-write-messages
       :language: php
       :dedent:
 
