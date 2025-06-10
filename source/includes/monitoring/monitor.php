@@ -5,12 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 // start-command-subscriber
 class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
 {
-    private $stream;
-
-    public function __construct($stream)
-    {
-        $this->stream = $stream;
-    }
+    public function __construct(private $stream) {}
 
     public function commandStarted(MongoDB\Driver\Monitoring\CommandStartedEvent $event): void
     {
@@ -31,12 +26,7 @@ class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
 // start-sdam-subscriber
 class MySDAMSubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
 {
-    private $stream;
-
-    public function __construct($stream)
-    {
-        $this->stream = $stream;
-    }
+    public function __construct(private $stream) {}
 
     public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void {
         fprintf(
