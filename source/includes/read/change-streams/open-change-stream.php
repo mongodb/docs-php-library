@@ -1,0 +1,31 @@
+<?php
+require 'vendor/autoload.php'; 
+
+// start-to-json
+function toJSON(object $document): string
+{
+    return MongoDB\BSON\Document::fromPHP($document)->toRelaxedExtendedJSON();
+}
+// end-to-json
+
+$uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
+$client = new MongoDB\Client($uri);
+
+// start-db-coll
+$collection = $client->sample_restaurants->restaurants;
+// end-db-coll
+
+// Monitors and prints changes to the "restaurants" collection
+// start-open-change-stream
+$changeStream = $collection->watch();
+$changeStream->rewind();
+
+do {
+    $changeStream->next();
+
+    if ($changeStream->valid()) {
+        $event = $changeStream->current();
+        echo toJSON($event), PHP_EOL;
+    }
+} while (! $changeStream->valid() || $changeStream->current()['operationType'] !== 'invalidate');
+// end-open-change-stream

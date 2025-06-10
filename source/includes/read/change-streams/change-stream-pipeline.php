@@ -15,21 +15,6 @@ $client = new MongoDB\Client($uri);
 $collection = $client->sample_restaurants->restaurants;
 // end-db-coll
 
-// Monitors and prints changes to the "restaurants" collection
-// start-open-change-stream
-$changeStream = $collection->watch();
-$changeStream->rewind();
-
-do {
-    $changeStream->next();
-
-    if ($changeStream->valid()) {
-        $event = $changeStream->current();
-        echo toJSON($event), PHP_EOL;
-    }
-} while {$event['operationType'] !== 'invalidate'};
-// end-open-change-stream
-
 // Updates a document that has a "name" value of "Blarney Castle"
 // start-update-for-change-stream
 $result = $collection->updateOne(
@@ -51,23 +36,5 @@ do {
         $event = $changeStream->current();
         echo toJSON($event), PHP_EOL;
     }
-
-} while ($event['operationType'] !== 'invalidate');
+} while (! $changeStream->valid() || $changeStream->current()['operationType'] !== 'invalidate');
 // end-change-stream-pipeline
-
-// Passes an options argument to watch() to include the post-image of updated documents
-// start-change-stream-post-image
-$options = ['fullDocument' => MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP];
-$changeStream = $collection->watch([], $options);
-$changeStream->rewind();
-
-do {
-    $changeStream->next();
-
-    if ($changeStream->valid()) {
-        $event = $changeStream->current();
-        echo toJSON($event), PHP_EOL;
-    }
-} while ($event['operationType'] !== 'invalidate');
-// end-change-stream-post-image
-

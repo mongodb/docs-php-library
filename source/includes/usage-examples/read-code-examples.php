@@ -61,5 +61,5 @@ do {
         $event = $changeStream->current();
         echo toJSON($event) . PHP_EOL;
     }
-} while ($event['operationType'] !== 'invalidate');
+} while (! $changeStream->valid() || $changeStream->current()['operationType'] !== 'invalidate');
 // end-change-stream
