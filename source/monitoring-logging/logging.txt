@@ -1,0 +1,191 @@
+.. _php-logging:
+
+=================
+Log Driver Events
+=================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+.. facet::
+   :name: genre
+   :values: reference
+
+.. meta::
+   :keywords: debugging, printing
+
+Overview
+--------
+
+In this guide, you can learn how to use the {+library-short+} to
+set up and configure **logging**.
+
+The {+library-short+} supports `Psr\\Log\\LoggerInterface
+<https://www.php-fig.org/psr/psr-3/#3-psrlogloggerinterface>`__, a PSR-3
+logger interface that allows your application to receive log messages.
+You can register one or more ``Psr\Log\LoggerInterface`` objects to
+send ``libmongoc`` and {+extension-short+} messages to the logger.
+  
+Register a Logger
+-----------------
+
+To configure your application to receive messages about driver events,
+create a logger class that implements the ``Psr\Log\LoggerInterface``
+interface. Then, use the ``MongoDB\add_logger()`` function to register
+your logger.
+
+To implement ``Psr\Log\LoggerInterface``, you can create a class that
+extends the ``Psr\Log\AbstractLogger`` class. ``AbstractLogger`` implements
+``LoggerInterface`` and a generic ``log()`` method, which receives each type
+of log message.
+
+Each message includes the following information:
+
+- Log level: Indicates the severity of the message. To view a list of 
+  possible levels, see `PSR\\Log\\LogLevel <https://www.php-fig.org/psr/psr-3/#5-psrlogloglevel>`__.
+- Message: Describes the logged event.
+- Domain string: Specifies the driver component that emitted the log message.
+
+Example
+~~~~~~~
+
+This example performs the following actions:
+
+- Creates a logger called ``MyLogger`` that extends the ``AbstractLogger`` class
+  and prints the severity level, description, and domain of each event
+- Registers the logger
+- Creates a client that connects to a CosmosDB cluster
+- Prints each log message
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/monitoring-logging/logging.php
+      :start-after: start-register-logger
+      :end-before: end-register-logger
+      :language: php
+      :dedent:
+
+   .. output::
+      :visible: false
+
+      Array
+      (
+          [0] => Array
+              (
+                  [0] => debug
+                  [1] => Connection string: 'mongodb://a.mongo.cosmos.azure.com:19555/'
+                  [2] => PHONGO
+              )
+          [1] => Array
+              (
+                  [0] => debug
+                  [1] => Creating Manager, phongo-1.21.0[stable] - mongoc-1.30.1(bundled), libbson-1.30.1(bundled), php-8.4.4
+                  [2] => PHONGO
+              )
+          [2] => Array
+              (
+                  [0] => debug
+                  [1] => Setting driver handshake data: { name: 'ext-mongodb:PHP / PHPLIB ', version: '1.21.0 / 1.21.1 ', platform: 'PHP 8.4.4 ' }
+                  [2] => PHONGO
+              )
+          [3] => Array
+              (
+                  [0] => info
+                  [1] => You appear to be connected to a CosmosDB cluster. For more information regarding feature compatibility and support please visit https://www.mongodb.com/supportability/cosmosdb
+                  [2] => mongoc
+              )
+          [4] => Array
+              (
+                  [0] => debug
+                  [1] => Created client with hash: a:4:{s:3:"pid";i:61731;s:3:"uri";s:41:"mongodb://a.mongo.cosmos.azure.com:19555/";s:7:"options";a:0:{}s:13:"driverOptions";a:1:{s:6:"driver";a:2:{s:4:"name";s:6:"PHPLIB";s:7:"version";s:6:"1.21.1";}}}
+                  [2] => PHONGO
+              )
+          [5] => Array
+              (
+                  [0] => debug
+                  [1] => Stored persistent client with hash: a:4:{s:3:"pid";i:61731;s:3:"uri";s:41:"mongodb://a.mongo.cosmos.azure.com:19555/";s:7:"options";a:0:{}s:13:"driverOptions";a:1:{s:6:"driver";a:2:{s:4:"name";s:6:"PHPLIB";s:7:"version";s:6:"1.21.1";}}}
+                  [2] => PHONGO
+              )
+      )
+
+The preceding output includes log messages with a ``debug`` severity level, which
+describe normal driver activities. It also includes a message about the CosmosDB
+connection with an ``info`` severity level that describes a noteworthy but non-urgent
+event.
+
+Write Custom Log Messages
+-------------------------
+
+You can generate custom log messages by using the ``PsrLogAdapter::writeLog()``
+function. This function allows you to write directly to the logger and 
+can assist with application debugging. Pass the severity level, domain, and
+description as parameters to ``writeLog()``.
+
+The following example writes log messages that have ``warning`` and 
+``critical`` severity levels to the logger:
+
+.. io-code-block::
+   :copyable:
+
+   .. input:: /includes/monitoring-logging/logging.php
+      :start-after: start-register-logger
+      :end-before: end-register-logger
+      :language: php
+      :dedent:
+
+   .. output::
+      :visible: false
+
+      Array
+      (
+          [0] => Array
+              (
+                  [0] => warning
+                  [1] => This is a warning message
+                  [2] => domain1
+              )
+          [1] => Array
+              (
+                  [0] => critical
+                  [1] => This is a critical message
+                  [2] => domain2
+              )
+      )
+
+Remove a Logger
+---------------
+
+To unregister a logger, pass your logger object as a parameter to the ``MongoDB\remove_logger()``
+function. After calling this function, your logger no longer receives log
+messages about your application.
+
+The following example unregisters a logger:
+
+.. literalinclude:: /includes/monitoring-logging/logging.php
+   :language: php
+   :start-after: start-remove-logger
+   :end-before: end-remove-logger
+   :dedent:
+
+Additional Information
+----------------------
+
+To learn more about the PSR-3 logger, see `PSR-3: Logger Interface
+<https://www.php-fig.org/psr/psr-3/>`__ in the PHP-FIG documentation.
+
+API Documentation
+~~~~~~~~~~~~~~~~~
+
+To learn more about the {+library-short+} methods discussed in this guide, see the
+following API documentation:
+
+- :phpmethod:`MongoDB\add_logger()`
+- :phpmethod:`MongoDB\remove_logger()`
+
+To learn more about C driver logging behavior, see `Logging
+<https://mongoc.org/libmongoc/current/logging.html>`__ in the ``libmongoc``
+API documentation.
