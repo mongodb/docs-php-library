@@ -30,7 +30,7 @@ The {+library-short+} supports `Psr\\Log\\LoggerInterface
 logger interface that configures your application to receive log messages.
 You can register one or more ``Psr\Log\LoggerInterface`` objects to
 send messages to the logger. The {+library-short+} is built on top of
-``libmongoc`` and {+extension-short+}, so the logger receives event notifications
+``libmongoc`` and the {+extension-short+}, so the logger receives event notifications
 from both components.
   
 Register a Logger
