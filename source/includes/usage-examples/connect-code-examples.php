@@ -44,7 +44,7 @@ $uri = 'mongodb://<hostname>:<port>/?tls=true';
 $client = new MongoDB\Client($uri);
 // end-enable-tls-uri
 
-// Connects to a MongoDB deployment, enables TLS, and specifies the path to 
+// Connects to a MongoDB deployment, enables TLS, and specifies the path to
 // a CA file using client options
 // start-ca-file-client
 $client = new MongoDB\Client(
@@ -53,7 +53,7 @@ $client = new MongoDB\Client(
 );
 // end-ca-file-client
 
-// Connects to a MongoDB deployment, enables TLS, and specifies the path to 
+// Connects to a MongoDB deployment, enables TLS, and specifies the path to
 // a CA file using connection URI parameters
 // start-ca-file-uri
 $uri = 'mongodb://<hostname>:<port>/?tls=true&tlsCAFile=/path/to/ca.pem';
@@ -109,7 +109,7 @@ $client = new MongoDB\Client(
     [
         'tls' => true,
         'tlsCertificateKeyFile' => '/path/to/client.pem',
-        'tlsCertificateKeyFilePassword' => '<password>'
+        'tlsCertificateKeyFilePassword' => '<password>',
     ],
 );
 // end-key-file-client

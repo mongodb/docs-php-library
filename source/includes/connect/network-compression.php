@@ -4,7 +4,7 @@
 $client = new MongoDB\Client(
     'mongodb://<hostname>:<port>',
     ['compressors' => 'snappy,zstd,zlib'],
- );
+);
 // end-enable-client
 
 // start-enable-uri

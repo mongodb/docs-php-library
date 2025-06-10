@@ -1,3 +1,3 @@
 <?php
 
-$client = new MongoDB\Client("mongodb://localhost:27017");
+$client = new MongoDB\Client('mongodb://localhost:27017');

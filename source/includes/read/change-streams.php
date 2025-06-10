@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; 
+require 'vendor/autoload.php';
 
 // start-to-json
 function toJSON(object $document): string
@@ -20,7 +20,7 @@ $collection = $client->sample_restaurants->restaurants;
 $changeStream = $collection->watch();
 
 for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
+    if (! $changeStream->valid()) {
         continue;
     }
     $event = $changeStream->current();
@@ -36,7 +36,7 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
 // start-update-for-change-stream
 $result = $collection->updateOne(
     ['name' => 'Blarney Castle'],
-    ['$set' => ['cuisine' => 'Irish']]
+    ['$set' => ['cuisine' => 'Irish']],
 );
 // end-update-for-change-stream
 
@@ -46,7 +46,7 @@ $pipeline = [['$match' => ['operationType' => 'update']]];
 $changeStream = $collection->watch($pipeline);
 
 for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
+    if (! $changeStream->valid()) {
         continue;
     }
     $event = $changeStream->current();
@@ -64,7 +64,7 @@ $options = ['fullDocument' => MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOK
 $changeStream = $collection->watch([], $options);
 
 for ($changeStream->rewind(); true; $changeStream->next()) {
-    if ( ! $changeStream->valid()) {
+    if (! $changeStream->valid()) {
         continue;
     }
     $event = $changeStream->current();
@@ -75,4 +75,3 @@ for ($changeStream->rewind(); true; $changeStream->next()) {
     }
 }
 // end-change-stream-post-image
-

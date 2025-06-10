@@ -2,6 +2,24 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+// start-default-client
+$uriOptions = [
+    'username' => '<username>',
+    'password' => '<password>',
+    'authSource' => '<authentication database>',
+];
+
+$client = new MongoDB\Client(
+    'mongodb://<hostname>:<port>',
+    $uriOptions,
+);
+// end-default-client
+
+// start-default-uri
+$uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin';
+$client = new MongoDB\Client($uri);
+// end-default-uri
+
 // start-scram-sha-256-client
 $uriOptions = [
     'username' => '<username>',
@@ -79,7 +97,7 @@ $client = new MongoDB\Client($uri);
 // start-mongodb-aws-env-client
 $client = new MongoDB\Client(
     'mongodb://<hostname>:<port>',
-    ['authMechanism' => 'MONGODB-AWS']
+    ['authMechanism' => 'MONGODB-AWS'],
 );
 // end-mongodb-aws-env-client
 
