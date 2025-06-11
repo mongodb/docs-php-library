@@ -25,6 +25,7 @@ Specialized Data Formats
    Decimal128 </data-formats/decimal128>
    BSON </data-formats/modeling-bson-data>
    Time Series </data-formats/time-series>
+   Extended JSON </data-formats/extended-json>
 
 Overview
 --------
@@ -37,3 +38,4 @@ guides:
 - :ref:`php-decimal128`
 - :ref:`php-bson`
 - :ref:`php-time-series`
+- :ref:`php-extended-json`
