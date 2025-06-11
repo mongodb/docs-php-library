@@ -15,7 +15,7 @@ Work with Extended JSON Data
    :values: reference
  
 .. meta::
-   :keywords: code examples, bson, relaxed, canonical, legacy
+   :keywords: code examples, bson, relaxed, canonical
 
 Overview
 --------
@@ -26,7 +26,7 @@ when interacting with MongoDB documents.
 JSON is a human-readable data format that represents the values of objects,
 arrays, numbers, strings, booleans, and nulls. This format supports only a
 subset of BSON data types, which is the format that MongoDB uses to store data. The
-Extended JSON format provides additional BSON support, defining a reserved
+Extended JSON format supports more BSON types, defining a reserved
 set of keys prefixed with "``$``" to represent field type information that
 directly corresponds to each type in BSON.
 
