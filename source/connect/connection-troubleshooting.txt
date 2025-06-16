@@ -1,0 +1,166 @@
+.. _php-connection-troubleshooting:
+
+==========================
+Connection Troubleshooting
+==========================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 2
+   :class: singlecol
+
+.. facet::
+   :name: genre
+   :values: reference
+
+.. meta::
+   :keywords: code example, disconnected, deployment
+
+.. sharedinclude:: dbx/connection-troubleshooting.rst
+
+   .. replacement:: non-connection-issue-callout
+
+      .. note::
+
+         This page addresses only connection issues. If you encounter other
+         issues when using MongoDB or the {+library-short+}, visit the following resources:
+
+         - The :ref:`Issues & Help <php-issues-and-help>` page for
+           information about reporting bugs, contributing to the libraryß, and
+           finding more resources
+         - The :community-forum:`MongoDB Community Forums </tag/php>` for
+           questions, discussions, or general technical support
+
+   .. replacement:: server-selection-timeout-error
+
+      .. code-block:: none
+         :copyable: false
+
+         No suitable servers found (`serverSelectionTryOnce` set):
+         [connection refused calling hello on 'localhost:27017']
+
+   .. replacement:: check-connection-string-anchor
+
+      .. _php-connection-string-port:
+
+   .. replacement:: multiple-hosts-connection-guide-link
+
+      To learn how to specify multiple replica set hosts, see the
+      :ref:`Replica Sets <php-connection-replica-set>` section of the
+      Choose a Connection Target guide.
+
+   .. replacement:: configure-firewall-anchor
+
+      .. _php-connection-firewall:
+
+   .. replacement:: authentication-error-anchor
+
+      .. _php-authentication-error:
+
+   .. replacement:: scram-failure-error
+
+      .. code-block:: none
+         :copyable: false
+
+         Authentication failed.
+
+   .. replacement:: check-credentials-formatting-anchor
+
+      .. _php-connection-string-auth:
+
+   .. replacement:: learn-more-connection-string-admonition
+
+      .. tip::
+
+         To learn more information about using connection strings,
+         see :ref:`Connection URI <php-connection-uri>` in the
+         Create a MongoDB Client guide.
+
+   .. replacement:: percent-encode-example
+
+   .. replacement:: verify-authentication-database-anchor
+
+      .. _php-verify-auth-db:
+
+   .. replacement:: authsource-param-code-block
+
+      .. code-block:: java
+         :copyable: false
+
+         $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=admin&authMechanism=SCRAM-SHA-256';
+         $client = new MongoDB\Client($uri);
+
+   .. replacement:: credentials-provider-alternative-method-description
+
+      If you construct a client by using a ``MongoCredential``, the builder method
+      corresponds to the authentication mechanism. The following code shows the builder
+      method for the ``SCRAM-SHA-256`` authentication mechanism:
+
+      .. code-block:: java
+         :copyable: false
+
+         MongoCredential credential = MongoCredential.createScramSha256Credential("<db_username>", "<authenticationDb>", "<dbpassword>");
+
+
+   .. replacement:: authentication-guide-reference
+
+      To learn more about specifying authentication mechanisms, see the :ref:`java-authentication-mechanisms`
+      section.
+
+   .. replacement:: verify-authentication-mechanism-anchor
+
+      .. _java-verify-auth-mechanism:
+
+   .. replacement:: authsource-param-code-block
+
+      .. code-block:: java
+         :copyable: false
+
+         MongoClient mongoClient = MongoClients.create("mongodb://<db_username>:<db_password>@<hostname>:<port>/?authSource=users");
+
+   .. replacement:: dns-resolution-anchor
+
+      .. _java-dns-resolution-error:
+
+   .. replacement:: dns-error-message
+
+      .. code-block:: none
+         :copyable: false
+
+         com.mongodb.MongoSocketWriteException: Exception sending message
+
+   .. replacement:: check-the-number-of-connections-anchor
+
+      .. _java-connection-num-connections:
+
+   .. replacement:: mongo-client-class
+
+      ``MongoClient``
+
+   .. replacement:: max-pool-size-param
+
+      ``maxPoolSize``
+
+   .. replacement:: max-pool-size-default
+
+      ``100``
+
+   .. replacement:: max-idle-time-param
+
+      ``maxIdleTimeMS``
+
+   .. replacement:: scram-failure-error
+
+      .. code-block::
+
+         Command failed with error 18 (AuthenticationFailed): 'Authentication failed.' on server localhost:27017.
+
+   .. replacement:: check-credentials-formatting-anchor
+
+      .. _java-troubleshooting-connection-string-auth:
+
+   .. replacement:: connection-pools-learn-more
+
+      To learn more about how connection pooling works in the driver, see the
+      :ref:`Connection Pools <java-connection-pools>` page.
