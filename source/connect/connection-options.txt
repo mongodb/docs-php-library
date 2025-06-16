@@ -34,7 +34,7 @@ Set Connection Options
 You can configure your connection by specifying options in the connection URI or by
 passing them to the ``MongoDB\Client`` constructor.
 
-.. _php-connection-uri:
+.. _php-connection-options-uri:
 
 Using the Connection URI
 ~~~~~~~~~~~~~~~~~~~~~~~~

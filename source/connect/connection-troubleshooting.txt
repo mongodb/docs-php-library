@@ -93,31 +93,42 @@ Connection Troubleshooting
 
    .. replacement:: credentials-provider-alternative-method-description
 
-      If you construct a client by using a ``MongoCredential``, the builder method
-      corresponds to the authentication mechanism. The following code shows the builder
-      method for the ``SCRAM-SHA-256`` authentication mechanism:
+      If you use the ``$uriOptions`` parameter to specify an authentication mechanism,
+      ensure that you set the ``'authMechanism'`` option to the correct mechanism. The
+      following code shows how to specify the ``SCRAM-SHA-1`` authentication mechanism
+      in an options parameter:
 
-      .. code-block:: java
+      .. code-block:: php
          :copyable: false
 
-         MongoCredential credential = MongoCredential.createScramSha256Credential("<db_username>", "<authenticationDb>", "<dbpassword>");
+         $uriOptions = [
+            'username' => '<username>',
+            'password' => '<password>',
+            'authSource' => '<authentication database>',
+            'authMechanism' => 'SCRAM-SHA-1',
+         ];
 
+         $client = new MongoDB\Client(
+            'mongodb://<hostname>:<port>',
+            $uriOptions,
+         );
 
    .. replacement:: authentication-guide-reference
 
-      To learn more about specifying authentication mechanisms, see the :ref:`java-authentication-mechanisms`
+      To learn more about specifying authentication mechanisms, see the :ref:`php-auth`
       section.
 
    .. replacement:: verify-authentication-mechanism-anchor
 
-      .. _java-verify-auth-mechanism:
+      .. _php-verify-auth-mechanism:
 
    .. replacement:: authsource-param-code-block
 
-      .. code-block:: java
+      .. code-block:: php
          :copyable: false
 
-         MongoClient mongoClient = MongoClients.create("mongodb://<db_username>:<db_password>@<hostname>:<port>/?authSource=users");
+         $uri = 'mongodb://<username>:<password>@<hostname>:<port>/?authSource=users';
+         $client = new MongoDB\Client($uri);
 
    .. replacement:: dns-resolution-anchor
 
@@ -128,15 +139,15 @@ Connection Troubleshooting
       .. code-block:: none
          :copyable: false
 
-         com.mongodb.MongoSocketWriteException: Exception sending message
+         No suitable servers found (`serverSelectionTryOnce` set): [Failed to resolve '<host>'].
 
    .. replacement:: check-the-number-of-connections-anchor
 
-      .. _java-connection-num-connections:
+      .. _php-connection-num-connections:
 
    .. replacement:: mongo-client-class
 
-      ``MongoClient``
+      ``MongoDB\Client``
 
    .. replacement:: max-pool-size-param
 
@@ -154,13 +165,10 @@ Connection Troubleshooting
 
       .. code-block::
 
-         Command failed with error 18 (AuthenticationFailed): 'Authentication failed.' on server localhost:27017.
+         Authentication failed.
 
    .. replacement:: check-credentials-formatting-anchor
 
-      .. _java-troubleshooting-connection-string-auth:
+      .. _php-troubleshooting-connection-string-auth:
 
    .. replacement:: connection-pools-learn-more
-
-      To learn more about how connection pooling works in the driver, see the
-      :ref:`Connection Pools <java-connection-pools>` page.
