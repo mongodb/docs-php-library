@@ -26,7 +26,7 @@ when using the {+library-short+} to connect to a MongoDB deployment.
    issues when using MongoDB or the {+library-short+}, visit the following resources:
 
    - The :ref:`Issues & Help <php-issues-and-help>` page for
-     information about reporting bugs, contributing to the libraryß, and
+     information about reporting bugs, contributing to the library, and
      finding more resources
    - The :community-forum:`MongoDB Community Forums </tag/php>` for
      questions, discussions, or general technical support
