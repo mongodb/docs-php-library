@@ -67,7 +67,7 @@ entry.
 Extended JSON Examples
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The following example shows a document containing an ObjectId, date, and long
+The following example shows a document containing an ``ObjectId``, date, and long
 number field represented in the Extended JSON format. Select the :guilabel:`Canonical`
 or the :guilabel:`Relaxed Mode` tab to view the sample document in each Extended
 JSON format:
@@ -192,14 +192,8 @@ to a PHP array:
 
       )
 
-Additional Information
-----------------------
-
-To learn more about the Extended JSON format, see :manual:`Extended JSON </reference/mongodb-extended-json/>`
-in the {+mdb-server+} manual.
-
 API Documentation
-~~~~~~~~~~~~~~~~~
+-----------------
 
 To learn more about the methods discussed on this page, see
 the following {+extension-short+} API documentation:
