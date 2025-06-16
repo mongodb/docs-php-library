@@ -151,6 +151,7 @@ following API documentation:
 
 - :phpmethod:`MongoDB\add_logger()`
 - :phpmethod:`MongoDB\remove_logger()`
+
 To learn more about how the underlying C driver generates log messages, see `Logging
 <https://mongoc.org/libmongoc/current/logging.html>`__ in the ``libmongoc``
 API documentation.
