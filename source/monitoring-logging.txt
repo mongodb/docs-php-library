@@ -19,3 +19,5 @@ Monitoring and Logging
   in your cluster configuration
 - :ref:`Logging <php-logging>`: Configure logging to receive messages
   about {+library-short+} events
+- :ref:`Change Streams <php-change-streams>`: Monitor data changes in 
+  your application
