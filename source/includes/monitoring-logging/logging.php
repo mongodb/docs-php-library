@@ -23,9 +23,6 @@ class MyLogger extends AbstractLogger
 
 $logger = new MyLogger();
 add_logger($logger);
-
-$uri = "mongodb://a.mongo.cosmos.azure.com:19555/";
-$client = new MongoDB\Client($uri);
 print_r($logger->logs);
 // end-register-logger
 
