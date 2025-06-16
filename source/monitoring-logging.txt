@@ -8,15 +8,15 @@ Monitoring and Logging
 .. toctree::
    :caption: Monitoring categories
 
-   Cluster Monitoring </monitoring-logging/cluster-monitoring>
+   Monitoring </monitoring-logging/monitoring>
    Change Streams </monitoring-logging/change-streams>
    Logging </monitoring-logging/logging>
 
 .. /monitoring/command-monitoring
 .. /monitoring/connection-monitoring
 
-- :ref:`Cluster Monitoring <php-cluster-monitoring>`: Monitor changes
-  in your cluster configuration
+- :ref:`Monitor Application Events <php-monitoring>`: Monitor changes
+  in your application
 - :ref:`Logging <php-logging>`: Configure logging to receive messages
   about {+library-short+} events
 - :ref:`Change Streams <php-change-streams>`: Monitor data changes in 
