@@ -36,7 +36,7 @@ Server Connection Errors
 
 When an issue occurs when you attempt to connect to a server, the {+driver-short+}
 returns an error message. If this error resembles the following message, it
-indicates that the driver cannot connect to a MongoDB deployment:
+indicates that the library cannot connect to a MongoDB deployment:
 
 .. code-block:: none
    :copyable: false
@@ -56,7 +56,7 @@ port is ``27017``. The default port value for an instance of MongoDB Server is
 
 When connecting to a replica set, include all the replica set hosts in
 your connection string. Separate each of the hosts in the connection
-string with a comma. This enables the driver to establish a connection if
+string with a comma. This enables the library to establish a connection if
 one of the hosts is unreachable.
 
 To learn how to specify multiple replica set hosts, see the
@@ -81,7 +81,7 @@ Authentication Errors
 ---------------------
 
 The {+driver-short+} may be unable connect to a MongoDB deployment if
-the authorization is not configured correctly. In these cases, the driver
+the authorization is not configured correctly. In these cases, the library
 raises an error message similar to the following message:
 
 .. code-block:: none
@@ -177,7 +177,7 @@ happens, you might receive an error message similar to the following message:
 
    No suitable servers found (`serverSelectionTryOnce` set): [Failed to resolve '<host>'].
 
-If the driver reports this error, try the methods in the following sections
+If the library reports this error, try the methods in the following sections
 to resolve the issue.
 
 Check Database Deployment Availability
