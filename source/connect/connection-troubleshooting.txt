@@ -46,16 +46,16 @@ indicates that the library cannot connect to a MongoDB deployment:
 
 The following sections describe methods that might help resolve the issue.
 
-Check the Connection String
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Check the Connection URI
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Verify that the hostname and port number in the connection string are both
+Verify that the hostname and port number in the connection URI are both
 accurate. In the sample error message, the hostname is ``127.0.0.1`` and the
-port is ``27017``. The default port value for an instance of MongoDB Server is
+port is ``27017``. The default port value for a {+mdb-server+} deployment is
 ``27017``, but you can configure MongoDB to listen on another port.
 
 When connecting to a replica set, include all the replica set hosts in
-your connection string. Separate each of the hosts in the connection
+your connection URI. Separate each of the hosts in the connection
 string with a comma. This enables the library to establish a connection if
 one of the hosts is unreachable.
 
@@ -95,34 +95,34 @@ Check the Credentials Formatting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 One of the most common causes of authentication issues is invalid
-credentials formatting in the MongoDB connection string.
+credentials formatting in the MongoDB connection URI.
 
 .. tip::
 
-   To learn more information about using connection strings,
+   To learn more information about using connection URIs,
    see :ref:`Connection URI <php-connection-uri>` in the
    Create a MongoDB Client guide.
 
-If your connection string contains a username and password, ensure that
+If your connection URI contains a username and password, ensure that
 they are correctly formatted.
 
 .. note::
 
-   If your username or password includes any of the following characters, you
-   must `percent-encode <https://tools.ietf.org/html/rfc3986#section-2.1>`__ it:
+   You must `percent-encode <https://tools.ietf.org/html/rfc3986#section-2.1>`__
+   the following characters if they appear in your username or password:
 
    .. code-block:: none
       :copyable: false
 
       : / ? # [ ] @
 
-   Use your percent-encoded username and password in your connection string.
+   Use your percent-encoded username and password in your connection URI.
 
 Verify the Authentication Mechanism
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ensure that your credentials and authentication mechanism are correct. You can
-specify your authentication credentials in the options of your connection string.
+specify your authentication credentials in the options of your connection URI.
 
 If you use the ``$uriOptions`` parameter to specify an authentication mechanism,
 ensure that you set the ``'authMechanism'`` option to the correct mechanism. The
@@ -155,7 +155,7 @@ the username must be defined in the authentication database.
 
 The default authentication database is the ``admin`` database.
 To use a different database for authentication, specify the
-``authSource`` option in the connection string.
+``authSource`` option in the connection URI.
 
 The following example instructs MongoDB to use the ``users`` database
 as the authentication database:
@@ -198,9 +198,9 @@ in the Atlas documentation.
 Check the Network Addresses
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Verify that the network addresses or hostnames in your connection string
+Verify that the network addresses or hostnames in your connection URI
 are accurate.
 
 If your deployment is hosted on MongoDB Atlas, you can follow the
 :atlas:`Connect to Your Cluster </tutorial/connect-to-your-cluster/>`
-tutorial to find your Atlas connection string.
+tutorial to find your Atlas connection URI.
