@@ -83,8 +83,8 @@ To learn more about connection strings, see
 :manual:`Connection Strings </reference/connection-string>` in the
 Server manual.
 
-Create a MongoDB\Client
------------------------
+Create a MongoDB\\Client
+------------------------
 
 To create a connection to MongoDB, construct a ``MongoDB\Client`` object.
 Pass the following parameters to the ``MongoDB\Client`` constructor:
@@ -101,8 +101,10 @@ Pass the following parameters to the ``MongoDB\Client`` constructor:
 - ``$driverOptions``: *(Optional)* Sets options to configure the behavior of the
   underlying {+extension-short+}, including data encryption settings and certificate
   validation options for TLS connections. To view a full list of supported options,
-  see :phpmethod:`MongoDB\Client::__construct()` in the {+library-short+} API
-  documentation.
+  see :phpmethod:`MongoDB\Client::__construct()` in the API documentation.
+
+Example
+~~~~~~~
 
 This example constructs a client and passes the following parameters:
 
