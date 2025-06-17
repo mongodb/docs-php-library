@@ -86,11 +86,31 @@ Server manual.
 Create a MongoDB\Client
 -----------------------
 
-To create a connection to MongoDB, pass your connection string when constructing
-an instance of the ``MongoDB\Client`` class.
+To create a connection to MongoDB, construct a ``MongoDB\Client`` object.
+Pass the following parameters to the ``MongoDB\Client`` constructor:
 
-In the following example, the library uses a sample connection URI to connect to a MongoDB 
-deployment on port ``27017`` of ``localhost``:
+- ``$uri``: Sets the connection string.
+
+- ``$uriOptions``: *(Optional)* Sets URI options to configure how the client
+  connects to MongoDB, including authentication credentials and
+  and server selection settings. If you set the same options in this
+  parameter and in your connection string, the ``$uriOptions`` values
+  take precedence. To view a full list of supported options, see
+  the :ref:`php-connection-options` guide.
+
+- ``$driverOptions``: *(Optional)* Sets options to configure the behavior of the
+  underlying {+extension-short+}, including data encryption settings and certificate
+  validation options for TLS connections. To view a full list of supported options,
+  see :phpmethod:`MongoDB\Client::__construct()` in the {+library-short+} API
+  documentation.
+
+This example constructs a client and passes the following parameters:
+
+- Connection URI, which connects to a MongoDB deployment on port ``27017``
+  of ``localhost``
+
+- URI options parameter, which instructs the {+library-short+} to wait 
+  ``10000`` milliseconds for server selection before generating an error
 
 .. literalinclude:: /includes/connect/client.php
    :language: php
