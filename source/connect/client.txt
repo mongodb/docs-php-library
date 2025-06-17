@@ -89,11 +89,11 @@ Create a MongoDB\\Client
 To create a connection to MongoDB, construct a ``MongoDB\Client`` object.
 Pass the following parameters to the ``MongoDB\Client`` constructor:
 
-- ``$uri``: Sets the connection string.
+- ``$uri``: Sets the connection URI.
 
 - ``$uriOptions``: *(Optional)* Sets URI options to configure how the client
   connects to MongoDB, including authentication credentials and
-  and server selection settings. If you set the same options in this
+  server selection settings. If you set the same options in this
   parameter and in your connection string, the ``$uriOptions`` values
   take precedence. To view a full list of supported options, see
   the :ref:`php-connection-options` guide.
