@@ -7,7 +7,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 
 $logger = new Logger('mongodb-logger');
-$logger->pushHandler(new StreamHandler(__DIR__ . '/library.log', Logger::DEBUG));
+$logger->pushHandler(new StreamHandler(__DIR__ . '/mongodb.log', Logger::DEBUG));
 
 MongoDB\add_logger($logger);
 // end-monolog-logger
