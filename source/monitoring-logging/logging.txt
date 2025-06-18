@@ -139,8 +139,11 @@ The following example unregisters a logger:
 Additional Information
 ----------------------
 
-To learn more about the PSR-3 logger, see `PSR-3: Logger Interface
+To learn more about PSR-3 loggers, see `PSR-3: Logger Interface
 <https://www.php-fig.org/psr/psr-3/>`__ in the PHP-FIG documentation.
+
+To learn more about Monolog, see the :github:`monolog </Seldaek/monolog>`
+GitHub repository.
 
 API Documentation
 ~~~~~~~~~~~~~~~~~
