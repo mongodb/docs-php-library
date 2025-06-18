@@ -37,12 +37,12 @@ Configure Logging
 -----------------
 
 To configure your application to receive messages about driver events,
-create a logger class that implements the ``Psr\Log\LoggerInterface``
+create an instance of a logger class that implements the ``Psr\Log\LoggerInterface``
 interface. Then, use the ``MongoDB\add_logger()`` function to register
 your logger.
 
 After registering a logger, the {+library-short+} generates log messages
-as array values that resemble the following sample message:
+that resemble the following sample message:
 
 .. code-block:: php
    :copyable: false
@@ -62,65 +62,64 @@ The sample log message includes the following information:
 - Domain string: Specifies the driver component that emitted the log message. The
   ``PHONGO`` domain indicates that the {+extension-short+} generated the event.
 
-Example
-~~~~~~~
+.. note::
 
-To implement ``Psr\Log\LoggerInterface``, you can create a class that
-extends the ``Psr\Log\AbstractLogger`` class. ``AbstractLogger`` implements
-``LoggerInterface`` and a generic ``log()`` method, which receives log
-messages at each severity level.
+   The preceding example shows a log message stored in an array. However,
+   the format of your log messages might differ depending on your logging
+   implementation.
+
+Create a Monolog Logger
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can use `Monolog <https://packagist.org/packages/monolog/monolog>`__, a
+PHP logging library, to configure logging in your application. Monolog provides
+a ``Monolog\Logger`` logging class that implements the ``Psr\Log\LoggerInterface``
+interface. It also provides handlers that direct logs to specified locations.
+
+To use Monolog, install the ``monolog/monolog`` package by running
+the following command:
+
+.. code-block:: shell
+
+   composer require monolog/monolog
+
+Then, you can create a logger by defining a ``Monolog\Logger`` object
+and registering it with the {+library-short+}.
 
 This example performs the following actions:
 
-- Creates a logger called ``MyLogger`` that extends the ``AbstractLogger`` class
-  and records the log level, description, and domain of each event
+- Creates a Monolog logger called ``mongodb-logger``
+- Uses a handler to write all logs with a severity of ``debug`` or higher
+  to a file called ``library.log`` in your project directory
 - Registers the logger
+
+.. literalinclude:: /includes/monitoring-logging/logging.php
+   :language: php
+   :start-after: start-monolog-logger
+   :end-before: end-monolog-logger
+   :dedent:
+
+Create a Custom Logger
+~~~~~~~~~~~~~~~~~~~~~~
+
+To create a custom PSR-3 logger, create a class that implements the
+``Psr\Log\LoggerInterface`` interface. You can implement ``Psr\Log\LoggerInterface``
+by defining a class that extends the ``Psr\Log\AbstractLogger`` class.
+``AbstractLogger`` implements ``LoggerInterface`` and a generic ``log()`` method,
+which receives log messages at each severity level.
+
+This example performs the following actions:
+
+- Creates a logger class named ``MyLogger`` that extends the ``AbstractLogger`` class
+  and records the log level, description, and domain of each event
+- Creates a ``MyLogger`` object and registers the logger
 - Prints each log message
 
 .. literalinclude:: /includes/monitoring-logging/logging.php
    :language: php
-   :start-after: start-register-logger
-   :end-before: end-register-logger
+   :start-after: start-custom-logger
+   :end-before: end-custom-logger
    :dedent:
-
-Write Custom Log Messages
--------------------------
-
-You can generate custom log messages by using the ``PsrLogAdapter::writeLog()``
-function. This function allows you to write directly to the logger and 
-can help with application monitoring and debugging. Pass the severity level, domain, and
-description as parameters to ``writeLog()``.
-
-The following example writes log messages that have ``warning`` and 
-``critical`` severity levels to the logger:
-
-.. io-code-block::
-   :copyable:
-
-   .. input:: /includes/monitoring-logging/logging.php
-      :start-after: start-write-messages
-      :end-before: end-write-messages
-      :language: php
-      :dedent:
-
-   .. output::
-      :visible: false
-
-      Array
-      (
-          [0] => Array
-              (
-                  [0] => warning
-                  [1] => This is a warning message
-                  [2] => domain1
-              )
-          [1] => Array
-              (
-                  [0] => critical
-                  [1] => This is a critical message
-                  [2] => domain2
-              )
-      )
 
 Remove a Logger
 ---------------
