@@ -28,8 +28,8 @@ and other events that occur while your application runs.
 The {+library-short+} supports `Psr\\Log\\LoggerInterface
 <https://www.php-fig.org/psr/psr-3>`__, a PSR-3
 logger interface that configures your application to receive log messages.
-You can register one or more ``Psr\Log\LoggerInterface`` objects to
-send messages to the logger. The {+library-short+} is built on top of
+You can register one or more instances of a class that implements
+``Psr\Log\LoggerInterface`` to send messages to the logger. The {+library-short+} is built on top of
 the MongoDB C driver and the {+extension-short+}, so the logger receives event notifications
 from both components.
   
