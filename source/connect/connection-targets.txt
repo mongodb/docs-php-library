@@ -111,6 +111,19 @@ set this connection option:
 
    .. sharedinclude:: dbx/docker-replica-set.rst
 
+.. _php-connection-dns:
+
+DNS Service Discovery
+---------------------
+
+.. sharedinclude:: dbx/srv-polling.rst
+
+   .. replacement:: srv-uri
+
+      .. code-block:: php
+
+         $uri = 'mongodb+srv://<hostname>/';
+
 API Documentation
 -----------------
 
