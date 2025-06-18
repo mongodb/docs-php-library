@@ -29,8 +29,8 @@ class MyLogger extends AbstractLogger
 }
 
 $customLogger = new MyLogger();
-MongoDB\add_logger($customLogger );
-print_r($customLogger ->logs);
+MongoDB\add_logger($customLogger);
+print_r($customLogger->logs);
 // end-custom-logger
 
 // start-remove-logger
