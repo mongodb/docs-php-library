@@ -124,7 +124,7 @@ the ``CommandSubscriber`` interface. The class defines each ``CommandSubscriber`
 and includes custom logic for the ``commandStarted()`` method, which prints details
 about each new command that the server receives:
 
-.. literalinclude:: /includes/monitoring/monitor.php
+.. literalinclude:: /includes/monitoring-logging/monitor.php
    :start-after: start-command-subscriber
    :end-before: end-command-subscriber
    :language: php
@@ -191,7 +191,7 @@ the ``SDAMSubscriber`` interface. The class defines each ``SDAMSubscriber`` meth
 and includes custom logic for the ``serverOpening()`` method, which prints details
 about servers added to the topology:
 
-.. literalinclude:: /includes/monitoring/monitor.php
+.. literalinclude:: /includes/monitoring-logging/monitor.php
    :start-after: start-sdam-subscriber
    :end-before: end-sdam-subscriber
    :language: php
@@ -216,7 +216,7 @@ The following code registers the command and SDAM event subscribers
 created in the :ref:`php-subscribe` section of this page with a
 ``MongoDB\Client``:
 
-.. literalinclude:: /includes/monitoring/monitor.php
+.. literalinclude:: /includes/monitoring-logging/monitor.php
    :start-after: start-add-subs
    :end-before: end-add-subs
    :language: php
@@ -243,7 +243,7 @@ To unregister a subscriber from your client, use the
 The following code shows how to remove the subscriber created in
 the :ref:`php-subscribe-command` section of this page:
 
-.. literalinclude:: /includes/monitoring/monitor.php
+.. literalinclude:: /includes/monitoring-logging/monitor.php
    :start-after: start-remove-sub
    :end-before: end-remove-sub
    :language: php
