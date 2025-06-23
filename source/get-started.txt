@@ -355,8 +355,8 @@ This section addresses issues that you might encounter when installing the
 PHP Headers Not Found
 ~~~~~~~~~~~~~~~~~~~~~
 
-You might see a PHP header file error that resembles the following code when installing
-the {+library-short+}
+You might see a header file error that resembles the following code when installing
+the {+library-short+}:
 
 .. code-block:: none
    :copyable: false
@@ -376,7 +376,7 @@ If you install a PHP runtime, the corresponding headers are not always automatic
 available. On many Linux distributions, headers are often published under a
 separate ``php-dev`` or ``php-devel`` package. On macOS, the default PHP runtime
 does not include headers. Users typically need to install PHP and its headers by using
-`Homebrew <https://brew.sh/>`__ to build an extension.
+`Homebrew <https://brew.sh/>`__.
 
 Multiple PHP Runtimes Installed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -389,7 +389,7 @@ ensure that you use the correct ``pecl`` or ``pie`` command and modify the appro
 file.
 
 To see which ``php.ini`` file a PHP runtime uses,
-examine the output of :php:`phpinfo() <phpinfo>` for that particular
+view the output of :php:`phpinfo() <phpinfo>` for that particular
 SAPI. Additionally, you can use :php:`php_ini_loaded_file() <php_ini_loaded_file>` and
 :php:`php_ini_scanned_files() <php_ini_scanned_files>` to determine
 which INI files have been loaded by PHP.
@@ -397,7 +397,7 @@ which INI files have been loaded by PHP.
 To debug issues when the extension is not loaded, you can use the
 ``detect-extension`` script provided in the tools directory. You can run this
 script from the CLI or include it in a script accessible to your web server.
-The tool will point out potential issues and installation instructions for your
+The tool finds potential issues and installation instructions for your
 system. If you installed the library by using Composer, you can call the
 script from the vendor directory as shown in the following code:
 
@@ -438,4 +438,4 @@ inferred from :php:`phpinfo() <phpinfo>`. If your system has multiple PHP
 runtimes installed, view the ``phpinfo()`` output for the correct environment.
 
 You can also use the ``detect-extension`` script described in the previous section to determine the
-appropriate DLL for your PHP environment.
+correct DLL for your PHP environment.

@@ -124,13 +124,12 @@ Troubleshooting
 This section addresses issues that you might encounter when using a
 MongoDB client.
 
-Client Persistence Errors
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Client Persistence Considerations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Connections to the MongoDB deployment are handled by the ``libmongoc``
-library and the :php:`{+extension-short+} <mongodb>`. When you construct
-a :phpclass:`MongoDB\Client` instance, the {+library-short+} creates a
-:php:`MongoDB\Driver\Manager <class.mongodb-driver-manager>` instance by using the
+The ``libmongoc`` library and the {+extension-short+} handle connections
+to a MongoDB deployment. When you construct a :phpclass:`MongoDB\Client` instance, the
+{+library-short+} creates a :php:`MongoDB\Driver\Manager <class.mongodb-driver-manager>` instance by using the
 same connection string and options. The extension also uses those constructor
 arguments to derive a hash key for persistent ``libmongoc`` clients. If
 you previously persisted a ``libmongoc`` client by using a key, it is
@@ -151,7 +150,7 @@ after a ``MongoDB\Driver\Manager`` object goes out of scope. While this is
 typically not an issue for applications that connect to one MongoDB deployment,
 it might cause errors in the following situations:
 
-- PHP-FPM is configured with ``pm.max_requests=0``, so that workers never respawn, and a
+- PHP-FPM is configured with ``pm.max_requests=0`` so workers never respawn, and a
   PHP application is deployed many times with small changes to its MongoDB
   connection string or options. This could lead to an accumulation of ``libmongoc``
   client objects in each worker process.
