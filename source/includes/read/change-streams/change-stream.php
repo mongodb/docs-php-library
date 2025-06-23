@@ -20,15 +20,6 @@ $collection = $client->sample_restaurants->restaurants;
 $changeStream = $collection->watch();
 $changeStream->rewind();
 
-do {
-    $changeStream->next();
-
-    if ($changeStream->valid()) {
-        $event = $changeStream->current();
-        echo toJSON($event), PHP_EOL;
-    }
-} while (! $changeStream->valid() || $changeStream->current()['operationType'] !== 'invalidate');
-
 while (true) {
     $changeStream->next();
 
