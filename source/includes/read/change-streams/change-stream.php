@@ -28,6 +28,21 @@ do {
         echo toJSON($event), PHP_EOL;
     }
 } while (! $changeStream->valid() || $changeStream->current()['operationType'] !== 'invalidate');
+
+while (true) {
+    $changeStream->next();
+
+    if ($changeStream->valid()) {
+        continue;
+    }
+
+    $event = $changeStream->current();
+    echo toJSON($event), PHP_EOL;
+
+    if ($changeStream->current()['operationType'] === 'invalidate') {
+        break;
+    }
+}
 // end-open-change-stream
 
 // Updates a document that has a "name" value of "Blarney Castle"
