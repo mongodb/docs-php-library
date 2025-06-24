@@ -124,14 +124,8 @@ DNS Service Discovery
 
          $uri = 'mongodb+srv://<hostname>/';
 
-Troubleshooting
----------------
-
-This section addresses issues that you might encounter when
-connecting to a MongoDB deployment.
-
 Server Selection Errors
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 The following code shows possible server selection error
 messages that your application might generate: 

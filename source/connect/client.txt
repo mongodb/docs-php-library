@@ -118,14 +118,8 @@ This example constructs a client and passes the following parameters:
    :language: php
    :copyable: true
 
-Troubleshooting
----------------
-
-This section addresses issues that you might encounter when using a
-MongoDB client.
-
-Client Persistence Considerations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Client Persistence
+------------------
 
 The ``libmongoc`` library and the {+extension-short+} handle connections
 to a MongoDB deployment. When you construct a :phpclass:`MongoDB\Client` instance, the
