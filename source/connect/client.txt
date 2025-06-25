@@ -171,7 +171,6 @@ The following code demonstrates how to set the
 
    $client = new MongoDB\Client(
        uri: getenv('MONGODB_URI') ?: 'mongodb://127.0.0.1/',
-       uriOptions: [],
        driverOptions: ['disableClientPersistence' => true],
    );
 
