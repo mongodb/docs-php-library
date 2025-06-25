@@ -165,7 +165,7 @@ The following code demonstrates how to set the
 ``disableClientPersistence`` option to ``true`` when creating a client:
 
 .. code-block:: php
-   :emphasize-lines: 6
+   :emphasize-lines: 5
 
    <?php
 
