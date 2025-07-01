@@ -16,7 +16,7 @@ class Person implements MongoDB\BSON\Persistable
         $this->createdAt = new MongoDB\BSON\UTCDateTime;
     }
 
-    function bsonSerialize()
+    public function bsonSerialize(): array
     {
         return [
             '_id' => $this->id,
@@ -25,7 +25,7 @@ class Person implements MongoDB\BSON\Persistable
         ];
     }
 
-    function bsonUnserialize(array $data)
+    public function bsonUnserialize(array $data): void
     {
         $this->id = $data['_id'];
         $this->name = $data['name'];

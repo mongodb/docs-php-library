@@ -3,8 +3,8 @@
 require 'vendor/autoload.php';
 
 use Bson\Person;
-use Bson\User;
 use Bson\Role;
+use Bson\User;
 
 $uri = getenv('MONGODB_URI') ?: throw new RuntimeException('Set the MONGODB_URI variable to your Atlas URI that connects to the sample dataset');
 $client = new MongoDB\Client($uri);
@@ -14,11 +14,11 @@ $db = $client->test;
 $document = [
     'address' => [
         'street' => 'Pizza St',
-        'zipcode' => '10003'
+        'zipcode' => '10003',
     ],
     'coord' => [-73.982419, 41.579505],
     'cuisine' => 'Pizza',
-    'name' => 'Planet Pizza'
+    'name' => 'Planet Pizza',
 ];
 // end-create-doc
 
@@ -31,7 +31,7 @@ $document['name'] = 'Galaxy Pizza';
 $options = [
     'typeMap' => [
         'array' => 'MongoDB\Model\BSONDocument',
-        'root' => 'MongoDB\Model\BSONDocument', 
+        'root' => 'MongoDB\Model\BSONDocument',
         'document' => 'MongoDB\Model\BSONDocument',
     ],
 ];

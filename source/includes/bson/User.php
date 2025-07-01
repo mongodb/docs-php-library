@@ -9,7 +9,8 @@ class User implements MongoDB\BSON\Persistable
         private string $username,
         private Role $role,
         private MongoDB\BSON\ObjectId $_id = new MongoDB\BSON\ObjectId(),
-    ) {}
+    ) {
+    }
 
     public function bsonSerialize(): array
     {
