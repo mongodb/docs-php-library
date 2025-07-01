@@ -1,0 +1,35 @@
+<?php
+
+namespace Bson;
+
+// start-person-class
+class Person implements MongoDB\BSON\Persistable
+{
+    private MongoDB\BSON\ObjectId $id;
+    private string $name;
+    private MongoDB\BSON\UTCDateTime $createdAt;
+
+    public function __construct(string $name)
+    {
+        $this->id = new MongoDB\BSON\ObjectId;
+        $this->name = $name;
+        $this->createdAt = new MongoDB\BSON\UTCDateTime;
+    }
+
+    function bsonSerialize()
+    {
+        return [
+            '_id' => $this->id,
+            'name' => $this->name,
+            'createdAt' => $this->createdAt,
+        ];
+    }
+
+    function bsonUnserialize(array $data)
+    {
+        $this->id = $data['_id'];
+        $this->name = $data['name'];
+        $this->createdAt = $data['createdAt'];
+    }
+}
+// end-person-class
