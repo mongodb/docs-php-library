@@ -93,3 +93,4 @@ raw: ${prefix}/stable -> ${base}/current/
 [*-master]: ${prefix}/${version}/monitoring/ -> ${base}/${version}/monitoring-logging/
 [*-master]: ${prefix}/${version}/read/ -> ${base}/${version}/crud/
 [*-master]: ${prefix}/${version}/write/ -> ${base}/${version}/crud/
+[*-master]: ${prefix}/${version}/faq/ -> ${base}/${version}/

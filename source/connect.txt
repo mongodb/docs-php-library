@@ -26,8 +26,6 @@ Connect to MongoDB
    Choose a Connection Target </connect/connection-targets>
    Connection Options </connect/connection-options>
    Connect with AWS Lambda </connect/aws-lambda>
-   
-.. TODO:
    Connection Troubleshooting </connect/connection-troubleshooting>
 
 Overview

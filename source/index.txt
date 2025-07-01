@@ -26,7 +26,6 @@ MongoDB PHP Library
    Monitoring and Logging </monitoring-logging>
    Security </security>
    Reference </references>
-   FAQ </faq>
    API Documentation </reference>
    Issues & Help </issues-and-help>
 
@@ -117,12 +116,6 @@ Reference
 
 Learn more about {+library-short+} versions, compatibility, and upgrade considerations in the
 :ref:`Reference <php-reference>` section.
-
-FAQ
----
-
-See answers to commonly asked questions about the {+library-short+} in the
-the :ref:`php-faq` section.
 
 Issues & Help
 -------------
