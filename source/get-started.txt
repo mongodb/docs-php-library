@@ -58,6 +58,7 @@ Download and Install
       
       - :php:`PHP <install>` version 7.4 or later
       - `Composer <https://getcomposer.org/download/>`__ version 2.0 or later
+      - :github:`pie </php/pie/blob/main/docs/usage.md>`
     
    .. step:: Install the MongoDB PHP extension
 
@@ -74,9 +75,9 @@ Download and Install
 
          .. code-block:: bash
 
-            pie install mongodb/mongodb-extension^{+full-version+}
+            pie install mongodb/mongodb-extension:^{+full-version+}
 
-         Tto install a {+extension-short+} version before v1.21, you must
+         To install a {+extension-short+} version before v1.21, you must
          use the :php:`pecl command <mongodb.installation#mongodb.installation.pecl>`.
 
    .. step:: Create a project directory
