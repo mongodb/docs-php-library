@@ -5,15 +5,12 @@ namespace Bson;
 // start-person-class
 class Person implements MongoDB\BSON\Persistable
 {
-    private MongoDB\BSON\ObjectId $id;
-    private string $name;
-    private MongoDB\BSON\UTCDateTime $createdAt;
+    private \MongoDB\BSON\ObjectId $id;
+    private \MongoDB\BSON\UTCDateTime $createdAt;
 
-    public function __construct(string $name)
-    {
-        $this->id = new MongoDB\BSON\ObjectId;
-        $this->name = $name;
-        $this->createdAt = new MongoDB\BSON\UTCDateTime;
+    public function __construct(private string $name) {
+        $this->id = new \MongoDB\BSON\ObjectId();
+        $this->createdAt = new \MongoDB\BSON\UTCDateTime();
     }
 
     public function bsonSerialize(): array

@@ -21,8 +21,13 @@ class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
         ));
     }
 
-    public function commandSucceeded(MongoDB\Driver\Monitoring\CommandSucceededEvent $event): void {}
-    public function commandFailed(MongoDB\Driver\Monitoring\CommandFailedEvent $event): void {}
+    public function commandSucceeded(MongoDB\Driver\Monitoring\CommandSucceededEvent $event): void
+    {
+    }
+
+    public function commandFailed(MongoDB\Driver\Monitoring\CommandFailedEvent $event): void
+    {
+    }
 }
 // end-command-subscriber
 
@@ -30,7 +35,9 @@ class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
 class MySDAMSubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
 {
     /** @param resource $stream */
-    public function __construct(private $stream) {}
+    public function __construct(private $stream)
+    {
+    }
 
     public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void {
         fprintf(
