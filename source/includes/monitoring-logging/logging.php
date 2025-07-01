@@ -3,8 +3,8 @@
 require 'vendor/autoload.php';
 
 // start-monolog-logger
-use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
 $logger = new Logger('mongodb-logger');
 $logger->pushHandler(new StreamHandler(__DIR__ . '/mongodb.log', Logger::DEBUG));
@@ -14,15 +14,12 @@ MongoDB\add_logger($logger);
 
 // start-custom-logger
 use Psr\Log\AbstractLogger;
-use Psr\Log\LoggerInterface;
-use Psr\Log\LogLevel;
-use MongoDB\PsrLogAdapter;
 
 class MyLogger extends AbstractLogger
 {
     public array $logs = [];
 
-    public function log($level, $message, array $context = []): void
+    public function log(string $level, string|\Stringable $message, array $context = []): void
     {
         $this->logs[] = [$level, $message, $context['domain']];
     }

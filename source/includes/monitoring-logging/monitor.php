@@ -5,7 +5,9 @@ require __DIR__ . '/vendor/autoload.php';
 // start-command-subscriber
 class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
 {
-    public function __construct(private $stream) {}
+    /** @param resource $stream */
+    public function __construct(private $stream)
+    {}
 
     public function commandStarted(MongoDB\Driver\Monitoring\CommandStartedEvent $event): void
     {
