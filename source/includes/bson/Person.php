@@ -8,7 +8,8 @@ class Person implements MongoDB\BSON\Persistable
     private \MongoDB\BSON\ObjectId $id;
     private \MongoDB\BSON\UTCDateTime $createdAt;
 
-    public function __construct(private string $name) {
+    public function __construct(private string $name)
+    {
         $this->id = new \MongoDB\BSON\ObjectId();
         $this->createdAt = new \MongoDB\BSON\UTCDateTime();
     }

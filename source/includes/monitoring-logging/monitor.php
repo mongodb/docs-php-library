@@ -39,7 +39,8 @@ class MySDAMSubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
     {
     }
 
-    public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void {
+    public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void
+    {
         fprintf(
             $this->stream,
             'Server opening on %s:%s\n',
