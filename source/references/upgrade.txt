@@ -58,7 +58,16 @@ directory:
 
 .. code-block:: bash
 
-   pecl upgrade mongodb-<version-number>
+   pie install mongodb/mongodb-extension:^<version-number>
+
+.. tip:: Previous PHP Extension Versions
+
+   To upgrade to a {+extension-short+} version before v1.21,
+   use the following command:
+
+   .. code-block:: bash
+
+      pecl upgrade mongodb-<version-number>
 
 To upgrade the PHP library version, replace ``<version-number>`` with the 
 version number you want to upgrade to and run the following command in your 

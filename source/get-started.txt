@@ -67,7 +67,7 @@ Download and Install
 
          pie install mongodb/mongodb-extension
 
-      .. tip::
+      .. tip:: Specify the PHP Extension Version
 
          To install a specific version of the {+extension-short+}, provide
          the version number as shown in the following command:
@@ -77,7 +77,7 @@ Download and Install
             pie install mongodb/mongodb-extension^{+full-version+}
 
          If you want to install a {+extension-short+} version before v1.21,
-         use the :php:`pecl command <mongodb.installation.php#mongodb.installation.pecl>`.
+         use the :php:`pecl command <mongodb.installation#mongodb.installation.pecl>`.
 
    .. step:: Create a project directory
 
