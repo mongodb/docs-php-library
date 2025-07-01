@@ -7,7 +7,7 @@ $doc = [
     'foo' => [1, 2],
     'bar' => ['hello' => 'world'],
     'code' => new MongoDB\BSON\Javascript('function x() { return 1; }', []),
-    'date' => new DateTime('2024-07-20 10:30:00')
+    'date' => new DateTime('2024-07-20 10:30:00'),
 ];
 
 echo 'Relaxed format: ' , MongoDB\BSON\Document::fromPHP($doc)->toRelaxedExtendedJSON(), PHP_EOL;

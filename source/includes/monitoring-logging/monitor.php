@@ -7,7 +7,8 @@ class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
 {
     /** @param resource $stream */
     public function __construct(private $stream)
-    {}
+    {
+    }
 
     public function commandStarted(MongoDB\Driver\Monitoring\CommandStartedEvent $event): void
     {
@@ -28,6 +29,7 @@ class MyCommandSubscriber implements MongoDB\Driver\Monitoring\CommandSubscriber
 // start-sdam-subscriber
 class MySDAMSubscriber implements MongoDB\Driver\Monitoring\SDAMSubscriber
 {
+    /** @param resource $stream */
     public function __construct(private $stream) {}
 
     public function serverOpening(MongoDB\Driver\Monitoring\ServerOpeningEvent $event): void {

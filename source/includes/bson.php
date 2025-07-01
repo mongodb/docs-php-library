@@ -28,8 +28,8 @@ $options = [
     'typeMap' => [
         'array' => 'MongoDB\Model\BSONDocument',
         'root' => 'MongoDB\Model\BSONDocument', 
-        'document' => 'MongoDB\Model\BSONDocument'
-    ]
+        'document' => 'MongoDB\Model\BSONDocument',
+    ],
 ];
 
 $db->createCollection('restaurants', $options);
