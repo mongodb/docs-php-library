@@ -65,25 +65,19 @@ Download and Install
       
       .. code-block:: bash
 
-         sudo pecl install mongodb
-
-   .. step:: Update your PHP configuration file
-
-      To enable the ``mongodb`` extension in your PHP configuration file, add the
-      following line to the top of your ``php.ini`` file:
-
-      .. code-block:: none
-
-         extension=mongodb.so
+         pie install mongodb/mongodb-extension
 
       .. tip::
 
-         You can locate your ``php.ini`` file by running the following command
-         in your shell:
+         To install a specific version of the {+extension-short+}, provide
+         the version number as shown in the following command:
 
          .. code-block:: bash
 
-            php --ini
+            pie install mongodb/mongodb-extension^{+full-version+}
+
+         If you want to install a {+extension-short+} version before v1.21,
+         use the :php:`pecl command <mongodb.installation.php#mongodb.installation.pecl>`.
 
    .. step:: Create a project directory
 
