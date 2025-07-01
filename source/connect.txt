@@ -411,6 +411,30 @@ connection to your MongoDB instance:
 
 To learn more about the {+stable-api+}, see the :ref:`php-stable-api` guide.
 
-.. TODO:
- Network Compression
- -------------------
+Network Compression
+-------------------
+
+The following code shows how to specify the Snappy, Zlib, and Zstandard
+compression algorithms for a connection:
+
+.. tabs::
+
+   .. tab:: MongoDB\\Client
+      :tabid: Client
+
+      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
+         :language: php
+         :dedent:
+         :start-after: start-compression-client
+         :end-before: end-compression-client
+
+   .. tab:: Connection URI
+      :tabid: connectionstring
+
+      .. literalinclude:: /includes/usage-examples/connect-code-examples.php
+         :language: php
+         :dedent:
+         :start-after: start-compression-uri
+         :end-before: end-compression-uri
+
+To learn more about network compression, see the :ref:`php-network-compression` guide.

@@ -32,9 +32,11 @@ events to track your application's performance and resource use.
 The {+php-library+} emits command events and Server Discovery and Monitoring (SDAM)
 events that provide application information. You can listen for these events to
 monitor your application.
+
+.. note::
    
-.. TODO: This page explains how to monitor your application in code. To learn how to
- record this information to an external log, see the :ref:`php-logging` guide.
+   This page explains how to monitor your application in code. To learn how to
+   record this information to an external log, see the :ref:`php-logging` guide.
 
 Event Types
 -----------

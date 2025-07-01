@@ -175,3 +175,19 @@ $client = new MongoDB\Client(
     $driverOptions,
 );
 // end-stable-api
+
+// Connects to a MongoDB deployment and compresses network traffic
+// using client options
+// start-compression-client
+$client = new MongoDB\Client(
+    'mongodb://<hostname>:<port>',
+    ['compressors' => 'snappy,zstd,zlib'],
+);
+// end-compression-client
+
+// Connects to a MongoDB deployment and compresses network traffic
+// using connection URI parameters
+// start-compression-uri
+$uri = 'mongodb://<hostname>:<port>/?compressors=snappy,zstd,zlib';
+$client = new MongoDB\Client($uri);
+// end-compression-uri
