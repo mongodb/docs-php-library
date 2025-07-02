@@ -1,0 +1,52 @@
+========================================
+MongoDB\\Model\\CollectionInfo::isView()
+========================================
+
+.. contents:: On this page
+   :local:
+   :backlinks: none
+   :depth: 1
+   :class: singlecol
+
+Definition
+----------
+
+.. phpmethod:: MongoDB\Model\CollectionInfo::isView()
+
+   Return whether the collection is a :manual:`view </core/views/>`.
+
+   .. code-block:: php
+
+      function isView(): boolean
+
+Return Values
+-------------
+
+A boolean indicating whether the collection is a view.
+
+Examples
+--------
+
+.. code-block:: php
+
+   <?php
+
+   $info = new CollectionInfo([
+       'name' => 'foo',
+       'type' => 'view',
+       'info' => ['readOnly' => true],
+   ]);
+
+   var_dump($info->isView());
+
+The output resembles the following:
+
+.. code-block:: none
+
+   bool(true)
+
+See Also
+--------
+
+- :manual:`Views </core/views/>` in the {+mdb-server+} manual
+- :manual:`Create and Query a View </views/create-view/>` in the {+mdb-server+} manual
