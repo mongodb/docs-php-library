@@ -389,13 +389,6 @@ learn more, see the :ref:`php-atlas-search` guide.
 You can perform similarity searches on vector embeddings by using the
 Atlas Vector Search feature. To learn more, see the :ref:`php-vector-search` guide.
 
-.. TODO:
- Aggregation Tutorials
- ~~~~~~~~~~~~~~~~~~~~~
-
-.. To view step-by-step explanations of common aggregation tasks, see
-.. :ref:`php-aggregation-tutorials-landing`.
-
 API Documentation
 ~~~~~~~~~~~~~~~~~
 
