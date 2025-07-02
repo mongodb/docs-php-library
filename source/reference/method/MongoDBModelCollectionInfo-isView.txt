@@ -49,5 +49,5 @@ See Also
 --------
 
 - :manual:`Views </core/views/>` in the {+mdb-server+} manual
-- :manual:`Create and Query a View </views/create-view/>` in the
+- :manual:`Create and Query a View </core/views/create-view/>` in the
   {+mdb-server+} manual
