@@ -13,9 +13,7 @@ MongoDB\add_logger($logger);
 // end-monolog-logger
 
 // start-custom-logger
-use Psr\Log\AbstractLogger;
-
-class MyLogger extends AbstractLogger
+class MyLogger extends Psr\Log\AbstractLogger
 {
     public array $logs = [];
 

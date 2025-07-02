@@ -126,7 +126,7 @@ the ``CommandSubscriber`` interface. The class defines each ``CommandSubscriber`
 and includes custom logic for the ``commandStarted()`` method, which prints details
 about each new command that the server receives:
 
-.. literalinclude:: /includes/monitoring-logging/monitor.php
+.. literalinclude:: /includes/monitoring-logging/MyCommandSubscriber.php
    :start-after: start-command-subscriber
    :end-before: end-command-subscriber
    :language: php
@@ -193,7 +193,7 @@ the ``SDAMSubscriber`` interface. The class defines each ``SDAMSubscriber`` meth
 and includes custom logic for the ``serverOpening()`` method, which prints details
 about servers added to the topology:
 
-.. literalinclude:: /includes/monitoring-logging/monitor.php
+.. literalinclude:: /includes/monitoring-logging/MySdamSubscriber.php
    :start-after: start-sdam-subscriber
    :end-before: end-sdam-subscriber
    :language: php
