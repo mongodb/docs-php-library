@@ -361,7 +361,7 @@ the {+library-short+}:
             ^~~~~~~
 
 This error indicates that PHP's build system cannot find the necessary headers.
-All PHP extensions require headers in order to compile. Those headers
+All PHP extensions require headers to compile. Those headers
 must correspond to the PHP runtime for which the extension will be used.
 The ``phpize`` command, which is invoked by ``pecl`` and ``pie``, usually ensures that the
 extension builds with the correct headers.
@@ -369,7 +369,7 @@ extension builds with the correct headers.
 If you install a PHP runtime, the corresponding headers are not always automatically
 available. On many Linux distributions, headers are often published under a
 separate ``php-dev`` or ``php-devel`` package. On macOS, the default PHP runtime
-does not include headers. Users typically need to install PHP and its headers by using
+does not include headers. Users typically must install PHP and its headers by using
 `Homebrew <https://brew.sh/>`__.
 
 Multiple PHP Runtimes Installed
@@ -390,7 +390,7 @@ which INI files have been loaded by PHP.
 
 To debug issues when the extension is not loaded, you can use the
 ``detect-extension`` script provided in the tools directory. You can run this
-script from the CLI or include it in a script accessible to your web server.
+script from the CLI or include it in a script available to your web server.
 The tool finds potential issues and installation instructions for your
 system. If you installed the library by using Composer, you can call the
 script from the vendor directory as shown in the following code:
@@ -400,7 +400,7 @@ script from the vendor directory as shown in the following code:
    php vendor/mongodb/mongodb/tools/detect-extension.php
 
 If you want to check configuration for a web server SAPI, include the file in
-a script accessible from the web server and open it in your browser. Ensure that you
+a script available to the web server and open it in your browser. Ensure that you
 wrap the script in ``<pre>`` tags to properly format its output as shown in the following code:
 
 .. code-block:: php
