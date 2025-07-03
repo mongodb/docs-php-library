@@ -58,16 +58,16 @@ Parameters
        - mixed
        - .. include:: /includes/extracts/common-option-comment.rst
 
-         .. include:: /includes/extracts/option-requires-4.4.rst
+         .. include:: /includes/extracts/option-requires-6.0.rst
 
          .. versionadded:: 1.13
 
      * - ordered
        - boolean
-       - If ``true``: when a single write fails, the operation will stop without
+       - If ``true``: When a single write fails, the operation will stop without
          performing the remaining writes and throw an exception.
 
-         If ``false``: when a single write fails, the operation will continue
+         If ``false``: When a single write fails, the operation will continue
          with the remaining writes, if any, and throw an exception.
 
          The default is ``true``.

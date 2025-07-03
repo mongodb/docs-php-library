@@ -21,7 +21,6 @@ Release Notes
 Learn about new features, improvements, and fixes introduced in the
 following versions of the {+php-library+}:
 
-* :ref:`Version 2.2 <php-lib-version-2.2>`
 * :ref:`Version 2.1 <php-lib-version-2.1>`
 * :ref:`Version 2.0 <php-lib-version-2.0>`
 * :ref:`Version 1.21 <php-lib-version-1.21>`
@@ -29,17 +28,6 @@ following versions of the {+php-library+}:
 * :ref:`Version 1.19 <php-lib-version-1.19>`
 * :ref:`Version 1.18 <php-lib-version-1.18>`
 * :ref:`Version 1.17 <php-lib-version-1.17>`
-
-.. _php-lib-version-2.2:
-
-What's New in 2.2
------------------
-
-The {+library-short+} v2.2 release includes the following features,
-improvements, and fixes:
-
-- Adds the :phpmethod:`MongoDB\Model\CollectionInfo::isView()` method to
-  determine whether a collection is a :manual:`view </core/views/>`.
 
 .. _php-lib-version-2.1:
 
