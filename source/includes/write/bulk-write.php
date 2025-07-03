@@ -154,7 +154,7 @@ echo 'Deleted documents: ', $result->getDeletedCount(), PHP_EOL;
 // start-bulk-client-options
 $bulkWrite = MongoDB\ClientBulkWrite::createWithCollection(
     $restaurantCollection,
-    ['ordered' => false]
+    ['ordered' => false],
 );
 // end-bulk-client-options
 
