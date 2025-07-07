@@ -1,8 +1,8 @@
 .. _php-transactions:
 
-=====================
-Perform a Transaction
-=====================
+=========================
+Transactions and Sessions
+=========================
 
 .. facet::
    :name: genre

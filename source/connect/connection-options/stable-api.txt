@@ -1,8 +1,8 @@
 .. _php-stable-api:
 
-==============
-{+stable-api+}
-==============
+========================
+Connect with {+stable-api+}
+========================
 
 .. contents:: On this page
    :local:

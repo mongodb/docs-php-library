@@ -1,8 +1,8 @@
 .. _php-read-write-pref:
 
-===============================================
-Specify How CRUD Operations Run on Replica Sets
-===============================================
+=========================
+Configure CRUD Operations
+=========================
 
 .. facet::
    :name: genre
