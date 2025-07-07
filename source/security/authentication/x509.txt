@@ -1,9 +1,9 @@
 .. _php-mongodb-x509:
 .. _php-authentication-x509:
 
-==============================
-X.509 Authentication Mechanism
-==============================
+====================
+X.509 Authentication
+====================
 
 .. contents:: On this page
    :local:

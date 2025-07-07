@@ -1,8 +1,8 @@
 .. _php-vector-search:
 
-===================
-Atlas Vector Search
-===================
+================================
+Run an Atlas Vector Search Query
+================================
 
 .. facet::
    :name: genre

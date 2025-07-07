@@ -2,7 +2,7 @@
 .. _php-monitoring-logging:
 
 ======================
-Monitoring and Logging
+Logging and Monitoring
 ======================
 
 .. toctree::

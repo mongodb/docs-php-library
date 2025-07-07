@@ -1,9 +1,9 @@
 .. _php-scram-sha-256:
 .. _php-authentication-scram:
 
-===============================
-SCRAM Authentication Mechanisms
-===============================
+====================
+SCRAM Authentication
+====================
 
 .. contents:: On this page
    :local:

@@ -1,8 +1,8 @@
 .. _php-connect:
 
-==================
-Connect to MongoDB
-==================
+================
+Connection Guide
+================
 
 .. contents:: On this page
    :local:
@@ -25,7 +25,7 @@ Connect to MongoDB
    Create a Client </connect/client>
    Choose a Connection Target </connect/connection-targets>
    Connection Options </connect/connection-options>
-   Connect with AWS Lambda </connect/aws-lambda>
+   AWS Lambda </connect/aws-lambda>
    Connection Troubleshooting </connect/connection-troubleshooting>
 
 Overview

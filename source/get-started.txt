@@ -1,8 +1,8 @@
 .. _php-get-started:
 
-================================
-Get Started with the PHP Library
-================================
+===========
+Get Started
+===========
 
 .. contents:: On this page
    :local:

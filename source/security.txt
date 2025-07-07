@@ -23,7 +23,7 @@ Secure Your Data
    :maxdepth: 1
 
    Authentication </security/authentication>
-   Encryption </security/in-use-encryption>
+   In-Use Encryption </security/in-use-encryption>
    TLS </security/tls>
 
 Overview

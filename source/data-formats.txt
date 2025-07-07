@@ -1,8 +1,8 @@
 .. _php-data-formats:
 
-========================
-Specialized Data Formats
-========================
+============
+Data Formats
+============
 
 .. contents:: On this page
    :local:
@@ -21,7 +21,7 @@ Specialized Data Formats
    :titlesonly:
    :maxdepth: 1
 
-   Custom Data Types </data-formats/custom-types>
+   Custom Types </data-formats/custom-types>
    Decimal128 </data-formats/decimal128>
    BSON </data-formats/modeling-bson-data>
    Time Series </data-formats/time-series>

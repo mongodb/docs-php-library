@@ -1,9 +1,9 @@
 .. _php-mongodb-aws:
 .. _php-authentication-aws:
 
-================================
-AWS IAM Authentication Mechanism
-================================
+======================
+AWS IAM Authentication
+======================
 
 .. contents:: On this page
    :local:
