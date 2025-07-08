@@ -40,16 +40,14 @@ Examples
       ['viewOn' => 'restaurants'],
    );
 
-   foreach ($db->listCollections() as $info) {
+   foreach ($db->listCollections(['name' => 'myView']) as $info) {
       var_dump($info->isView());
    }
 
 The output resembles the following:
 
 .. code-block:: none
-
-   bool(false)
-   bool(false)
+   
    bool(true)
 
 See Also
