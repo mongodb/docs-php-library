@@ -2,6 +2,8 @@
 MongoDB\\Model\\CollectionInfo::isView()
 ========================================
 
+.. versionadded:: 2.2
+
 .. contents:: On this page
    :local:
    :backlinks: none
@@ -31,18 +33,23 @@ Examples
 
    <?php
 
-   $info = new CollectionInfo([
-       'name' => 'foo',
-       'type' => 'view',
-       'info' => ['readOnly' => true],
-   ]);
+   $db = (new MongoDB\Client)->test;
 
-   var_dump($info->isView());
+   $db->createCollection(
+      'myView',
+      ['viewOn' => 'restaurants'],
+   );
+
+   foreach ($db->listCollections() as $info) {
+      var_dump($info->isView());
+   }
 
 The output resembles the following:
 
 .. code-block:: none
 
+   bool(false)
+   bool(false)
    bool(true)
 
 See Also
