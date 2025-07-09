@@ -38,7 +38,6 @@ Methods
    getOptions() </reference/method/MongoDBModelCollectionInfo-getOptions>
    getType() </reference/method/MongoDBModelCollectionInfo-getType>
    isCapped() </reference/method/MongoDBModelCollectionInfo-isCapped>
-   isView() </reference/method/MongoDBModelCollectionInfo-isView>
 
 - :phpmethod:`MongoDB\Model\CollectionInfo::getCappedMax()`
 - :phpmethod:`MongoDB\Model\CollectionInfo::getCappedSize()`
@@ -48,4 +47,3 @@ Methods
 - :phpmethod:`MongoDB\Model\CollectionInfo::getOptions()`
 - :phpmethod:`MongoDB\Model\CollectionInfo::getType()`
 - :phpmethod:`MongoDB\Model\CollectionInfo::isCapped()`
-- :phpmethod:`MongoDB\Model\CollectionInfo::isView()`
